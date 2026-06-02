@@ -19,6 +19,7 @@ import { agentRoutes } from './routes/agents';
 import { auditRoutes } from './routes/audit';
 import { knowledgeRoutes } from './routes/knowledge';
 import { uploadRoutes } from './routes/upload';
+import { agentReasoningRoutes } from './routes/agent-reasoning';
 import { workflowRoutes } from './routes/workflow';
 import { parseRoutes } from './routes/parse';
 
@@ -66,6 +67,7 @@ app.route('/api/knowledge', knowledgeRoutes);
 
 // File & Parse
 app.route('/api/upload', uploadRoutes);
+app.route('/api/agent-reasoning', agentReasoningRoutes);
 app.route('/api/workflow', workflowRoutes);
 app.route('/api/parse', parseRoutes);
 
