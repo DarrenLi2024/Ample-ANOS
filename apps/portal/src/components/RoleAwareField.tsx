@@ -1,6 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
+import { Lock } from 'lucide-react';
 
 type FieldCategory = 'CustomerName' | 'CustomerCredit' | 'SupplierName' | 'ProcurementCost' | 'SourceUrl' | 'AgentReasoning';
 type Role = 'Sales' | 'Procurement' | 'Risk' | 'Operations' | 'SystemAdmin' | 'CEO';
@@ -74,7 +75,7 @@ export function RoleAwareField({
     return (
       <span className="inline-flex items-center gap-1" title="字段受权限保护">
         {display}
-        <span className="text-gray-300 text-xs">🔒</span>
+        <Lock size={12} className="text-gray-300" />
       </span>
     );
   }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { AlertTriangle } from 'lucide-react';
 
 export default function ErrorPage({
   error,
@@ -16,7 +17,7 @@ export default function ErrorPage({
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="text-center max-w-md p-8">
-        <div className="text-6xl mb-4">⚠️</div>
+        <div className="text-6xl mb-4 text-gray-300"><AlertTriangle size={48} className="mx-auto" /></div>
         <h1 className="text-2xl font-bold text-gray-900 mb-2">页面加载异常</h1>
         <p className="text-sm text-gray-600 mb-6">
           {error.message || '发生未知错误，请重试'}
