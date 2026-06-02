@@ -37,7 +37,7 @@ const [arData, setArData] = useState(defaultRisks);
           <div className="proto-card-accent p-4">
             <h3 className="text-base font-semibold text-gray-400 uppercase tracking-wide mb-3">风险雷达</h3>
             <div className="space-y-2">
-              {risks.slice(0, 3).map((r, i) => (
+              {defaultRisks.slice(0, 3).map((r, i) => (
                 <div key={i} className="flex items-center justify-between p-2.5 rounded-md bg-gray-50 text-base">
                   <div><div className="font-medium text-gray-800">{r.customer}</div><div className="text-gray-400 text-base">信用 {r.credit}</div></div>
                   <div className="text-right"><div className="font-semibold text-gray-900">${r.outstanding.toLocaleString()}</div><span className={`tag ${rTag[r.risk]}`}>{r.risk} · {r.overdue}天</span></div>
@@ -60,7 +60,7 @@ const [arData, setArData] = useState(defaultRisks);
           <table className="proto-table">
             <thead><tr><th>客户</th><th>未回款金额</th><th>逾期天数</th><th>信用等级</th><th>风险等级</th><th>建议处置</th></tr></thead>
             <tbody>
-              {risks.map((r, i) => (
+              {defaultRisks.map((r, i) => (
                 <tr key={i} className="cursor-pointer">
                   <td className="font-medium">{r.customer}</td>
                   <td className="font-semibold">${r.outstanding.toLocaleString()}</td>
