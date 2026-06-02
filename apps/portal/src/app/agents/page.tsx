@@ -34,19 +34,19 @@ export default function AgentCenterPage() {
     <WorkspaceLayout title="智能体中心"
       rightPanel={selectedSkill ? (() => { const s = knowledgeSkills.find(k => k.id === selectedSkill)!; return (
         <div className="p-4">
-          <div className="flex items-center justify-between mb-4"><h3 className="font-semibold text-sm">Skill 详情</h3><button onClick={()=>setSelectedSkill(null)} className="text-gray-400 hover:text-gray-600"><XCircle size={16}/></button></div>
-          <div className="flex items-center gap-3 mb-4"><span className={clsx('tag', s.color)}>{s.icon}</span><div><div className="font-semibold text-sm">{s.name}</div><div className="text-xs text-gray-400">{s.source}</div></div></div>
-          <p className="text-xs text-gray-600 mb-4">{s.desc}</p>
-          <div className="mb-4"><h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">调用示例</h4>
-            {s.examples.map((ex,i)=><div key={i} className="p-3 bg-gray-50 rounded text-xs text-gray-700 mb-1.5">{ex}</div>)}
+          <div className="flex items-center justify-between mb-4"><h3 className="font-semibold text-lg">Skill 详情</h3><button onClick={()=>setSelectedSkill(null)} className="text-gray-400 hover:text-gray-600"><XCircle size={16}/></button></div>
+          <div className="flex items-center gap-3 mb-4"><span className={clsx('tag', s.color)}>{s.icon}</span><div><div className="font-semibold text-lg">{s.name}</div><div className="text-lg text-gray-400">{s.source}</div></div></div>
+          <p className="text-lg text-gray-600 mb-4">{s.desc}</p>
+          <div className="mb-4"><h4 className="text-lg font-semibold text-gray-400 uppercase tracking-wide mb-2">调用示例</h4>
+            {s.examples.map((ex,i)=><div key={i} className="p-3 bg-gray-50 rounded text-lg text-gray-700 mb-1.5">{ex}</div>)}
           </div>
-          <div className="mb-4"><h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">绑定 Agent</h4><div className="text-xs text-gray-600 bg-gray-50 p-3 rounded">{s.agent}</div></div>
-          <div className="p-3 bg-amber-50 border border-amber-100 rounded text-xs text-amber-700">⚠ Phase 2: 对接飞书知识库 API 后，知识检索将返回真实文档内容。</div>
+          <div className="mb-4"><h4 className="text-lg font-semibold text-gray-400 uppercase tracking-wide mb-2">绑定 Agent</h4><div className="text-lg text-gray-600 bg-gray-50 p-3 rounded">{s.agent}</div></div>
+          <div className="p-3 bg-amber-50 border border-amber-100 rounded text-lg text-amber-700">⚠ Phase 2: 对接飞书知识库 API 后，知识检索将返回真实文档内容。</div>
         </div>
       )})() : (
-        <div className="p-4"><h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3"><Zap size={14} className="inline mr-1"/>快速触发</h3>
+        <div className="p-4"><h3 className="text-lg font-semibold text-gray-400 uppercase tracking-wide mb-3"><Zap size={14} className="inline mr-1"/>快速触发</h3>
           <div className="space-y-2">{knowledgeSkills.flatMap(s=>s.examples.slice(0,1).map((ex,i)=>
-            <button key={`${s.id}-${i}`} onClick={()=>setSelectedSkill(s.id)} className="w-full text-left p-3 border border-gray-100 rounded-md text-xs text-gray-600 hover:bg-gray-50 transition-colors">
+            <button key={`${s.id}-${i}`} onClick={()=>setSelectedSkill(s.id)} className="w-full text-left p-3 border border-gray-100 rounded-md text-lg text-gray-600 hover:bg-gray-50 transition-colors">
               <span className="font-medium text-gray-800">{ex}</span><div className="flex items-center gap-1 mt-1">{s.icon}<span className="text-gray-400">{s.source}</span></div>
             </button>))}
           </div>
@@ -55,16 +55,16 @@ export default function AgentCenterPage() {
     >
       <div className="p-6 space-y-6">
         <div>
-          <h2 className="text-2xs font-semibold text-gray-400 uppercase tracking-wide mb-3">在线 Agent</h2>
+          <h2 className="text-lg font-semibold text-gray-400 uppercase tracking-wide mb-3">在线 Agent</h2>
           <div className="grid grid-cols-3 gap-4">
             {agents.map(agent => { const s = statusConfig[agent.status]; if (!s) return null; return (
               <div key={agent.id} className="proto-card p-4 animate-in">
                 <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center gap-3"><Bot size={24} className="text-brand-500"/><div><div className="font-semibold text-sm">{agent.name}</div><div className="text-xs text-gray-400">{agent.type} · Level {agent.level}</div></div></div>
+                  <div className="flex items-center gap-3"><Bot size={24} className="text-brand-500"/><div><div className="font-semibold text-lg">{agent.name}</div><div className="text-lg text-gray-400">{agent.type} · Level {agent.level}</div></div></div>
                   <span className={clsx('tag flex items-center gap-1', s.cls)}>{s.icon}{s.label}</span>
                 </div>
-                <p className="text-2xs text-gray-500 mb-3">{agent.desc}</p>
-                <div className="border-t border-gray-100 pt-3 grid grid-cols-2 gap-2 text-xs text-gray-500">
+                <p className="text-lg text-gray-500 mb-3">{agent.desc}</p>
+                <div className="border-t border-gray-100 pt-3 grid grid-cols-2 gap-2 text-lg text-gray-500">
                   <div><span className="block text-gray-400">当前任务</span><span className="font-semibold text-gray-900">{agent.tasks}</span></div>
                   <div><span className="block text-gray-400">累计完成</span><span className="font-semibold text-gray-900">{agent.completed}</span></div>
                 </div>
@@ -74,13 +74,13 @@ export default function AgentCenterPage() {
         </div>
 
         <div>
-          <h2 className="text-2xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Knowledge Agent · Skills</h2>
+          <h2 className="text-lg font-semibold text-gray-400 uppercase tracking-wide mb-3">Knowledge Agent · Skills</h2>
           <div className="grid grid-cols-2 gap-4">
             {knowledgeSkills.map(sk => (
               <button key={sk.id} onClick={()=>setSelectedSkill(sk.id)} className={clsx('proto-card p-4 text-left hover:border-brand-300 transition-all cursor-pointer', selectedSkill===sk.id && 'ring-2 ring-brand-100 border-brand-300')}>
-                <div className="flex items-center justify-between mb-2"><div className="flex items-center gap-2"><span className={clsx('tag', sk.color)}>{sk.icon}</span><span className="font-semibold text-xs">{sk.name}</span></div><ChevronRight size={14} className="text-gray-300"/></div>
-                <p className="text-2xs text-gray-500 mb-2">{sk.desc}</p>
-                <div className="flex items-center gap-2 text-3xs text-gray-400"><span>{sk.source}</span><span>·</span><span>{sk.agent}</span></div>
+                <div className="flex items-center justify-between mb-2"><div className="flex items-center gap-2"><span className={clsx('tag', sk.color)}>{sk.icon}</span><span className="font-semibold text-lg">{sk.name}</span></div><ChevronRight size={14} className="text-gray-300"/></div>
+                <p className="text-lg text-gray-500 mb-2">{sk.desc}</p>
+                <div className="flex items-center gap-2 text-lg text-gray-400"><span>{sk.source}</span><span>·</span><span>{sk.agent}</span></div>
               </button>
             ))}
           </div>

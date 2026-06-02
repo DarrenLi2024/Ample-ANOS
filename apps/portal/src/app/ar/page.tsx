@@ -9,7 +9,7 @@ export default function ArPage() {
         <div className="text-center p-12">
           <CalendarClock size={48} className="mx-auto mb-4 text-gray-300" />
           <h2 className="text-xl font-semibold text-gray-400">AR 中心</h2>
-          <p className="text-sm text-gray-400 mt-2 max-w-md">该功能将在 Phase 1 后续迭代中上线。</p>
+          <p className="text-lg text-gray-400 mt-2 max-w-md">该功能将在 Phase 1 后续迭代中上线。</p>
         </div>
       </div>
     </WorkspaceLayout>

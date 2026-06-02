@@ -38,14 +38,14 @@ export default function LoginPage() {
           <img src="/ample-logo.webp" alt="AMPLE" className="w-12 h-12 object-contain" />
         </div>
         <h1 className="text-2xl font-semibold text-text-primary text-center tracking-tight mb-1">ANOS</h1>
-        <p className="text-sm text-text-tertiary text-center mb-8">Ample AI Native OS</p>
+        <p className="text-lg text-text-tertiary text-center mb-8">Ample AI Native OS</p>
         <form onSubmit={handleLogin} className="space-y-4">
           <input type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="用户名" className="input-field" required autoFocus />
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="密码" className="input-field" required />
           {error && <div className="login-error">{error}</div>}
           <button type="submit" disabled={loading} className="btn-primary w-full !py-3">{loading ? '登录中...' : '登 录'}</button>
         </form>
-        <p className="text-xs text-text-tertiary text-center mt-6">演示账号: admin / sales1 / proc1 / risk1</p>
+        <p className="text-lg text-text-tertiary text-center mt-6">演示账号: admin / sales1 / proc1 / risk1</p>
       </div>
     </div>
   );
