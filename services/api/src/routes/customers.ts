@@ -3,12 +3,12 @@ import { db } from '../db/connection';
 import { customers } from '../db/schema';
 import { eq, like, sql } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
-import { auth, type AuthenticatedUser } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 import { validateBody } from '../middleware/validate';
-import { requireRole, redactFields } from '../middleware/permission';
+import { redactFields } from '../middleware/permission';
 import { createCustomerSchema, updateCustomerSchema } from '../schemas';
 
-export const customerRoutes = new Hono().use('*', auth);
+export const customerRoutes = new Hono().use('*', jwtAuth);
 
 // GET /api/customers
 customerRoutes.get('/', async (c) => {

@@ -2,9 +2,9 @@ import { Hono } from 'hono';
 import { db } from '../db/connection';
 import { auditLogs } from '../db/schema';
 import { eq } from 'drizzle-orm';
-import { auth } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 
-export const auditRoutes = new Hono().use('*', auth);
+export const auditRoutes = new Hono().use('*', jwtAuth);
 
 auditRoutes.get('/', async (c) => {
   const objectType = c.req.query('objectType');

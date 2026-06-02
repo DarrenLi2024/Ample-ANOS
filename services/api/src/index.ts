@@ -9,6 +9,7 @@ import { csrfProtection } from './middleware/csrf';
 import { bodyLimit } from './middleware/body-limit';
 import { rateLimiter } from './middleware/rate-limit';
 import { securityHeaders } from './middleware/security-headers';
+import { authRoutes } from './routes/auth';
 import { customerRoutes } from './routes/customers';
 import { supplierRoutes } from './routes/suppliers';
 import { productRoutes } from './routes/products';
@@ -24,32 +25,21 @@ const app = new Hono();
 
 // Security: CORS
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
-app.use(
-  '*',
-  cors({
-    origin: process.env.NODE_ENV === 'production'
-      ? corsOrigin
-      : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
-    allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'X-User-Id', 'X-User-Name', 'X-User-Role', 'X-User-Dept'],
-    exposeHeaders: ['X-Request-Id', 'X-RateLimit-Limit', 'X-RateLimit-Remaining', 'X-RateLimit-Reset'],
-    maxAge: 86400,
-  }),
-);
+app.use('*', cors({
+  origin: process.env.NODE_ENV === 'production'
+    ? corsOrigin
+    : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
+  allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'X-User-Id', 'X-User-Name', 'X-User-Role', 'X-User-Dept'],
+  exposeHeaders: ['X-Request-Id', 'X-RateLimit-Limit', 'X-RateLimit-Remaining', 'X-RateLimit-Reset'],
+  maxAge: 86400,
+}));
 
-// Security: Headers
+// Security
 app.use('*', securityHeaders);
-
-// Security: Rate Limiting
 app.use('*', rateLimiter);
-
-// Security: Request Body Size
 app.use('*', bodyLimit);
-
-// Security: CSRF Protection
 app.use('*', csrfProtection);
-
-// Observability: Logger
 app.use('*', logger());
 
 // Observability: Request ID
@@ -59,11 +49,14 @@ app.use('*', async (c, next) => {
   await next();
 });
 
-// Health Check
-app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.2.0', status: 'ok' }));
+// Health
+app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.3.0', status: 'ok' }));
 app.get('/health', (c) => c.json({ status: 'healthy', timestamp: new Date().toISOString(), uptime: process.uptime() }));
 
-// P0 Routes
+// Public: Auth routes (no JWT required)
+app.route('/api/auth', authRoutes);
+
+// Protected: P0 Routes (JWT auth via individual route middleware)
 app.route('/api/customers', customerRoutes);
 app.route('/api/suppliers', supplierRoutes);
 app.route('/api/products', productRoutes);
@@ -80,7 +73,4 @@ app.onError(errorHandler);
 
 const port = parseInt(process.env.PORT || '3001', 10);
 
-export default {
-  port,
-  fetch: app.fetch,
-};
+export default { port, fetch: app.fetch };

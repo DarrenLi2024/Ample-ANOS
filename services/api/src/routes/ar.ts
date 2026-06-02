@@ -3,9 +3,9 @@ import { db } from '../db/connection';
 import { arItems } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
-import { auth } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 
-export const arRoutes = new Hono().use('*', auth);
+export const arRoutes = new Hono().use('*', jwtAuth);
 
 arRoutes.get('/', async (c) => {
   const riskLevel = c.req.query('riskLevel');

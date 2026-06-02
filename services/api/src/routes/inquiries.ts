@@ -3,12 +3,11 @@ import { db } from '../db/connection';
 import { inquiries } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
-import { auth } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 import { validateBody } from '../middleware/validate';
-import { requireRole } from '../middleware/permission';
 import { createInquirySchema, updateInquiryStatusSchema } from '../schemas';
 
-export const inquiryRoutes = new Hono().use('*', auth);
+export const inquiryRoutes = new Hono().use('*', jwtAuth);
 
 inquiryRoutes.get('/', async (c) => {
   try {

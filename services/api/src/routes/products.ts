@@ -3,9 +3,9 @@ import { db } from '../db/connection';
 import { products } from '../db/schema';
 import { eq, like } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
-import { auth } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 
-export const productRoutes = new Hono().use('*', auth);
+export const productRoutes = new Hono().use('*', jwtAuth);
 
 productRoutes.get('/', async (c) => {
   const q = c.req.query('q') || '';

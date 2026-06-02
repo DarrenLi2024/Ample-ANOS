@@ -3,9 +3,9 @@ import { db } from '../db/connection';
 import { offers } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
-import { auth } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 
-export const offerRoutes = new Hono().use('*', auth);
+export const offerRoutes = new Hono().use('*', jwtAuth);
 
 offerRoutes.get('/', async (c) => {
   const status = c.req.query('status');

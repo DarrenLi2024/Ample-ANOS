@@ -3,9 +3,9 @@ import { db } from '../db/connection';
 import { agents } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
-import { auth } from '../middleware/auth';
+import { jwtAuth, requireRole } from '../middleware/jwt';
 
-export const agentRoutes = new Hono().use('*', auth);
+export const agentRoutes = new Hono().use('*', jwtAuth);
 
 agentRoutes.get('/', async (c) => {
   const rows = await db.select().from(agents).all();

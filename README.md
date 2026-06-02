@@ -2,9 +2,7 @@
 
 **安芯易集团企业级 AI 原生操作系统**
 
-## 项目定位
-
-ANOS 不是传统 ERP 的替代品，而是面向 AI 时代的企业智能操作系统。第一阶段聚焦 Trading Intelligence OS，通过 Portal + Data Hub + Agent Network + Workflow 把分散的业务信息转化为可复用的数据、知识、智能和行动。
+第一阶段聚焦 Trading Intelligence OS：Portal + Data Hub + Agent Network + Workflow
 
 ## 核心链路
 
@@ -14,55 +12,86 @@ Information → Knowledge → Intelligence → Action
 
 ## 技术栈
 
-- **前端:** Next.js 14+ / React 18 / Tailwind CSS 4 / shadcn/ui
-- **后端:** TypeScript / Hono / SQLite (开发) / PostgreSQL (生产)
-- **Agent:** MCP 协议 / Agent 工具注册
-- **集成:** ERP API / 金蝶 API / 飞书 API
-- **测试:** Vitest / Playwright
-
-## 项目结构
-
-```
-├── apps/portal/          # Portal 前端应用 (Next.js)
-├── packages/
-│   ├── shared/           # 共享类型、常量、工具函数
-│   ├── api-client/       # API 客户端 SDK
-│   └── agent-tools/      # Agent 工具集
-├── services/
-│   ├── api/              # API 服务 (Hono)
-│   ├── sync/             # ERP 数据同步服务
-│   └── mcp/              # MCP 服务
-├── scripts/              # 导入、校验、迁移脚本
-├── tests/                # 测试目录
-├── infra/                # 基础设施配置
-└── docs/                 # 项目文档
-```
+| 层 | 技术 |
+|---|------|
+| Portal | Next.js 15 / React 19 / Tailwind CSS 4 / Lucide Icons |
+| API | Hono 4 / Drizzle ORM / SQLite / Zod |
+| Auth | JWT (Phase 1) → 飞书 SSO (Phase 2) |
+| MCP | @modelcontextprotocol/sdk |
+| DevOps | Docker / GitHub Actions / pnpm + turborepo |
 
 ## 快速开始
 
 ```bash
-# 安装依赖
+# 一键启动 (安装依赖 + 建库 + 种子数据 + 启动)
+bash scripts/dev-setup.sh
+
+# 或分步操作:
 pnpm install
-
-# 启动开发环境
+cd services/api && npx tsx src/db/migrate.ts && npx tsx src/db/seed.ts && npx tsx src/db/seed-extended.ts && cd ../..
 pnpm dev
-
-# 运行测试
-pnpm test
 ```
 
-## 文档索引
+启动后:
+- **Portal:** http://localhost:3000
+- **API:** http://localhost:3001
+- **Health:** http://localhost:3001/health
 
-所有项目文档见 [docs/](./docs/) 目录。新成员进入项目请先阅读：
+## 获取 Token
 
-1. [AGENTS.md](./AGENTS.md) — AI 协作总则
-2. [docs/CONTEXT.md](./docs/CONTEXT.md) — 项目上下文入口
-3. [docs/00-ANOS总体架构设计白皮书V1.0.md](./docs/00-ANOS总体架构设计白皮书V1.0.md) — 总体架构
+```bash
+# 开发环境签发 JWT
+curl -X POST http://localhost:3001/api/auth/dev-token \
+  -H "Content-Type: application/json" \
+  -d '{"role": "SystemAdmin", "name": "Admin"}'
 
-## 当前阶段
+# 登录
+curl -X POST http://localhost:3001/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "admin", "password": "anos2026"}'
+```
 
-飞书实施与工程落地准备 → Sprint 0 工程基础设施搭建
+## 项目结构
 
-## 许可证
+```
+├── apps/portal/             # Portal 前端 (Next.js)
+├── packages/shared/         # 共享类型定义
+├── services/api/            # API 服务 (Hono)
+│   └── src/
+│       ├── db/              # Schema + 迁移 + 种子
+│       ├── routes/          # 10 组 REST API
+│       ├── middleware/       # JWT/CSRF/RateLimit/Security
+│       └── schemas/         # Zod 校验
+├── services/mcp/            # MCP Agent 工具
+├── scripts/                 # 开发脚本 + ERP 导入
+├── tests/                   # 单元测试
+└── docs/                    # 30+ 项目文档
+```
 
-Private — 安芯易集团内部项目
+## P0 演示用户
+
+| 用户名 | 密码 | 角色 |
+|--------|------|------|
+| admin | anos2026 | 系统管理员 |
+| sales1 | anos2026 | 销售 |
+| proc1 | anos2026 | 采购 |
+| risk1 | anos2026 | 风控 |
+| ceo | anos2026 | 管理层 |
+
+## Docker 部署
+
+```bash
+docker compose up -d
+```
+
+## CI/CD
+
+推送到 main 分支自动运行: TypeCheck → DB迁移 → API健康检查 → Portal构建 → Docker镜像
+
+## 文档
+
+- [AGENTS.md](./AGENTS.md) — AI 协作总则
+- [docs/CONTEXT.md](./docs/CONTEXT.md) — 项目上下文
+- [docs/design.md](./docs/design.md) — UI 设计规范
+- [docs/auth-strategy.md](./docs/auth-strategy.md) — 认证策略
+- [docs/P0-confirmation-form.html](./docs/P0-confirmation-form.html) — P0 确认表单
