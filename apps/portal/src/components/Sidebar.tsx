@@ -54,32 +54,32 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       'flex flex-col h-screen bg-[#F7F8FA] border-r border-[#E8EAED] transition-all duration-200',
       collapsed ? 'w-[64px]' : 'w-[260px]',
     )}>
-      {/* Logo */}
-      <div className="flex items-center justify-between h-14 px-5 border-b border-[#E8EAED]">
-        {collapsed ? (
-          <div className="w-7 h-7 relative mx-auto">
+      {/* Logo 区域 — 居中放大 */}
+      <div className={clsx('border-b border-[#E8EAED]', collapsed ? 'py-4' : 'py-6')}>
+        <div className={clsx('flex justify-center', collapsed ? 'px-2' : 'px-6')}>
+          <div className={clsx('relative', collapsed ? 'w-8 h-8' : 'w-36 h-10')}>
             <Image src="/ample-logo.webp" alt="AMPLE" fill className="object-contain" priority />
           </div>
-        ) : (
-          <div className="relative h-6 w-24">
-            <Image src="/ample-logo.webp" alt="AMPLE" fill className="object-contain object-left" priority />
-          </div>
-        )}
+        </div>
+      </div>
+
+      {/* 折叠按钮 */}
+      <div className="flex justify-end px-3 py-1">
         <button onClick={onToggle} className="p-1 rounded hover:bg-black/5 text-gray-400 shrink-0 transition-colors">
           {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
         </button>
       </div>
 
-      {/* User Profile (原型图: 头像+姓名+角色) */}
+      {/* User Profile */}
       {!collapsed && (
-        <div className="px-5 py-4 border-b border-[#E8EAED]">
+        <div className="px-5 py-3 border-b border-[#E8EAED]">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
               <User size={18} className="text-brand-600" />
             </div>
             <div className="min-w-0">
-              <div className="text-lg font-semibold text-gray-900 truncate">Darren Li</div>
-              <div className="text-lg text-gray-500 mt-0.5">CEO · AI Level L5</div>
+              <div className="text-sm font-semibold text-gray-900 truncate">Darren Li</div>
+              <div className="text-xs text-gray-500 mt-0.5">CEO · AI Level L5</div>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         {Array.from(sections.entries()).map(([section, items]) => (
           <div key={section} className="mb-3">
             {!collapsed && (
-              <div className="px-5 py-1.5 text-lg font-semibold text-gray-400 uppercase tracking-wider">
+              <div className="px-5 py-1.5 text-3xs font-semibold text-gray-400 uppercase tracking-wider">
                 {sectionLabels[section]}
               </div>
             )}
@@ -101,7 +101,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                   key={item.id}
                   onClick={() => router.push(item.href)}
                   className={clsx(
-                    'w-full flex items-center gap-3 mx-2 px-3 py-2 rounded-md text-lg transition-all duration-150',
+                    'w-full flex items-center gap-3 mx-2 px-3 py-2 rounded-md text-xs transition-all duration-150',
                     active
                       ? 'bg-brand-50 text-brand-700 font-semibold border-r-[3px] border-brand-500'
                       : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
@@ -120,7 +120,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       {/* Footer */}
       {!collapsed && (
         <div className="px-5 py-3 border-t border-[#E8EAED]">
-          <button onClick={() => router.push('/settings')} className="flex items-center gap-2 w-full text-lg text-gray-400 hover:text-gray-600 transition-colors">
+          <button onClick={() => router.push('/settings')} className="flex items-center gap-2 w-full text-xs text-gray-400 hover:text-gray-600 transition-colors">
             <Settings size={14} />
             <span>设置与集成</span>
           </button>
