@@ -78,7 +78,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
               <User size={18} className="text-brand-600" />
             </div>
             <div className="min-w-0">
-              <div className="text-sm font-semibold text-gray-900 truncate">Darren Li</div>
+              <div className="text-base font-semibold text-gray-900 truncate">Darren Li</div>
               <div className="text-[13px] text-gray-500 mt-0.5">CEO · AI Level L5</div>
             </div>
           </div>
@@ -90,7 +90,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         {Array.from(sections.entries()).map(([section, items]) => (
           <div key={section} className="mb-3">
             {!collapsed && (
-              <div className="px-5 py-1.5 text-[13px] font-semibold text-gray-400 uppercase tracking-wider">
+              <div className="px-5 py-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 {sectionLabels[section]}
               </div>
             )}
@@ -101,7 +101,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                   key={item.id}
                   onClick={() => router.push(item.href)}
                   className={clsx(
-                    'w-full flex items-center gap-3 mx-2 px-3 py-2 rounded-md text-[13px] transition-all duration-150',
+                    'w-full flex items-center gap-3 mx-2 px-3 py-2 rounded-md text-sm transition-all duration-150',
                     active
                       ? 'bg-brand-50 text-brand-700 font-semibold border-r-[3px] border-brand-500'
                       : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
@@ -120,7 +120,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       {/* Footer */}
       {!collapsed && (
         <div className="px-5 py-3 border-t border-[#E8EAED]">
-          <button onClick={() => router.push('/settings')} className="flex items-center gap-2 w-full text-[13px] text-gray-400 hover:text-gray-600 transition-colors">
+          <button onClick={() => router.push('/settings')} className="flex items-center gap-2 w-full text-sm text-gray-400 hover:text-gray-600 transition-colors">
             <Settings size={14} />
             <span>设置与集成</span>
           </button>
