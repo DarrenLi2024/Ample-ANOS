@@ -1,0 +1,50 @@
+import { Hono } from 'hono';
+import { db } from '../db/connection';
+import { offers } from '../db/schema';
+import { eq } from 'drizzle-orm';
+import { v4 as uuid } from 'uuid';
+import { auth } from '../middleware/auth';
+
+export const offerRoutes = new Hono().use('*', auth);
+
+offerRoutes.get('/', async (c) => {
+  const status = c.req.query('status');
+  const query = db.select().from(offers).$dynamic();
+  if (status) query.where(eq(offers.status, status));
+  const rows = await query.limit(50).all();
+  return c.json({ data: rows });
+});
+
+offerRoutes.get('/:id', async (c) => {
+  const row = await db.select().from(offers).where(eq(offers.offerId, c.req.param('id'))).get();
+  if (!row) return c.json({ error: 'Not found' }, 404);
+  return c.json(row);
+});
+
+offerRoutes.post('/', async (c) => {
+  const body = await c.req.json();
+  const id = uuid();
+  const offerId = body.offerId || `OFF-${Date.now()}`;
+  await db.insert(offers).values({
+    id, offerId,
+    inquiryId: body.inquiryId,
+    customerId: body.customerId,
+    supplierId: body.supplierId,
+    supplyResourceId: body.supplyResourceId,
+    opportunityId: body.opportunityId,
+    brand: body.brand,
+    mpn: body.mpn,
+    quantity: body.quantity || 1,
+    unitPrice: body.unitPrice,
+    totalAmount: (body.quantity || 1) * (body.unitPrice || 0),
+    currency: body.currency || 'USD',
+    costPrice: body.costPrice,
+    margin: body.margin,
+    marginPercent: body.marginPercent,
+    status: body.status || 'Draft',
+    source: body.source || 'AI',
+    sourceType: body.sourceType || 'AI',
+  });
+  const created = await db.select().from(offers).where(eq(offers.id, id)).get();
+  return c.json(created, 201);
+});

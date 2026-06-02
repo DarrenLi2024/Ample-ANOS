@@ -1,0 +1,44 @@
+import { Hono } from 'hono';
+import { db } from '../db/connection';
+import { products } from '../db/schema';
+import { eq, like } from 'drizzle-orm';
+import { v4 as uuid } from 'uuid';
+import { auth } from '../middleware/auth';
+
+export const productRoutes = new Hono().use('*', auth);
+
+productRoutes.get('/', async (c) => {
+  const q = c.req.query('q') || '';
+  const brand = c.req.query('brand');
+  const query = db.select().from(products).$dynamic();
+  if (q) query.where(like(products.mpn, `%${q}%`));
+  if (brand) query.where(eq(products.brand, brand));
+  const rows = await query.limit(50).all();
+  return c.json({ data: rows });
+});
+
+productRoutes.get('/:id', async (c) => {
+  const row = await db.select().from(products).where(eq(products.productId, c.req.param('id'))).get();
+  if (!row) return c.json({ error: 'Not found' }, 404);
+  return c.json(row);
+});
+
+productRoutes.post('/', async (c) => {
+  const body = await c.req.json();
+  const id = uuid();
+  await db.insert(products).values({
+    id,
+    productId: body.productId || `PRD-${Date.now()}`,
+    brand: body.brand,
+    mpn: body.mpn,
+    description: body.description,
+    category: body.category,
+    packageType: body.packageType || 'Other',
+    lifecycle: body.lifecycle || 'Active',
+    isDomestic: body.isDomestic ?? false,
+    source: body.source || 'Manual',
+    sourceType: body.sourceType || 'Manual',
+  });
+  const created = await db.select().from(products).where(eq(products.id, id)).get();
+  return c.json(created, 201);
+});

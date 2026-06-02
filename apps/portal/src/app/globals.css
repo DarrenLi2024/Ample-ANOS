@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   ANOS Design Tokens — 基于 docs/design.md
+   =========================================================================== */
+
+@theme {
+  /* 主色系 */
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+
+  /* 语义色 */
+  --color-success-500: #22C55E;
+  --color-warning-500: #F59E0B;
+  --color-danger-500: #EF4444;
+
+  /* 布局 */
+  --spacing-sidebar: 280px;
+  --spacing-panel: 420px;
+  --spacing-topbar: 48px;
+  --spacing-commandbar: 56px;
+
+  /* 字体 */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* 全局样式 */
+html {
+  font-family: var(--font-sans);
+  background: #F3F4F6;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* 脱敏样式 */
+.redacted {
+  color: #9CA3AF;
+  background: #F3F4F6;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+/* Skeleton 加载 */
+@keyframes skeleton-loading {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Agent 脉冲 */
+@keyframes agent-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50%      { opacity: 1.0; transform: scale(1.1); }
+}
+
+.agent-pulse {
+  animation: agent-pulse 1.5s infinite;
+}
+
+/* 页面过渡 */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: fade-in 200ms ease-out;
+}

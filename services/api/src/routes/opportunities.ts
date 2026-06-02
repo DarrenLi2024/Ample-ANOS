@@ -1,0 +1,44 @@
+import { Hono } from 'hono';
+import { db } from '../db/connection';
+import { opportunities } from '../db/schema';
+import { eq } from 'drizzle-orm';
+import { v4 as uuid } from 'uuid';
+import { auth } from '../middleware/auth';
+
+export const opportunityRoutes = new Hono().use('*', auth);
+
+opportunityRoutes.get('/', async (c) => {
+  const status = c.req.query('status');
+  const query = db.select().from(opportunities).$dynamic();
+  if (status) query.where(eq(opportunities.status, status));
+  const rows = await query.limit(50).all();
+  return c.json({ data: rows });
+});
+
+opportunityRoutes.get('/:id', async (c) => {
+  const row = await db.select().from(opportunities).where(eq(opportunities.opportunityId, c.req.param('id'))).get();
+  if (!row) return c.json({ error: 'Not found' }, 404);
+  return c.json(row);
+});
+
+opportunityRoutes.post('/', async (c) => {
+  const body = await c.req.json();
+  const id = uuid();
+  const opportunityId = body.opportunityId || `OPP-${Date.now()}`;
+  await db.insert(opportunities).values({
+    id, opportunityId,
+    inquiryId: body.inquiryId,
+    supplyResourceId: body.supplyResourceId,
+    customerId: body.customerId,
+    supplierId: body.supplierId,
+    matchScore: body.matchScore || 0,
+    suggestedPrice: body.suggestedPrice,
+    status: body.status || 'New',
+    source: body.source || 'AI',
+    sourceType: body.sourceType || 'AI',
+    aiGenerated: true,
+    aiConfidence: body.matchScore || 70,
+  });
+  const created = await db.select().from(opportunities).where(eq(opportunities.id, id)).get();
+  return c.json(created, 201);
+});
