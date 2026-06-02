@@ -3,7 +3,7 @@
 import { useState, createContext, useContext, type ReactNode } from 'react';
 import { Sidebar } from './Sidebar';
 import { BottomCommandBar } from './BottomCommandBar';
-import { Bell, Search } from 'lucide-react';
+import { Bell, Search, ListChecks } from 'lucide-react';
 
 const LayoutContext = createContext({ sidebarCollapsed: false, toggleSidebar: () => {} });
 export function useLayout() { return useContext(LayoutContext); }
@@ -19,7 +19,7 @@ interface WorkspaceLayoutProps {
 }
 
 export function WorkspaceLayout({
-  title = 'AI Inbox',
+  title = 'AI 智能工作台',
   children,
   rightPanel,
   commandBarPlaceholder,
@@ -42,7 +42,7 @@ export function WorkspaceLayout({
         <div className="flex-1 flex flex-col min-w-0">
           {/* Top Bar */}
           <header className="flex items-center h-[52px] px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-4">
-            <h1 className="text-lg font-semibold text-gray-900 shrink-0">{title}</h1>
+            <h1 className="text-[17px] font-semibold text-gray-900 shrink-0">{title}</h1>
 
             {/* 全局搜索 */}
             <div className="relative flex-1 max-w-[480px]">
@@ -50,7 +50,7 @@ export function WorkspaceLayout({
               <input
                 type="text"
                 placeholder="你想完成什么工作？找客户、分析库存、整理询价..."
-                className="w-full pl-9 pr-4 py-1.5 text-lg bg-gray-50 border border-gray-200 rounded-lg
+                className="w-full pl-9 pr-4 py-1.5 text-sm bg-gray-50 border border-gray-200 rounded-lg
                            focus:outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300
                            placeholder:text-gray-400"
               />
@@ -60,9 +60,14 @@ export function WorkspaceLayout({
             {topBarChildren}
 
             <div className="flex items-center gap-3 ml-auto shrink-0">
+              {/* 任务中心 */}
+              <button className="relative p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors" title="任务中心">
+                <ListChecks size={19} />
+              </button>
+
               {/* 通知 */}
-              <button className="relative p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors">
-                <Bell size={18} />
+              <button className="relative p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors" title="通知">
+                <Bell size={19} />
                 <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
               </button>
 
@@ -72,7 +77,7 @@ export function WorkspaceLayout({
               ))}
 
               {/* 用户头像 */}
-              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-lg ring-2 ring-white">
+              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-xs ring-2 ring-white">
                 DL
               </div>
             </div>
@@ -91,7 +96,7 @@ export function WorkspaceLayout({
               />
             </div>
 
-            {/* 右侧面板 (指令栏不跨入此区域) */}
+            {/* 右侧面板 */}
             {rightPanel && (
               <aside className="w-[400px] border-l border-[#E8EAED] bg-white overflow-y-auto shrink-0">
                 {rightPanel}
