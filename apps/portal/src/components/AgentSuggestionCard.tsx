@@ -29,16 +29,16 @@ export function AgentSuggestionCard({
             <Bot size={16} className="text-brand-600" />
           </div>
           <div>
-            <span className="font-semibold text-[16px] text-gray-900">{agentName}</span>
+            <span className="font-semibold text-base text-gray-900">{agentName}</span>
             <span className={clsx('tag ml-2', typeStyles[agentType])}>{agentType}</span>
           </div>
         </div>
-        <span className="text-[16px] text-gray-400">{generatedAt}</span>
+        <span className="text-base text-gray-400">{generatedAt}</span>
       </div>
 
       {/* Body */}
       <div className="p-5">
-        <p className="text-[16px] text-gray-800 leading-relaxed mb-3">{conclusion}</p>
+        <p className="text-base text-gray-800 leading-relaxed mb-3">{conclusion}</p>
 
         {/* Confidence bar */}
         <div className="flex items-center gap-3 mb-3">
@@ -46,19 +46,19 @@ export function AgentSuggestionCard({
             <div className={clsx('progress-bar-fill', confidenceScore >= 70 ? 'bg-green-500' : confidenceScore >= 40 ? 'bg-amber-500' : 'bg-red-500')}
               style={{ width: `${confidenceScore}%` }} />
           </div>
-          <span className="text-[16px] font-medium text-gray-500">{confidenceScore}%</span>
+          <span className="text-base font-medium text-gray-500">{confidenceScore}%</span>
         </div>
 
         {/* Evidence */}
         {evidence.length > 0 && (
           <>
-            <button onClick={() => setExpanded(!expanded)} className="flex items-center gap-1 text-[16px] text-brand-600 hover:text-brand-700 mb-2 transition-colors">
+            <button onClick={() => setExpanded(!expanded)} className="flex items-center gap-1 text-base text-brand-600 hover:text-brand-700 mb-2 transition-colors">
               {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
               {evidence.length} 条依据
             </button>
             {expanded && (
               <ul className="space-y-1.5 mb-3">{evidence.map((e, i) => (
-                <li key={i} className="text-[16px] text-gray-500 pl-3 border-l-2 border-brand-200 py-0.5">{e}</li>
+                <li key={i} className="text-base text-gray-500 pl-3 border-l-2 border-brand-200 py-0.5">{e}</li>
               ))}</ul>
             )}
           </>
@@ -68,7 +68,7 @@ export function AgentSuggestionCard({
         {suggestedActions.length > 0 && (
           <div className="space-y-2 mb-3">
             {suggestedActions.map((a, i) => (
-              <div key={i} className="flex items-center justify-between text-[16px] border border-gray-100 rounded-md px-3 py-2.5 bg-gray-50/50">
+              <div key={i} className="flex items-center justify-between text-base border border-gray-100 rounded-md px-3 py-2.5 bg-gray-50/50">
                 <span className="text-gray-700">{a.label}</span>
                 <span className={clsx('tag', a.risk === 'low' ? 'tag-green' : a.risk === 'medium' ? 'tag-yellow' : 'tag-red')}>{a.risk}</span>
               </div>
@@ -81,7 +81,7 @@ export function AgentSuggestionCard({
           <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-amber-400 rounded-full" />
-              <span className="text-[16px] font-medium text-amber-700">需要人工确认</span>
+              <span className="text-base font-medium text-amber-700">需要人工确认</span>
             </div>
             <div className="flex gap-2">
               <button onClick={() => setVoted('up')}
@@ -96,7 +96,7 @@ export function AgentSuggestionCard({
           </div>
         )}
 
-        {!sourceId && <p className="text-[16px] text-red-500 mt-3">⚠ 缺少来源引用</p>}
+        {!sourceId && <p className="text-base text-red-500 mt-3">⚠ 缺少来源引用</p>}
       </div>
     </div>
   );

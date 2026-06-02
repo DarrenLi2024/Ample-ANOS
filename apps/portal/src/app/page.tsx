@@ -25,9 +25,9 @@ export default function HomePage() {
       onCommand={(input) => { setFeed(prev => [`你: ${input}`, ...prev]); setTimeout(() => setFeed(prev => [`AI: 已收到指令「${input.substring(0, 30)}${input.length > 30 ? "..." : ""}」，正在分析...`, ...prev]), 1200); }}
       topBarChildren={
         <div className="flex items-center gap-2 ml-6">
-          <button className="px-3 py-1.5 text-[16px] rounded-md bg-brand-500 text-white font-medium">Today</button>
-          <button className="px-3 py-1.5 text-[16px] rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">本周</button>
-          <button className="px-3 py-1.5 text-[16px] rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">本月</button>
+          <button className="px-3 py-1.5 text-base rounded-md bg-brand-500 text-white font-medium">Today</button>
+          <button className="px-3 py-1.5 text-base rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">本周</button>
+          <button className="px-3 py-1.5 text-base rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">本月</button>
         </div>
       }
       rightPanel={
@@ -36,14 +36,14 @@ export default function HomePage() {
             eventTime="2026-06-02 09:30" capturedAt="2026-06-02 09:32" verifiedBy="Tony Li" confidenceScore={95} status="verified" />
 
           <div className="proto-card p-4">
-            <h3 className="text-[16px] font-semibold text-gray-400 uppercase tracking-wide mb-3">供需匹配</h3>
+            <h3 className="text-base font-semibold text-gray-400 uppercase tracking-wide mb-3">供需匹配</h3>
             <div className="space-y-3">
-              <div className="flex items-center justify-between text-[16px]">
+              <div className="flex items-center justify-between text-base">
                 <span className="text-gray-600">STM32F407VET6</span>
                 <span className="text-brand-600 font-medium">匹配度 92%</span>
               </div>
               <div className="progress-bar"><div className="progress-bar-fill bg-brand-500" style={{width:'92%'}} /></div>
-              <div className="flex items-center justify-between text-[16px]">
+              <div className="flex items-center justify-between text-base">
                 <span className="text-gray-600">TMS320F28335PGFA</span>
                 <span className="text-brand-600 font-medium">匹配度 85%</span>
               </div>
@@ -64,17 +64,17 @@ export default function HomePage() {
 
         {/* 动态流 */}
         <div>
-          <h2 className="text-[16px] font-semibold text-gray-400 uppercase tracking-wide mb-3">动态流</h2>
+          <h2 className="text-base font-semibold text-gray-400 uppercase tracking-wide mb-3">动态流</h2>
           <div className="space-y-3">
             {feed.map((item, i) => (
               <div key={i} className="proto-card p-4 flex items-start gap-3">
                 <div className="mt-0.5">{item.icon}</div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <span className="text-[16px] font-semibold text-gray-800">{item.title}</span>
-                    <span className="text-[16px] text-gray-400">{item.time}</span>
+                    <span className="text-base font-semibold text-gray-800">{item.title}</span>
+                    <span className="text-base text-gray-400">{item.time}</span>
                   </div>
-                  <p className="text-[16px] text-gray-500 mt-0.5">{item.desc}</p>
+                  <p className="text-base text-gray-500 mt-0.5">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -83,7 +83,7 @@ export default function HomePage() {
 
         {/* Agent 建议 */}
         <div>
-          <h2 className="text-[16px] font-semibold text-gray-400 uppercase tracking-wide mb-3">Agent 建议</h2>
+          <h2 className="text-base font-semibold text-gray-400 uppercase tracking-wide mb-3">Agent 建议</h2>
           <AgentSuggestionCard agentName="Sales Agent" agentType="Sales"
             conclusion="华为 STM32F407VET6 询价建议报价 $4.20-4.50/pcs，基于近期成交均价 $4.35 和当前市场库存水平。客户信用等级 AAA，建议优先响应。"
             evidence={['近5笔成交均价 $4.35', '当前市场库存充足(8000+)', '客户信用等级 AAA', '历史成交率 92%']}

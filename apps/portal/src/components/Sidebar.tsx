@@ -78,7 +78,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
               <User size={18} className="text-brand-600" />
             </div>
             <div className="min-w-0">
-              <div className="text-[14px] font-semibold text-gray-900 truncate">Darren Li</div>
+              <div className="text-sm font-semibold text-gray-900 truncate">Darren Li</div>
               <div className="text-[13px] text-gray-500 mt-0.5">CEO · AI Level L5</div>
             </div>
           </div>

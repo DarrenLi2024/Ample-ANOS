@@ -127,7 +127,7 @@ export function BottomCommandBar({
       <input ref={fileInputRef} type="file" className="hidden" accept=".xlsx,.xls,.csv,.pdf,.txt,.md,.json,.png,.jpg,.jpeg,.webp" onChange={handleFileSelect} />
 
       {processing && agentThinking && (
-        <div className="px-5 py-2 flex items-center gap-2.5 text-[14px] text-brand-600 bg-brand-50 border-b border-brand-100">
+        <div className="px-5 py-2 flex items-center gap-2.5 text-sm text-brand-600 bg-brand-50 border-b border-brand-100">
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '200ms' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '400ms' }} />
@@ -138,7 +138,7 @@ export function BottomCommandBar({
       {/* 拖拽覆盖层 */}
       {dragOver && (
         <div className="absolute inset-0 bg-brand-50/90 border-2 border-dashed border-brand-400 rounded-xl flex items-center justify-center z-50">
-          <div className="text-center"><Upload size={32} className="mx-auto text-brand-500 mb-2" /><p className="text-[14px] text-brand-600 font-medium">释放文件以解析</p></div>
+          <div className="text-center"><Upload size={32} className="mx-auto text-brand-500 mb-2" /><p className="text-sm text-brand-600 font-medium">释放文件以解析</p></div>
         </div>
       )}
 
@@ -148,7 +148,7 @@ export function BottomCommandBar({
           {parsedFiles.length > 0 && (
             <div className="mb-3 space-y-2">
               {parsedFiles.map((f, i) => (
-                <div key={i} className="flex items-start gap-2 px-3 py-2 bg-brand-50 text-brand-700 rounded-lg text-[14px]">
+                <div key={i} className="flex items-start gap-2 px-3 py-2 bg-brand-50 text-brand-700 rounded-lg text-sm">
                   <FileText size={14} className="mt-0.5 shrink-0" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2"><span className="font-medium truncate">{f.name}</span><span className="text-[13px] text-brand-400">{f.category}</span></div>
