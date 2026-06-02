@@ -1,5 +1,5 @@
 /**
- * ANOS API 服务 — Hono 主入口
+ * ANOS API 应用实例
  */
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
@@ -42,7 +42,6 @@ app.use('*', bodyLimit);
 app.use('*', csrfProtection);
 app.use('*', logger());
 
-// Observability: Request ID
 app.use('*', async (c, next) => {
   c.set('requestId', crypto.randomUUID?.() || Date.now().toString(36));
   c.header('X-Request-Id', c.get('requestId'));
@@ -53,10 +52,10 @@ app.use('*', async (c, next) => {
 app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.3.0', status: 'ok' }));
 app.get('/health', (c) => c.json({ status: 'healthy', timestamp: new Date().toISOString(), uptime: process.uptime() }));
 
-// Public: Auth routes (no JWT required)
+// Auth (public)
 app.route('/api/auth', authRoutes);
 
-// Protected: P0 Routes (JWT auth via individual route middleware)
+// Protected Routes
 app.route('/api/customers', customerRoutes);
 app.route('/api/suppliers', supplierRoutes);
 app.route('/api/products', productRoutes);
@@ -68,9 +67,6 @@ app.route('/api/ar', arRoutes);
 app.route('/api/agents', agentRoutes);
 app.route('/api/audit', auditRoutes);
 
-// Global Error Handler
 app.onError(errorHandler);
 
-const port = parseInt(process.env.PORT || '3001', 10);
-
-export default { port, fetch: app.fetch };
+export { app };
