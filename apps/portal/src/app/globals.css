@@ -52,12 +52,13 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 
   /* 字号 Scale (基于 14px 基准) */
-  --text-lg:  0.6875rem;  /* 11px — Badge最小标注 */
-  --text-lg:  0.75rem;    /* 12px — 辅助信息、表格内容 */
-  --text-lg:   0.8125rem;  /* 13px — 正文基准 */
-  --text-lg:   0.875rem;   /* 14px — 卡片标题、导航项 */
-  --text-lg: 0.9375rem;  /* 15px — TopBar标题 */
-  --text-xl:   1.125rem;   /* 18px — 区块标题 */
+  --text-3xs:  0.6875rem;  /* 11px — Badge最小标注 */
+  --text-2xs:  0.75rem;    /* 12px — 辅助信息、表格内容 */
+  --text-xs:   0.8125rem;  /* 13px — 正文基准 */
+  --text-sm:   0.875rem;   /* 14px — 卡片标题、导航项 */
+  --text-base: 0.9375rem;  /* 15px — TopBar标题 */
+  --text-lg:   1.0625rem;  /* 17px — 区块标题 */
+  --text-xl:   1.125rem;   /* 18px — 页面大标题 */
   --text-2xl:  1.25rem;    /* 20px — 页面大标题 */
   --text-3xl:  1.5rem;     /* 24px */
   --text-4xl:  1.75rem;    /* 28px — KPI数值 */
