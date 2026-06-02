@@ -14,16 +14,16 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { id: 'dashboard', label: '工作台', icon: <LayoutDashboard size={18} />, href: '/', section: 'workspace' },
-  { id: 'tasks', label: '待办事项', icon: <ListChecks size={18} />, href: '/tasks', section: 'workspace' },
-  { id: 'inquiry', label: 'Inquiry Center', icon: <FileSearch size={18} />, href: '/inquiries', section: 'trading' },
-  { id: 'offer', label: 'Offer Center', icon: <FileText size={18} />, href: '/offers', section: 'trading' },
-  { id: 'so', label: 'SO Center', icon: <PackageCheck size={18} />, href: '/orders', section: 'trading' },
-  { id: 'risk', label: '风控中心', icon: <ShieldAlert size={18} />, href: '/risk', section: 'risk' },
-  { id: 'ar', label: 'AR 中心', icon: <CalendarClock size={18} />, href: '/ar', section: 'risk' },
-  { id: 'knowledge', label: '知识库', icon: <Library size={18} />, href: '/knowledge', section: 'knowledge' },
-  { id: 'agents', label: 'Agent 中心', icon: <Bot size={18} />, href: '/agents', section: 'knowledge' },
-  { id: 'settings', label: '设置', icon: <Settings size={18} />, href: '/settings', section: 'workspace' },
+  { id: 'dashboard', label: '工作台', icon: <LayoutDashboard size={20} />, href: '/', section: 'workspace' },
+  { id: 'tasks', label: '待办事项', icon: <ListChecks size={20} />, href: '/tasks', section: 'workspace' },
+  { id: 'inquiry', label: 'Inquiry Center', icon: <FileSearch size={20} />, href: '/inquiries', section: 'trading' },
+  { id: 'offer', label: 'Offer Center', icon: <FileText size={20} />, href: '/offers', section: 'trading' },
+  { id: 'so', label: 'SO Center', icon: <PackageCheck size={20} />, href: '/orders', section: 'trading' },
+  { id: 'risk', label: '风控中心', icon: <ShieldAlert size={20} />, href: '/risk', section: 'risk' },
+  { id: 'ar', label: 'AR 中心', icon: <CalendarClock size={20} />, href: '/ar', section: 'risk' },
+  { id: 'knowledge', label: '知识库', icon: <Library size={20} />, href: '/knowledge', section: 'knowledge' },
+  { id: 'agents', label: 'Agent 中心', icon: <Bot size={20} />, href: '/agents', section: 'knowledge' },
+  { id: 'settings', label: '设置', icon: <Settings size={20} />, href: '/settings', section: 'workspace' },
 ];
 
 const sectionLabels: Record<string, string> = {
@@ -50,31 +50,33 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
 
   return (
     <aside className={clsx(
-      'sidebar flex flex-col h-screen transition-all duration-300',
-      collapsed ? 'w-[64px]' : 'w-[280px]',
+      'flex flex-col h-screen bg-gray-50 border-r border-gray-200 transition-all duration-200',
+      collapsed ? 'w-16' : 'w-[280px]',
     )}>
       {/* Logo */}
-      <div className="flex items-center justify-between h-12 px-4 border-b border-white/5">
-        {!collapsed && <span className="sidebar-logo">ANOS</span>}
-        <button onClick={onToggle} className="sidebar-toggle p-1 rounded hover:bg-white/5 transition-colors">
-          {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+      <div className="flex items-center justify-between h-12 px-4 border-b border-gray-200">
+        {!collapsed && <span className="font-semibold text-lg text-gray-900">ANOS</span>}
+        <button onClick={onToggle} className="p-1 rounded hover:bg-gray-200 text-gray-500">
+          {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
         </button>
       </div>
 
       {/* User */}
       {!collapsed && (
-        <div className="px-4 py-3 border-b border-white/5">
-          <div className="text-sm text-white/80 font-medium">Darren Li</div>
-          <div className="text-xs text-white/30 mt-0.5">CEO · AI Level L5</div>
+        <div className="px-4 py-3 border-b border-gray-200">
+          <div className="text-sm font-medium text-gray-900">Darren Li</div>
+          <div className="text-xs text-gray-500">CEO · AI Level L5</div>
         </div>
       )}
 
       {/* Nav */}
-      <nav className="flex-1 overflow-y-auto py-3">
+      <nav className="flex-1 overflow-y-auto py-2">
         {Array.from(sections.entries()).map(([section, items]) => (
-          <div key={section} className="mb-4">
+          <div key={section} className="mb-2">
             {!collapsed && (
-              <div className="sidebar-section-label px-4 py-1">{sectionLabels[section]}</div>
+              <div className="px-4 py-2 text-xs font-medium text-gray-400 uppercase tracking-wider">
+                {sectionLabels[section]}
+              </div>
             )}
             {items.map(item => {
               const active = isActive(item);
@@ -83,9 +85,11 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                   key={item.id}
                   onClick={() => router.push(item.href)}
                   className={clsx(
-                    'sidebar-item w-full flex items-center gap-3 px-3 py-2 text-left',
-                    active && 'sidebar-item active',
-                    collapsed && 'justify-center px-2',
+                    'w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors',
+                    active
+                      ? 'bg-primary-50 text-primary-700 font-medium border-r-2 border-primary-500'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+                    collapsed && 'justify-center px-0',
                   )}
                 >
                   {item.icon}
@@ -97,11 +101,8 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         ))}
       </nav>
 
-      {/* Footer */}
       {!collapsed && (
-        <div className="px-4 py-3 border-t border-white/5 text-xs text-white/15">
-          ANOS V2.0
-        </div>
+        <div className="px-4 py-3 border-t border-gray-200 text-xs text-gray-400">ANOS V2.0</div>
       )}
     </aside>
   );

@@ -1,409 +1,77 @@
 @import "tailwindcss";
 
 /* ============================================================================
-   ANOS Design System V2.0 — Apple 风格 AI Native 工作台
-   基于 docs/design2.md
+   ANOS Design Tokens — 基于 docs/design.md + Portal界面渲染图
+   原型约束: 浅色侧边栏 + #3B82F6 品牌蓝 + 三纵列白色工作台
    =========================================================================== */
 
 @theme {
-  /* 色彩 */
-  --color-deep:       #0b1020;
-  --color-deep-alt:   #141929;
-  --color-deep-hover: #1a2036;
-  --color-light:      #f5f5f7;
-  --color-surface:    #ffffff;
-  --color-border:     #e5e5ea;
-  --color-border-light: #f0f0f2;
-
-  /* 品牌色蓝紫渐变 */
-  --color-brand:       #6366f1;
-  --color-brand-alt:   #7c3aed;
-  --color-brand-light: #818cf8;
-  --color-brand-dark:  #4f46e5;
-  --color-brand-ghost: rgba(99, 102, 241, 0.08);
+  /* 品牌色 — 蓝色系 (原型 #3B82F6) */
+  --color-primary-50:  #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
 
   /* 语义色 */
-  --color-success: #22c55e;
-  --color-warning: #f59e0b;
-  --color-danger:  #ef4444;
+  --color-success-500: #22C55E;
+  --color-warning-500: #F59E0B;
+  --color-danger-500:  #EF4444;
 
-  /* 文字色 */
-  --color-text-primary:    #1d1d1f;
-  --color-text-secondary:  #6e6e73;
-  --color-text-tertiary:   #aeaeb2;
-  --color-text-placeholder: #c7c7cc;
-
-  /* 字体 */
-  --font-display: 'SF Pro Display', -apple-system, 'Helvetica Neue', sans-serif;
-  --font-body: 'SF Pro Text', -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
-  --tracking-tight: -0.02em;
-
-  /* 布局 */
-  --spacing-sidebar: 280px;
-  --spacing-sidebar-collapsed: 64px;
-  --spacing-panel: 420px;
-  --spacing-topbar: 48px;
+  /* 布局 — 三纵列精确 */
+  --spacing-sidebar:  280px;
+  --spacing-panel:    420px;
+  --spacing-topbar:   48px;
   --spacing-commandbar: 56px;
 
-  /* 动画 */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
-  --duration-breath: 3s;
-
-  /* 阴影 */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-  --glow: 0 0 20px rgba(124, 58, 237, 0.15);
-  --glow-sm: 0 0 10px rgba(99, 102, 241, 0.12);
-
-  /* 圆角 */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
-  --radius-full: 9999px;
+  /* 字体 */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 /* ============================================================================
-   全局基础
+   全局
    =========================================================================== */
-
 html {
-  font-family: var(--font-body);
-  font-size: var(--fs-base, 14px);
+  font-family: var(--font-sans);
+  background: #F3F4F6;
+  color: #111827;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--color-light);
-  color: var(--color-text-primary);
-  position: relative;
-}
-
-/* 全局环境光 */
-body::before {
-  content: '';
-  position: fixed;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.035) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.035) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
+body { margin: 0; min-height: 100vh; }
 
 /* ============================================================================
-   动画关键帧
+   动画
    =========================================================================== */
-
-@keyframes animate-in-up {
-  from { opacity: 0; transform: translateY(12px); }
+@keyframes skeleton-loading {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
-
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.7; transform: scale(0.97); }
+@keyframes agent-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50%      { opacity: 1.0; transform: scale(1.1); }
 }
 
 /* ============================================================================
-   卡片系统
+   工具类
    =========================================================================== */
-
-.card-gradient {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
-}
-.card-gradient::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-alt));
-}
-
-.card-glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.card-hover {
-  transition: transform var(--duration-normal) var(--ease-out),
-              box-shadow var(--duration-normal) var(--ease-out);
-}
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* ============================================================================
-   按钮系统
-   =========================================================================== */
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-alt));
-  background-size: 200% 200%;
-  color: white;
-  font-weight: 500;
-  font-size: 13px;
-  padding: 10px 20px;
-  border-radius: var(--radius-sm);
-  border: none;
-  cursor: pointer;
-  animation: gradientShift var(--duration-breath) ease infinite;
-  transition: transform var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
-}
-.btn-primary:hover {
-  transform: scale(1.02);
-  box-shadow: var(--glow-sm);
-}
-.btn-primary:active {
-  transform: scale(0.98);
-}
-.btn-primary:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  animation: none;
-}
-
-.btn-secondary {
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  font-weight: 500;
-  font-size: 13px;
-  padding: 10px 20px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--color-border);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-out);
-}
-.btn-secondary:hover {
-  border-color: var(--color-brand-light);
-  box-shadow: var(--shadow-md);
-}
-
-/* ============================================================================
-   表单
-   =========================================================================== */
-
-.input-field {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  font-size: 14px;
-  color: var(--color-text-primary);
-  width: 100%;
-  transition: border-color var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
-  outline: none;
-}
-.input-field:focus {
-  border-color: var(--color-brand);
-  box-shadow: 0 0 0 3px var(--color-brand-ghost);
-}
-.input-field::placeholder {
-  color: var(--color-text-placeholder);
-}
-
-/* ============================================================================
-   侧边栏（深色）
-   =========================================================================== */
-
-.sidebar {
-  background: var(--color-deep);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.sidebar-logo {
-  font-family: var(--font-display);
-  font-weight: 590;
-  font-size: 20px;
-  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-alt));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: var(--tracking-tight);
-}
-
-.sidebar-section-label {
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.sidebar-item {
-  color: rgba(255, 255, 255, 0.5);
-  transition: all var(--duration-fast) var(--ease-out);
-  border-radius: var(--radius-sm);
-  margin: 0 8px;
-  border-left: 2px solid transparent;
-  font-size: 13px;
-}
-.sidebar-item:hover {
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(255, 255, 255, 0.05);
-}
-.sidebar-item.active {
-  color: white;
-  background: rgba(99, 102, 241, 0.15);
-  border-left-color: var(--color-brand-light);
-}
-
-/* ============================================================================
-   登录页玻璃卡片
-   =========================================================================== */
-
-.login-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-2xl);
-  padding: 48px;
-  max-width: 400px;
-  width: 100%;
-}
-
-.login-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-alt));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-error {
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  border-radius: var(--radius-sm);
-  color: #dc2626;
-  font-size: 12px;
-  padding: 8px 16px;
-}
-
-/* ============================================================================
-   表格
-   =========================================================================== */
-
-.table-minimal {
-  width: 100%;
-  font-size: 13px;
-}
-.table-minimal th {
-  color: var(--color-text-tertiary);
-  font-weight: 500;
-  text-align: left;
-  padding: 10px 16px;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.table-minimal td {
-  padding: 12px 16px;
-  color: var(--color-text-primary);
-  border-top: 1px solid var(--color-border-light);
-}
-.table-minimal tr:hover td {
-  background: rgba(99, 102, 241, 0.03);
-}
-
-/* ============================================================================
-   Badge
-   =========================================================================== */
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  border-radius: var(--radius-xs);
-  font-size: 11px;
-  font-weight: 500;
-}
-.badge-green  { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
-.badge-red    { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
-.badge-yellow { background: rgba(245, 158, 11, 0.1); color: #d97706; }
-.badge-blue   { background: rgba(99, 102, 241, 0.1); color: #4f46e5; }
-.badge-purple { background: rgba(124, 58, 237, 0.1); color: #7c3aed; }
-
-/* ============================================================================
-   骨架屏
-   =========================================================================== */
+.page-enter { animation: fade-in 200ms ease-out; }
+.agent-pulse { animation: agent-pulse 1.5s infinite; }
 
 .skeleton {
-  background: linear-gradient(90deg, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.04) 75%);
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
   background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: var(--radius-xs);
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
 }
 
-/* ============================================================================
-   通用工具类
-   =========================================================================== */
-
-.animate-in-up {
-  animation: animate-in-up var(--duration-slow) var(--ease-out) both;
-}
-.animate-in-up:nth-child(2) { animation-delay: 50ms; }
-.animate-in-up:nth-child(3) { animation-delay: 100ms; }
-.animate-in-up:nth-child(4) { animation-delay: 150ms; }
-
-.pulse-soft {
-  animation: pulse-soft 2s var(--ease-out) infinite;
-}
-
-.glass-panel {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* 脱敏 */
 .redacted {
-  color: var(--color-text-placeholder);
-  background: rgba(0, 0, 0, 0.04);
-  padding: 2px 8px;
-  border-radius: var(--radius-xs);
-  cursor: default;
-  user-select: none;
+  color: #9CA3AF; background: #F3F4F6;
+  padding: 2px 8px; border-radius: 4px;
+  cursor: not-allowed; user-select: none;
 }
