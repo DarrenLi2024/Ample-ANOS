@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Send, Paperclip, Upload, Bot, FileSpreadsheet, FileText, Mail, Image, MessageCircle } from 'lucide-react';
+import { Send, Paperclip, Upload, Bot, FileSpreadsheet, FileText, Mail, Image, MessageCircle, Mic } from 'lucide-react';
 
 interface BottomCommandBarProps {
   placeholder?: string;
@@ -108,6 +108,9 @@ export function BottomCommandBar({
 
             {/* 右侧操作图标 */}
             <div className="flex items-center gap-0.5 shrink-0 self-start mt-0.5">
+              <button className="p-1.5 rounded-lg hover:bg-gray-200/50 text-gray-400 transition-colors" title="语音输入">
+                <Mic size={18} />
+              </button>
               <button className="p-1.5 rounded-lg hover:bg-gray-200/50 text-gray-400 transition-colors" title="附件">
                 <Paperclip size={18} />
               </button>
