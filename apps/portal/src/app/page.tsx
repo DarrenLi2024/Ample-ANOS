@@ -7,7 +7,7 @@ import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
 import { FileSearch, Package, AlertTriangle, Lightbulb, TrendingUp, Zap } from 'lucide-react';
 
 export default function HomePage() {
-  const [feed] = useState([
+  const [feed, setFeed] = useState([
     { icon: <Zap size={14} className="text-amber-500" />, title: '新 RFQ 已解析', desc: 'STM32F407VET6 × 5,000pcs · 华为', time: '2分钟前' },
     { icon: <TrendingUp size={14} className="text-green-500" />, title: '新供应资源已录入', desc: 'ESP32-WROOM-32E × 10,000pcs · Arrow $1.85/pcs', time: '15分钟前' },
     { icon: <AlertTriangle size={14} className="text-red-500" />, title: 'AR 风险预警', desc: '汇顶科技逾期 95 天 · $380,000', time: '1小时前' },
@@ -22,6 +22,7 @@ export default function HomePage() {
         { label: 'Procurement Agent', color: 'tag tag-purple' },
         { label: 'Credit Agent', color: 'tag tag-yellow' },
       ]}
+      onCommand={(input) => { setFeed(prev => [`你: ${input}`, ...prev]); setTimeout(() => setFeed(prev => [`AI: 已收到指令「${input.substring(0, 30)}${input.length > 30 ? "..." : ""}」，正在分析...`, ...prev]), 1200); }}
       topBarChildren={
         <div className="flex items-center gap-2 ml-6">
           <button className="px-3 py-1.5 text-lg rounded-md bg-brand-500 text-white font-medium">Today</button>
