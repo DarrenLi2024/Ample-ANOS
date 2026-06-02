@@ -16,7 +16,7 @@ const rTag: Record<string, string> = { L4: 'tag-red', L3: 'tag-yellow', L2: 'tag
 
 export default function RiskCenterPage() {
   return (
-    <WorkspaceLayout title="Risk Center"
+    <WorkspaceLayout title="风控中心"
       agentStatuses={[{ label: 'Credit Agent', color: 'tag tag-yellow' }]}
       rightPanel={
         <div className="p-4 space-y-5">

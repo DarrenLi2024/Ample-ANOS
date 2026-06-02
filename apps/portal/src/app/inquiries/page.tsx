@@ -13,7 +13,7 @@ const inquiries = [
 
 export default function InquiryCenterPage() {
   return (
-    <WorkspaceLayout title="Inquiry Center"
+    <WorkspaceLayout title="询价中心"
       agentStatuses={[{ label: 'Sales Agent', color: 'tag tag-blue' }]}
       topBarChildren={
         <div className="flex items-center gap-2 ml-6">

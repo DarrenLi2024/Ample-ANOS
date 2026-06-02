@@ -16,7 +16,7 @@ export default function HomePage() {
 
   return (
     <WorkspaceLayout
-      title="AI Inbox"
+      title="AI 智能工作台"
       agentStatuses={[
         { label: 'Sales Agent', color: 'tag tag-blue' },
         { label: 'Procurement Agent', color: 'tag tag-purple' },

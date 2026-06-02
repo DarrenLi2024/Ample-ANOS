@@ -31,7 +31,7 @@ export default function AgentCenterPage() {
   const [selectedSkill, setSelectedSkill] = React.useState<string | null>(null);
 
   return (
-    <WorkspaceLayout title="Agent Center"
+    <WorkspaceLayout title="智能体中心"
       rightPanel={selectedSkill ? (() => { const s = knowledgeSkills.find(k => k.id === selectedSkill)!; return (
         <div className="p-4">
           <div className="flex items-center justify-between mb-4"><h3 className="font-semibold text-sm">Skill 详情</h3><button onClick={()=>setSelectedSkill(null)} className="text-gray-400 hover:text-gray-600"><XCircle size={16}/></button></div>
