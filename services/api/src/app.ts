@@ -20,6 +20,7 @@ import { offerRoutes } from './routes/offers';
 import { arRoutes } from './routes/ar';
 import { agentRoutes } from './routes/agents';
 import { auditRoutes } from './routes/audit';
+import { knowledgeRoutes } from './routes/knowledge';
 
 const app = new Hono();
 
@@ -66,6 +67,7 @@ app.route('/api/offers', offerRoutes);
 app.route('/api/ar', arRoutes);
 app.route('/api/agents', agentRoutes);
 app.route('/api/audit', auditRoutes);
+app.route('/api/knowledge', knowledgeRoutes);
 
 app.onError(errorHandler);
 

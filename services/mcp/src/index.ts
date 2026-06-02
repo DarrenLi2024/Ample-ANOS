@@ -267,3 +267,78 @@ server.tool(
 const transport = new StdioServerTransport();
 await server.connect(transport);
 console.error('ANOS MCP Server v0.2.0 running on stdio');
+
+// ============================================================================
+// P0 扩展: Knowledge Agent Skills (4个知识源)
+// ============================================================================
+
+// 8. knowledge-search-advanced — 支持按知识源分类检索
+server.tool(
+  'knowledge-search-advanced',
+  '检索 ANOS 知识库，支持按分类过滤（销售SOP、采购SOP、风控规则、产品知识等）。Agent 在回答业务问题时应优先调用此工具获取权威知识。',
+  {
+    query: z.string().describe('搜索关键词或自然语言问题'),
+    sourceTypes: z.array(z.enum(['SalesSOP', 'ProcurementSOP', 'RiskRules', 'ProductKnowledge', 'MarketIntel', 'Compliance'])).optional().describe('限定搜索的知识源类型'),
+    maxResults: z.number().min(1).max(20).default(5).describe('最大返回结果数'),
+    actor: z.string(),
+    requestId: z.string(),
+  },
+  async ({ query, sourceTypes, maxResults, actor, requestId }) => {
+    const auditId = uuid();
+    try {
+      const typesParam = sourceTypes?.length ? `&sourceTypes=${sourceTypes.join(',')}` : '';
+      const result = await callApi(`/api/knowledge/search?q=${encodeURIComponent(query)}&limit=${maxResults}${typesParam}`, 'GET');
+      return {
+        content: [{
+          type: 'text', text: JSON.stringify({
+            success: true,
+            data: result,
+            evidence: `Knowledge search for "${query}" by ${actor}`,
+            source: 'ANOS Knowledge Hub',
+            confidence: result.confidence || 80,
+            auditId,
+          }),
+        }],
+      };
+    } catch (err: any) {
+      return {
+        content: [{ type: 'text', text: JSON.stringify({ success: false, error: err.message, auditId }) }],
+        isError: true,
+      };
+    }
+  },
+);
+
+// 9. knowledge-get-source — 获取知识源元数据
+server.tool(
+  'knowledge-get-source',
+  '获取指定知识源的元数据，包括文档数量、最后同步时间、负责人等信息。',
+  {
+    sourceType: z.enum(['SalesSOP', 'ProcurementSOP', 'RiskRules', 'ProductKnowledge', 'MarketIntel', 'Compliance']).describe('知识源类型'),
+    actor: z.string(),
+    requestId: z.string(),
+  },
+  async ({ sourceType, actor, requestId }) => {
+    const auditId = uuid();
+    try {
+      const result = await callApi(`/api/knowledge/sources/${sourceType}`, 'GET');
+      return {
+        content: [{
+          type: 'text', text: JSON.stringify({
+            success: true,
+            data: result,
+            evidence: `Knowledge source metadata for ${sourceType}`,
+            source: 'ANOS Knowledge Hub',
+            confidence: 95,
+            auditId,
+          }),
+        }],
+      };
+    } catch (err: any) {
+      return {
+        content: [{ type: 'text', text: JSON.stringify({ success: false, error: err.message, auditId }) }],
+        isError: true,
+      };
+    }
+  },
+);
