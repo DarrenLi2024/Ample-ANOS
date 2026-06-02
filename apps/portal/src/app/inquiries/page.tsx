@@ -1,4 +1,15 @@
 'use client';
+
+async function fetchApi(path: string) {
+  const headers: Record<string,string> = { 'Content-Type': 'application/json', 'X-User-Role': 'SystemAdmin' };
+  const token = typeof window !== 'undefined' ? localStorage.getItem('anos_token') : null;
+  if (token) headers['Authorization'] = 'Bearer ' + token;
+  const res = await fetch('http://localhost:3001' + path, { headers });
+  if (!res.ok) return [];
+  const data = await res.json();
+  return data.data || data || [];
+}
+
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { SourceCard } from '@/components/SourceCard';
@@ -65,3 +76,4 @@ const [inquiryData, setInquiryData] = useState(defaultInquiries);
     </WorkspaceLayout>
   );
 }
+
