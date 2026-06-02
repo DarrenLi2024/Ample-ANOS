@@ -423,3 +423,41 @@ console.log(`\n📋 Tables (${tables.length}):`);
 tables.forEach((t) => console.log(`  - ${t.name}`));
 
 sqlite.close();
+
+// ============================================================================
+// 添加性能索引
+// ============================================================================
+console.log('\n📊 Creating indexes...');
+
+const indexes = [
+  'CREATE INDEX IF NOT EXISTS idx_customers_name ON customers(customer_name)',
+  'CREATE INDEX IF NOT EXISTS idx_customers_level ON customers(customer_level)',
+  'CREATE INDEX IF NOT EXISTS idx_customers_risk ON customers(risk_level)',
+  'CREATE INDEX IF NOT EXISTS idx_suppliers_name ON suppliers(supplier_name)',
+  'CREATE INDEX IF NOT EXISTS idx_suppliers_type ON suppliers(supplier_type)',
+  'CREATE INDEX IF NOT EXISTS idx_products_mpn ON products(mpn)',
+  'CREATE INDEX IF NOT EXISTS idx_products_brand ON products(brand)',
+  'CREATE INDEX IF NOT EXISTS idx_products_brand_mpn ON products(brand, mpn)',
+  'CREATE INDEX IF NOT EXISTS idx_inquiries_customer ON inquiries(customer_id)',
+  'CREATE INDEX IF NOT EXISTS idx_inquiries_mpn ON inquiries(mpn)',
+  'CREATE INDEX IF NOT EXISTS idx_inquiries_status ON inquiries(status)',
+  'CREATE INDEX IF NOT EXISTS idx_supply_resources_supplier ON supply_resources(supplier_id)',
+  'CREATE INDEX IF NOT EXISTS idx_supply_resources_mpn ON supply_resources(mpn)',
+  'CREATE INDEX IF NOT EXISTS idx_supply_resources_status ON supply_resources(status)',
+  'CREATE INDEX IF NOT EXISTS idx_opportunities_inquiry ON opportunities(inquiry_id)',
+  'CREATE INDEX IF NOT EXISTS idx_opportunities_supply ON opportunities(supply_resource_id)',
+  'CREATE INDEX IF NOT EXISTS idx_offers_inquiry ON offers(inquiry_id)',
+  'CREATE INDEX IF NOT EXISTS idx_offers_customer ON offers(customer_id)',
+  'CREATE INDEX IF NOT EXISTS idx_ar_customer ON ar_items(customer_id)',
+  'CREATE INDEX IF NOT EXISTS idx_ar_risk ON ar_items(risk_level)',
+  'CREATE INDEX IF NOT EXISTS idx_audit_object ON audit_logs(object_type, object_id)',
+  'CREATE INDEX IF NOT EXISTS idx_audit_actor ON audit_logs(actor)',
+  'CREATE INDEX IF NOT EXISTS idx_audit_timestamp ON audit_logs(timestamp)',
+];
+
+const indexTxn = sqlite.transaction(() => {
+  indexes.forEach((idx) => sqlite.exec(idx));
+});
+indexTxn();
+
+console.log(`✅ ${indexes.length} indexes created`);

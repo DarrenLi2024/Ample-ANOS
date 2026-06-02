@@ -3,7 +3,8 @@
  */
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { logger } from 'hono/logger';
+import { logger } from 'hono';
+import { errorHandler } from './middleware/error-handler';
 import { customerRoutes } from './routes/customers';
 import { supplierRoutes } from './routes/suppliers';
 import { productRoutes } from './routes/products';
@@ -17,9 +18,27 @@ import { auditRoutes } from './routes/audit';
 
 const app = new Hono();
 
-// Middleware
-app.use('*', cors());
+// CORS — 开发环境允许 localhost, 生产环境由环境变量限制
+const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
+app.use(
+  '*',
+  cors({
+    origin: process.env.NODE_ENV === 'production' ? corsOrigin : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
+    allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'X-User-Id', 'X-User-Name', 'X-User-Role', 'X-User-Dept'],
+    exposeHeaders: ['X-Request-Id'],
+    maxAge: 86400,
+  }),
+);
+
+// Logger
 app.use('*', logger());
+
+// Request ID
+app.use('*', async (c, next) => {
+  c.set('requestId', crypto.randomUUID?.() || Date.now().toString(36));
+  await next();
+});
 
 // Health
 app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.1.0', status: 'ok' }));
@@ -37,16 +56,12 @@ app.route('/api/ar', arRoutes);
 app.route('/api/agents', agentRoutes);
 app.route('/api/audit', auditRoutes);
 
+// 全局错误处理
+app.onError(errorHandler);
+
 const port = parseInt(process.env.PORT || '3001', 10);
 
 export default {
   port,
   fetch: app.fetch,
 };
-
-// Start server if running directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const { serve } = await import('@hono/node-server');
-  console.log(`🚀 ANOS API server starting on http://localhost:${port}`);
-  serve({ fetch: app.fetch, port });
-}

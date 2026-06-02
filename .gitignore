@@ -50,3 +50,12 @@ coverage/
 *.pem
 tmp/
 temp/
+
+# TypeScript
+*.tsbuildinfo
+
+# Data directory (database files)
+data/
+
+# ESLint
+.eslintcache
