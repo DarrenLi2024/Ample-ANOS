@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { auditLogMiddleware } from './middleware/audit-log';
 import { logger } from 'hono/logger';
 import { errorHandler } from './middleware/error-handler';
 import { csrfProtection } from './middleware/csrf';
@@ -40,6 +41,7 @@ app.use('*', rateLimiter);
 app.use('*', bodyLimit);
 app.use('*', csrfProtection);
 app.use('*', logger());
+app.use('*', auditLogMiddleware);
 
 app.use('*', async (c, next) => {
   c.set('requestId', crypto.randomUUID?.() || Date.now().toString(36));

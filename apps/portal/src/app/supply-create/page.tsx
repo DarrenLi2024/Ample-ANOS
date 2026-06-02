@@ -1,7 +1,18 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
 export default function SupplyCreatePage() {
+  const [apiData, setApiData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const headers: Record<string,string> = { 'Content-Type': 'application/json', 'X-User-Role': 'SystemAdmin' };
+    fetch('http://localhost:3001/api/supply-resources', { headers })
+      .then(r => r.json())
+      .then(d => { setApiData(d.data || d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
   return (
     <WorkspaceLayout title="供应资源解析 · 创建">
       <div className="p-6 space-y-6">

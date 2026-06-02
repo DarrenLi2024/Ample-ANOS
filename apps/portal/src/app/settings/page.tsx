@@ -1,7 +1,18 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
 export default function SettingsPage() {
+  const [apiData, setApiData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const headers: Record<string,string> = { 'Content-Type': 'application/json', 'X-User-Role': 'SystemAdmin' };
+    fetch('http://localhost:3001/api/workflow/status', { headers })
+      .then(r => r.json())
+      .then(d => { setApiData(d.data || d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
   return (
     <WorkspaceLayout title="设置">
       <div className="p-6 space-y-6 max-w-2xl">

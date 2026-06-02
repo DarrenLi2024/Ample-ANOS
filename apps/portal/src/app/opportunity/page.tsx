@@ -1,7 +1,18 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
 export default function OpportunityPage() {
+  const [apiData, setApiData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const headers: Record<string,string> = { 'Content-Type': 'application/json', 'X-User-Role': 'SystemAdmin' };
+    fetch('http://localhost:3001/api/opportunities', { headers })
+      .then(r => r.json())
+      .then(d => { setApiData(d.data || d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, []);
+
   return (
     <WorkspaceLayout title="Opportunity 详情">
       <div className="p-6 space-y-6">
