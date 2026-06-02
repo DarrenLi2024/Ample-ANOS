@@ -1,0 +1,10 @@
+node_modules
+dist
+.next
+build
+coverage
+*.md
+pnpm-lock.yaml
+.env
+.env.*
+.DS_Store
