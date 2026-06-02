@@ -74,6 +74,8 @@ curl -X POST http://localhost:3001/api/auth/login \
 |--------|------|------|
 | admin | anos2026 | 系统管理员 |
 | sales1 | anos2026 | 销售 |
+| sales2   | anos2026 | 销售 |
+| proc2    | anos2026 | 采购 |
 | proc1 | anos2026 | 采购 |
 | risk1 | anos2026 | 风控 |
 | ceo | anos2026 | 管理层 |
