@@ -3,11 +3,14 @@ import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
 export default function KnowledgePage() {
   return (
-    <WorkspaceLayout title="Knowledge Center — 知识中心" commandBarPlaceholder="搜索知识...">
+    <WorkspaceLayout
+      title="Knowledge Center — 知识中心"
+      commandBarPlaceholder="搜索产品知识、SOP、行业情报..."      agentStatuses={[{ label: "Knowledge Agent 在线", color: "text-xs text-green-700 bg-green-50 px-2 py-1 rounded" }]}
+    >
       <div className="bg-white rounded-lg border p-12 text-center">
         <div className="text-6xl mb-4">📚</div>
-        <h2 className="text-xl font-semibold text-gray-500">Knowledge Center 开发中</h2>
-        <p className="text-sm text-gray-400 mt-2">对接飞书知识库后上线 (Phase 2)</p>
+        <h2 className="text-xl font-semibold text-gray-500">Knowledge Center — 知识中心 开发中</h2>
+        <p className="text-sm text-gray-400 mt-2">知识库检索与 RAG 将对接飞书知识库后上线 (Phase 2)</p>
       </div>
     </WorkspaceLayout>
   );
