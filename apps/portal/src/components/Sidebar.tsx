@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { clsx } from 'clsx';
+import Image from 'next/image';
 import {
   LayoutDashboard, FileSearch, FileText, PackageCheck,
   ShieldAlert, CalendarClock, Library, Bot, Settings,
@@ -54,9 +55,17 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       collapsed ? 'w-16' : 'w-[280px]',
     )}>
       {/* Logo */}
-      <div className="flex items-center justify-between h-12 px-4 border-b border-gray-200">
-        {!collapsed && <span className="font-semibold text-lg text-gray-900">ANOS</span>}
-        <button onClick={onToggle} className="p-1 rounded hover:bg-gray-200 text-gray-500">
+      <div className="flex items-center justify-between h-14 px-4 border-b border-gray-200">
+        {collapsed ? (
+          <div className="w-8 h-8 relative mx-auto">
+            <Image src="/ample-logo.webp" alt="AMPLE" fill className="object-contain" priority />
+          </div>
+        ) : (
+          <div className="relative h-7 w-28">
+            <Image src="/ample-logo.webp" alt="AMPLE" fill className="object-contain object-left" priority />
+          </div>
+        )}
+        <button onClick={onToggle} className="p-1 rounded hover:bg-gray-200 text-gray-500 shrink-0">
           {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
         </button>
       </div>
@@ -102,7 +111,9 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
       </nav>
 
       {!collapsed && (
-        <div className="px-4 py-3 border-t border-gray-200 text-xs text-gray-400">ANOS V2.0</div>
+        <div className="px-4 py-3 border-t border-gray-200 text-xs text-gray-400">
+          ANOS V2.0
+        </div>
       )}
     </aside>
   );

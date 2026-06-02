@@ -35,7 +35,7 @@ export default function LoginPage() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(99,102,241,0.06),transparent_60%),radial-gradient(circle_at_70%_70%,rgba(124,58,237,0.06),transparent_60%)]" />
       <div className="login-card relative z-10 animate-in-up">
         <div className="login-icon mx-auto mb-6">
-          <Bot size={24} className="text-white" />
+          <img src="/ample-logo.webp" alt="AMPLE" className="w-12 h-12 object-contain" />
         </div>
         <h1 className="text-2xl font-semibold text-text-primary text-center tracking-tight mb-1">ANOS</h1>
         <p className="text-sm text-text-tertiary text-center mb-8">Ample AI Native OS</p>

@@ -16,7 +16,6 @@ interface WorkspaceLayoutProps {
   commandBarPlaceholder?: string;
   onCommand?: (input: string) => void;
   agentStatuses?: { label: string; color: string }[];
-  topBarRight?: ReactNode;
 }
 
 export function WorkspaceLayout({
@@ -28,7 +27,6 @@ export function WorkspaceLayout({
   commandBarPlaceholder,
   onCommand,
   agentStatuses = [],
-  topBarRight,
 }: WorkspaceLayoutProps) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -43,14 +41,19 @@ export function WorkspaceLayout({
         <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
 
         <div className="flex-1 flex flex-col min-w-0">
-          {/* Top Bar — 全局AI搜索 + Today过滤按钮 (对齐原型) */}
+          {/* Top Bar */}
           <header className="flex items-center justify-between h-12 px-6 bg-white border-b border-gray-200 shrink-0">
             <div className="flex items-center gap-4 flex-1">
-              <h1 className="text-lg font-semibold text-gray-900 shrink-0">{title}</h1>
+              {/* Logo + Title */}
+              <div className="flex items-center gap-3 shrink-0">
+                <img src="/ample-logo.webp" alt="AMPLE" className="h-6 w-auto object-contain" />
+                <span className="text-gray-300 text-lg">|</span>
+                <h1 className="text-lg font-semibold text-gray-900">{title}</h1>
+              </div>
 
-              {/* 全局 AI 搜索栏 (原型核心功能) */}
+              {/* 全局 AI 搜索栏 */}
               {showGlobalSearch && (
-                <div className="flex-1 max-w-2xl">
+                <div className="flex-1 max-w-2xl ml-4">
                   <input
                     type="text"
                     placeholder="你想完成什么工作？找客户、分析库存、整理询价..."
@@ -63,7 +66,7 @@ export function WorkspaceLayout({
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
-              {/* Today / 本周 / 本月 时间筛选按钮 (原型功能) */}
+              {/* Today / 本周 / 本月 时间筛选 */}
               {showTodayFilter && (
                 <div className="flex items-center gap-1 border border-gray-200 rounded-lg p-0.5">
                   <button className="px-3 py-1 text-xs rounded-md bg-primary-500 text-white font-medium">Today</button>
@@ -72,12 +75,10 @@ export function WorkspaceLayout({
                 </div>
               )}
 
-              {/* Agent 状态指示器 */}
+              {/* Agent 状态 */}
               {agentStatuses.map((a, i) => (
                 <span key={i} className={a.color}>{a.label}</span>
               ))}
-
-              {topBarRight}
             </div>
           </header>
 
@@ -91,7 +92,6 @@ export function WorkspaceLayout({
             )}
           </div>
 
-          {/* Bottom Command Bar */}
           <BottomCommandBar
             placeholder={commandBarPlaceholder}
             onSubmit={handleCommand}
