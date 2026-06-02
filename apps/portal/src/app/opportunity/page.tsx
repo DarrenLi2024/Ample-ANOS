@@ -1,4 +1,6 @@
 'use client';
+import { SourceCard } from '@/components/SourceCard';
+import { HumanApprovalPanel } from '@/components/HumanApprovalPanel';
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 

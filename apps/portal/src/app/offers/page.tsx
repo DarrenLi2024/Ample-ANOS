@@ -1,6 +1,7 @@
 'use client';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { SourceCard } from '@/components/SourceCard';
+import { RoleAwareField } from '@/components/RoleAwareField';
 import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
 
 const resources = [

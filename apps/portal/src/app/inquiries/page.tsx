@@ -13,6 +13,7 @@ async function fetchApi(path: string) {
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { SourceCard } from '@/components/SourceCard';
+import { RoleAwareField } from '@/components/RoleAwareField';
 import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
 
 const defaultInquiries = [
