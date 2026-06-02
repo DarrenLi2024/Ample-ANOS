@@ -154,7 +154,7 @@ export function BottomCommandBar({
 
               {/* 文件类型图标行 — 默认态 */}
               {!isActive && (
-                <div className="flex items-center gap-1 mt-2.5 pt-2.5 border-t border-gray-100">
+                <div className="flex items-center justify-center gap-1 mt-2.5 pt-2.5 border-t border-gray-100">
                   {fileTypes.map((ft, i) => (
                     <button
                       key={i}
