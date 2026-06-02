@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANOS P0 实施确认表</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F3F4F6; color: #111827; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  h2 { font-size: 18px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #E5E7EB; }
+  .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .item { padding: 16px 0; border-bottom: 1px solid #F3F4F6; }
+  .item:last-child { border-bottom: none; }
+  .item-label { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .item-desc { font-size: 13px; color: #6B7280; margin-bottom: 10px; }
+  .radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
+  .radio-group label { display: flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; padding: 6px 14px; border: 1.5px solid #E5E7EB; border-radius: 8px; transition: all .15s; }
+  .radio-group label:hover { border-color: #93C5FD; background: #EFF6FF; }
+  .radio-group input[type="radio"] { accent-color: #3B82F6; }
+  .radio-group input[type="radio"]:checked + span { font-weight: 600; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+  .tag-p0 { background: #FEE2E2; color: #DC2626; }
+  .tag-p1 { background: #FEF3C7; color: #D97706; }
+  .tag-p2 { background: #DBEAFE; color: #2563EB; }
+  .submit-btn { display: block; width: 100%; padding: 14px; background: #3B82F6; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 16px; }
+  .submit-btn:hover { background: #2563EB; }
+  .note { font-size: 13px; color: #6B7280; margin-top: 8px; }
+  .recommended { color: #059669; font-size: 12px; font-weight: 500; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📋 ANOS P0 实施确认表</h1>
+<p style="color:#6B7280;font-size:14px">请逐项确认。大部分已填入推荐答案，您只需确认 YES/NO 或补充修改。</p>
+
+<!-- ============================================================ -->
+<!-- Section 1: P0 范围决策 (8 项核心) -->
+<!-- ============================================================ -->
+<div class="section">
+<h2>1️⃣ P0 范围决策 <span class="tag tag-p0">P0</span></h2>
+
+<div class="item">
+  <div class="item-label">1.1 P0 是否以 Trading Intelligence OS 为唯一主线？</div>
+  <div class="item-desc">不扩展 HR OS、Culture OS。聚焦销售、采购、风控三个核心角色的交易智能闭环。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d1" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d1" value="no"> <span>❌ NO，需要调整</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.2 AI Inbox 是否作为 ANOS 首页优先上线？</div>
+  <div class="item-desc">先支持文本和文件上传两类输入，邮件/截图后续迭代。首页显示 KPI + 动态流 + Agent 建议。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d2" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d2" value="no"> <span>❌ NO</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.3 P0 是否纳入 SO Base（销售订单）？</div>
+  <div class="item-desc">当前代码已建 SO 表。若 ERP 接口不稳定，SO 先做只读参考。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d3" value="enhancement" checked> <span>✅ 纳入，作为增强项 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d3" value="must"> <span>✅ 纳入，作为必做项</span></label>
+    <label><input type="radio" name="d3" value="no"> <span>❌ 不纳入 P0</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.4 数据唯一键确认</div>
+  <div class="item-desc">
+    Product 唯一键: Brand + MPN &nbsp;|&nbsp;
+    Customer 唯一键: CustomerID (优先) + 名称辅助 &nbsp;|&nbsp;
+    Supplier 唯一键: SupplierID (优先) + 名称辅助
+  </div>
+  <div class="radio-group">
+    <label><input type="radio" name="d4" value="yes" checked> <span>✅ YES，按此标准 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d4" value="adjust"> <span>⚠️ 需要调整(请在下方备注)</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.5 初始数据导入方式</div>
+  <div class="item-desc">脱敏 Excel 导入优先，API 按需接入。当前代码已支持 SQLite 种子数据 + ERP 导入模块骨架。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d5" value="excel" checked> <span>✅ Excel 导入优先 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d5" value="api"> <span>✅ 直接 API 同步</span></label>
+    <label><input type="radio" name="d5" value="both"> <span>✅ 两者并行</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.6 Opportunity Match Score 第一版评分权重</div>
+  <div class="item-desc">型号匹配 40% + 库存 20% + 价格 15% + 交期 15% + 风险 10%</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d6" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d6" value="adjust"> <span>⚠️ 调整权重</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.7 P0 试运行范围</div>
+  <div class="item-desc">销售、采购、风控各选 1-2 名试点用户，避免一开始全员上线。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d7" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d7" value="adjust"> <span>⚠️ 调整试点范围</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">1.8 P0 验收负责人</div>
+  <div class="item-desc">建议: 项目 Owner + 三部门负责人（销售/采购/风控）</div>
+  <div class="radio-group">
+    <label><input type="radio" name="d8" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="d8" value="no"> <span>❌ 指定其他人</span></label>
+  </div>
+  <div class="note">如需指定其他人，请在此备注：<input type="text" style="width:100%;padding:8px;border:1px solid #E5E7EB;border-radius:6px;margin-top:4px" placeholder="请输入验收负责人姓名"></div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Section 2: 飞书资源盘点 (关键项) -->
+<!-- ============================================================ -->
+<div class="section">
+<h2>2️⃣ 飞书资源盘点 <span class="tag tag-p0">P0</span></h2>
+
+<div class="item">
+  <div class="item-label">2.1 ANOS 项目飞书空间名称</div>
+  <div class="item-desc">建议新建独立空间: "ANOS Data Hub"，用于存放所有 P0 多维表格。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="f1" value="anos-data-hub" checked> <span>✅ 新建 "ANOS Data Hub" <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="f1" value="existing"> <span>⚠️ 使用已有空间</span></label>
+  </div>
+  <div class="note">如果使用已有空间，请填写空间名称/URL：<input type="text" style="width:100%;padding:8px;border:1px solid #E5E7EB;border-radius:6px;margin-top:4px" placeholder="飞书空间名称或链接"></div>
+</div>
+
+<div class="item">
+  <div class="item-label">2.2 P0 表是新建还是复用现有表格？</div>
+  <div class="item-desc">当前代码有完整 10 张 SQLite 表。飞书多维表格可以独立于代码建设。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="f2" value="new" checked> <span>✅ 全部新建 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="f2" value="mixed"> <span>⚠️ 部分复用</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">2.3 以下知识源是否存在且可获取链接？</div>
+  <div class="item-desc">
+    销售 SOP &nbsp;|&nbsp; 采购 SOP &nbsp;|&nbsp; 风控/回款规则 &nbsp;|&nbsp; 产品知识库
+  </div>
+  <div class="radio-group">
+    <label><input type="radio" name="f3" value="yes" checked> <span>✅ YES，可提供链接 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="f3" value="partial"> <span>⚠️ 部分存在</span></label>
+    <label><input type="radio" name="f3" value="no"> <span>❌ 暂无</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">2.4 飞书管理员权限是否已确认？</div>
+  <div class="item-desc">需要应用创建、多维表格高级权限、API 权限。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="f4" value="yes"> <span>✅ YES</span></label>
+    <label><input type="radio" name="f4" value="pending"> <span>⚠️ 待确认 <span class="recommended">(推荐)</span></span></label>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Section 3: 权限矩阵确认 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2>3️⃣ 权限矩阵确认 <span class="tag tag-p1">P1</span></h2>
+
+<div class="item">
+  <div class="item-label">3.1 销售角色能否看到供应商真实名称？</div>
+  <div class="item-desc">当前代码: 不能。脱敏为供应资源 ID (SR-XXX)。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="p1" value="no" checked> <span>✅ 不能 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="p1" value="yes"> <span>⚠️ 允许</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">3.2 采购角色能否看到客户真实名称？</div>
+  <div class="item-desc">当前代码: 不能。脱敏为客户 ID (C-XXXXX)。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="p2" value="no" checked> <span>✅ 不能 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="p2" value="yes"> <span>⚠️ 允许</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">3.3 Sales Agent 是否可以自动发送正式报价？</div>
+  <div class="item-desc">当前代码: 不能。只生成报价草案，需人工确认。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="p3" value="no" checked> <span>✅ 不能 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="p3" value="yes"> <span>⚠️ 允许自动发送</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">3.4 Credit Agent 是否可以自动冻结客户信用？</div>
+  <div class="item-desc">当前代码: 不能。只生成风险建议，需人工确认。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="p4" value="no" checked> <span>✅ 不能 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="p4" value="yes"> <span>⚠️ 允许自动冻结</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">3.5 风控能否看到采购成本？</div>
+  <div class="item-desc">当前代码: 不能。采购价对风控角色隐藏。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="p5" value="no" checked> <span>✅ 不能 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="p5" value="yes"> <span>⚠️ 允许</span></label>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Section 4: ERP 与数据 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2>4️⃣ ERP 样例数据 <span class="tag tag-p1">P1</span></h2>
+
+<div class="item">
+  <div class="item-label">4.1 ERP 样例数据是否可以提供？</div>
+  <div class="item-desc">需要: 10个客户 + 10个供应商 + 20条RFQ + 10条AR记录（脱敏处理）。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="e1" value="yes"> <span>✅ YES，可以提供</span></label>
+    <label><input type="radio" name="e1" value="pending" checked> <span>⚠️ 待确认 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="e1" value="use-demo"> <span>✅ 先用代码中的演示数据</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">4.2 ERP API 接口是否可用？</div>
+  <div class="item-desc">如果不可用，先采用 Excel 导入模式。代码已支持两种方式。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="e2" value="yes"> <span>✅ YES，API 可用</span></label>
+    <label><input type="radio" name="e2" value="no" checked> <span>✅ 先用 Excel 导入 <span class="recommended">(推荐)</span></span></label>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Section 5: 认证方案 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2>5️⃣ 认证方案确认 <span class="tag tag-p1">P1</span></h2>
+
+<div class="item">
+  <div class="item-label">5.1 飞书 SSO 接入时间线</div>
+  <div class="item-desc">Phase 1 先用 JWT 开发 Token 验证功能，Phase 2 对接飞书 SSO 实现部门→角色自动映射。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="a1" value="phase2" checked> <span>✅ Phase 1 JWT + Phase 2 飞书 SSO <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="a1" value="now"> <span>✅ 直接上飞书 SSO</span></label>
+    <label><input type="radio" name="a1" value="jwt-only"> <span>⚠️ 只用 JWT，暂不接飞书</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">5.2 飞书部门→ANOS 角色映射是否合理？</div>
+  <div class="item-desc">销售部→Sales &nbsp;|&nbsp; 采购部→Procurement &nbsp;|&nbsp; 财务部→Risk &nbsp;|&nbsp; 管理层→CEO</div>
+  <div class="radio-group">
+    <label><input type="radio" name="a2" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="a2" value="adjust"> <span>⚠️ 需调整映射</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">5.3 是否需要一人多角色？</div>
+  <div class="item-desc">如某员工既是销售又是风控。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="a3" value="no" checked> <span>✅ 不需要 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="a3" value="yes"> <span>⚠️ 需要</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">5.4 试点用户名单</div>
+  <div class="item-desc">Phase 1 需要: 销售 X 人 + 采购 X 人 + 风控 X 人</div>
+  <div class="note">请填写试点用户人数：<input type="text" style="width:100%;padding:8px;border:1px solid #E5E7EB;border-radius:6px;margin-top:4px" placeholder="例如: 销售2人, 采购2人, 风控1人"></div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Section 6: 验收标准 -->
+<!-- ============================================================ -->
+<div class="section">
+<h2>6️⃣ 端到端验收标准 <span class="tag tag-p1">P1</span></h2>
+
+<div class="item">
+  <div class="item-label">6.1 P0 验收通过标准</div>
+  <div class="item-desc">
+    至少 20 条 RFQ 完成结构化 |
+    至少 20 条供应资源完成结构化 |
+    至少 5 条 Opportunity 生成 |
+    至少 10 条 AR 风险进入风险池 |
+    销售/采购/风控各完成一次真实任务 |
+    所有样例均有 Source 字段 |
+    权限测试无高危问题
+  </div>
+  <div class="radio-group">
+    <label><input type="radio" name="t1" value="yes" checked> <span>✅ YES <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="t1" value="adjust"> <span>⚠️ 调整标准</span></label>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-label">6.2 试运行周期</div>
+  <div class="item-desc">建议 2-4 周，视飞书实施进度调整。</div>
+  <div class="radio-group">
+    <label><input type="radio" name="t2" value="2-4weeks" checked> <span>✅ 2-4 周 <span class="recommended">(推荐)</span></span></label>
+    <label><input type="radio" name="t2" value="6-8weeks"> <span>⚠️ 6-8 周</span></label>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Submit -->
+<!-- ============================================================ -->
+<button class="submit-btn" onclick="generateReport()">📋 生成确认报告</button>
+<div id="report" style="margin-top:16px;padding:24px;background:#F9FAFB;border-radius:12px;display:none;white-space:pre-wrap;font-family:monospace;font-size:13px"></div>
+
+</div>
+
+<script>
+function generateReport() {
+  const form = document.querySelectorAll('input[type="radio"]:checked');
+  const items = document.querySelectorAll('.item');
+  let report = '# ANOS P0 确认报告\n\n生成时间: ' + new Date().toLocaleString() + '\n\n';
+
+  items.forEach((item, i) => {
+    const label = item.querySelector('.item-label')?.textContent?.trim() || '';
+    const desc = item.querySelector('.item-desc')?.textContent?.trim() || '';
+    const selected = item.querySelector('input[type="radio"]:checked');
+    const val = selected ? selected.value : '未选择';
+    const isRecommended = selected?.parentElement?.querySelector('.recommended') !== null;
+    report += `## ${label}\n`;
+    report += `选择: ${val}${isRecommended ? ' (推荐)' : ''}\n`;
+    const noteInput = item.querySelector('input[type="text"]');
+    if (noteInput && noteInput.value) {
+      report += `备注: ${noteInput.value}\n`;
+    }
+    if (val === 'adjust' || val === 'no') {
+      report += `⚠️ 需要跟进讨论\n`;
+    }
+    report += '\n';
+  });
+
+  document.getElementById('report').textContent = report;
+  document.getElementById('report').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

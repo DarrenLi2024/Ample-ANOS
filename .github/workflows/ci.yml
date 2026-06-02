@@ -1,0 +1,131 @@
+name: ANOS CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ============================================================================
+  # Job 1: 代码质量检查
+  # ============================================================================
+  quality:
+    name: Lint & TypeCheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: TypeScript Type Check
+        run: pnpm typecheck
+
+      - name: Prettier Format Check
+        run: pnpm format:check
+
+  # ============================================================================
+  # Job 2: 数据库迁移 + 种子数据 + API 服务验证
+  # ============================================================================
+  api-test:
+    name: API Service Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Database Migration
+        run: npx tsx services/api/src/db/migrate.ts
+        working-directory: services/api
+
+      - name: Seed Basic Data
+        run: npx tsx services/api/src/db/seed.ts
+        working-directory: services/api
+
+      - name: Seed Extended Data
+        run: npx tsx services/api/src/db/seed-extended.ts
+        working-directory: services/api
+
+      - name: Start API & Health Check
+        run: |
+          npx tsx src/index.ts &
+          API_PID=$!
+          sleep 3
+          curl -f http://localhost:3000/health || (kill $API_PID && exit 1)
+          curl -f http://localhost:3000/api/customers || (kill $API_PID && exit 1)
+          curl -f http://localhost:3000/api/inquiries || (kill $API_PID && exit 1)
+          kill $API_PID
+        working-directory: services/api
+
+  # ============================================================================
+  # Job 3: Portal 构建验证
+  # ============================================================================
+  portal-build:
+    name: Portal Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build Portal
+        run: npx next build
+        working-directory: apps/portal
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:3001
+
+  # ============================================================================
+  # Job 4: Docker 镜像构建 (仅 main 分支)
+  # ============================================================================
+  docker:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build API Docker Image
+        run: docker build --target api-runner -t anos-api:latest .
+
+      - name: Build Portal Docker Image
+        run: docker build --target portal-runner -t anos-portal:latest .
