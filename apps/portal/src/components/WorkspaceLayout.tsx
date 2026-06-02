@@ -40,31 +40,26 @@ export function WorkspaceLayout({
         <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
 
         <div className="flex-1 flex flex-col min-w-0">
-          {/* Top Bar — 精确复刻原型图 */}
-          <header className="flex items-center h-[52px] px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-3">
-            {/* Logo + Title */}
-            <div className="flex items-center gap-3 shrink-0">
-              <img src="/ample-logo.webp" alt="AMPLE" className="h-5 w-auto" />
-              <span className="text-[#D1D5DB] text-lg font-light">|</span>
-              <h1 className="text-[15px] font-semibold text-gray-900">{title}</h1>
+          {/* Top Bar */}
+          <header className="flex items-center h-[52px] px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-4">
+            <h1 className="text-[15px] font-semibold text-gray-900 shrink-0">{title}</h1>
+
+            {/* 全局搜索 */}
+            <div className="relative flex-1 max-w-[480px]">
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                placeholder="你想完成什么工作？找客户、分析库存、整理询价..."
+                className="w-full pl-9 pr-4 py-1.5 text-[13px] bg-gray-50 border border-gray-200 rounded-lg
+                           focus:outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300
+                           placeholder:text-gray-400"
+              />
             </div>
 
             {/* TopBar children (Today按钮等) */}
-            {topBarChildren && <div className="flex-1">{topBarChildren}</div>}
+            {topBarChildren}
 
             <div className="flex items-center gap-3 ml-auto shrink-0">
-              {/* 全局搜索 */}
-              <div className="relative hidden lg:block">
-                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="你想完成什么工作？"
-                  className="w-[260px] pl-9 pr-4 py-1.5 text-[13px] bg-gray-50 border border-gray-200 rounded-lg
-                             focus:outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300
-                             placeholder:text-gray-400"
-                />
-              </div>
-
               {/* 通知 */}
               <button className="relative p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors">
                 <Bell size={18} />
@@ -85,20 +80,24 @@ export function WorkspaceLayout({
 
           {/* Main + Right Panel */}
           <div className="flex-1 flex overflow-hidden">
-            <main className="flex-1 overflow-y-auto">{children}</main>
+            {/* 中间工作区 + 底部指令栏 */}
+            <div className="flex-1 flex flex-col min-w-0">
+              <div className="flex-1 overflow-y-auto">{children}</div>
+              <BottomCommandBar
+                placeholder={commandBarPlaceholder}
+                onSubmit={handleCommand}
+                processing={processing}
+                agentThinking={processing ? 'AI 正在理解你的指令...' : undefined}
+              />
+            </div>
+
+            {/* 右侧面板 (指令栏不跨入此区域) */}
             {rightPanel && (
               <aside className="w-[400px] border-l border-[#E8EAED] bg-white overflow-y-auto shrink-0">
                 {rightPanel}
               </aside>
             )}
           </div>
-
-          <BottomCommandBar
-            placeholder={commandBarPlaceholder}
-            onSubmit={handleCommand}
-            processing={processing}
-            agentThinking={processing ? 'AI 正在理解你的指令...' : undefined}
-          />
         </div>
       </div>
     </LayoutContext.Provider>
