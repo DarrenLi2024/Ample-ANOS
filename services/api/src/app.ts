@@ -1,6 +1,3 @@
-/**
- * ANOS API 应用实例
- */
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
@@ -21,22 +18,20 @@ import { arRoutes } from './routes/ar';
 import { agentRoutes } from './routes/agents';
 import { auditRoutes } from './routes/audit';
 import { knowledgeRoutes } from './routes/knowledge';
+import { uploadRoutes } from './routes/upload';
+import { parseRoutes } from './routes/parse';
 
 const app = new Hono();
 
-// Security: CORS
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
 app.use('*', cors({
-  origin: process.env.NODE_ENV === 'production'
-    ? corsOrigin
-    : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
+  origin: process.env.NODE_ENV === 'production' ? corsOrigin : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
   allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization', 'X-User-Id', 'X-User-Name', 'X-User-Role', 'X-User-Dept'],
   exposeHeaders: ['X-Request-Id', 'X-RateLimit-Limit', 'X-RateLimit-Remaining', 'X-RateLimit-Reset'],
   maxAge: 86400,
 }));
 
-// Security
 app.use('*', securityHeaders);
 app.use('*', rateLimiter);
 app.use('*', bodyLimit);
@@ -49,14 +44,13 @@ app.use('*', async (c, next) => {
   await next();
 });
 
-// Health
 app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.3.0', status: 'ok' }));
 app.get('/health', (c) => c.json({ status: 'healthy', timestamp: new Date().toISOString(), uptime: process.uptime() }));
 
-// Auth (public)
+// Auth
 app.route('/api/auth', authRoutes);
 
-// Protected Routes
+// Business routes
 app.route('/api/customers', customerRoutes);
 app.route('/api/suppliers', supplierRoutes);
 app.route('/api/products', productRoutes);
@@ -68,6 +62,10 @@ app.route('/api/ar', arRoutes);
 app.route('/api/agents', agentRoutes);
 app.route('/api/audit', auditRoutes);
 app.route('/api/knowledge', knowledgeRoutes);
+
+// File & Parse
+app.route('/api/upload', uploadRoutes);
+app.route('/api/parse', parseRoutes);
 
 app.onError(errorHandler);
 
