@@ -422,7 +422,6 @@ const tables = sqlite.prepare("SELECT name FROM sqlite_master WHERE type='table'
 console.log(`\n📋 Tables (${tables.length}):`);
 tables.forEach((t) => console.log(`  - ${t.name}`));
 
-sqlite.close();
 
 // ============================================================================
 // 添加性能索引
@@ -490,3 +489,6 @@ const fkTxn = sqlite.transaction(() => {
 fkTxn();
 
 console.log(`✅ ${foreignKeys.length} foreign key indexes created`);
+
+sqlite.close();
+console.log("✅ Migration complete");
