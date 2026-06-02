@@ -13,7 +13,7 @@ const defaultInquiries = [
 ];
 
 export default function InquiryCenterPage() {
-const [inquiryData, setInquiryData] = useState(inquiries);
+const [inquiryData, setInquiryData] = useState(defaultInquiries);
   useEffect(() => { fetchApi('/api/inquiries').then(d => { if (d?.length) setInquiryData(d.map((r:any) => ({ id: r.inquiry_id?.slice(0,10) || r.inquiry_id, customer: r.customer_id, mpn: r.mpn, qty: r.quantity, status: r.status, priority: r.priority, time: r.created_at?.slice(0,10) || '' }))); }).catch(()=>{}); }, []);
   return (
     <WorkspaceLayout title="询价中心"

@@ -16,7 +16,7 @@ const defaultRisks = [
 const rTag: Record<string, string> = { L4: 'tag-red', L3: 'tag-yellow', L2: 'tag-blue', L1: 'tag-green' };
 
 export default function RiskCenterPage() {
-const [arData, setArData] = useState(risks);
+const [arData, setArData] = useState(defaultRisks);
   useEffect(() => { fetchApi('/api/ar').then(d => { if (d?.length) setArData(d.map((r:any) => ({ customer: r.customer_id, outstanding: r.outstanding_amount, overdue: r.overdue_days, risk: r.risk_level?.replace('L','L')?.replace('_','') || 'L1', action: r.ai_collection_suggestion || '关注' }))); }).catch(()=>{}); }, []);
   return (
     <WorkspaceLayout title="风控中心"
