@@ -151,8 +151,8 @@ export function BottomCommandBar({
                 <div key={i} className="flex items-start gap-2 px-3 py-2 bg-brand-50 text-brand-700 rounded-lg text-sm">
                   <FileText size={14} className="mt-0.5 shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2"><span className="font-medium truncate">{f.name}</span><span className="text-[13px] text-brand-400">{f.category}</span></div>
-                    {f.content !== '解析中...' && <p className="text-[13px] text-brand-600 mt-0.5 line-clamp-2">{f.content.slice(0, 100)}</p>}
+                    <div className="flex items-center gap-2"><span className="font-medium truncate">{f.name}</span><span className="text-sm text-brand-400">{f.category}</span></div>
+                    {f.content !== '解析中...' && <p className="text-sm text-brand-600 mt-0.5 line-clamp-2">{f.content.slice(0, 100)}</p>}
                   </div>
                   <button onClick={() => setParsedFiles((p) => p.filter((_, j) => j !== i))} className="text-brand-400 hover:text-brand-600 shrink-0"><X size={14} /></button>
                 </div>
@@ -170,13 +170,13 @@ export function BottomCommandBar({
                 <textarea value={input} onChange={e => setInput(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
                   onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
                   placeholder={placeholder} rows={2}
-                  className="w-full bg-transparent border-none outline-none resize-none text-[15px] text-gray-900 placeholder:text-gray-400 leading-relaxed"
+                  className="w-full bg-transparent border-none outline-none resize-none text-base text-gray-900 placeholder:text-gray-400 leading-relaxed"
                   disabled={processing} autoFocus />
               ) : (
                 <input type="text" value={input} onChange={e => setInput(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
                   onKeyDown={e => e.key === 'Enter' && handleSubmit()}
                   placeholder={placeholder}
-                  className="w-full bg-transparent border-none outline-none text-[15px] text-gray-900 placeholder:text-gray-400"
+                  className="w-full bg-transparent border-none outline-none text-base text-gray-900 placeholder:text-gray-400"
                   disabled={processing} />
               )}
 
@@ -185,7 +185,7 @@ export function BottomCommandBar({
                   {fileTypes.map((ft, i) => (
                     <button key={i} onClick={() => { if (fileInputRef.current) { fileInputRef.current.accept = ft.accept; fileInputRef.current.click(); } }}
                       className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-white transition-colors" title={ft.label}>
-                      {ft.icon}<span className="text-[13px] font-medium">{ft.label}</span>
+                      {ft.icon}<span className="text-sm font-medium">{ft.label}</span>
                     </button>
                   ))}
                 </div>

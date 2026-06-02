@@ -77,7 +77,7 @@ export function WorkspaceLayout({
               ))}
 
               {/* 用户头像 */}
-              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-[13px] ring-2 ring-white">
+              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-sm ring-2 ring-white">
                 DL
               </div>
             </div>

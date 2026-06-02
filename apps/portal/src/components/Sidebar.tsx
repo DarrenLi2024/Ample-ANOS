@@ -79,7 +79,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
             </div>
             <div className="min-w-0">
               <div className="text-base font-semibold text-gray-900 truncate">Darren Li</div>
-              <div className="text-[13px] text-gray-500 mt-0.5">CEO · AI Level L5</div>
+              <div className="text-sm text-gray-500 mt-0.5">CEO · AI Level L5</div>
             </div>
           </div>
         </div>
