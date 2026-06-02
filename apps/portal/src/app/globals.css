@@ -52,16 +52,6 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 
   /* 字号 Scale (基于 14px 基准) */
-  --text-3xs:  0.6875rem;  /* 11px — Badge最小标注 */
-  --text-2xs:  0.75rem;    /* 12px — 辅助信息、表格内容 */
-  --text-xs:   0.8125rem;  /* 13px — 正文基准 */
-  --text-sm:   0.875rem;   /* 14px — 卡片标题、导航项 */
-  --text-base: 0.9375rem;  /* 15px — TopBar标题 */
-  --text-lg:   1.0625rem;  /* 17px — 区块标题 */
-  --text-xl:   1.125rem;   /* 18px — 页面大标题 */
-  --text-2xl:  1.25rem;    /* 20px — 页面大标题 */
-  --text-3xl:  1.5rem;     /* 24px */
-  --text-4xl:  1.75rem;    /* 28px — KPI数值 */
 }
 
 /* ============================================================================
@@ -73,7 +63,7 @@ html {
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 body { margin: 0; min-height: 100vh; }
@@ -135,7 +125,7 @@ body { margin: 0; min-height: 100vh; }
 .btn-primary {
   background: #2B6FF2; color: white; border: none;
   border-radius: var(--radius-btn); font-weight: 500;
-  font-size: var(--text-lg); padding: 8px 18px; cursor: pointer;
+  font-size: var(--text-sm); padding: 8px 18px; cursor: pointer;
   transition: background 150ms;
 }
 .btn-primary:hover { background: #1A5AD9; }
@@ -145,7 +135,7 @@ body { margin: 0; min-height: 100vh; }
   background: white; color: var(--color-text-primary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-btn); font-weight: 500;
-  font-size: var(--text-lg); padding: 8px 18px; cursor: pointer;
+  font-size: var(--text-sm); padding: 8px 18px; cursor: pointer;
   transition: all 150ms;
 }
 .btn-outline:hover { border-color: #2B6FF2; color: #2B6FF2; background: #F8FAFF; }
@@ -154,7 +144,7 @@ body { margin: 0; min-height: 100vh; }
 .tag {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 3px 10px; border-radius: var(--radius-tag);
-  font-size: var(--text-lg); font-weight: 500;
+  font-size: var(--text-sm); font-weight: 500;
 }
 .tag-blue   { background: #EBF1FF; color: #2B6FF2; }
 .tag-green  { background: #ECFDF5; color: #059669; }
@@ -171,7 +161,7 @@ body { margin: 0; min-height: 100vh; }
 .proto-input {
   width: 100%; padding: 10px 14px;
   border: 1px solid var(--color-border); border-radius: var(--radius-input);
-  font-size: var(--text-lg); color: var(--color-text-primary);
+  font-size: var(--text-sm); color: var(--color-text-primary);
   background: #F9FAFB; outline: none;
   transition: border-color 150ms, box-shadow 150ms;
 }
@@ -182,10 +172,10 @@ body { margin: 0; min-height: 100vh; }
 .proto-input::placeholder { color: #9CA3AF; }
 
 /* 表格 */
-.proto-table { width: 100%; font-size: var(--text-lg); border-collapse: collapse; }
+.proto-table { width: 100%; font-size: var(--text-xs); border-collapse: collapse; }
 .proto-table th {
   text-align: left; padding: 10px 16px;
-  font-size: var(--text-lg); font-weight: 500;
+  font-size: var(--text-sm); font-weight: 500;
   color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.5px;
   background: #F9FAFB; border-bottom: 1px solid var(--color-border);
 }
@@ -199,5 +189,5 @@ body { margin: 0; min-height: 100vh; }
 .redacted {
   color: #D1D5DB; background: #F3F4F6;
   padding: 2px 8px; border-radius: 4px;
-  font-size: var(--text-lg); cursor: default; user-select: none;
+  font-size: var(--text-xs); cursor: default; user-select: none;
 }

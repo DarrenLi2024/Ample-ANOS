@@ -90,7 +90,7 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
         {Array.from(sections.entries()).map(([section, items]) => (
           <div key={section} className="mb-3">
             {!collapsed && (
-              <div className="px-5 py-1.5 text-3xs font-semibold text-gray-400 uppercase tracking-wider">
+              <div className="px-5 py-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 {sectionLabels[section]}
               </div>
             )}
