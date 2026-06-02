@@ -5,6 +5,10 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono';
 import { errorHandler } from './middleware/error-handler';
+import { csrfProtection } from './middleware/csrf';
+import { bodyLimit } from './middleware/body-limit';
+import { rateLimiter } from './middleware/rate-limit';
+import { securityHeaders } from './middleware/security-headers';
 import { customerRoutes } from './routes/customers';
 import { supplierRoutes } from './routes/suppliers';
 import { productRoutes } from './routes/products';
@@ -18,31 +22,46 @@ import { auditRoutes } from './routes/audit';
 
 const app = new Hono();
 
-// CORS — 开发环境允许 localhost, 生产环境由环境变量限制
+// Security: CORS
 const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
 app.use(
   '*',
   cors({
-    origin: process.env.NODE_ENV === 'production' ? corsOrigin : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
+    origin: process.env.NODE_ENV === 'production'
+      ? corsOrigin
+      : [corsOrigin, 'http://localhost:3000', 'http://localhost:3001'],
     allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'X-User-Id', 'X-User-Name', 'X-User-Role', 'X-User-Dept'],
-    exposeHeaders: ['X-Request-Id'],
+    exposeHeaders: ['X-Request-Id', 'X-RateLimit-Limit', 'X-RateLimit-Remaining', 'X-RateLimit-Reset'],
     maxAge: 86400,
   }),
 );
 
-// Logger
+// Security: Headers
+app.use('*', securityHeaders);
+
+// Security: Rate Limiting
+app.use('*', rateLimiter);
+
+// Security: Request Body Size
+app.use('*', bodyLimit);
+
+// Security: CSRF Protection
+app.use('*', csrfProtection);
+
+// Observability: Logger
 app.use('*', logger());
 
-// Request ID
+// Observability: Request ID
 app.use('*', async (c, next) => {
   c.set('requestId', crypto.randomUUID?.() || Date.now().toString(36));
+  c.header('X-Request-Id', c.get('requestId'));
   await next();
 });
 
-// Health
-app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.1.0', status: 'ok' }));
-app.get('/health', (c) => c.json({ status: 'healthy', timestamp: new Date().toISOString() }));
+// Health Check
+app.get('/', (c) => c.json({ name: 'ANOS API', version: '0.2.0', status: 'ok' }));
+app.get('/health', (c) => c.json({ status: 'healthy', timestamp: new Date().toISOString(), uptime: process.uptime() }));
 
 // P0 Routes
 app.route('/api/customers', customerRoutes);
@@ -56,7 +75,7 @@ app.route('/api/ar', arRoutes);
 app.route('/api/agents', agentRoutes);
 app.route('/api/audit', auditRoutes);
 
-// 全局错误处理
+// Global Error Handler
 app.onError(errorHandler);
 
 const port = parseInt(process.env.PORT || '3001', 10);

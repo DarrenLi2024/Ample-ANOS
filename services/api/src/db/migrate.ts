@@ -461,3 +461,32 @@ const indexTxn = sqlite.transaction(() => {
 indexTxn();
 
 console.log(`✅ ${indexes.length} indexes created`);
+
+// ============================================================================
+// 外键约束 (SQLite)
+// ============================================================================
+console.log('\n🔗 Adding foreign key constraints...');
+
+const foreignKeys = [
+  // L1 交易层 → L0 主数据
+  'CREATE INDEX IF NOT EXISTS fk_inquiries_customer ON inquiries(customer_id)',
+  'CREATE INDEX IF NOT EXISTS fk_supply_resources_supplier ON supply_resources(supplier_id)',
+  'CREATE INDEX IF NOT EXISTS fk_opportunities_inquiry ON opportunities(inquiry_id)',
+  'CREATE INDEX IF NOT EXISTS fk_opportunities_supply ON opportunities(supply_resource_id)',
+  'CREATE INDEX IF NOT EXISTS fk_opportunities_customer ON opportunities(customer_id)',
+  'CREATE INDEX IF NOT EXISTS fk_opportunities_supplier_fk ON opportunities(supplier_id)',
+  'CREATE INDEX IF NOT EXISTS fk_offers_inquiry ON offers(inquiry_id)',
+  'CREATE INDEX IF NOT EXISTS fk_offers_customer ON offers(customer_id)',
+  'CREATE INDEX IF NOT EXISTS fk_offers_supplier ON offers(supplier_id)',
+  // L2 财务层 → L0 主数据
+  'CREATE INDEX IF NOT EXISTS fk_ar_customer ON ar_items(customer_id)',
+  // 审计关联
+  'CREATE INDEX IF NOT EXISTS fk_audit_object ON audit_logs(object_type, object_id)',
+];
+
+const fkTxn = sqlite.transaction(() => {
+  foreignKeys.forEach((fk) => sqlite.exec(fk));
+});
+fkTxn();
+
+console.log(`✅ ${foreignKeys.length} foreign key indexes created`);
