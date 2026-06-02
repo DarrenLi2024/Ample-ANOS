@@ -3,30 +3,29 @@
 import { useState, createContext, useContext, type ReactNode } from 'react';
 import { Sidebar } from './Sidebar';
 import { BottomCommandBar } from './BottomCommandBar';
+import { Bell, Search } from 'lucide-react';
 
 const LayoutContext = createContext({ sidebarCollapsed: false, toggleSidebar: () => {} });
 export function useLayout() { return useContext(LayoutContext); }
 
 interface WorkspaceLayoutProps {
   title?: string;
-  showGlobalSearch?: boolean;
-  showTodayFilter?: boolean;
-  rightPanel?: ReactNode;
   children: ReactNode;
+  rightPanel?: ReactNode;
   commandBarPlaceholder?: string;
   onCommand?: (input: string) => void;
   agentStatuses?: { label: string; color: string }[];
+  topBarChildren?: ReactNode;
 }
 
 export function WorkspaceLayout({
   title = 'AI Inbox',
-  showGlobalSearch = true,
-  showTodayFilter = true,
-  rightPanel,
   children,
+  rightPanel,
   commandBarPlaceholder,
   onCommand,
   agentStatuses = [],
+  topBarChildren,
 }: WorkspaceLayoutProps) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [processing, setProcessing] = useState(false);
@@ -41,52 +40,54 @@ export function WorkspaceLayout({
         <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
 
         <div className="flex-1 flex flex-col min-w-0">
-          {/* Top Bar */}
-          <header className="flex items-center justify-between h-12 px-6 bg-white border-b border-gray-200 shrink-0">
-            <div className="flex items-center gap-4 flex-1">
-              {/* Logo + Title */}
-              <div className="flex items-center gap-3 shrink-0">
-                <img src="/ample-logo.webp" alt="AMPLE" className="h-6 w-auto object-contain" />
-                <span className="text-gray-300 text-lg">|</span>
-                <h1 className="text-lg font-semibold text-gray-900">{title}</h1>
-              </div>
-
-              {/* 全局 AI 搜索栏 */}
-              {showGlobalSearch && (
-                <div className="flex-1 max-w-2xl ml-4">
-                  <input
-                    type="text"
-                    placeholder="你想完成什么工作？找客户、分析库存、整理询价..."
-                    className="w-full px-4 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-sm
-                               focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-300
-                               placeholder:text-gray-400"
-                  />
-                </div>
-              )}
+          {/* Top Bar — 精确复刻原型图 */}
+          <header className="flex items-center h-[52px] px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-3">
+            {/* Logo + Title */}
+            <div className="flex items-center gap-3 shrink-0">
+              <img src="/ample-logo.webp" alt="AMPLE" className="h-5 w-auto" />
+              <span className="text-[#D1D5DB] text-lg font-light">|</span>
+              <h1 className="text-[15px] font-semibold text-gray-900">{title}</h1>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
-              {/* Today / 本周 / 本月 时间筛选 */}
-              {showTodayFilter && (
-                <div className="flex items-center gap-1 border border-gray-200 rounded-lg p-0.5">
-                  <button className="px-3 py-1 text-xs rounded-md bg-primary-500 text-white font-medium">Today</button>
-                  <button className="px-3 py-1 text-xs rounded-md text-gray-500 hover:text-gray-700">本周</button>
-                  <button className="px-3 py-1 text-xs rounded-md text-gray-500 hover:text-gray-700">本月</button>
-                </div>
-              )}
+            {/* TopBar children (Today按钮等) */}
+            {topBarChildren && <div className="flex-1">{topBarChildren}</div>}
+
+            <div className="flex items-center gap-3 ml-auto shrink-0">
+              {/* 全局搜索 */}
+              <div className="relative hidden lg:block">
+                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="你想完成什么工作？"
+                  className="w-[260px] pl-9 pr-4 py-1.5 text-[13px] bg-gray-50 border border-gray-200 rounded-lg
+                             focus:outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300
+                             placeholder:text-gray-400"
+                />
+              </div>
+
+              {/* 通知 */}
+              <button className="relative p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors">
+                <Bell size={18} />
+                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
+              </button>
 
               {/* Agent 状态 */}
               {agentStatuses.map((a, i) => (
                 <span key={i} className={a.color}>{a.label}</span>
               ))}
+
+              {/* 用户头像 */}
+              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-xs ring-2 ring-white">
+                DL
+              </div>
             </div>
           </header>
 
           {/* Main + Right Panel */}
           <div className="flex-1 flex overflow-hidden">
-            <main className="flex-1 overflow-y-auto p-6">{children}</main>
+            <main className="flex-1 overflow-y-auto">{children}</main>
             {rightPanel && (
-              <aside className="w-[420px] border-l border-gray-200 bg-white overflow-y-auto p-4 shrink-0">
+              <aside className="w-[400px] border-l border-[#E8EAED] bg-white overflow-y-auto shrink-0">
                 {rightPanel}
               </aside>
             )}
@@ -96,7 +97,7 @@ export function WorkspaceLayout({
             placeholder={commandBarPlaceholder}
             onSubmit={handleCommand}
             processing={processing}
-            agentThinking={processing ? 'AI 正在处理...' : undefined}
+            agentThinking={processing ? 'AI 正在理解你的指令...' : undefined}
           />
         </div>
       </div>

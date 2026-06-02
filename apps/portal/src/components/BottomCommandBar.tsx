@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Send, Paperclip, Image, Mic } from 'lucide-react';
+import { Send, Paperclip, Upload } from 'lucide-react';
 
 interface BottomCommandBarProps {
   placeholder?: string;
@@ -17,28 +17,41 @@ export function BottomCommandBar({
   const handleSubmit = () => { if (input.trim() && onSubmit) { onSubmit(input.trim()); setInput(''); } };
 
   return (
-    <div className="border-t border-gray-200 bg-white">
+    <div>
+      {/* Agent 思考指示器 */}
       {processing && agentThinking && (
-        <div className="px-4 py-2 flex items-center gap-2 text-sm text-primary-600 bg-primary-50">
-          <span className="w-2 h-2 bg-primary-500 rounded-full agent-pulse" style={{ animationDelay: '0ms' }} />
-          <span className="w-2 h-2 bg-primary-500 rounded-full agent-pulse" style={{ animationDelay: '200ms' }} />
-          <span className="w-2 h-2 bg-primary-500 rounded-full agent-pulse" style={{ animationDelay: '400ms' }} />
+        <div className="px-5 py-2 flex items-center gap-2 text-xs text-brand-600 bg-brand-50 border-t border-brand-100">
+          <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite' }} />
+          <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '200ms' }} />
+          <span className="w-1.5 h-1.5 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '400ms' }} />
           {agentThinking}
         </div>
       )}
-      <div className="flex items-center gap-3 px-4 py-3">
-        <button className="p-1.5 rounded hover:bg-gray-100 text-gray-400"><Paperclip size={18} /></button>
-        <button className="p-1.5 rounded hover:bg-gray-100 text-gray-400"><Image size={18} /></button>
-        <button className="p-1.5 rounded hover:bg-gray-100 text-gray-400"><Mic size={18} /></button>
+
+      {/* 输入栏 */}
+      <div className="flex items-center gap-3 px-5 py-3 bg-white border-t border-[#E8EAED]">
+        <button className="p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors" title="附件">
+          <Paperclip size={18} />
+        </button>
+        <button className="p-2 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors" title="上传">
+          <Upload size={18} />
+        </button>
+
         <input
-          type="text" value={input} onChange={e => setInput(e.target.value)}
+          type="text"
+          value={input}
+          onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleSubmit()}
           placeholder={placeholder}
-          className="flex-1 px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-300"
+          className="flex-1 proto-input py-2.5"
           disabled={processing}
         />
-        <button onClick={handleSubmit} disabled={!input.trim() || processing}
-          className="p-2 rounded-lg bg-primary-500 text-white hover:bg-primary-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+
+        <button
+          onClick={handleSubmit}
+          disabled={!input.trim() || processing}
+          className="btn-primary flex items-center justify-center !p-2.5 !rounded-lg"
+        >
           <Send size={18} />
         </button>
       </div>

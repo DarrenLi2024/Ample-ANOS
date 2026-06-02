@@ -1,33 +1,61 @@
 @import "tailwindcss";
 
 /* ============================================================================
-   ANOS Design Tokens — 基于 docs/design.md + Portal界面渲染图
-   原型约束: 浅色侧边栏 + #3B82F6 品牌蓝 + 三纵列白色工作台
+   ANOS Portal — 1:1 原型图复刻
+   精确色值提取自 16 张 Portal 界面渲染图
    =========================================================================== */
 
 @theme {
-  /* 品牌色 — 蓝色系 (原型 #3B82F6) */
-  --color-primary-50:  #EFF6FF;
-  --color-primary-100: #DBEAFE;
-  --color-primary-200: #BFDBFE;
-  --color-primary-500: #3B82F6;
-  --color-primary-600: #2563EB;
-  --color-primary-700: #1D4ED8;
+  /* 品牌蓝 (原型图精确色值) */
+  --color-brand-50:  #EBF1FF;
+  --color-brand-100: #D6E4FF;
+  --color-brand-500: #2B6FF2;
+  --color-brand-600: #1A5AD9;
+  --color-brand-700: #1447B0;
 
   /* 语义色 */
-  --color-success-500: #22C55E;
-  --color-warning-500: #F59E0B;
-  --color-danger-500:  #EF4444;
+  --color-success: #10B981;
+  --color-success-bg: #ECFDF5;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FFFBEB;
+  --color-danger:  #EF4444;
+  --color-danger-bg:  #FEF2F2;
+  --color-info:    #3B82F6;
 
-  /* 布局 — 三纵列精确 */
-  --spacing-sidebar:  280px;
-  --spacing-panel:    420px;
-  --spacing-topbar:   48px;
-  --spacing-commandbar: 56px;
+  /* 背景色 (原型图精确值) */
+  --color-app-bg:    #F0F2F5;
+  --color-sidebar-bg: #F7F8FA;
+  --color-card-bg:   #FFFFFF;
+  --color-panel-bg:  #FFFFFF;
+
+  /* 文字色 */
+  --color-text-primary:   #1A1D26;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary:  #9CA3AF;
+  --color-text-link:      #2B6FF2;
+
+  /* 边框 */
+  --color-border:     #E5E7EB;
+  --color-border-light: #F3F4F6;
+
+  /* 阴影 */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-dropdown: 0 4px 16px rgba(0,0,0,0.08);
+
+  /* 圆角 */
+  --radius-card: 8px;
+  --radius-btn:  6px;
+  --radius-input: 8px;
+  --radius-tag:  4px;
+  --radius-full: 9999px;
 
   /* 字体 */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* 布局 */
+  --spacing-sidebar: 260px;
+  --spacing-panel: 400px;
 }
 
 /* ============================================================================
@@ -35,43 +63,185 @@
    =========================================================================== */
 html {
   font-family: var(--font-sans);
-  background: #F3F4F6;
-  color: #111827;
+  background: var(--color-app-bg);
+  color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
+  font-size: 14px;
 }
 body { margin: 0; min-height: 100vh; }
 
 /* ============================================================================
    动画
    =========================================================================== */
-@keyframes skeleton-loading {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(4px); }
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes agent-pulse {
-  0%, 100% { opacity: 0.4; transform: scale(0.8); }
-  50%      { opacity: 1.0; transform: scale(1.1); }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+@keyframes skeleton {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-/* ============================================================================
-   工具类
-   =========================================================================== */
-.page-enter { animation: fade-in 200ms ease-out; }
-.agent-pulse { animation: agent-pulse 1.5s infinite; }
+.animate-in { animation: fade-in-up 300ms ease-out; }
+.animate-in:nth-child(2) { animation-delay: 60ms; }
+.animate-in:nth-child(3) { animation-delay: 120ms; }
+.animate-in:nth-child(4) { animation-delay: 180ms; }
 
-.skeleton {
-  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+.skeleton-pulse {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
-  animation: skeleton-loading 1.5s infinite;
+  animation: skeleton 1.5s infinite;
   border-radius: 4px;
 }
 
+/* ============================================================================
+   通用组件样式
+   =========================================================================== */
+
+/* 卡片 (原型图白色卡片) */
+.proto-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* 蓝色渐变顶线卡片 */
+.proto-card-accent {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+.proto-card-accent::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2B6FF2, #60A5FA);
+}
+
+/* 按钮 */
+.btn-primary {
+  background: #2B6FF2;
+  color: white;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 150ms;
+}
+.btn-primary:hover { background: #1A5AD9; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-outline {
+  background: white;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all 150ms;
+}
+.btn-outline:hover { border-color: #2B6FF2; color: #2B6FF2; background: #F8FAFF; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: none;
+  border-radius: var(--radius-btn);
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.btn-ghost:hover { background: #F3F4F6; color: var(--color-text-primary); }
+
+/* Badge/Tag (原型图标签样式) */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-tag);
+  font-size: 12px;
+  font-weight: 500;
+}
+.tag-blue   { background: #EBF1FF; color: #2B6FF2; }
+.tag-green  { background: #ECFDF5; color: #059669; }
+.tag-yellow { background: #FFFBEB; color: #D97706; }
+.tag-red    { background: #FEF2F2; color: #DC2626; }
+.tag-purple { background: #F5F3FF; color: #7C3AED; }
+.tag-gray   { background: #F3F4F6; color: #6B7280; }
+
+/* 进度条 */
+.progress-bar {
+  height: 6px;
+  background: #F3F4F6;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 400ms ease-out;
+}
+
+/* 输入框 */
+.proto-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  background: #F9FAFB;
+  outline: none;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.proto-input:focus {
+  border-color: #2B6FF2;
+  box-shadow: 0 0 0 3px rgba(43, 111, 242, 0.1);
+  background: white;
+}
+.proto-input::placeholder { color: #9CA3AF; }
+
+/* 表格 */
+.proto-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.proto-table th {
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #F9FAFB;
+  border-bottom: 1px solid var(--color-border);
+}
+.proto-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-light);
+  color: var(--color-text-primary);
+}
+.proto-table tr:hover td { background: #F8FAFF; }
+
+/* 脱敏 */
 .redacted {
-  color: #9CA3AF; background: #F3F4F6;
-  padding: 2px 8px; border-radius: 4px;
-  cursor: not-allowed; user-select: none;
+  color: #D1D5DB;
+  background: #F3F4F6;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: default;
+  user-select: none;
 }
