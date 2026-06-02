@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { clsx } from 'clsx';
 import {
   LayoutDashboard,
@@ -51,7 +51,8 @@ interface SidebarProps {
 }
 
 export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
-  const [activeId, setActiveId] = useState('dashboard');
+  const pathname = usePathname();
+  const router = useRouter();
 
   const sections = new Map<string, NavItem[]>();
   navItems.forEach((item) => {
@@ -59,6 +60,15 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
     list.push(item);
     sections.set(item.section, list);
   });
+
+  function isActive(item: NavItem): boolean {
+    if (item.href === '/') return pathname === '/';
+    return pathname.startsWith(item.href);
+  }
+
+  function handleNavigation(href: string) {
+    router.push(href);
+  }
 
   return (
     <aside
@@ -96,22 +106,25 @@ export function Sidebar({ collapsed = false, onToggle }: SidebarProps) {
                 {sectionLabels[section] || section}
               </div>
             )}
-            {items.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveId(item.id)}
-                className={clsx(
-                  'w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors',
-                  activeId === item.id
-                    ? 'bg-primary-50 text-primary-700 font-medium border-r-2 border-primary-500'
-                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
-                  collapsed && 'justify-center px-0',
-                )}
-              >
-                {item.icon}
-                {!collapsed && <span>{item.label}</span>}
-              </button>
-            ))}
+            {items.map((item) => {
+              const active = isActive(item);
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavigation(item.href)}
+                  className={clsx(
+                    'w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors',
+                    active
+                      ? 'bg-primary-50 text-primary-700 font-medium border-r-2 border-primary-500'
+                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+                    collapsed && 'justify-center px-0',
+                  )}
+                >
+                  {item.icon}
+                  {!collapsed && <span>{item.label}</span>}
+                </button>
+              );
+            })}
           </div>
         ))}
       </nav>
