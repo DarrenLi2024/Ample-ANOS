@@ -21,6 +21,7 @@ import { knowledgeRoutes } from './routes/knowledge';
 import { uploadRoutes } from './routes/upload';
 import { agentReasoningRoutes } from './routes/agent-reasoning';
 import { workflowRoutes } from './routes/workflow';
+import { erpSyncRoutes } from './routes/erp-sync';
 import { parseRoutes } from './routes/parse';
 
 const app = new Hono();
@@ -69,6 +70,7 @@ app.route('/api/knowledge', knowledgeRoutes);
 app.route('/api/upload', uploadRoutes);
 app.route('/api/agent-reasoning', agentReasoningRoutes);
 app.route('/api/workflow', workflowRoutes);
+app.route('/api/erp', erpSyncRoutes);
 app.route('/api/parse', parseRoutes);
 
 app.onError(errorHandler);

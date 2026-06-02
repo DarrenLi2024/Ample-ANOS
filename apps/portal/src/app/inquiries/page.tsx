@@ -1,9 +1,10 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { SourceCard } from '@/components/SourceCard';
 import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
 
-const inquiries = [
+const defaultInquiries = [
   { id: 'INQ-2026-001', customer: '华为技术', mpn: 'STM32F407VET6', qty: 5000, targetPrice: '$4.50', status: 'New', priority: 'High', time: '10:30', score: 92 },
   { id: 'INQ-2026-002', customer: '比亚迪', mpn: 'TMS320F28335PGFA', qty: 2000, targetPrice: '$9.00', status: 'Matched', priority: 'Urgent', time: '09:15', score: 85 },
   { id: 'INQ-2026-003', customer: 'Flex Ltd.', mpn: 'EP4CE22F17C8N', qty: 1000, targetPrice: '$35.00', status: 'Quoting', priority: 'Medium', time: '昨天', score: 78 },
@@ -12,6 +13,8 @@ const inquiries = [
 ];
 
 export default function InquiryCenterPage() {
+const [inquiryData, setInquiryData] = useState(inquiries);
+  useEffect(() => { fetchApi('/api/inquiries').then(d => { if (d?.length) setInquiryData(d.map((r:any) => ({ id: r.inquiry_id?.slice(0,10) || r.inquiry_id, customer: r.customer_id, mpn: r.mpn, qty: r.quantity, status: r.status, priority: r.priority, time: r.created_at?.slice(0,10) || '' }))); }).catch(()=>{}); }, []);
   return (
     <WorkspaceLayout title="询价中心"
       agentStatuses={[{ label: 'Sales Agent', color: 'tag tag-blue' }]}
@@ -35,7 +38,7 @@ export default function InquiryCenterPage() {
           <table className="proto-table">
             <thead><tr><th>Inquiry ID</th><th>客户</th><th>型号</th><th>数量</th><th>目标价</th><th>状态</th><th>优先级</th><th>匹配度</th><th>时间</th></tr></thead>
             <tbody>
-              {inquiries.map(i => (
+              {inquiryData.map(i => (
                 <tr key={i.id} className="cursor-pointer">
                   <td className="font-mono text-base text-brand-600">{i.id}</td>
                   <td className="font-medium">{i.customer}</td>

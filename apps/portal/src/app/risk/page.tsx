@@ -1,10 +1,11 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
 import { KpiCard } from '@/components/KpiCard';
 import { DollarSign, AlertTriangle, Clock, TrendingDown } from 'lucide-react';
 
-const risks = [
+const defaultRisks = [
   { customer: '汇顶科技', outstanding: 380000, overdue: 95, risk: 'L4', credit: 'C', action: '停单 + 法务催收' },
   { customer: '海康威视', outstanding: 250000, overdue: 68, risk: 'L3', credit: 'B', action: '催收函 + 暂停新单' },
   { customer: 'Jabil Inc.', outstanding: 180000, overdue: 45, risk: 'L2', credit: 'A', action: '电话催收 + 邮件提醒' },
@@ -15,6 +16,8 @@ const risks = [
 const rTag: Record<string, string> = { L4: 'tag-red', L3: 'tag-yellow', L2: 'tag-blue', L1: 'tag-green' };
 
 export default function RiskCenterPage() {
+const [arData, setArData] = useState(risks);
+  useEffect(() => { fetchApi('/api/ar').then(d => { if (d?.length) setArData(d.map((r:any) => ({ customer: r.customer_id, outstanding: r.outstanding_amount, overdue: r.overdue_days, risk: r.risk_level?.replace('L','L')?.replace('_','') || 'L1', action: r.ai_collection_suggestion || '关注' }))); }).catch(()=>{}); }, []);
   return (
     <WorkspaceLayout title="风控中心"
       agentStatuses={[{ label: 'Credit Agent', color: 'tag tag-yellow' }]}
