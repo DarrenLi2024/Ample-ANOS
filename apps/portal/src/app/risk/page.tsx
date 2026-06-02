@@ -21,11 +21,11 @@ export default function RiskCenterPage() {
       rightPanel={
         <div className="p-4 space-y-5">
           <div className="proto-card-accent p-4">
-            <h3 className="text-lg font-semibold text-gray-400 uppercase tracking-wide mb-3">风险雷达</h3>
+            <h3 className="text-[16px] font-semibold text-gray-400 uppercase tracking-wide mb-3">风险雷达</h3>
             <div className="space-y-2">
               {risks.slice(0, 3).map((r, i) => (
-                <div key={i} className="flex items-center justify-between p-2.5 rounded-md bg-gray-50 text-lg">
-                  <div><div className="font-medium text-gray-800">{r.customer}</div><div className="text-gray-400 text-lg">信用 {r.credit}</div></div>
+                <div key={i} className="flex items-center justify-between p-2.5 rounded-md bg-gray-50 text-[16px]">
+                  <div><div className="font-medium text-gray-800">{r.customer}</div><div className="text-gray-400 text-[16px]">信用 {r.credit}</div></div>
                   <div className="text-right"><div className="font-semibold text-gray-900">${r.outstanding.toLocaleString()}</div><span className={`tag ${rTag[r.risk]}`}>{r.risk} · {r.overdue}天</span></div>
                 </div>
               ))}
@@ -53,7 +53,7 @@ export default function RiskCenterPage() {
                   <td><span className={r.overdue>60?'text-red-600 font-medium':''}>{r.overdue} 天</span></td>
                   <td><span className="tag tag-gray">{r.credit}</span></td>
                   <td><span className={`tag ${rTag[r.risk]}`}>Level {r.risk.slice(1)}</span></td>
-                  <td className="text-gray-600 text-lg">{r.action}</td>
+                  <td className="text-gray-600 text-[16px]">{r.action}</td>
                 </tr>
               ))}
             </tbody>

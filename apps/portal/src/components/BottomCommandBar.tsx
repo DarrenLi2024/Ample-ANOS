@@ -127,7 +127,7 @@ export function BottomCommandBar({
       <input ref={fileInputRef} type="file" className="hidden" accept=".xlsx,.xls,.csv,.pdf,.txt,.md,.json,.png,.jpg,.jpeg,.webp" onChange={handleFileSelect} />
 
       {processing && agentThinking && (
-        <div className="px-5 py-2 flex items-center gap-2.5 text-sm text-brand-600 bg-brand-50 border-b border-brand-100">
+        <div className="px-5 py-2 flex items-center gap-2.5 text-[14px] text-brand-600 bg-brand-50 border-b border-brand-100">
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '200ms' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '400ms' }} />
@@ -138,7 +138,7 @@ export function BottomCommandBar({
       {/* 拖拽覆盖层 */}
       {dragOver && (
         <div className="absolute inset-0 bg-brand-50/90 border-2 border-dashed border-brand-400 rounded-xl flex items-center justify-center z-50">
-          <div className="text-center"><Upload size={32} className="mx-auto text-brand-500 mb-2" /><p className="text-sm text-brand-600 font-medium">释放文件以解析</p></div>
+          <div className="text-center"><Upload size={32} className="mx-auto text-brand-500 mb-2" /><p className="text-[14px] text-brand-600 font-medium">释放文件以解析</p></div>
         </div>
       )}
 
@@ -148,11 +148,11 @@ export function BottomCommandBar({
           {parsedFiles.length > 0 && (
             <div className="mb-3 space-y-2">
               {parsedFiles.map((f, i) => (
-                <div key={i} className="flex items-start gap-2 px-3 py-2 bg-brand-50 text-brand-700 rounded-lg text-sm">
+                <div key={i} className="flex items-start gap-2 px-3 py-2 bg-brand-50 text-brand-700 rounded-lg text-[14px]">
                   <FileText size={14} className="mt-0.5 shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2"><span className="font-medium truncate">{f.name}</span><span className="text-xs text-brand-400">{f.category}</span></div>
-                    {f.content !== '解析中...' && <p className="text-xs text-brand-600 mt-0.5 line-clamp-2">{f.content.slice(0, 100)}</p>}
+                    <div className="flex items-center gap-2"><span className="font-medium truncate">{f.name}</span><span className="text-[13px] text-brand-400">{f.category}</span></div>
+                    {f.content !== '解析中...' && <p className="text-[13px] text-brand-600 mt-0.5 line-clamp-2">{f.content.slice(0, 100)}</p>}
                   </div>
                   <button onClick={() => setParsedFiles((p) => p.filter((_, j) => j !== i))} className="text-brand-400 hover:text-brand-600 shrink-0"><X size={14} /></button>
                 </div>
@@ -170,13 +170,13 @@ export function BottomCommandBar({
                 <textarea value={input} onChange={e => setInput(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
                   onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
                   placeholder={placeholder} rows={2}
-                  className="w-full bg-transparent border-none outline-none resize-none text-base text-gray-900 placeholder:text-gray-400 leading-relaxed"
+                  className="w-full bg-transparent border-none outline-none resize-none text-[15px] text-gray-900 placeholder:text-gray-400 leading-relaxed"
                   disabled={processing} autoFocus />
               ) : (
                 <input type="text" value={input} onChange={e => setInput(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
                   onKeyDown={e => e.key === 'Enter' && handleSubmit()}
                   placeholder={placeholder}
-                  className="w-full bg-transparent border-none outline-none text-base text-gray-900 placeholder:text-gray-400"
+                  className="w-full bg-transparent border-none outline-none text-[15px] text-gray-900 placeholder:text-gray-400"
                   disabled={processing} />
               )}
 
@@ -185,7 +185,7 @@ export function BottomCommandBar({
                   {fileTypes.map((ft, i) => (
                     <button key={i} onClick={() => { if (fileInputRef.current) { fileInputRef.current.accept = ft.accept; fileInputRef.current.click(); } }}
                       className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-white transition-colors" title={ft.label}>
-                      {ft.icon}<span className="text-xs font-medium">{ft.label}</span>
+                      {ft.icon}<span className="text-[13px] font-medium">{ft.label}</span>
                     </button>
                   ))}
                 </div>

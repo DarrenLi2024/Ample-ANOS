@@ -48,7 +48,7 @@ function formatRedacted(mode: FieldDisplayMode, value: string, placeholder: stri
     case 'Redacted':
       return <span className="redacted">{placeholder}</span>;
     case 'RedactedAsId':
-      return <span className="redacted text-lg font-mono">{placeholder}</span>;
+      return <span className="redacted text-[16px] font-mono">{placeholder}</span>;
     case 'RedactedAsRange':
       return <span className="text-gray-400 italic">{placeholder}</span>;
     case 'RedactedAsSummary':

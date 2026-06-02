@@ -7,7 +7,7 @@ export default function LoadingPage() {
           <span className="w-3 h-3 bg-primary-500 rounded-full agent-pulse" style={{ animationDelay: '200ms' }} />
           <span className="w-3 h-3 bg-primary-500 rounded-full agent-pulse" style={{ animationDelay: '400ms' }} />
         </div>
-        <p className="text-lg text-gray-500">ANOS 加载中...</p>
+        <p className="text-[16px] text-gray-500">ANOS 加载中...</p>
       </div>
     </div>
   );

@@ -50,7 +50,7 @@ export function WorkspaceLayout({
               <input
                 type="text"
                 placeholder="你想完成什么工作？找客户、分析库存、整理询价..."
-                className="w-full pl-9 pr-4 py-1.5 text-sm bg-gray-50 border border-gray-200 rounded-lg
+                className="w-full pl-9 pr-4 py-1.5 text-[14px] bg-gray-50 border border-gray-200 rounded-lg
                            focus:outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300
                            placeholder:text-gray-400"
               />
@@ -77,7 +77,7 @@ export function WorkspaceLayout({
               ))}
 
               {/* 用户头像 */}
-              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-xs ring-2 ring-white">
+              <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-[13px] ring-2 ring-white">
                 DL
               </div>
             </div>

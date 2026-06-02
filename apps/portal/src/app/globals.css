@@ -1,76 +1,47 @@
 @import "tailwindcss";
 
 /* ============================================================================
-   ANOS Design System — 统一字体 + 原型图精确色值
+   ANOS Design System
+   全局基准: 15px
    =========================================================================== */
 
 @theme {
-  /* 品牌蓝 */
   --color-brand-50:  #EBF1FF;
   --color-brand-100: #D6E4FF;
   --color-brand-500: #2B6FF2;
   --color-brand-600: #1A5AD9;
   --color-brand-700: #1447B0;
-
-  /* 语义色 */
   --color-success: #10B981;
-  --color-success-bg: #ECFDF5;
   --color-warning: #F59E0B;
-  --color-warning-bg: #FFFBEB;
   --color-danger:  #EF4444;
-  --color-danger-bg:  #FEF2F2;
-
-  /* 背景 */
   --color-app-bg:    #F0F2F5;
   --color-sidebar-bg: #F7F8FA;
   --color-card-bg:   #FFFFFF;
-  --color-panel-bg:  #FFFFFF;
-
-  /* 文字 */
   --color-text-primary:   #1A1D26;
   --color-text-secondary: #6B7280;
   --color-text-tertiary:  #9CA3AF;
-
-  /* 边框 */
   --color-border:     #E5E7EB;
   --color-border-light: #F3F4F6;
-
-  /* 阴影 */
   --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
-
-  /* 圆角 */
   --radius-card: 8px;
   --radius-btn:  6px;
   --radius-input: 8px;
   --radius-tag:  4px;
   --radius-full: 9999px;
-
-  /* ================================================================
-     统一字体系统 — 中文优先
-     ================================================================ */
   --font-sans: 'PingFang SC', 'Microsoft YaHei', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
-
-  /* 字号 Scale (基于 14px 基准) */
 }
 
-/* ============================================================================
-   全局
-   =========================================================================== */
 html {
   font-family: var(--font-sans);
   background: var(--color-app-bg);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
 }
 body { margin: 0; min-height: 100vh; }
 
-/* ============================================================================
-   动画
-   =========================================================================== */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -79,28 +50,12 @@ body { margin: 0; min-height: 100vh; }
   0%, 100% { opacity: 0.4; }
   50%      { opacity: 1; }
 }
-@keyframes skeleton {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
 
 .animate-in { animation: fade-in-up 300ms ease-out; }
 .animate-in:nth-child(2) { animation-delay: 60ms; }
 .animate-in:nth-child(3) { animation-delay: 120ms; }
 .animate-in:nth-child(4) { animation-delay: 180ms; }
 
-.skeleton-pulse {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: skeleton 1.5s infinite;
-  border-radius: 4px;
-}
-
-/* ============================================================================
-   通用组件 — 使用统一字号变量
-   =========================================================================== */
-
-/* 卡片 */
 .proto-card {
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
@@ -115,17 +70,15 @@ body { margin: 0; min-height: 100vh; }
   position: relative; overflow: hidden;
 }
 .proto-card-accent::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, #2B6FF2, #60A5FA);
 }
 
-/* 按钮 */
 .btn-primary {
   background: #2B6FF2; color: white; border: none;
   border-radius: var(--radius-btn); font-weight: 500;
-  font-size: var(--text-sm); padding: 8px 18px; cursor: pointer;
+  font-size: 13px; padding: 8px 18px; cursor: pointer;
   transition: background 150ms;
 }
 .btn-primary:hover { background: #1A5AD9; }
@@ -135,16 +88,15 @@ body { margin: 0; min-height: 100vh; }
   background: white; color: var(--color-text-primary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-btn); font-weight: 500;
-  font-size: var(--text-sm); padding: 8px 18px; cursor: pointer;
+  font-size: 13px; padding: 8px 18px; cursor: pointer;
   transition: all 150ms;
 }
 .btn-outline:hover { border-color: #2B6FF2; color: #2B6FF2; background: #F8FAFF; }
 
-/* Badge */
 .tag {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 3px 10px; border-radius: var(--radius-tag);
-  font-size: var(--text-sm); font-weight: 500;
+  font-size: 12px; font-weight: 500;
 }
 .tag-blue   { background: #EBF1FF; color: #2B6FF2; }
 .tag-green  { background: #ECFDF5; color: #059669; }
@@ -153,15 +105,13 @@ body { margin: 0; min-height: 100vh; }
 .tag-purple { background: #F5F3FF; color: #7C3AED; }
 .tag-gray   { background: #F3F4F6; color: #6B7280; }
 
-/* 进度条 */
 .progress-bar { height: 6px; background: #F3F4F6; border-radius: 3px; overflow: hidden; }
 .progress-bar-fill { height: 100%; border-radius: 3px; transition: width 400ms ease-out; }
 
-/* 输入框 */
 .proto-input {
   width: 100%; padding: 10px 14px;
   border: 1px solid var(--color-border); border-radius: var(--radius-input);
-  font-size: var(--text-sm); color: var(--color-text-primary);
+  font-size: 14px; color: var(--color-text-primary);
   background: #F9FAFB; outline: none;
   transition: border-color 150ms, box-shadow 150ms;
 }
@@ -171,11 +121,10 @@ body { margin: 0; min-height: 100vh; }
 }
 .proto-input::placeholder { color: #9CA3AF; }
 
-/* 表格 */
-.proto-table { width: 100%; font-size: var(--text-xs); border-collapse: collapse; }
+.proto-table { width: 100%; font-size: 13px; border-collapse: collapse; }
 .proto-table th {
   text-align: left; padding: 10px 16px;
-  font-size: var(--text-sm); font-weight: 500;
+  font-size: 12px; font-weight: 500;
   color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.5px;
   background: #F9FAFB; border-bottom: 1px solid var(--color-border);
 }
@@ -185,9 +134,8 @@ body { margin: 0; min-height: 100vh; }
 }
 .proto-table tr:hover td { background: #F8FAFF; }
 
-/* 脱敏 */
 .redacted {
   color: #D1D5DB; background: #F3F4F6;
   padding: 2px 8px; border-radius: 4px;
-  font-size: var(--text-xs); cursor: default; user-select: none;
+  font-size: 12px; cursor: default; user-select: none;
 }

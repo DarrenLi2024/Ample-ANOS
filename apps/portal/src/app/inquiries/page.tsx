@@ -17,10 +17,10 @@ export default function InquiryCenterPage() {
       agentStatuses={[{ label: 'Sales Agent', color: 'tag tag-blue' }]}
       topBarChildren={
         <div className="flex items-center gap-2 ml-6">
-          <button className="px-3 py-1.5 text-lg rounded-md bg-brand-500 text-white font-medium">全部</button>
-          <button className="px-3 py-1.5 text-lg rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">New</button>
-          <button className="px-3 py-1.5 text-lg rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">Matched</button>
-          <button className="px-3 py-1.5 text-lg rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">Won</button>
+          <button className="px-3 py-1.5 text-[16px] rounded-md bg-brand-500 text-white font-medium">全部</button>
+          <button className="px-3 py-1.5 text-[16px] rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">New</button>
+          <button className="px-3 py-1.5 text-[16px] rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">Matched</button>
+          <button className="px-3 py-1.5 text-[16px] rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">Won</button>
         </div>
       }
       rightPanel={
@@ -37,15 +37,15 @@ export default function InquiryCenterPage() {
             <tbody>
               {inquiries.map(i => (
                 <tr key={i.id} className="cursor-pointer">
-                  <td className="font-mono text-lg text-brand-600">{i.id}</td>
+                  <td className="font-mono text-[16px] text-brand-600">{i.id}</td>
                   <td className="font-medium">{i.customer}</td>
-                  <td className="font-mono text-lg">{i.mpn}</td>
+                  <td className="font-mono text-[16px]">{i.mpn}</td>
                   <td>{i.qty.toLocaleString()}</td>
                   <td>{i.targetPrice}</td>
                   <td><span className={`tag ${i.status==='New'?'tag-blue':i.status==='Matched'?'tag-purple':i.status==='Quoting'?'tag-yellow':'tag-green'}`}>{i.status}</span></td>
                   <td><span className={`tag ${i.priority==='Urgent'?'tag-red':i.priority==='High'?'tag-yellow':'tag-gray'}`}>{i.priority}</span></td>
                   <td>{i.score > 0 ? <span className="text-brand-600 font-medium">{i.score}%</span> : <span className="text-gray-300">—</span>}</td>
-                  <td className="text-gray-400 text-lg">{i.time}</td>
+                  <td className="text-gray-400 text-[16px]">{i.time}</td>
                 </tr>
               ))}
             </tbody>
