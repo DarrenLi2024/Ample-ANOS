@@ -44,7 +44,7 @@ server.tool(
   async ({ query, actor, requestId }) => {
     const auditId = uuid();
     try {
-      const result = await callApi(`/api/customers?q=${encodeURIComponent(query)}`, 'GET');
+      const token = c.req.header('X-User-Role') ? {} : {}; const result = await callApi(`/api/agent-reasoning/credit/risk-analysis`, 'POST', { customerId: query });
       return {
         content: [{
           type: 'text', text: JSON.stringify({

@@ -22,8 +22,25 @@ async function getToken(): Promise<string> {
 
 export const TABLE_MAP: Record<string, string> = {
   customers: 'TN4qbN8TXa2W3tsY78ccB16Tnqh',
+  contacts: '',
   suppliers: 'VtInbgFJbazaR2seIMLcTPSmnTb',
   products: 'ViiGb1aAVaojalshcQrcXYNTnhg',
+  brands: '',
+  employees: '',
+  inquiries: '',
+  offers: '',
+  sales_orders: '',
+  purchase_orders: '',
+  inventory: '',
+  supply_resources: '',
+  ar_items: '',
+  ap_items: '',
+  credit_profiles: '',
+  risk_cases: '',
+  opportunities: '',
+  knowledge: '',
+  audit_logs: '',
+  events: '',
 };
 
 interface FeishuTableInfo { bitableId: string; tableId: string; name: string }
