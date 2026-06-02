@@ -37,15 +37,15 @@ export default function InquiryCenterPage() {
             <tbody>
               {inquiries.map(i => (
                 <tr key={i.id} className="cursor-pointer">
-                  <td className="font-mono text-[12px] text-brand-600">{i.id}</td>
+                  <td className="font-mono text-2xs text-brand-600">{i.id}</td>
                   <td className="font-medium">{i.customer}</td>
-                  <td className="font-mono text-[12px]">{i.mpn}</td>
+                  <td className="font-mono text-2xs">{i.mpn}</td>
                   <td>{i.qty.toLocaleString()}</td>
                   <td>{i.targetPrice}</td>
                   <td><span className={`tag ${i.status==='New'?'tag-blue':i.status==='Matched'?'tag-purple':i.status==='Quoting'?'tag-yellow':'tag-green'}`}>{i.status}</span></td>
                   <td><span className={`tag ${i.priority==='Urgent'?'tag-red':i.priority==='High'?'tag-yellow':'tag-gray'}`}>{i.priority}</span></td>
                   <td>{i.score > 0 ? <span className="text-brand-600 font-medium">{i.score}%</span> : <span className="text-gray-300">—</span>}</td>
-                  <td className="text-gray-400 text-[12px]">{i.time}</td>
+                  <td className="text-gray-400 text-2xs">{i.time}</td>
                 </tr>
               ))}
             </tbody>

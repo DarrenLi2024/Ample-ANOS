@@ -36,7 +36,7 @@ export default function AgentCenterPage() {
         <div className="p-4">
           <div className="flex items-center justify-between mb-4"><h3 className="font-semibold text-sm">Skill 详情</h3><button onClick={()=>setSelectedSkill(null)} className="text-gray-400 hover:text-gray-600"><XCircle size={16}/></button></div>
           <div className="flex items-center gap-3 mb-4"><span className={clsx('tag', s.color)}>{s.icon}</span><div><div className="font-semibold text-sm">{s.name}</div><div className="text-xs text-gray-400">{s.source}</div></div></div>
-          <p className="text-[13px] text-gray-600 mb-4">{s.desc}</p>
+          <p className="text-xs text-gray-600 mb-4">{s.desc}</p>
           <div className="mb-4"><h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">调用示例</h4>
             {s.examples.map((ex,i)=><div key={i} className="p-3 bg-gray-50 rounded text-xs text-gray-700 mb-1.5">{ex}</div>)}
           </div>
@@ -55,15 +55,15 @@ export default function AgentCenterPage() {
     >
       <div className="p-6 space-y-6">
         <div>
-          <h2 className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide mb-3">在线 Agent</h2>
+          <h2 className="text-2xs font-semibold text-gray-400 uppercase tracking-wide mb-3">在线 Agent</h2>
           <div className="grid grid-cols-3 gap-4">
             {agents.map(agent => { const s = statusConfig[agent.status]; if (!s) return null; return (
               <div key={agent.id} className="proto-card p-4 animate-in">
                 <div className="flex items-start justify-between mb-2">
-                  <div className="flex items-center gap-3"><Bot size={24} className="text-brand-500"/><div><div className="font-semibold text-[14px]">{agent.name}</div><div className="text-xs text-gray-400">{agent.type} · Level {agent.level}</div></div></div>
+                  <div className="flex items-center gap-3"><Bot size={24} className="text-brand-500"/><div><div className="font-semibold text-sm">{agent.name}</div><div className="text-xs text-gray-400">{agent.type} · Level {agent.level}</div></div></div>
                   <span className={clsx('tag flex items-center gap-1', s.cls)}>{s.icon}{s.label}</span>
                 </div>
-                <p className="text-[12px] text-gray-500 mb-3">{agent.desc}</p>
+                <p className="text-2xs text-gray-500 mb-3">{agent.desc}</p>
                 <div className="border-t border-gray-100 pt-3 grid grid-cols-2 gap-2 text-xs text-gray-500">
                   <div><span className="block text-gray-400">当前任务</span><span className="font-semibold text-gray-900">{agent.tasks}</span></div>
                   <div><span className="block text-gray-400">累计完成</span><span className="font-semibold text-gray-900">{agent.completed}</span></div>
@@ -74,13 +74,13 @@ export default function AgentCenterPage() {
         </div>
 
         <div>
-          <h2 className="text-[12px] font-semibold text-gray-400 uppercase tracking-wide mb-3">Knowledge Agent · Skills</h2>
+          <h2 className="text-2xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Knowledge Agent · Skills</h2>
           <div className="grid grid-cols-2 gap-4">
             {knowledgeSkills.map(sk => (
               <button key={sk.id} onClick={()=>setSelectedSkill(sk.id)} className={clsx('proto-card p-4 text-left hover:border-brand-300 transition-all cursor-pointer', selectedSkill===sk.id && 'ring-2 ring-brand-100 border-brand-300')}>
-                <div className="flex items-center justify-between mb-2"><div className="flex items-center gap-2"><span className={clsx('tag', sk.color)}>{sk.icon}</span><span className="font-semibold text-[13px]">{sk.name}</span></div><ChevronRight size={14} className="text-gray-300"/></div>
-                <p className="text-[12px] text-gray-500 mb-2">{sk.desc}</p>
-                <div className="flex items-center gap-2 text-[11px] text-gray-400"><span>{sk.source}</span><span>·</span><span>{sk.agent}</span></div>
+                <div className="flex items-center justify-between mb-2"><div className="flex items-center gap-2"><span className={clsx('tag', sk.color)}>{sk.icon}</span><span className="font-semibold text-xs">{sk.name}</span></div><ChevronRight size={14} className="text-gray-300"/></div>
+                <p className="text-2xs text-gray-500 mb-2">{sk.desc}</p>
+                <div className="flex items-center gap-2 text-3xs text-gray-400"><span>{sk.source}</span><span>·</span><span>{sk.agent}</span></div>
               </button>
             ))}
           </div>

@@ -20,7 +20,7 @@ export function BottomCommandBar({
     <div className="border-t border-[#E8EAED] bg-white">
       {/* Agent 思考指示器 */}
       {processing && agentThinking && (
-        <div className="px-5 py-2.5 flex items-center gap-2.5 text-[13px] text-brand-600 bg-brand-50 border-b border-brand-100">
+        <div className="px-5 py-2.5 flex items-center gap-2.5 text-xs text-brand-600 bg-brand-50 border-b border-brand-100">
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '200ms' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '400ms' }} />

@@ -42,7 +42,7 @@ export function WorkspaceLayout({
         <div className="flex-1 flex flex-col min-w-0">
           {/* Top Bar */}
           <header className="flex items-center h-[52px] px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-4">
-            <h1 className="text-[15px] font-semibold text-gray-900 shrink-0">{title}</h1>
+            <h1 className="text-base font-semibold text-gray-900 shrink-0">{title}</h1>
 
             {/* 全局搜索 */}
             <div className="relative flex-1 max-w-[480px]">
@@ -50,7 +50,7 @@ export function WorkspaceLayout({
               <input
                 type="text"
                 placeholder="你想完成什么工作？找客户、分析库存、整理询价..."
-                className="w-full pl-9 pr-4 py-1.5 text-[13px] bg-gray-50 border border-gray-200 rounded-lg
+                className="w-full pl-9 pr-4 py-1.5 text-xs bg-gray-50 border border-gray-200 rounded-lg
                            focus:outline-none focus:ring-2 focus:ring-brand-100 focus:border-brand-300
                            placeholder:text-gray-400"
               />
