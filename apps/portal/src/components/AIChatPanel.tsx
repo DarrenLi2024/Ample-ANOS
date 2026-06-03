@@ -29,7 +29,7 @@ export function AIChatPanel() {
             </div>
             <div className={`max-w-[75%] rounded-xl px-3 py-2 text-xs ${msg.role === 'ai' ? 'bg-gray-50 text-gray-800' : 'bg-brand-500 text-white'}`}>
               {msg.content}
-              {msg.time && <div className={`text-[11px] mt-0.5 ${msg.role === 'ai' ? 'text-gray-400' : 'text-white/60'}`}>{msg.time}</div>}
+              {msg.time && <div className={`text-xs mt-0.5 ${msg.role === 'ai' ? 'text-gray-400' : 'text-white/60'}`}>{msg.time}</div>}
             </div>
           </div>
         ))}
