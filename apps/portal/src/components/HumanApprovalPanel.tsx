@@ -14,7 +14,7 @@ export function HumanApprovalPanel({ targetType, targetId, title, aiSuggestion, 
   };
 
   return (
-    <div className="proto-card-accent p-5 text-sm space-y-4">
+    <div className="proto-card-accent p-5 text-base space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="font-semibold text-base">人工确认</h3>
         <span className="tag tag-yellow">{targetType} · {targetId}</span>

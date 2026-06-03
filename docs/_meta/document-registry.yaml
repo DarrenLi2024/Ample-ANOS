@@ -1,0 +1,413 @@
+# ANOS Document Registry
+# 自动生成: 2026-06-03
+# 治理规范: 00A-ANOS企业架构仓库治理总纲 V1.0
+
+documents:
+  # ============================================================
+  # EA 企业架构层
+  # ============================================================
+  - canonical_id: EA-001
+    legacy_id: "00"
+    title: ANOS总体架构设计白皮书
+    path: docs/EA/EA-001-ANOS总体架构设计白皮书.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: []
+    referenced_by: [EA-002, SA-001, DA-001]
+
+  - canonical_id: EA-002
+    legacy_id: "01"
+    title: ANOS项目范围与MVP定义
+    path: docs/EA/EA-002-ANOS项目范围与MVP定义.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [EA-001]
+    referenced_by: [SA-001, IA-001]
+
+  - canonical_id: EA-003
+    legacy_id: "02"
+    title: ANOS业务流程与用户故事
+    path: docs/EA/EA-003-ANOS业务流程与用户故事.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [EA-002]
+    referenced_by: [SA-001, IA-001]
+
+  - canonical_id: EA-004
+    legacy_id: "03"
+    title: ANOS产品设计系统规范
+    path: docs/EA/EA-004-ANOS产品设计系统规范.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-005
+    legacy_id: "04"
+    title: ANOS UX规范
+    path: docs/EA/EA-005-ANOS-UX规范.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  # ============================================================
+  # SA 解决方案架构层
+  # ============================================================
+  - canonical_id: SA-001
+    legacy_id: "11"
+    title: ANOS Portal 三纵列工作台设计规范
+    path: docs/SA/SA-001-Portal三纵列工作台设计规范.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [EA-001, EA-002]
+    referenced_by: [SA-003, IA-004]
+
+  - canonical_id: SA-002
+    legacy_id: "12"
+    title: Agent Network总体设计规范
+    path: docs/SA/SA-002-Agent-Network总体设计规范.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [EA-001]
+
+  - canonical_id: SA-003
+    legacy_id: "43"
+    title: ANOS Portal 页面原型规范
+    path: docs/SA/SA-003-Portal页面原型规范.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [SA-001]
+
+  - canonical_id: SA-004
+    legacy_id: "44"
+    title: ANOS Trading Intelligence Architecture
+    path: docs/SA/SA-004-Trading-Intelligence-Architecture.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: SA-005
+    legacy_id: "45"
+    title: Agent操作系统规范
+    path: docs/SA/SA-005-Agent操作系统规范.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: SA-006
+    legacy_id: "76"
+    title: 统一智能入口AI Inbox设计规范
+    path: docs/SA/SA-006-AI-Inbox设计规范.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: SA-007
+    legacy_id: "47"
+    title: ANOS Agent Prompt Library
+    path: docs/SA/SA-007-Agent-Prompt-Library.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  # ============================================================
+  # DA 数据架构层
+  # ============================================================
+  - canonical_id: DA-001
+    legacy_id: "20"
+    title: ANOS企业数据字典
+    path: docs/DA/DA-001-企业数据字典.md
+    layer: DA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: DA-002
+    legacy_id: "21"
+    title: ERP字段映射方案
+    path: docs/DA/DA-002-ERP字段映射方案.md
+    layer: DA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: DA-003
+    legacy_id: "22"
+    title: 飞书多维表格总体设计方案
+    path: docs/DA/DA-003-飞书多维表格总体设计方案.md
+    layer: DA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: DA-004
+    legacy_id: "42"
+    title: ANOS数据中台建表蓝图
+    path: docs/DA/DA-004-数据中台建表蓝图.md
+    layer: DA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: DA-005
+    legacy_id: "83"
+    title: ANOS数据库设计SQL版
+    path: docs/DA/DA-005-数据库设计SQL版.md
+    layer: DA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  # ============================================================
+  # IA 实施架构层
+  # ============================================================
+  - canonical_id: IA-001
+    legacy_id: "70"
+    title: 飞书生态实施手册总纲
+    path: docs/IA/IA-001-飞书生态实施手册总纲.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-002
+    legacy_id: "72"
+    title: 飞书多维表格实施手册
+    path: docs/IA/IA-002-飞书多维表格实施手册.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-003
+    legacy_id: "73"
+    title: 飞书工作流实施手册
+    path: docs/IA/IA-003-飞书工作流实施手册.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-004
+    legacy_id: "75"
+    title: 飞书Portal实施手册
+    path: docs/IA/IA-004-飞书Portal实施手册.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-005
+    legacy_id: "87"
+    title: 飞书实施WBS
+    path: docs/IA/IA-005-飞书实施WBS.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-006
+    legacy_id: "26"
+    title: 开发任务拆解与里程碑计划
+    path: docs/IA/IA-006-开发任务拆解与里程碑计划.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-007
+    legacy_id: "27"
+    title: 验收标准与测试方案
+    path: docs/IA/IA-007-验收标准与测试方案.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: IA-008
+    legacy_id: "88"
+    title: 并发性能与飞书迁移评估
+    path: docs/IA/IA-008-并发性能与飞书迁移评估.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  # ============================================================
+  # GA 治理架构层
+  # ============================================================
+  - canonical_id: GA-001
+    legacy_id: "00A"
+    title: ANOS企业架构仓库治理总纲
+    path: docs/GA/GA-001-企业架构仓库治理总纲.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-002
+    legacy_id: "25"
+    title: 权限与审计规范
+    path: docs/GA/GA-002-权限与审计规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-003
+    legacy_id: "46"
+    title: ANOS组织智能治理框架
+    path: docs/GA/GA-003-组织智能治理框架.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-004
+    legacy_id: "81"
+    title: GitHub项目结构规范
+    path: docs/GA/GA-004-GitHub项目结构规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-005
+    legacy_id: "84"
+    title: ERP API集成规范
+    path: docs/GA/GA-005-ERP-API集成规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-006
+    legacy_id: "85"
+    title: MCP服务规范
+    path: docs/GA/GA-006-MCP服务规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-007
+    legacy_id: "88dev"
+    title: ANOS开发规范
+    path: docs/GA/GA-007-开发规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-008
+    legacy_id: "89"
+    title: ANOS测试规范
+    path: docs/GA/GA-008-测试规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: GA-009
+    legacy_id: "90"
+    title: ANOS运营与持续进化规范
+    path: docs/GA/GA-009-运营与持续进化规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  # ============================================================
+  # UI 设计层
+  # ============================================================
+  - canonical_id: UI-001
+    legacy_id: "design"
+    title: ANOS UI设计规范
+    path: docs/UI/UI-001-设计规范.md
+    layer: UI
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: UI-002
+    legacy_id: "design2"
+    title: ANOS Design System V2.0
+    path: docs/UI/UI-002-Design-System-V2.md
+    layer: UI
+    status: Active
+    version: V2.0.0
+    owner: LTDC
+
+  - canonical_id: UI-003
+    legacy_id: "77"
+    title: Portal Design Token规范
+    path: docs/UI/UI-003-Design-Token规范.md
+    layer: UI
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: UI-004
+    legacy_id: "48"
+    title: ANOS KPI与价值度量体系
+    path: docs/UI/UI-004-KPI与价值度量.md
+    layer: UI
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  # ============================================================
+  # 跨层引用文档
+  # ============================================================
+  - canonical_id: CONTEXT
+    legacy_id: "CONTEXT"
+    title: ANOS项目上下文入口
+    path: docs/CONTEXT.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: AI-COLLAB
+    legacy_id: "AI_COLLAB"
+    title: 多AI协作协议
+    path: docs/AI_COLLABORATION.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: AUTH
+    legacy_id: "auth-strategy"
+    title: ANOS认证策略
+    path: docs/auth-strategy.md
+    layer: SA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: P0-FOLLOWUP
+    legacy_id: "p0-followup"
+    title: P0跟进事项清单
+    path: docs/P0-FOLLOWUP.md
+    layer: IA
+    status: Active
+    version: V1.0.0
+    owner: LTDC

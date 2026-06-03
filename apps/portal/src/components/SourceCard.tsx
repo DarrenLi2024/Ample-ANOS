@@ -15,7 +15,7 @@ export function SourceCard(p: SourceCardProps) {
   const s = p.status || 'unverified';
   const icon = s === 'verified' ? <CheckCircle size={14} className="text-green-500" /> : s === 'disputed' ? <AlertTriangle size={14} className="text-red-500" /> : <Clock size={14} className="text-amber-500" />;
   return (
-    <div className="proto-card-accent p-4 text-base">
+    <div className="proto-card-accent p-4 text-sm">
       <div className="flex items-center justify-between mb-3">
         <h4 className="font-semibold text-gray-800 flex items-center gap-2">{icon} Source Card</h4>
         <span className={clsx('tag', p.confidenceScore >= 90 ? 'tag-green' : p.confidenceScore >= 70 ? 'tag-blue' : p.confidenceScore >= 40 ? 'tag-yellow' : 'tag-red')}>

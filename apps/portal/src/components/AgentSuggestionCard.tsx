@@ -68,7 +68,7 @@ export function AgentSuggestionCard({
         {suggestedActions.length > 0 && (
           <div className="space-y-2 mb-3">
             {suggestedActions.map((a, i) => (
-              <div key={i} className="flex items-center justify-between text-base border border-gray-100 rounded-md px-3 py-2.5 bg-gray-50/50">
+              <div key={i} className="flex items-center justify-between text-sm border border-gray-100 rounded-md px-3 py-2.5 bg-gray-50/50">
                 <span className="text-gray-700">{a.label}</span>
                 <span className={clsx('tag', a.risk === 'low' ? 'tag-green' : a.risk === 'medium' ? 'tag-yellow' : 'tag-red')}>{a.risk}</span>
               </div>

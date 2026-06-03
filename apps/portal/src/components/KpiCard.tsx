@@ -10,7 +10,7 @@ export function KpiCard({ label, value, change, trend = 'neutral', icon }: KpiCa
       </div>
       <div className="text-[2rem] font-bold text-gray-900 tracking-tight leading-none">{value}</div>
       {change && (
-        <div className={`flex items-center gap-1 mt-1.5 text-base font-medium ${tc}`}>
+        <div className={`flex items-center gap-1 mt-1.5 text-xs font-medium ${tc}`}>
           <span>{arrow}</span><span>{change}</span>
         </div>
       )}

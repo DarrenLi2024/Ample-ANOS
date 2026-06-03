@@ -36,7 +36,7 @@ export function AIChatPanel() {
       </div>
       <div className="border-t border-gray-100 px-3 py-2 flex gap-2 items-center shrink-0">
         <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()}
-          placeholder="输入指令..." className="flex-1 min-w-0 px-3 py-1.5 text-xs bg-gray-50 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-brand-200" />
+          placeholder="输入指令..." className="flex-1 min-w-0 px-3 py-1.5 text-sm bg-gray-50 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-brand-200" />
         <button onClick={handleSend} className="shrink-0 w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center hover:bg-brand-600 transition-colors">
           <Send size={14} />
         </button>
