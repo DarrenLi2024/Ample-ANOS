@@ -40,7 +40,7 @@ const [arData, setArData] = useState(defaultRisks);
               {defaultRisks.slice(0, 3).map((r, i) => (
                 <div key={i} className="flex items-center justify-between p-2.5 rounded-md bg-gray-50 text-sm">
                   <div><div className="font-medium text-gray-800">{r.customer}</div><div className="text-gray-400 text-xs">信用 {r.credit}</div></div>
-                  <div className="text-right"><div className="font-semibold text-gray-900">${r.outstanding.toLocaleString()}</div><span className={`tag ${rTag[r.risk]}`}>{r.risk} · {r.overdue}天</span></div>
+                  <div className="text-right"><div className="font-semibold text-gray-900 text-sm">${r.outstanding.toLocaleString()}</div><span className={`tag ${rTag[r.risk]}`}>{r.risk} · {r.overdue}天</span></div>
                 </div>
               ))}
             </div>
@@ -63,7 +63,7 @@ const [arData, setArData] = useState(defaultRisks);
               {defaultRisks.map((r, i) => (
                 <tr key={i} className="cursor-pointer">
                   <td className="font-medium">{r.customer}</td>
-                  <td className="font-semibold">${r.outstanding.toLocaleString()}</td>
+                  <td className="font-semibold text-sm">${r.outstanding.toLocaleString()}</td>
                   <td><span className={r.overdue>60?'text-red-600 font-medium':''}>{r.overdue} 天</span></td>
                   <td><span className="tag tag-gray">{r.credit}</span></td>
                   <td><span className={`tag ${rTag[r.risk]}`}>Level {r.risk.slice(1)}</span></td>
