@@ -48,7 +48,7 @@ export default function HomePage() {
     >
       <div className="p-6 space-y-6">
         {/* 4卡KPI */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 auto-rows-fr">
           <KpiCard label="今日新增需求" value={12} change="+3 vs 昨日" trend="up" icon={<FileSearch size={15} />} />
           <KpiCard label="今日新增资源" value={8} change="+1 vs 昨日" trend="up" icon={<Package size={15} />} />
           <KpiCard label="今日新增风险" value={2} change="-1 vs 昨日" trend="down" icon={<AlertTriangle size={15} />} />
@@ -57,11 +57,11 @@ export default function HomePage() {
 
         {/* AI对话面板 + 任务卡片 并行 */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="proto-card overflow-hidden" style={{ height: '360px' }}>
+          <div className="proto-card overflow-hidden" style={{ minHeight: '320px', maxHeight: '360px' }}>
             <div className="px-4 py-2 border-b border-gray-100 text-xs font-semibold text-gray-400 uppercase">AI 会话</div>
             <AIChatPanel />
           </div>
-          <div className="space-y-3">
+          <div className="space-y-3" style={{ minHeight: "320px" }}>
             <div className="text-xs font-semibold text-gray-400 uppercase px-1">待处理任务</div>
             <TaskCard title="审核报价 OFF-003" object="华为 · STM32F407VET6" assignee="Darren Li" dueDate="今天" aiSuggestion="建议报价 $4.35/pcs，基于近期成交均价" priority="high" />
             <TaskCard title="催收 AR-001" object="汇顶科技 · $380K" assignee="风控团队" dueDate="今天" aiSuggestion="已逾期95天，建议停单+法务催收" priority="urgent" />
