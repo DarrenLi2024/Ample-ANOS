@@ -24,7 +24,6 @@ const navItems: NavItem[] = [
   // 3.6 Knowledge OS
   { id: 'knowledge', label: '知识库', icon: <Library size={18} />, href: '/knowledge', section: 'knowledge' },
   { id: 'agents', label: 'Agent 中心', icon: <Bot size={18} />, href: '/agents', section: 'knowledge' },
-  { id: 'settings', label: '设置', icon: <Settings size={18} />, href: '/settings', section: 'workspace' },
 ];
 
 type NavItem = { id: string; label: string; icon: React.ReactNode; href: string; section: string };
@@ -83,7 +82,7 @@ export function Sidebar({ collapsed = false, onToggle }: { collapsed?: boolean; 
           </div>
         ))}
       </nav>
-      {!collapsed && <div className="px-5 py-3 border-t border-[#E8EAED]"><button onClick={() => router.push('/settings')} className="flex items-center gap-2 w-full text-sm text-gray-400 hover:text-gray-600"><Settings size={14} /><span>设置与集成</span></button></div>}
+
     </aside>
   );
 }
