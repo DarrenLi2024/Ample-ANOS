@@ -20,7 +20,7 @@ export default function InquiryCreatePage() {
         <div className="proto-card-accent p-5">
           <h2 className="text-base font-semibold mb-4">📧 原始 RFQ 预览</h2>
           <div className="bg-gray-50 p-4 rounded-lg text-sm text-gray-700 leading-relaxed border border-gray-200">
-            <p className="font-medium mb-2">From: 华为采购部 zhang@huawei.com</p>
+            <p className="font-medium mb-2">From: 客户C-001采购部 zhang@huawei.com</p>
             <p className="mb-2">Subject: STM32F407VET6 询价需求</p>
             <p>我们需要 5,000pcs STM32F407VET6，目标价格 $4.50/pcs，交期 4 周内。请提供最优报价。</p>
           </div>
@@ -33,7 +33,7 @@ export default function InquiryCreatePage() {
             <div><span className="text-gray-400">数量</span><div className="font-semibold">5,000 pcs</div></div>
             <div><span className="text-gray-400">目标价格</span><div className="font-semibold">$4.50/pcs</div></div>
             <div><span className="text-gray-400">需求交期</span><div className="font-semibold">4 周内</div></div>
-            <div><span className="text-gray-400">客户</span><div className="font-semibold">华为技术有限公司</div></div>
+            <div><span className="text-gray-400">客户</span><div className="font-semibold">客户C-001技术有限公司</div></div>
             <div><span className="text-gray-400">优先级</span><span className="tag tag-yellow">High</span></div>
           </div>
           <div className="flex gap-3 mt-5 pt-4 border-t border-gray-100">

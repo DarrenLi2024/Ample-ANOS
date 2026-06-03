@@ -10,10 +10,10 @@ import { FileSearch, Package, AlertTriangle, Lightbulb, TrendingUp, Zap } from '
 
 export default function HomePage() {
   const [feed] = useState([
-    { icon: <Zap size={14} className="text-amber-500" />, title: '新 RFQ 已解析', desc: 'STM32F407VET6 × 5,000pcs · 华为', time: '2分钟前' },
+    { icon: <Zap size={14} className="text-amber-500" />, title: '新 RFQ 已解析', desc: 'STM32F407VET6 × 5,000pcs · 客户C-001', time: '2分钟前' },
     { icon: <TrendingUp size={14} className="text-green-500" />, title: '新供应资源已录入', desc: 'ESP32-WROOM-32E × 10,000pcs · Arrow $1.85/pcs', time: '15分钟前' },
-    { icon: <AlertTriangle size={14} className="text-red-500" />, title: 'AR 风险预警', desc: '汇顶科技逾期 95 天 · $380,000', time: '1小时前' },
-    { icon: <Lightbulb size={14} className="text-brand-500" />, title: '新商机匹配', desc: '比亚迪 TMS320F28335 × Arrow 匹配度 85%', time: '2小时前' },
+    { icon: <AlertTriangle size={14} className="text-red-500" />, title: 'AR 风险预警', desc: '客户C-008逾期 95 天 · $380,000', time: '1小时前' },
+    { icon: <Lightbulb size={14} className="text-brand-500" />, title: '新商机匹配', desc: '客户C-003 TMS320F28335 × Arrow 匹配度 85%', time: '2小时前' },
   ]);
 
   return (
@@ -35,7 +35,7 @@ export default function HomePage() {
             </div>
           </div>
           {/* 右侧场景: 销售分析+风控 */}
-          <SourceCard source="华为技术采购部" sourceType="Email" sourceOwner="张经理" eventTime="2026-06-02 09:30" capturedAt="2026-06-02 09:32" verifiedBy="Tony Li" confidenceScore={95} status="verified" />
+          <SourceCard source="客户C-001技术采购部" sourceType="Email" sourceOwner="张经理" eventTime="2026-06-02 09:30" capturedAt="2026-06-02 09:32" verifiedBy="Tony Li" confidenceScore={95} status="verified" />
           <div className="proto-card p-4">
             <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">风险概览</h3>
             <div className="space-y-2">
@@ -63,8 +63,8 @@ export default function HomePage() {
           </div>
           <div className="space-y-3" style={{ height: "340px", overflowY: "auto" }}>
             <div className="text-xs font-semibold text-gray-400 uppercase px-1">待处理任务</div>
-            <TaskCard title="审核报价 OFF-003" object="华为 · STM32F407VET6" assignee="Darren Li" dueDate="今天" aiSuggestion="建议报价 $4.35/pcs，基于近期成交均价" priority="high" />
-            <TaskCard title="催收 AR-001" object="汇顶科技 · $380K" assignee="风控团队" dueDate="今天" aiSuggestion="已逾期95天，建议停单+法务催收" priority="urgent" />
+            <TaskCard title="审核报价 OFF-003" object="客户C-001 · STM32F407VET6" assignee="Darren Li" dueDate="今天" aiSuggestion="建议报价 $4.35/pcs，基于近期成交均价" priority="high" />
+            <TaskCard title="催收 AR-001" object="客户C-008 · $380K" assignee="风控团队" dueDate="今天" aiSuggestion="已逾期95天，建议停单+法务催收" priority="urgent" />
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export default function HomePage() {
         </div>
 
         <AgentSuggestionCard agentName="Sales Agent" agentType="Sales"
-          conclusion="华为 STM32F407VET6 询价建议报价 $4.20-4.50/pcs，基于近期成交价和库存水平。"
+          conclusion="客户C-001 STM32F407VET6 询价建议报价 $4.20-4.50/pcs，基于近期成交价和库存水平。"
           evidence={['近5笔成交均价 $4.35', '市场库存充足', '客户信用 AAA']}
           sourceId="SRC-001" generatedAt="2026-06-02 10:35" confidenceScore={88}
           suggestedActions={[{ label: '确认报价 $4.35/pcs', risk: 'low' }, { label: '报价 $4.50/pcs（含buffer）', risk: 'medium' }]}

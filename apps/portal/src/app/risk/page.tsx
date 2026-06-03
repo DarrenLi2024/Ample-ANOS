@@ -17,11 +17,11 @@ import { KpiCard } from '@/components/KpiCard';
 import { DollarSign, AlertTriangle, Clock, TrendingDown } from 'lucide-react';
 
 const defaultRisks = [
-  { customer: '汇顶科技', outstanding: 380000, overdue: 95, risk: 'L4', credit: 'C', action: '停单 + 法务催收' },
-  { customer: '海康威视', outstanding: 250000, overdue: 68, risk: 'L3', credit: 'B', action: '催收函 + 暂停新单' },
-  { customer: 'Jabil Inc.', outstanding: 180000, overdue: 45, risk: 'L2', credit: 'A', action: '电话催收 + 邮件提醒' },
-  { customer: 'Flex Ltd.', outstanding: 120000, overdue: 32, risk: 'L2', credit: 'AA', action: '邮件提醒' },
-  { customer: '大疆创新', outstanding: 90000, overdue: 22, risk: 'L1', credit: 'AA', action: '关注' },
+  { customer: '客户C-008', outstanding: 380000, overdue: 95, risk: 'L4', credit: 'C', action: '停单 + 法务催收' },
+  { customer: '客户C-004', outstanding: 250000, overdue: 68, risk: 'L3', credit: 'B', action: '催收函 + 暂停新单' },
+  { customer: '客户C-007', outstanding: 180000, overdue: 45, risk: 'L2', credit: 'A', action: '电话催收 + 邮件提醒' },
+  { customer: '客户C-006', outstanding: 120000, overdue: 32, risk: 'L2', credit: 'AA', action: '邮件提醒' },
+  { customer: '客户C-005创新', outstanding: 90000, overdue: 22, risk: 'L1', credit: 'AA', action: '关注' },
 ];
 
 const rTag: Record<string, string> = { L4: 'tag-red', L3: 'tag-yellow', L2: 'tag-blue', L1: 'tag-green' };
@@ -75,7 +75,7 @@ const [arData, setArData] = useState(defaultRisks);
         </div>
 
         <AgentSuggestionCard agentName="Credit Agent" agentType="Credit"
-          conclusion="汇顶科技已逾期 95 天，信用评分从 B 降至 C。建议立即暂停该客户所有新订单发货，并发送法务催收函。同时核查是否有其他关联客户存在类似逾期。"
+          conclusion="客户C-008已逾期 95 天，信用评分从 B 降至 C。建议立即暂停该客户所有新订单发货，并发送法务催收函。同时核查是否有其他关联客户存在类似逾期。"
           evidence={['逾期金额 $380,000', '最后回款日期: 95 天前', '信用评分: B → C 持续下降', '历史逾期次数: 3 次']}
           sourceId="AR-RISK-001" generatedAt="2026-06-02 11:00" confidenceScore={91}
           suggestedActions={[{ label: '暂停发货', risk: 'high' }, { label: '发送法务催收函', risk: 'medium' }, { label: '核查关联客户', risk: 'low' }]}

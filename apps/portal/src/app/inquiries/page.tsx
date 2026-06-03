@@ -17,11 +17,11 @@ import { RoleAwareField } from '@/components/RoleAwareField';
 import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
 
 const defaultInquiries = [
-  { id: 'INQ-2026-001', customer: '华为技术', mpn: 'STM32F407VET6', qty: 5000, targetPrice: '$4.50', status: 'New', priority: 'High', time: '10:30', score: 92 },
-  { id: 'INQ-2026-002', customer: '比亚迪', mpn: 'TMS320F28335PGFA', qty: 2000, targetPrice: '$9.00', status: 'Matched', priority: 'Urgent', time: '09:15', score: 85 },
-  { id: 'INQ-2026-003', customer: 'Flex Ltd.', mpn: 'EP4CE22F17C8N', qty: 1000, targetPrice: '$35.00', status: 'Quoting', priority: 'Medium', time: '昨天', score: 78 },
-  { id: 'INQ-2026-004', customer: '大疆创新', mpn: 'STM32H743ZIT6', qty: 800, targetPrice: '$12.00', status: 'New', priority: 'Medium', time: '昨天', score: 0 },
-  { id: 'INQ-2026-005', customer: '海康威视', mpn: 'W25Q128JVSIM', qty: 10000, targetPrice: '$0.60', status: 'Won', priority: 'High', time: '2天前', score: 95 },
+  { id: 'INQ-2026-001', customer: '客户C-001技术', mpn: 'STM32F407VET6', qty: 5000, targetPrice: '$4.50', status: 'New', priority: 'High', time: '10:30', score: 92 },
+  { id: 'INQ-2026-002', customer: '客户C-003', mpn: 'TMS320F28335PGFA', qty: 2000, targetPrice: '$9.00', status: 'Matched', priority: 'Urgent', time: '09:15', score: 85 },
+  { id: 'INQ-2026-003', customer: '客户C-006', mpn: 'EP4CE22F17C8N', qty: 1000, targetPrice: '$35.00', status: 'Quoting', priority: 'Medium', time: '昨天', score: 78 },
+  { id: 'INQ-2026-004', customer: '客户C-005创新', mpn: 'STM32H743ZIT6', qty: 800, targetPrice: '$12.00', status: 'New', priority: 'Medium', time: '昨天', score: 0 },
+  { id: 'INQ-2026-005', customer: '客户C-004', mpn: 'W25Q128JVSIM', qty: 10000, targetPrice: '$0.60', status: 'Won', priority: 'High', time: '2天前', score: 95 },
 ];
 
 export default function InquiryCenterPage() {
@@ -40,7 +40,7 @@ const [inquiryData, setInquiryData] = useState(defaultInquiries);
       }
       rightPanel={
         <div className="p-4 space-y-5">
-          <SourceCard source="比亚迪采购部" sourceType="Email" sourceOwner="李经理"
+          <SourceCard source="客户C-003采购部" sourceType="Email" sourceOwner="李经理"
             eventTime="2026-06-02 09:15" capturedAt="2026-06-02 09:17" verifiedBy="Tony Li" confidenceScore={92} status="verified" />
         </div>
       }
@@ -68,7 +68,7 @@ const [inquiryData, setInquiryData] = useState(defaultInquiries);
         </div>
 
         <AgentSuggestionCard agentName="Sales Agent" agentType="Sales"
-          conclusion="比亚迪 TMS320F28335PGFA 已匹配到 3 个供应资源。SR-AVT 交期最短(2周)、SR-ARW 价格最优($8.10)。建议优先联系 SR-AVT。"
+          conclusion="客户C-003 TMS320F28335PGFA 已匹配到 3 个供应资源。SR-AVT 交期最短(2周)、SR-ARW 价格最优($8.10)。建议优先联系 SR-AVT。"
           evidence={['SR-AVT: $8.50/pcs · 库存 3,000 · 交期 2 周', 'SR-ARW: $8.10/pcs · 库存 5,000 · 交期 4 周', 'SR-MSR: $9.20/pcs · 库存 1,000 · 交期 1 周']}
           sourceId="SRC-002" generatedAt="2026-06-02 10:45" confidenceScore={85}
           suggestedActions={[{ label: '选择 SR-AVT 报价', risk: 'low' }, { label: '选择 SR-ARW 报价 (更低价格)', risk: 'low' }]}
