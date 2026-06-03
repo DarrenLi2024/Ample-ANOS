@@ -1,0 +1,7 @@
+tools:
+  - tool_id: TOOL-001
+    name: example-tool
+    description: 工具描述
+    mcp_endpoint: /api/mcp/example
+    risk_level: Low
+    audit_required: true

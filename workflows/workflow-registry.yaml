@@ -1,0 +1,17 @@
+workflows:
+  - wf_id: WF-TRD-001
+    name: Inquiry To Offer
+    domain: Trading
+    status: Active
+  - wf_id: WF-TRD-002
+    name: Offer To Quote
+    domain: Trading
+    status: Active
+  - wf_id: WF-FIN-001
+    name: AR Collection
+    domain: Finance
+    status: Active
+  - wf_id: WF-KA-001
+    name: Knowledge Capture
+    domain: Knowledge
+    status: Active

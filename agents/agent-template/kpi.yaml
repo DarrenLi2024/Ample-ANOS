@@ -1,0 +1,7 @@
+kpi:
+  - name: TaskCompletionRate
+    target: 95%
+  - name: SuggestionAdoptionRate
+    target: 70%
+  - name: AvgResponseTime
+    target: <5s

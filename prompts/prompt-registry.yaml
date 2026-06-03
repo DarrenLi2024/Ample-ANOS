@@ -1,0 +1,9 @@
+prompts:
+  - prompt_id: PRM-SALES-001
+    title: Sales RFQ Analysis
+    agent: AGT-SALES-001
+    version: V1.0.0
+  - prompt_id: PRM-BUYER-001
+    title: Buyer Offer Analysis
+    agent: AGT-BUYER-001
+    version: V1.0.0

@@ -1,0 +1,8 @@
+agent_id: AGT-XXX-001
+name: Agent Name
+domain: Customer/Supplier/Finance
+owner: Department Manager
+status: Active
+version: V1.0.0
+permissions: []
+forbidden: []

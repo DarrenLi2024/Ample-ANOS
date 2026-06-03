@@ -1,0 +1,51 @@
+# ANOS Agent Registry
+agents:
+  - agent_id: AGT-SALES-001
+    name: Sales Copilot
+    domain: Customer Domain
+    owner: Sales Manager
+    status: Active
+    version: V1.0.0
+    level: L2_Knowledge
+    permissions: [CustomerDomain.Read, Inquiry.Create]
+    forbidden: [SupplierContact.Read, PurchaseCost.Read]
+
+  - agent_id: AGT-BUYER-001
+    name: Buyer Copilot
+    domain: Supplier Domain
+    owner: Procurement Manager
+    status: Active
+    version: V1.0.0
+    level: L2_Knowledge
+    permissions: [SupplierDomain.Read, Offer.Create]
+    forbidden: [CustomerContact.Read, SalesNote.Read]
+
+  - agent_id: AGT-CREDIT-001
+    name: Credit Agent
+    domain: Finance Domain
+    owner: CFO
+    status: Active
+    version: V1.0.0
+    level: L3_Reasoning
+    permissions: [AR.Read, CustomerCredit.Read]
+    forbidden: [SupplierContact.Read, PurchaseCost.Read, AutoFreeze]
+
+  - agent_id: AGT-CEO-001
+    name: CEO Agent
+    domain: Management Domain
+    owner: CEO
+    status: Active
+    version: V1.0.0
+    level: L2_Knowledge
+    permissions: [AggregatedView.All]
+    forbidden: [DetailDrilldown.WithoutApproval]
+
+  - agent_id: AGT-KNOWLEDGE-001
+    name: Knowledge Agent
+    domain: Knowledge Domain
+    owner: LTDC
+    status: Active
+    version: V1.0.0
+    level: L2_Knowledge
+    permissions: [Knowledge.Read, Knowledge.Search]
+    forbidden: [RestrictedDocuments.Read]

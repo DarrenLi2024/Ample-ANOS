@@ -1,0 +1,7 @@
+permissions:
+  allow:
+    - domain.read
+    - domain.write
+  deny:
+    - restricted.read
+    - auto_execute

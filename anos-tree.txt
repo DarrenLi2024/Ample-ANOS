@@ -1,0 +1,438 @@
+.
+├── agents
+│   ├── agent-template
+│   │   └── agent.yaml
+│   └── README.md
+├── AGENTS.md
+├── anos-tree.txt
+├── apps
+│   └── portal
+│       ├── next-env.d.ts
+│       ├── next.config.ts
+│       ├── node_modules
+│       │   ├── @anos
+│       │   │   └── shared -> ../../../../packages/shared
+│       │   ├── @tailwindcss
+│       │   │   └── postcss -> ../../../../node_modules/.pnpm/@tailwindcss+postcss@4.3.0/node_modules/@tailwindcss/postcss
+│       │   ├── @types
+│       │   │   ├── node -> ../../../../node_modules/.pnpm/@types+node@20.19.41/node_modules/@types/node
+│       │   │   ├── react -> ../../../../node_modules/.pnpm/@types+react@19.2.16/node_modules/@types/react
+│       │   │   └── react-dom -> ../../../../node_modules/.pnpm/@types+react-dom@19.2.3_@types+react@19.2.16/node_modules/@types/react-dom
+│       │   ├── clsx -> ../../../node_modules/.pnpm/clsx@2.1.1/node_modules/clsx
+│       │   ├── lucide-react -> ../../../node_modules/.pnpm/lucide-react@0.468.0_react@19.2.7/node_modules/lucide-react
+│       │   ├── next -> ../../../node_modules/.pnpm/next@15.5.19_react-dom@19.2.7_react@19.2.7__react@19.2.7/node_modules/next
+│       │   ├── postcss -> ../../../node_modules/.pnpm/postcss@8.5.15/node_modules/postcss
+│       │   ├── react -> ../../../node_modules/.pnpm/react@19.2.7/node_modules/react
+│       │   ├── react-dom -> ../../../node_modules/.pnpm/react-dom@19.2.7_react@19.2.7/node_modules/react-dom
+│       │   ├── tailwindcss -> ../../../node_modules/.pnpm/tailwindcss@4.3.0/node_modules/tailwindcss
+│       │   ├── typescript -> ../../../node_modules/.pnpm/typescript@5.9.3/node_modules/typescript
+│       │   └── uuid -> ../../../node_modules/.pnpm/uuid@10.0.0/node_modules/uuid
+│       ├── package.json
+│       ├── postcss.config.mjs
+│       ├── public
+│       │   └── ample-logo.webp
+│       ├── src
+│       │   ├── app
+│       │   │   ├── agents
+│       │   │   ├── ar
+│       │   │   ├── ar-disposition
+│       │   │   ├── ceo-dashboard
+│       │   │   ├── customer-360
+│       │   │   ├── error.tsx
+│       │   │   ├── globals.css
+│       │   │   ├── inquiries
+│       │   │   ├── inquiry-create
+│       │   │   ├── knowledge
+│       │   │   ├── layout.tsx
+│       │   │   ├── loading.tsx
+│       │   │   ├── localization
+│       │   │   ├── login
+│       │   │   ├── not-found.tsx
+│       │   │   ├── offers
+│       │   │   ├── opportunity
+│       │   │   ├── orders
+│       │   │   ├── page.tsx
+│       │   │   ├── quote-approval
+│       │   │   ├── risk
+│       │   │   ├── settings
+│       │   │   ├── supply-create
+│       │   │   ├── tasks
+│       │   │   └── workflow
+│       │   ├── components
+│       │   │   ├── AgentSuggestionCard.tsx
+│       │   │   ├── AIChatPanel.tsx
+│       │   │   ├── BottomCommandBar.tsx
+│       │   │   ├── HumanApprovalPanel.tsx
+│       │   │   ├── KpiCard.tsx
+│       │   │   ├── PermissionNotice.tsx
+│       │   │   ├── RoleAwareField.tsx
+│       │   │   ├── Sidebar.tsx
+│       │   │   ├── SourceCard.tsx
+│       │   │   ├── TaskCard.tsx
+│       │   │   └── WorkspaceLayout.tsx
+│       │   └── lib
+│       │       └── api.ts
+│       └── tsconfig.json
+├── CLAUDE.md
+├── CODEX.md
+├── data
+│   └── uploads
+│       ├── 2734804b-195f-4a32-a365-d70a76ee7b21.png
+│       ├── 3bbc577c-286a-47f3-8473-da39649bf107.txt
+│       ├── d3034bd5-c8f8-43ec-bb98-7e3fbe12e30e.csv
+│       ├── db8c55ae-f4f8-419d-8063-9f6dda672edc.txt
+│       └── dbfcb948-bc14-45f0-8005-5c0aee6ad8a6.txt
+├── docker-compose.yml
+├── Dockerfile
+├── docs
+│   ├── _meta
+│   │   ├── document-inventory.md
+│   │   ├── document-map.yaml
+│   │   ├── document-registry.yaml
+│   │   ├── legacy-mapping.yaml
+│   │   └── README.md
+│   ├── 00-ANOS总体架构设计白皮书V1.0.md
+│   ├── 01-ANOS项目范围与MVP定义 V1.0.md
+│   ├── 02-ANOS业务流程与用户故事 V1.0.md
+│   ├── 03-ANOS产品设计系统规范 V1.0.md
+│   ├── 04-ANOS UX规范 V1.0.md
+│   ├── 11-ANOS Portal 三纵列工作台设计规范 V1.0.md
+│   ├── 12-Agent Network总体设计规范 V1.0.md
+│   ├── 20-ANOS企业数据字典V1.0.md
+│   ├── 21-ERP字段映射方案V1.0.md
+│   ├── 22-飞书多维表格总体设计方案V1.0.md
+│   ├── 23-ERP同步策略与数据导入规范 V1.0.md
+│   ├── 24-API与工具接口设计 V1.0.md
+│   ├── 25-权限与审计规范 V1.0.md
+│   ├── 26-开发任务拆解与里程碑计划 V1.0.md
+│   ├── 27-验收标准与测试方案 V1.0.md
+│   ├── 30-ANOS技术架构设计规范 V1.0.md
+│   ├── 42-ANOS数据中台建表蓝图 V1.0.md
+│   ├── 43-ANOS Portal 页面原型规范 V1.0.md
+│   ├── 44-ANOS Trading Intelligence Architecture V1.0.md
+│   ├── 45-Agent操作系统规范 V1.0.md
+│   ├── 46-ANOS组织智能治理框架 V1.0.md
+│   ├── 47-ANOS Agent Prompt Library V1.0.md
+│   ├── 48-ANOS KPI与价值度量体系 V1.0.md
+│   ├── 70-飞书生态实施手册总纲 V1.0.md
+│   ├── 72-飞书多维表格实施手册 V1.0.md
+│   ├── 73-飞书工作流实施手册 V1.0.md
+│   ├── 75-飞书Portal实施手册 V1.0.md
+│   ├── 76-统一智能入口AI Inbox设计规范 V1.0.md
+│   ├── 77-Portal Design Token规范 V1.0.md
+│   ├── 81-GitHub项目结构规范 V1.0.md
+│   ├── 83-ANOS数据库设计SQL版 V1.0.md
+│   ├── 84-ERP API集成规范 V1.0.md
+│   ├── 85-MCP服务规范 V1.0.md
+│   ├── 87-飞书实施WBS V1.0.md
+│   ├── 88-ANOS开发规范 V1.0.md
+│   ├── 88-并发性能与飞书迁移评估 V1.0.md
+│   ├── 89-ANOS测试规范 V1.0.md
+│   ├── 90-ANOS运营与持续进化规范 V1.0.md
+│   ├── ADR
+│   │   ├── ADR-000-ADR模板.md
+│   │   ├── ADR-001-Feishu-As-Primary-Platform.md
+│   │   ├── ADR-002-SQLite-For-MVP.md
+│   │   ├── ADR-003-Agent-Network-Architecture.md
+│   │   ├── ADR-004-Trading-Firewall.md
+│   │   └── ADR-005-Role-Based-Portal.md
+│   ├── AI_COLLABORATION.md
+│   ├── ANOS
+│   │   ├── 00-ANOS总体架构设计白皮书V1.0.md
+│   │   ├── 11-ANOS Portal 三纵列工作台设计规范 V1.0.md
+│   │   ├── 20-ANOS企业数据字典V1.0.md
+│   │   ├── 21-ERP字段映射方案V1.0.md
+│   │   ├── 22-飞书多维表格总体设计方案V1.0.md
+│   │   └── ERP数据结构字段清单.md
+│   ├── ANOS.zip
+│   ├── ARCHIVE
+│   │   └── legacy
+│   │       ├── ANOS-00-ANOS总体架构设计白皮书V1.0.md
+│   │       ├── ANOS-11-ANOS Portal 三纵列工作台设计规范 V1.0.md
+│   │       ├── ANOS-20-ANOS企业数据字典V1.0.md
+│   │       ├── ANOS-21-ERP字段映射方案V1.0.md
+│   │       ├── ANOS-22-飞书多维表格总体设计方案V1.0.md
+│   │       ├── ANOS-ERP数据结构字段清单.md
+│   │       ├── chat-chatgpt_share_6a1c6208_latest.html
+│   │       └── ERP数据结构字段清单.md
+│   ├── auth-strategy.md
+│   ├── CONTEXT.md
+│   ├── DA
+│   │   ├── DA-001-企业数据字典.md
+│   │   ├── DA-002-ERP字段映射方案.md
+│   │   ├── DA-003-飞书多维表格总体设计方案.md
+│   │   ├── DA-004-数据中台建表蓝图.md
+│   │   └── DA-005-数据库设计SQL版.md
+│   ├── design.md
+│   ├── design2.md
+│   ├── EA
+│   │   ├── EA-001-ANOS总体架构设计白皮书.md
+│   │   ├── EA-002-ANOS项目范围与MVP定义.md
+│   │   ├── EA-003-ANOS业务流程与用户故事.md
+│   │   ├── EA-004-ANOS产品设计系统规范.md
+│   │   └── EA-005-ANOS-UX规范.md
+│   ├── ERP数据结构字段清单.md
+│   ├── GA
+│   │   ├── GA-001-企业架构仓库治理总纲.md
+│   │   ├── GA-002-权限与审计规范.md
+│   │   ├── GA-003-组织智能治理框架.md
+│   │   ├── GA-004-GitHub项目结构规范.md
+│   │   ├── GA-005-ERP-API集成规范.md
+│   │   ├── GA-006-MCP服务规范.md
+│   │   ├── GA-007-开发规范.md
+│   │   ├── GA-008-测试规范.md
+│   │   ├── GA-009-运营与持续进化规范.md
+│   │   ├── GA-010-交易隔离与信息防火墙规范.md
+│   │   └── GA-011-角色权限与信息隔离矩阵.md
+│   ├── IA
+│   │   ├── IA-001-飞书生态实施手册总纲.md
+│   │   ├── IA-002-飞书多维表格实施手册.md
+│   │   ├── IA-003-飞书工作流实施手册.md
+│   │   ├── IA-004-飞书Portal实施手册.md
+│   │   ├── IA-005-飞书实施WBS.md
+│   │   ├── IA-006-开发任务拆解与里程碑计划.md
+│   │   ├── IA-007-验收标准与测试方案.md
+│   │   └── IA-008-并发性能与飞书迁移评估.md
+│   ├── P0-confirmation-form.html
+│   ├── P0-FOLLOWUP.md
+│   ├── P0实施准备包
+│   │   ├── 01-P0决策确认表.md
+│   │   ├── 02-飞书资源盘点表.md
+│   │   ├── 03-ERP样例数据包说明.md
+│   │   ├── 04-权限矩阵.md
+│   │   ├── 05-端到端验收样例.md
+│   │   └── README.md
+│   ├── Portal界面渲染图
+│   │   ├── 01-AI-Inbox-Home-Sales-Permissioned.png
+│   │   ├── 02-Sales-Workspace-Permissioned.png
+│   │   ├── 03-Procurement-Workspace-Permissioned.png
+│   │   ├── 04-Risk-Workspace.png
+│   │   ├── 05-Opportunity-Sales-View-Permissioned.png
+│   │   ├── 06-Opportunity-Procurement-View-Permissioned.png
+│   │   ├── 07-RFQ-Inquiry-Create-Sales-View.png
+│   │   ├── 08-Supply-Resource-Create-Procurement-View.png
+│   │   ├── 09-Quotation-Approval-Sales-View.png
+│   │   ├── 10-AR-Risk-Disposition.png
+│   │   ├── 11-Customer-360-Sales-View.png
+│   │   ├── 12-Workflow-Operations-Center.png
+│   │   ├── 13-Agent-Center.png
+│   │   ├── 14-Knowledge-Center-QA.png
+│   │   ├── 15-Localization-Recommendation-Procurement-View.png
+│   │   ├── 16-CEO-Daily-Summary-Aggregated.png
+│   │   ├── P0实施开发图
+│   │   │   ├── 01-ANOS-Data-Hub-Home.png
+│   │   │   ├── 02-P0-Core-Table-Relationship-Map.png
+│   │   │   ├── 03-Inquiry-Base-Table-View.png
+│   │   │   ├── 04-Supply-Resource-Base-Table-View.png
+│   │   │   ├── 05-ERP-Raw-Zone-Import-Workspace.png
+│   │   │   ├── 06-ERP-to-ANOS-Field-Mapping.png
+│   │   │   ├── 07-Sync-Job-Monitor.png
+│   │   │   ├── 08-Data-Conflict-Queue.png
+│   │   │   ├── 09-Workflow-Failure-Retry-Handoff.png
+│   │   │   ├── 10-Agent-Tool-Call-Detail.png
+│   │   │   ├── 11-Agent-Permission-Matrix.png
+│   │   │   ├── 12-MVP-Acceptance-Dashboard.png
+│   │   │   └── README.md
+│   │   ├── Portal UI Reference V1.0.md
+│   │   ├── README.md
+│   │   └── 开发适配图
+│   │       ├── 01-Role-Routing-Workspace-Permission.png
+│   │       ├── 02-Access-Denied-Field-Redaction.png
+│   │       ├── 03-Source-Card-State-Set.png
+│   │       ├── 04-Human-Approval-Center.png
+│   │       ├── 05-Notification-Task-Center.png
+│   │       ├── 06-Global-Search-Results.png
+│   │       ├── 07-Empty-Loading-Error-States.png
+│   │       ├── 08-Table-Filter-Column-Batch-Actions.png
+│   │       ├── 09-Upload-Parse-Pipeline.png
+│   │       ├── 10-Audit-Log-Detail.png
+│   │       └── README.md
+│   ├── SA
+│   │   ├── SA-001-Portal三纵列工作台设计规范.md
+│   │   ├── SA-002-Agent-Network总体设计规范.md
+│   │   ├── SA-003-Portal页面原型规范.md
+│   │   ├── SA-004-Trading-Intelligence-Architecture.md
+│   │   ├── SA-005-Agent操作系统规范.md
+│   │   ├── SA-006-AI-Inbox设计规范.md
+│   │   └── SA-007-Agent-Prompt-Library.md
+│   ├── UI
+│   │   ├── UI-001-设计规范.md
+│   │   ├── UI-002-Design-System-V2.md
+│   │   ├── UI-003-Design-Token规范.md
+│   │   └── UI-004-KPI与价值度量.md
+│   ├── 附件
+│   │   ├── AMPLE LOGO.webp
+│   │   └── 数据库结构.xlsx
+│   └── 会话归档
+│       └── chatgpt_share_6a1c6208_latest.html
+├── governance
+│   ├── architecture-review
+│   ├── audit
+│   ├── README.md
+│   └── release
+├── infra
+├── instructions.md
+├── knowledge
+│   ├── customer
+│   ├── finance
+│   ├── market
+│   ├── product
+│   ├── README.md
+│   └── supplier
+├── node_modules
+│   ├── @types
+│   │   └── node -> ../.pnpm/@types+node@20.19.41/node_modules/@types/node
+│   ├── prettier -> .pnpm/prettier@3.8.3/node_modules/prettier
+│   ├── tsx -> .pnpm/tsx@4.22.4/node_modules/tsx
+│   ├── turbo -> .pnpm/turbo@2.9.16/node_modules/turbo
+│   └── typescript -> .pnpm/typescript@5.9.3/node_modules/typescript
+├── package.json
+├── packages
+│   ├── agent-tools
+│   │   └── src
+│   ├── api-client
+│   │   └── src
+│   └── shared
+│       ├── package.json
+│       ├── src
+│       │   ├── constants
+│       │   ├── index.ts
+│       │   ├── types
+│       │   │   ├── agent.ts
+│       │   │   ├── common.ts
+│       │   │   ├── finance.ts
+│       │   │   ├── index.ts
+│       │   │   ├── knowledge.ts
+│       │   │   ├── master.ts
+│       │   │   ├── permission.ts
+│       │   │   └── trading.ts
+│       │   └── utils
+│       └── tsconfig.json
+├── playwright.config.ts
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── prompts
+│   ├── buyer
+│   ├── ceo
+│   ├── finance
+│   ├── README.md
+│   ├── sales
+│   └── system
+├── README.md
+├── scripts
+│   ├── dev-setup.sh
+│   ├── feishu
+│   │   ├── add-collaborator.ts
+│   │   ├── create-all-tables.ts
+│   │   └── create-bitable-tables.ts
+│   ├── import
+│   │   ├── erp-import.ts
+│   │   └── match-score.ts
+│   ├── migrate
+│   └── validate
+├── services
+│   ├── api
+│   │   ├── data
+│   │   │   └── uploads
+│   │   ├── drizzle.config.ts
+│   │   ├── node_modules
+│   │   │   ├── @anos
+│   │   │   │   └── shared -> ../../../../packages/shared
+│   │   │   ├── @hono
+│   │   │   │   └── node-server -> ../../../../node_modules/.pnpm/@hono+node-server@2.0.4_hono@4.12.23/node_modules/@hono/node-server
+│   │   │   ├── @types
+│   │   │   │   ├── better-sqlite3 -> ../../../../node_modules/.pnpm/@types+better-sqlite3@7.6.13/node_modules/@types/better-sqlite3
+│   │   │   │   └── uuid -> ../../../../node_modules/.pnpm/@types+uuid@10.0.0/node_modules/@types/uuid
+│   │   │   ├── better-sqlite3 -> ../../../node_modules/.pnpm/better-sqlite3@11.10.0/node_modules/better-sqlite3
+│   │   │   ├── drizzle-kit -> ../../../node_modules/.pnpm/drizzle-kit@0.28.1/node_modules/drizzle-kit
+│   │   │   ├── drizzle-orm -> ../../../node_modules/.pnpm/drizzle-orm@0.36.4_@types+better-sqlite3@7.6.13_@types+react@19.2.16_better-sqlite3@11.10.0_react@19.2.7/node_modules/drizzle-orm
+│   │   │   ├── hono -> ../../../node_modules/.pnpm/hono@4.12.23/node_modules/hono
+│   │   │   ├── tsx -> ../../../node_modules/.pnpm/tsx@4.22.4/node_modules/tsx
+│   │   │   ├── uuid -> ../../../node_modules/.pnpm/uuid@10.0.0/node_modules/uuid
+│   │   │   └── zod -> ../../../node_modules/.pnpm/zod@3.25.76/node_modules/zod
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── app.ts
+│   │   │   ├── db
+│   │   │   │   ├── connection.ts
+│   │   │   │   ├── migrate.ts
+│   │   │   │   ├── schema.ts
+│   │   │   │   ├── seed-extended.ts
+│   │   │   │   └── seed.ts
+│   │   │   ├── index.ts
+│   │   │   ├── lib
+│   │   │   │   ├── erp-client.ts
+│   │   │   │   └── feishu-bitable.ts
+│   │   │   ├── middleware
+│   │   │   │   ├── audit-log.ts
+│   │   │   │   ├── auth.ts
+│   │   │   │   ├── body-limit.ts
+│   │   │   │   ├── csrf.ts
+│   │   │   │   ├── db-error.ts
+│   │   │   │   ├── error-handler.ts
+│   │   │   │   ├── error-response.ts
+│   │   │   │   ├── jwt.ts
+│   │   │   │   ├── pagination.ts
+│   │   │   │   ├── permission.ts
+│   │   │   │   ├── rate-limit.ts
+│   │   │   │   ├── security-headers.ts
+│   │   │   │   └── validate.ts
+│   │   │   ├── routes
+│   │   │   │   ├── agent-reasoning.ts
+│   │   │   │   ├── agents.ts
+│   │   │   │   ├── ar.ts
+│   │   │   │   ├── audit.ts
+│   │   │   │   ├── auth.ts
+│   │   │   │   ├── customers.ts
+│   │   │   │   ├── erp-sync.ts
+│   │   │   │   ├── inquiries.ts
+│   │   │   │   ├── knowledge.ts
+│   │   │   │   ├── offers.ts
+│   │   │   │   ├── opportunities.ts
+│   │   │   │   ├── parse.ts
+│   │   │   │   ├── products.ts
+│   │   │   │   ├── suppliers.ts
+│   │   │   │   ├── supply-resources.ts
+│   │   │   │   ├── upload.ts
+│   │   │   │   └── workflow.ts
+│   │   │   ├── schemas
+│   │   │   │   └── index.ts
+│   │   │   └── start.ts
+│   │   └── tsconfig.json
+│   ├── mcp
+│   │   ├── node_modules
+│   │   │   ├── @anos
+│   │   │   │   └── shared -> ../../../../packages/shared
+│   │   │   ├── @modelcontextprotocol
+│   │   │   │   └── sdk -> ../../../../node_modules/.pnpm/@modelcontextprotocol+sdk@1.29.0_zod@3.25.76/node_modules/@modelcontextprotocol/sdk
+│   │   │   ├── tsx -> ../../../node_modules/.pnpm/tsx@4.22.4/node_modules/tsx
+│   │   │   └── uuid -> ../../../node_modules/.pnpm/uuid@10.0.0/node_modules/uuid
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── index.ts
+│   │   │   └── tools
+│   │   └── tsconfig.json
+│   └── sync
+│       └── src
+├── tests
+│   ├── e2e
+│   │   └── portal.spec.ts
+│   ├── fixtures
+│   ├── integration
+│   │   └── api-flow.test.ts
+│   └── unit
+│       ├── api.test.ts
+│       ├── permission.test.ts
+│       └── types.test.ts
+├── tsconfig.base.json
+├── turbo.json
+├── USER.md
+├── vitest.config.ts
+└── workflows
+    ├── ar-collection
+    ├── inquiry-to-offer
+    ├── knowledge-capture
+    ├── offer-to-quote
+    └── README.md
+
+153 directories, 283 files

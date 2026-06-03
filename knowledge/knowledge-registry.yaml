@@ -1,0 +1,7 @@
+domains:
+  - customer
+  - supplier
+  - product
+  - finance
+  - market
+  - manufacturer

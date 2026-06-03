@@ -1,0 +1,7 @@
+workflow_id: WF-XXX-001
+name: Template
+domain: Trading
+status: Active
+trigger: EventCreated
+agents: []
+kpi: []
