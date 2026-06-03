@@ -25,6 +25,9 @@ ANOS不是一次性系统项目，而是企业AI原生操作系统建设项目�
 
 AI助手必须按渐进式披露原则理解项目。最小入口是：
 
+
+**快速定位文档:** 先查 `docs/_meta/AI-QUICK-INDEX.md` → 找到文档路径 → 打开阅读
+
 1. `instructions.md`
 2. `AGENTS.md`
 3. `docs/CONTEXT.md`
