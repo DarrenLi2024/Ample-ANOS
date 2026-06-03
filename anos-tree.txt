@@ -1,8 +1,39 @@
 .
 ├── agents
 │   ├── agent-template
-│   │   └── agent.yaml
-│   └── README.md
+│   │   ├── agent.yaml
+│   │   ├── kpi.yaml
+│   │   ├── memory-policy.md
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── buyer-copilot
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── ceo-agent
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── credit-agent
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── knowledge-agent
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── README.md
+│   ├── registry.yaml
+│   └── sales-copilot
+│       ├── agent.yaml
+│       ├── permission.yaml
+│       ├── prompt.md
+│       └── tools.yaml
 ├── AGENTS.md
 ├── anos-tree.txt
 ├── apps
@@ -86,49 +117,12 @@
 ├── Dockerfile
 ├── docs
 │   ├── _meta
+│   │   ├── AI-QUICK-INDEX.md
 │   │   ├── document-inventory.md
 │   │   ├── document-map.yaml
 │   │   ├── document-registry.yaml
 │   │   ├── legacy-mapping.yaml
 │   │   └── README.md
-│   ├── 00-ANOS总体架构设计白皮书V1.0.md
-│   ├── 01-ANOS项目范围与MVP定义 V1.0.md
-│   ├── 02-ANOS业务流程与用户故事 V1.0.md
-│   ├── 03-ANOS产品设计系统规范 V1.0.md
-│   ├── 04-ANOS UX规范 V1.0.md
-│   ├── 11-ANOS Portal 三纵列工作台设计规范 V1.0.md
-│   ├── 12-Agent Network总体设计规范 V1.0.md
-│   ├── 20-ANOS企业数据字典V1.0.md
-│   ├── 21-ERP字段映射方案V1.0.md
-│   ├── 22-飞书多维表格总体设计方案V1.0.md
-│   ├── 23-ERP同步策略与数据导入规范 V1.0.md
-│   ├── 24-API与工具接口设计 V1.0.md
-│   ├── 25-权限与审计规范 V1.0.md
-│   ├── 26-开发任务拆解与里程碑计划 V1.0.md
-│   ├── 27-验收标准与测试方案 V1.0.md
-│   ├── 30-ANOS技术架构设计规范 V1.0.md
-│   ├── 42-ANOS数据中台建表蓝图 V1.0.md
-│   ├── 43-ANOS Portal 页面原型规范 V1.0.md
-│   ├── 44-ANOS Trading Intelligence Architecture V1.0.md
-│   ├── 45-Agent操作系统规范 V1.0.md
-│   ├── 46-ANOS组织智能治理框架 V1.0.md
-│   ├── 47-ANOS Agent Prompt Library V1.0.md
-│   ├── 48-ANOS KPI与价值度量体系 V1.0.md
-│   ├── 70-飞书生态实施手册总纲 V1.0.md
-│   ├── 72-飞书多维表格实施手册 V1.0.md
-│   ├── 73-飞书工作流实施手册 V1.0.md
-│   ├── 75-飞书Portal实施手册 V1.0.md
-│   ├── 76-统一智能入口AI Inbox设计规范 V1.0.md
-│   ├── 77-Portal Design Token规范 V1.0.md
-│   ├── 81-GitHub项目结构规范 V1.0.md
-│   ├── 83-ANOS数据库设计SQL版 V1.0.md
-│   ├── 84-ERP API集成规范 V1.0.md
-│   ├── 85-MCP服务规范 V1.0.md
-│   ├── 87-飞书实施WBS V1.0.md
-│   ├── 88-ANOS开发规范 V1.0.md
-│   ├── 88-并发性能与飞书迁移评估 V1.0.md
-│   ├── 89-ANOS测试规范 V1.0.md
-│   ├── 90-ANOS运营与持续进化规范 V1.0.md
 │   ├── ADR
 │   │   ├── ADR-000-ADR模板.md
 │   │   ├── ADR-001-Feishu-As-Primary-Platform.md
@@ -137,24 +131,56 @@
 │   │   ├── ADR-004-Trading-Firewall.md
 │   │   └── ADR-005-Role-Based-Portal.md
 │   ├── AI_COLLABORATION.md
-│   ├── ANOS
-│   │   ├── 00-ANOS总体架构设计白皮书V1.0.md
-│   │   ├── 11-ANOS Portal 三纵列工作台设计规范 V1.0.md
-│   │   ├── 20-ANOS企业数据字典V1.0.md
-│   │   ├── 21-ERP字段映射方案V1.0.md
-│   │   ├── 22-飞书多维表格总体设计方案V1.0.md
-│   │   └── ERP数据结构字段清单.md
 │   ├── ANOS.zip
 │   ├── ARCHIVE
-│   │   └── legacy
-│   │       ├── ANOS-00-ANOS总体架构设计白皮书V1.0.md
-│   │       ├── ANOS-11-ANOS Portal 三纵列工作台设计规范 V1.0.md
-│   │       ├── ANOS-20-ANOS企业数据字典V1.0.md
-│   │       ├── ANOS-21-ERP字段映射方案V1.0.md
-│   │       ├── ANOS-22-飞书多维表格总体设计方案V1.0.md
-│   │       ├── ANOS-ERP数据结构字段清单.md
-│   │       ├── chat-chatgpt_share_6a1c6208_latest.html
-│   │       └── ERP数据结构字段清单.md
+│   │   ├── legacy
+│   │   │   ├── ANOS-00-ANOS总体架构设计白皮书V1.0.md
+│   │   │   ├── ANOS-11-ANOS Portal 三纵列工作台设计规范 V1.0.md
+│   │   │   ├── ANOS-20-ANOS企业数据字典V1.0.md
+│   │   │   ├── ANOS-21-ERP字段映射方案V1.0.md
+│   │   │   ├── ANOS-22-飞书多维表格总体设计方案V1.0.md
+│   │   │   ├── ANOS-ERP数据结构字段清单.md
+│   │   │   ├── chat-chatgpt_share_6a1c6208_latest.html
+│   │   │   └── ERP数据结构字段清单.md
+│   │   └── legacy-root
+│   │       ├── 00-ANOS总体架构设计白皮书V1.0.md
+│   │       ├── 01-ANOS项目范围与MVP定义 V1.0.md
+│   │       ├── 02-ANOS业务流程与用户故事 V1.0.md
+│   │       ├── 03-ANOS产品设计系统规范 V1.0.md
+│   │       ├── 04-ANOS UX规范 V1.0.md
+│   │       ├── 11-ANOS Portal 三纵列工作台设计规范 V1.0.md
+│   │       ├── 12-Agent Network总体设计规范 V1.0.md
+│   │       ├── 20-ANOS企业数据字典V1.0.md
+│   │       ├── 21-ERP字段映射方案V1.0.md
+│   │       ├── 22-飞书多维表格总体设计方案V1.0.md
+│   │       ├── 23-ERP同步策略与数据导入规范 V1.0.md
+│   │       ├── 24-API与工具接口设计 V1.0.md
+│   │       ├── 25-权限与审计规范 V1.0.md
+│   │       ├── 26-开发任务拆解与里程碑计划 V1.0.md
+│   │       ├── 27-验收标准与测试方案 V1.0.md
+│   │       ├── 30-ANOS技术架构设计规范 V1.0.md
+│   │       ├── 42-ANOS数据中台建表蓝图 V1.0.md
+│   │       ├── 43-ANOS Portal 页面原型规范 V1.0.md
+│   │       ├── 44-ANOS Trading Intelligence Architecture V1.0.md
+│   │       ├── 45-Agent操作系统规范 V1.0.md
+│   │       ├── 46-ANOS组织智能治理框架 V1.0.md
+│   │       ├── 47-ANOS Agent Prompt Library V1.0.md
+│   │       ├── 48-ANOS KPI与价值度量体系 V1.0.md
+│   │       ├── 70-飞书生态实施手册总纲 V1.0.md
+│   │       ├── 72-飞书多维表格实施手册 V1.0.md
+│   │       ├── 73-飞书工作流实施手册 V1.0.md
+│   │       ├── 75-飞书Portal实施手册 V1.0.md
+│   │       ├── 76-统一智能入口AI Inbox设计规范 V1.0.md
+│   │       ├── 77-Portal Design Token规范 V1.0.md
+│   │       ├── 81-GitHub项目结构规范 V1.0.md
+│   │       ├── 83-ANOS数据库设计SQL版 V1.0.md
+│   │       ├── 84-ERP API集成规范 V1.0.md
+│   │       ├── 85-MCP服务规范 V1.0.md
+│   │       ├── 87-飞书实施WBS V1.0.md
+│   │       ├── 88-ANOS开发规范 V1.0.md
+│   │       ├── 88-并发性能与飞书迁移评估 V1.0.md
+│   │       ├── 89-ANOS测试规范 V1.0.md
+│   │       └── 90-ANOS运营与持续进化规范 V1.0.md
 │   ├── auth-strategy.md
 │   ├── CONTEXT.md
 │   ├── DA
@@ -163,14 +189,21 @@
 │   │   ├── DA-003-飞书多维表格总体设计方案.md
 │   │   ├── DA-004-数据中台建表蓝图.md
 │   │   └── DA-005-数据库设计SQL版.md
-│   ├── design.md
-│   ├── design2.md
 │   ├── EA
 │   │   ├── EA-001-ANOS总体架构设计白皮书.md
 │   │   ├── EA-002-ANOS项目范围与MVP定义.md
 │   │   ├── EA-003-ANOS业务流程与用户故事.md
 │   │   ├── EA-004-ANOS产品设计系统规范.md
-│   │   └── EA-005-ANOS-UX规范.md
+│   │   ├── EA-005-ANOS-UX规范.md
+│   │   ├── EA-006-Persona-Workspace-Map.md
+│   │   ├── EA-007-企业能力地图.md
+│   │   ├── EA-008-企业领域模型.md
+│   │   ├── EA-009-组织操作模型.md
+│   │   ├── EA-010-KPI价值度量总纲.md
+│   │   ├── EA-011-Role-Workspace详细映射.md
+│   │   ├── EA-012-业务流程架构总览.md
+│   │   ├── EA-013-企业架构全景图.md
+│   │   └── EA-014-安全与合规架构.md
 │   ├── ERP数据结构字段清单.md
 │   ├── GA
 │   │   ├── GA-001-企业架构仓库治理总纲.md
@@ -183,7 +216,13 @@
 │   │   ├── GA-008-测试规范.md
 │   │   ├── GA-009-运营与持续进化规范.md
 │   │   ├── GA-010-交易隔离与信息防火墙规范.md
-│   │   └── GA-011-角色权限与信息隔离矩阵.md
+│   │   ├── GA-011-角色权限与信息隔离矩阵.md
+│   │   ├── GA-012-Agent治理规范.md
+│   │   ├── GA-013-Prompt治理规范.md
+│   │   ├── GA-014-Workflow治理规范.md
+│   │   ├── GA-015-Knowledge治理规范.md
+│   │   ├── GA-016-Architecture-Review机制.md
+│   │   └── GA-017-LLM编码行为准则-Karpathy.md
 │   ├── IA
 │   │   ├── IA-001-飞书生态实施手册总纲.md
 │   │   ├── IA-002-飞书多维表格实施手册.md
@@ -267,14 +306,22 @@
 │       └── chatgpt_share_6a1c6208_latest.html
 ├── governance
 │   ├── architecture-review
+│   │   ├── review-log.yaml
+│   │   └── review-template.md
 │   ├── audit
+│   │   └── audit-log-template.md
 │   ├── README.md
 │   └── release
+│       └── release-checklist.md
 ├── infra
 ├── instructions.md
 ├── knowledge
 │   ├── customer
 │   ├── finance
+│   ├── knowledge-registry.yaml
+│   ├── knowledge-template.md
+│   ├── legal
+│   ├── manufacturer
 │   ├── market
 │   ├── product
 │   ├── README.md
@@ -315,6 +362,8 @@
 │   ├── buyer
 │   ├── ceo
 │   ├── finance
+│   ├── prompt-registry.yaml
+│   ├── prompt-template.md
 │   ├── README.md
 │   ├── sales
 │   └── system
@@ -433,6 +482,9 @@
     ├── inquiry-to-offer
     ├── knowledge-capture
     ├── offer-to-quote
-    └── README.md
+    ├── README.md
+    ├── workflow-registry.yaml
+    └── workflow-template
+        └── workflow.yaml
 
-153 directories, 283 files
+161 directories, 327 files
