@@ -20,8 +20,8 @@ export function AIChatPanel() {
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <div className="flex flex-col h-full overflow-hidden">
+      <div className="flex-1 overflow-y-auto p-3 space-y-3 min-h-0">
         {messages.map((msg, i) => (
           <div key={i} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
             <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'ai' ? 'bg-brand-50' : 'bg-gray-100'}`}>
@@ -34,9 +34,9 @@ export function AIChatPanel() {
           </div>
         ))}
       </div>
-      <div className="border-t border-gray-100 p-3 flex gap-2">
+      <div className="border-t border-gray-100 p-2 flex gap-2 shrink-0">
         <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleSend()}
-          placeholder="输入指令..." className="flex-1 proto-input py-2 text-sm" />
+          placeholder="输入指令..." className="flex-1 min-w-0 proto-input py-1.5 text-sm" />
         <button onClick={handleSend} className="btn-primary !p-2"><Send size={16} /></button>
       </div>
     </div>
