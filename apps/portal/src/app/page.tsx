@@ -82,8 +82,8 @@ export default function HomePage() {
         </div>
 
         <AgentSuggestionCard agentName="Sales Agent" agentType="Sales"
-          conclusion="客户C-001 STM32F407VET6 询价建议报价 $4.20-4.50/pcs，基于近期成交价和库存水平。"
-          evidence={['近5笔成交均价 $4.35', '市场库存充足', '客户信用 AAA']}
+          conclusion="Sales Pilot 提交 STM32F407VET6 询价建议报价 $4.20-4.50/pcs，基于 Sales Pilot 提交的目标价和库存水平。"
+          evidence={['近5笔成交均价 $4.35', '市场库存充足', 'Sales Pilot 历史成交率 92%']}
           sourceId="SRC-001" generatedAt="2026-06-02 10:35" confidenceScore={88}
           suggestedActions={[{ label: '确认报价 $4.35/pcs', risk: 'low' }, { label: '报价 $4.50/pcs（含buffer）', risk: 'medium' }]}
           requiresApproval={true} />
