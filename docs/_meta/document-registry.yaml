@@ -334,6 +334,26 @@ documents:
     version: V1.0.0
     owner: LTDC
 
+  
+  - canonical_id: GA-010
+    title: ANOS交易隔离与信息防火墙规范
+    path: docs/GA/GA-010-交易隔离与信息防火墙规范.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [EA-001, EA-003, GA-002]
+
+  - canonical_id: GA-011
+    title: ANOS角色权限与信息隔离矩阵
+    path: docs/GA/GA-011-角色权限与信息隔离矩阵.md
+    layer: GA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+    depends_on: [GA-002, GA-010]
+
+
   # ============================================================
   # UI 设计层
   # ============================================================
