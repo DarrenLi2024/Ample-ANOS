@@ -26,8 +26,8 @@ export function SourceCard(p: SourceCardProps) {
         <div className="flex justify-between"><span className="text-gray-400">来源</span><span className="text-gray-800 font-medium">{p.source}</span></div>
         <div className="flex justify-between"><span className="text-gray-400">来源方式</span><span>{p.sourceType}</span></div>
         {p.sourceOwner && <div className="flex justify-between"><span className="text-gray-400">来源人</span><span>{p.sourceOwner}</span></div>}
-        <div className="flex justify-between"><span className="text-gray-400">原始时间</span><span className="font-mono text-base">{p.eventTime}</span></div>
-        <div className="flex justify-between"><span className="text-gray-400">采集时间</span><span className="font-mono text-base">{p.capturedAt}</span></div>
+        <div className="flex justify-between"><span className="text-gray-400">原始时间</span><span className="font-mono text-xs">{p.eventTime}</span></div>
+        <div className="flex justify-between"><span className="text-gray-400">采集时间</span><span className="font-mono text-xs">{p.capturedAt}</span></div>
         {p.verifiedBy && <div className="flex justify-between"><span className="text-gray-400">验证人</span><span>{p.verifiedBy}</span></div>}
       </div>
       <div className="flex gap-3 mt-3 pt-3 border-t border-gray-100">

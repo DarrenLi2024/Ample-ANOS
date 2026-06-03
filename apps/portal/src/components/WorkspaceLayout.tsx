@@ -41,7 +41,7 @@ export function WorkspaceLayout({
 
         <div className="flex-1 flex flex-col min-w-0">
           {/* Top Bar */}
-          <header className="flex items-center h-[52px] px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-4">
+          <header className="flex items-center h-12 px-5 bg-white border-b border-[#E8EAED] shrink-0 gap-4">
             <h1 className="text-base font-semibold text-gray-900 shrink-0">{title}</h1>
 
             {/* 全局搜索 */}

@@ -170,13 +170,13 @@ export function BottomCommandBar({
                 <textarea value={input} onChange={e => setInput(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
                   onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSubmit(); } }}
                   placeholder={placeholder} rows={2}
-                  className="w-full bg-transparent border-none outline-none resize-none text-base text-gray-900 placeholder:text-gray-400 leading-relaxed"
+                  className="w-full bg-transparent border-none outline-none resize-none text-sm text-gray-900 placeholder:text-gray-400 leading-relaxed"
                   disabled={processing} autoFocus />
               ) : (
                 <input type="text" value={input} onChange={e => setInput(e.target.value)} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
                   onKeyDown={e => e.key === 'Enter' && handleSubmit()}
                   placeholder={placeholder}
-                  className="w-full bg-transparent border-none outline-none text-base text-gray-900 placeholder:text-gray-400"
+                  className="w-full bg-transparent border-none outline-none text-sm text-gray-900 placeholder:text-gray-400"
                   disabled={processing} />
               )}
 
