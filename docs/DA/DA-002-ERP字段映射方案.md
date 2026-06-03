@@ -119,7 +119,37 @@ Receiving
 
 ERP字段映射必须做到四层：
 
-### 第一层：ERP原始字段
+#
+
+## 第X章 数据域映射规则 (2026-06 GPT增订)
+
+### Customer Domain
+
+ERP 中所有 `actype=C` 的记录归属于 **Customer Domain**。
+
+映射规则:
+- BD_Customer → ANOS Customer Base
+- BD_CommonContact (actype=C) → ANOS Contact Base
+- 销售订单 → Sales Domain (可见: Sales/CEO)
+
+### Supplier Domain
+
+ERP 中所有 `actype=V` 的记录归属于 **Supplier Domain**。
+
+映射规则:
+- BD_Supplier → ANOS Supplier Base
+- BD_CommonContact (actype=V) → ANOS Contact Base (Supplier侧)
+- 采购订单 → Procurement Domain (可见: Buyer/CEO)
+
+### 域隔离规则
+
+Customer Domain 与 Supplier Domain 双向隔离。
+ERP 导入时必须标注 OwnerRole 和 DataDomain。
+
+
+---
+
+## 第一层：ERP原始字段
 
 例如：
 
@@ -131,7 +161,37 @@ credit
 payment
 ```
 
-### 第二层：ANOS领域字段
+#
+
+## 第X章 数据域映射规则 (2026-06 GPT增订)
+
+### Customer Domain
+
+ERP 中所有 `actype=C` 的记录归属于 **Customer Domain**。
+
+映射规则:
+- BD_Customer → ANOS Customer Base
+- BD_CommonContact (actype=C) → ANOS Contact Base
+- 销售订单 → Sales Domain (可见: Sales/CEO)
+
+### Supplier Domain
+
+ERP 中所有 `actype=V` 的记录归属于 **Supplier Domain**。
+
+映射规则:
+- BD_Supplier → ANOS Supplier Base
+- BD_CommonContact (actype=V) → ANOS Contact Base (Supplier侧)
+- 采购订单 → Procurement Domain (可见: Buyer/CEO)
+
+### 域隔离规则
+
+Customer Domain 与 Supplier Domain 双向隔离。
+ERP 导入时必须标注 OwnerRole 和 DataDomain。
+
+
+---
+
+## 第二层：ANOS领域字段
 
 例如：
 
@@ -143,7 +203,37 @@ Customer.CreditLimit
 Customer.PaymentMethod
 ```
 
-### 第三层：飞书数据表
+#
+
+## 第X章 数据域映射规则 (2026-06 GPT增订)
+
+### Customer Domain
+
+ERP 中所有 `actype=C` 的记录归属于 **Customer Domain**。
+
+映射规则:
+- BD_Customer → ANOS Customer Base
+- BD_CommonContact (actype=C) → ANOS Contact Base
+- 销售订单 → Sales Domain (可见: Sales/CEO)
+
+### Supplier Domain
+
+ERP 中所有 `actype=V` 的记录归属于 **Supplier Domain**。
+
+映射规则:
+- BD_Supplier → ANOS Supplier Base
+- BD_CommonContact (actype=V) → ANOS Contact Base (Supplier侧)
+- 采购订单 → Procurement Domain (可见: Buyer/CEO)
+
+### 域隔离规则
+
+Customer Domain 与 Supplier Domain 双向隔离。
+ERP 导入时必须标注 OwnerRole 和 DataDomain。
+
+
+---
+
+## 第三层：飞书数据表
 
 例如：
 
@@ -159,7 +249,37 @@ Customer Base
 - 信用额度
 - 付款方式
 
-### 第四层：Agent能力
+#
+
+## 第X章 数据域映射规则 (2026-06 GPT增订)
+
+### Customer Domain
+
+ERP 中所有 `actype=C` 的记录归属于 **Customer Domain**。
+
+映射规则:
+- BD_Customer → ANOS Customer Base
+- BD_CommonContact (actype=C) → ANOS Contact Base
+- 销售订单 → Sales Domain (可见: Sales/CEO)
+
+### Supplier Domain
+
+ERP 中所有 `actype=V` 的记录归属于 **Supplier Domain**。
+
+映射规则:
+- BD_Supplier → ANOS Supplier Base
+- BD_CommonContact (actype=V) → ANOS Contact Base (Supplier侧)
+- 采购订单 → Procurement Domain (可见: Buyer/CEO)
+
+### 域隔离规则
+
+Customer Domain 与 Supplier Domain 双向隔离。
+ERP 导入时必须标注 OwnerRole 和 DataDomain。
+
+
+---
+
+## 第四层：Agent能力
 
 例如：
 
