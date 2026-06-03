@@ -68,10 +68,10 @@ const [inquiryData, setInquiryData] = useState(defaultInquiries);
         </div>
 
         <AgentSuggestionCard agentName="Sales Agent" agentType="Sales"
-          conclusion="比亚迪 TMS320F28335PGFA 已匹配到 3 个供应资源。Avnet 交期最短(2周)、Arrow 价格最优($8.10)。建议优先联系 Avnet。"
-          evidence={['Avnet: $8.50/pcs · 库存 3,000 · 交期 2 周', 'Arrow: $8.10/pcs · 库存 5,000 · 交期 4 周', 'Mouser: $9.20/pcs · 库存 1,000 · 交期 1 周']}
+          conclusion="比亚迪 TMS320F28335PGFA 已匹配到 3 个供应资源。SR-AVT 交期最短(2周)、SR-ARW 价格最优($8.10)。建议优先联系 SR-AVT。"
+          evidence={['SR-AVT: $8.50/pcs · 库存 3,000 · 交期 2 周', 'SR-ARW: $8.10/pcs · 库存 5,000 · 交期 4 周', 'SR-MSR: $9.20/pcs · 库存 1,000 · 交期 1 周']}
           sourceId="SRC-002" generatedAt="2026-06-02 10:45" confidenceScore={85}
-          suggestedActions={[{ label: '选择 Avnet 报价', risk: 'low' }, { label: '选择 Arrow 报价 (更低价格)', risk: 'low' }]}
+          suggestedActions={[{ label: '选择 SR-AVT 报价', risk: 'low' }, { label: '选择 SR-ARW 报价 (更低价格)', risk: 'low' }]}
           requiresApproval={true} />
       </div>
     </WorkspaceLayout>
