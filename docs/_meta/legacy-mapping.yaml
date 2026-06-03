@@ -1,0 +1,45 @@
+# Legacy ID → Canonical ID Mapping
+# 旧文档仍保留在 docs/ 根目录，本映射表提供新旧编号查找
+
+mappings:
+  "00":  { canonical: EA-001, title: "ANOS总体架构设计白皮书" }
+  "01":  { canonical: EA-002, title: "ANOS项目范围与MVP定义" }
+  "02":  { canonical: EA-003, title: "ANOS业务流程与用户故事" }
+  "03":  { canonical: EA-004, title: "ANOS产品设计系统规范" }
+  "04":  { canonical: EA-005, title: "ANOS UX规范" }
+  "11":  { canonical: SA-001, title: "ANOS Portal三纵列工作台设计规范" }
+  "12":  { canonical: SA-002, title: "Agent Network总体设计规范" }
+  "20":  { canonical: DA-001, title: "ANOS企业数据字典" }
+  "21":  { canonical: DA-002, title: "ERP字段映射方案" }
+  "22":  { canonical: DA-003, title: "飞书多维表格总体设计方案" }
+  "23":  { canonical: DA-000, title: "ERP同步策略与数据导入规范" }
+  "24":  { canonical: SA-008, title: "API与工具接口设计" }
+  "25":  { canonical: GA-002, title: "权限与审计规范" }
+  "26":  { canonical: IA-006, title: "开发任务拆解与里程碑计划" }
+  "27":  { canonical: IA-007, title: "验收标准与测试方案" }
+  "30":  { canonical: SA-009, title: "ANOS技术架构设计规范" }
+  "42":  { canonical: DA-004, title: "ANOS数据中台建表蓝图" }
+  "43":  { canonical: SA-003, title: "ANOS Portal页面原型规范" }
+  "44":  { canonical: SA-004, title: "ANOS Trading Intelligence Architecture" }
+  "45":  { canonical: SA-005, title: "Agent操作系统规范" }
+  "46":  { canonical: GA-003, title: "ANOS组织智能治理框架" }
+  "47":  { canonical: SA-007, title: "ANOS Agent Prompt Library" }
+  "48":  { canonical: UI-004, title: "ANOS KPI与价值度量体系" }
+  "70":  { canonical: IA-001, title: "飞书生态实施手册总纲" }
+  "72":  { canonical: IA-002, title: "飞书多维表格实施手册" }
+  "73":  { canonical: IA-003, title: "飞书工作流实施手册" }
+  "75":  { canonical: IA-004, title: "飞书Portal实施手册" }
+  "76":  { canonical: SA-006, title: "统一智能入口AI Inbox设计规范" }
+  "77":  { canonical: UI-003, title: "Portal Design Token规范" }
+  "81":  { canonical: GA-004, title: "GitHub项目结构规范" }
+  "83":  { canonical: DA-005, title: "ANOS数据库设计SQL版" }
+  "84":  { canonical: GA-005, title: "ERP API集成规范" }
+  "85":  { canonical: GA-006, title: "MCP服务规范" }
+  "87":  { canonical: IA-005, title: "飞书实施WBS" }
+  "88":  { canonical: IA-008, title: "并发性能与飞书迁移评估" }
+  "88dev": { canonical: GA-007, title: "ANOS开发规范" }
+  "89":  { canonical: GA-008, title: "ANOS测试规范" }
+  "90":  { canonical: GA-009, title: "ANOS运营与持续进化规范" }
+  "design":  { canonical: UI-001, title: "ANOS UI设计规范" }
+  "design2": { canonical: UI-002, title: "ANOS Design System V2.0" }
+  "CONTEXT": { canonical: CONTEXT, title: "ANOS项目上下文入口" }

@@ -1,0 +1,94 @@
+# ANOS Document Dependency Map
+# 自底向上: 被依赖项在上, 依赖项在下
+
+EA-001:  # 白皮书
+  depends_on: []
+  referenced_by: [EA-002, EA-003, SA-001, SA-002, DA-001]
+
+EA-002:  # MVP定义
+  depends_on: [EA-001]
+  referenced_by: [EA-003, SA-001, IA-006]
+
+EA-003:  # 业务流程
+  depends_on: [EA-001, EA-002]
+  referenced_by: [SA-001, GA-010]
+
+EA-004:  # 设计系统
+  depends_on: [SA-001]
+  referenced_by: [UI-001, UI-002, UI-003]
+
+EA-005:  # UX规范
+  depends_on: [EA-004, SA-001]
+  referenced_by: [UI-001]
+
+SA-001:  # Portal三纵列
+  depends_on: [EA-001, EA-002]
+  referenced_by: [SA-003, IA-004, UI-001, GA-010]
+
+SA-002:  # Agent Network
+  depends_on: [EA-001]
+  referenced_by: [SA-005, SA-007]
+
+SA-003:  # Portal原型
+  depends_on: [SA-001, EA-004]
+  referenced_by: [IA-004]
+
+SA-005:  # Agent OS
+  depends_on: [SA-002]
+  referenced_by: [SA-007, GA-006]
+
+SA-006:  # AI Inbox
+  depends_on: [SA-001]
+  referenced_by: []
+
+SA-007:  # Prompt Library
+  depends_on: [SA-005]
+  referenced_by: []
+
+DA-001:  # 数据字典
+  depends_on: [EA-001]
+  referenced_by: [DA-002, DA-003, DA-004, DA-005]
+
+DA-002:  # ERP映射
+  depends_on: [DA-001]
+  referenced_by: [DA-003, GA-005]
+
+DA-003:  # 飞书多维表格
+  depends_on: [DA-001, DA-002]
+  referenced_by: [IA-002]
+
+DA-004:  # 建表蓝图
+  depends_on: [DA-001]
+  referenced_by: [DA-005]
+
+DA-005:  # SQL设计
+  depends_on: [DA-004]
+  referenced_by: []
+
+IA-001:  # 飞书总纲
+  depends_on: [DA-003]
+  referenced_by: [IA-002, IA-003, IA-004, IA-005]
+
+IA-006:  # 开发任务拆解
+  depends_on: [EA-002]
+  referenced_by: [IA-007]
+
+IA-007:  # 验收标准
+  depends_on: [IA-006]
+  referenced_by: []
+
+GA-001:  # 治理总纲
+  depends_on: []
+  referenced_by: [GA-004, GA-007, GA-008]
+
+GA-002:  # 权限审计
+  depends_on: [GA-001]
+  referenced_by: [GA-010, GA-011]
+
+GA-010:  # 交易隔离
+  depends_on: [EA-001, EA-003, GA-002]
+  referenced_by: [GA-011]
+
+GA-011:  # 权限矩阵
+  depends_on: [GA-002, GA-010]
+  referenced_by: []
