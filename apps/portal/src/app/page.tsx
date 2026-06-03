@@ -56,12 +56,12 @@ export default function HomePage() {
         </div>
 
         {/* AI对话面板 + 任务卡片 并行 */}
-        <div className="grid grid-cols-2 gap-4" style={{ gridAutoRows: "1fr" }}>
-          <div className="proto-card overflow-hidden" style={{ height: '320px' }}>
+        <div className="grid grid-cols-2 gap-4 items-start">
+          <div className="proto-card overflow-hidden" style={{ height: '340px' }}>
             <div className="px-4 py-2 border-b border-gray-100 text-xs font-semibold text-gray-400 uppercase">AI 会话</div>
             <AIChatPanel />
           </div>
-          <div className="space-y-3" style={{ height: "320px", overflowY: "auto" }}>
+          <div className="space-y-3" style={{ height: "340px", overflowY: "auto" }}>
             <div className="text-xs font-semibold text-gray-400 uppercase px-1">待处理任务</div>
             <TaskCard title="审核报价 OFF-003" object="华为 · STM32F407VET6" assignee="Darren Li" dueDate="今天" aiSuggestion="建议报价 $4.35/pcs，基于近期成交均价" priority="high" />
             <TaskCard title="催收 AR-001" object="汇顶科技 · $380K" assignee="风控团队" dueDate="今天" aiSuggestion="已逾期95天，建议停单+法务催收" priority="urgent" />
