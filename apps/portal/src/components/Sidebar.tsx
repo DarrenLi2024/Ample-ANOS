@@ -6,7 +6,7 @@ import Image from 'next/image';
 import {
   LayoutDashboard, FileSearch, FileText, PackageCheck, ShieldAlert,
   CalendarClock, Library, Bot, Settings, ChevronLeft, ChevronRight,
-  ListChecks, User, Truck, BarChart3, CreditCard, Star, Clock, BookOpen, Cpu, Building2,
+  ListChecks, User,
 } from 'lucide-react';
 
 // 11号文档 第3章 完整导航定义
@@ -14,23 +14,15 @@ const navItems: NavItem[] = [
   // 3.3 我的工作
   { id: 'dashboard', label: '工作台', icon: <LayoutDashboard size={18} />, href: '/', section: 'workspace' },
   { id: 'tasks', label: '待办事项', icon: <ListChecks size={18} />, href: '/tasks', section: 'workspace' },
-  { id: 'schedule', label: '我的日程', icon: <Clock size={18} />, href: '/tasks', section: 'workspace' },
-  { id: 'favorites', label: '我的收藏', icon: <Star size={18} />, href: '/tasks', section: 'workspace' },
   // 3.4 Trading OS
   { id: 'inquiry', label: '询价中心', icon: <FileSearch size={18} />, href: '/inquiries', section: 'trading' },
   { id: 'offer', label: '报价中心', icon: <FileText size={18} />, href: '/offers', section: 'trading' },
   { id: 'so', label: '订单中心', icon: <PackageCheck size={18} />, href: '/orders', section: 'trading' },
-  { id: 'po', label: '采购订单', icon: <Truck size={18} />, href: '/orders', section: 'trading' },
-  { id: 'inventory', label: '库存中心', icon: <Building2 size={18} />, href: '/orders', section: 'trading' },
   // 3.5 Risk OS
   { id: 'risk', label: '风控中心', icon: <ShieldAlert size={18} />, href: '/risk', section: 'risk' },
   { id: 'ar', label: 'AR 中心', icon: <CalendarClock size={18} />, href: '/ar', section: 'risk' },
-  { id: 'ap', label: 'AP 中心', icon: <CreditCard size={18} />, href: '/ar', section: 'risk' },
-  { id: 'credit', label: '信用中心', icon: <BarChart3 size={18} />, href: '/risk', section: 'risk' },
   // 3.6 Knowledge OS
   { id: 'knowledge', label: '知识库', icon: <Library size={18} />, href: '/knowledge', section: 'knowledge' },
-  { id: 'product-kb', label: '产品知识库', icon: <Cpu size={18} />, href: '/knowledge', section: 'knowledge' },
-  { id: 'sop', label: '制度流程库', icon: <BookOpen size={18} />, href: '/knowledge', section: 'knowledge' },
   { id: 'agents', label: 'Agent 中心', icon: <Bot size={18} />, href: '/agents', section: 'knowledge' },
   { id: 'settings', label: '设置', icon: <Settings size={18} />, href: '/settings', section: 'workspace' },
 ];
