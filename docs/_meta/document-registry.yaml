@@ -57,6 +57,80 @@ documents:
     version: V1.0.0
     owner: LTDC
 
+  
+  - canonical_id: EA-006
+    title: ANOS Persona-Workspace-Map
+    path: docs/EA/EA-006-Persona-Workspace-Map.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-007
+    title: ANOS企业能力地图
+    path: docs/EA/EA-007-企业能力地图.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-008
+    title: ANOS企业领域模型
+    path: docs/EA/EA-008-企业领域模型.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-009
+    title: ANOS组织操作模型
+    path: docs/EA/EA-009-组织操作模型.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-010
+    title: ANOS KPI价值度量总纲
+    path: docs/EA/EA-010-KPI价值度量总纲.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-011
+    title: ANOS Role-Workspace详细映射
+    path: docs/EA/EA-011-Role-Workspace详细映射.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-012
+    title: ANOS业务流程架构总览
+    path: docs/EA/EA-012-业务流程架构总览.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-013
+    title: ANOS企业架构全景图
+    path: docs/EA/EA-013-企业架构全景图.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+  - canonical_id: EA-014
+    title: ANOS安全与合规架构
+    path: docs/EA/EA-014-安全与合规架构.md
+    layer: EA
+    status: Active
+    version: V1.0.0
+    owner: LTDC
+
+
   # ============================================================
   # SA 解决方案架构层
   # ============================================================
