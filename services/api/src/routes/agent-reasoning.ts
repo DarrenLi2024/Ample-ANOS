@@ -4,13 +4,15 @@
  */
 
 import { Hono } from 'hono';
-import Database from 'better-sqlite3';
+import initSqlJs, { Database } from 'sql.js';
 import path from 'node:path';
 import { jwtAuth } from '../middleware/jwt';
 import { v4 as uuid } from 'uuid';
 
 const DB_PATH = process.env.ANOS_DB_PATH || path.join(process.cwd(), 'data', 'anos.db');
-function getDb() { const sqlite = new Database(DB_PATH); sqlite.pragma('journal_mode = WAL'); return sqlite; }
+function getDb() { const SQL = await initSqlJs();
+const sqlite = new SQL.Database();
+try { const buf = require('fs').readFileSync(DB_PATH); sqlite = new SQL.Database(buf); } catch {} sqlite.pragma('journal_mode = WAL'); return sqlite; }
 
 export const agentReasoningRoutes = new Hono().use('*', jwtAuth);
 // ============================================================================
