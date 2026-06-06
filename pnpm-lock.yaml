@@ -26,9 +26,6 @@ importers:
 
   apps/portal:
     dependencies:
-      '@anos/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
