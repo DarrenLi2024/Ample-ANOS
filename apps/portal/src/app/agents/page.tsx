@@ -1,16 +1,13 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { Bot, CheckCircle, Clock, AlertTriangle, XCircle, Activity, Search, BookOpen, Shield, Cpu, Zap, ChevronRight } from 'lucide-react';
 import { clsx } from 'clsx';
 import React from 'react';
+import { getAgents } from '@/lib/api';
 
-const agents = [
-  { id: 'AG-SALES', name: 'Sales Agent', type: 'Sales', level: 'L3', status: 'Online', tasks: 12, completed: 347, desc: 'RFQ解析 · 客户摘要 · 报价建议 · 邮件草案' },
-  { id: 'AG-PROC', name: 'Procurement Agent', type: 'Procurement', level: 'L2', status: 'Online', tasks: 8, completed: 215, desc: '资源解析 · 供应商比较 · 替代料建议' },
-  { id: 'AG-CREDIT', name: 'Credit Agent', type: 'Credit', level: 'L3', status: 'WaitingApproval', tasks: 3, completed: 128, desc: 'AR风险识别 · 催收建议 · 信用评估' },
-  { id: 'AG-KNOWLEDGE', name: 'Knowledge Agent', type: 'Knowledge', level: 'L2', status: 'Online', tasks: 5, completed: 89, desc: '知识检索 · SOP问答 · 产品知识查询' },
-  { id: 'AG-CEO', name: 'CEO Agent', type: 'CEO', level: 'L2', status: 'Offline', tasks: 0, completed: 42, desc: '经营摘要 · 风险地图 · 预测分析' },
-];
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
 
 const statusConfig: Record<string, { icon: React.ReactNode; label: string; cls: string }> = {
   Online: { icon: <CheckCircle size={12} />, label: '在线', cls: 'tag-green' },
@@ -20,6 +17,7 @@ const statusConfig: Record<string, { icon: React.ReactNode; label: string; cls: 
   Offline: { icon: <XCircle size={12} />, label: '离线', cls: 'tag-gray' },
 };
 
+// Knowledge Skills — static config (Phase 2: fetch from knowledge registry)
 const knowledgeSkills = [
   { id: 'SK-001', name: '销售流程查询', icon: <Search size={15} />, color: 'tag-blue', source: '销售 SOP', desc: '客户开发、RFQ处理、报价审批、订单跟进', agent: 'Sales · CEO', examples: ['客户要求降价怎么处理？', '报价审批流程是什么？'] },
   { id: 'SK-002', name: '采购流程查询', icon: <BookOpen size={15} />, color: 'tag-purple', source: '采购 SOP', desc: '供应商开发、询价比价、采购执行、供应商管理', agent: 'Procurement · CEO', examples: ['新供应商怎么入库？', '紧急采购流程是什么？'] },
@@ -28,10 +26,39 @@ const knowledgeSkills = [
 ];
 
 export default function AgentCenterPage() {
+  const [agents, setAgents] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [selectedSkill, setSelectedSkill] = React.useState<string | null>(null);
+
+  useEffect(() => {
+    getAgents().then(res => {
+      const data = (res.data || []).map((a: any) => ({
+        id: a.agent_id || 'AG-000',
+        name: a.agent_name || 'Unknown Agent',
+        type: a.agent_type || 'Unknown',
+        level: a.level || 'L2',
+        status: a.status === 'Online' ? 'Online' : a.status === 'Offline' ? 'Offline' : 'WaitingApproval',
+        tasks: a.current_task_count || 0,
+        completed: a.completed_task_count || 0,
+        desc: a.capabilities || 'Agent 能力描述',
+      }));
+      setAgents(data.length > 0 ? data : [
+        { id: 'AG-SALES', name: 'Sales Agent', type: 'Sales', level: 'L3', status: 'Online', tasks: 0, completed: 0, desc: 'RFQ解析 · 客户摘要 · 报价建议' },
+        { id: 'AG-PROC', name: 'Procurement Agent', type: 'Procurement', level: 'L2', status: 'Online', tasks: 0, completed: 0, desc: '资源解析 · 供应商比较' },
+        { id: 'AG-CREDIT', name: 'Credit Agent', type: 'Credit', level: 'L3', status: 'Online', tasks: 0, completed: 0, desc: 'AR风险识别 · 催收建议' },
+      ]);
+    }).catch(() => {
+      setAgents([
+        { id: 'AG-SALES', name: 'Sales Agent', type: 'Sales', level: 'L3', status: 'Online', tasks: 0, completed: 0, desc: 'RFQ解析 · 客户摘要 · 报价建议' },
+        { id: 'AG-PROC', name: 'Procurement Agent', type: 'Procurement', level: 'L2', status: 'Online', tasks: 0, completed: 0, desc: '资源解析 · 供应商比较' },
+        { id: 'AG-CREDIT', name: 'Credit Agent', type: 'Credit', level: 'L3', status: 'Online', tasks: 0, completed: 0, desc: 'AR风险识别 · 催收建议' },
+      ]);
+    }).finally(() => setLoading(false));
+  }, []);
 
   return (
     <WorkspaceLayout title="智能体中心"
+      role={detectRole()}
       rightPanel={selectedSkill ? (() => { const s = knowledgeSkills.find(k => k.id === selectedSkill)!; return (
         <div className="p-4">
           <div className="flex items-center justify-between mb-4"><h3 className="font-semibold text-base">Skill 详情</h3><button onClick={()=>setSelectedSkill(null)} className="text-gray-400 hover:text-gray-600"><XCircle size={16}/></button></div>
@@ -54,6 +81,7 @@ export default function AgentCenterPage() {
       )}
     >
       <div className="p-6 space-y-6">
+        {loading && <div className="text-center text-gray-400 py-8">加载中...</div>}
         <div>
           <h2 className="text-base font-semibold text-gray-400 uppercase tracking-wide mb-3">在线 Agent</h2>
           <div className="grid grid-cols-3 gap-4">

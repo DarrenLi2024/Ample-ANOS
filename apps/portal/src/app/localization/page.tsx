@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function LocalizationPage() {
   const [products, setProducts] = useState<any[]>([]);
   useEffect(() => {
@@ -9,7 +12,8 @@ export default function LocalizationPage() {
       .then(r => r.json()).then(d => setProducts((d.data||d||[]).filter((p:any) => p.is_domestic > 0).slice(0,5))).catch(()=>{});
   }, []);
   return (
-    <WorkspaceLayout title="国产替代推荐">
+    <WorkspaceLayout title="国产替代推荐"
+      role={detectRole()}>
       <div className="p-6 space-y-6">
         <div className="proto-card-accent p-5"><h2 className="text-base font-semibold mb-4">国产替代方案</h2>
           <div className="space-y-3">

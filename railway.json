@@ -1,0 +1,11 @@
+{
+  "build": {
+    "builder": "nixpacks",
+    "buildCommand": "pnpm install"
+  },
+  "deploy": {
+    "startCommand": "node --import tsx services/api/src/start.ts",
+    "healthcheckPath": "/health",
+    "restartPolicyType": "ON_FAILURE"
+  }
+}

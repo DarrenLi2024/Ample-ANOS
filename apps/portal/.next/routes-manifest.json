@@ -1,1 +1,179 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/api/:path*",
+        "destination": "http://localhost:3001/api/:path*",
+        "regex": "^/api(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/agents",
+      "regex": "^/agents(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agents(?:/)?$"
+    },
+    {
+      "page": "/ar",
+      "regex": "^/ar(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ar(?:/)?$"
+    },
+    {
+      "page": "/ar-disposition",
+      "regex": "^/ar\\-disposition(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ar\\-disposition(?:/)?$"
+    },
+    {
+      "page": "/ceo-dashboard",
+      "regex": "^/ceo\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ceo\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/customer-360",
+      "regex": "^/customer\\-360(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/customer\\-360(?:/)?$"
+    },
+    {
+      "page": "/inquiries",
+      "regex": "^/inquiries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/inquiries(?:/)?$"
+    },
+    {
+      "page": "/inquiry-create",
+      "regex": "^/inquiry\\-create(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/inquiry\\-create(?:/)?$"
+    },
+    {
+      "page": "/knowledge",
+      "regex": "^/knowledge(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge(?:/)?$"
+    },
+    {
+      "page": "/localization",
+      "regex": "^/localization(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/localization(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/offers",
+      "regex": "^/offers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/offers(?:/)?$"
+    },
+    {
+      "page": "/opportunity",
+      "regex": "^/opportunity(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/opportunity(?:/)?$"
+    },
+    {
+      "page": "/orders",
+      "regex": "^/orders(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/orders(?:/)?$"
+    },
+    {
+      "page": "/performance",
+      "regex": "^/performance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/performance(?:/)?$"
+    },
+    {
+      "page": "/quote-approval",
+      "regex": "^/quote\\-approval(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quote\\-approval(?:/)?$"
+    },
+    {
+      "page": "/risk",
+      "regex": "^/risk(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/risk(?:/)?$"
+    },
+    {
+      "page": "/settings",
+      "regex": "^/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/settings(?:/)?$"
+    },
+    {
+      "page": "/supply-create",
+      "regex": "^/supply\\-create(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/supply\\-create(?:/)?$"
+    },
+    {
+      "page": "/tasks",
+      "regex": "^/tasks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tasks(?:/)?$"
+    },
+    {
+      "page": "/workflow",
+      "regex": "^/workflow(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/workflow(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

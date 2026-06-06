@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { db } from '../db/connection';
+import { redactFields } from '../middleware/permission';
 import { agents } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
@@ -9,13 +10,17 @@ export const agentRoutes = new Hono().use('*', jwtAuth);
 
 agentRoutes.get('/', async (c) => {
   const rows = await db.select().from(agents).all();
-  return c.json({ data: rows });
+  const user = c.get('user') as any;
+    const safeData = redactFields(rows as any, 'Agent', user?.role || 'Sales');
+    return c.json({ data: safeData });
 });
 
 agentRoutes.get('/:id', async (c) => {
   const row = await db.select().from(agents).where(eq(agents.agentId, c.req.param('id'))).get();
   if (!row) return c.json({ error: 'Not found' }, 404);
-  return c.json(row);
+  const user = c.get('user') as any;
+    const safeData = redactFields(row as any, 'Agent', user?.role || 'Sales');
+    return c.json(safeData);
 });
 
 agentRoutes.post('/', async (c) => {

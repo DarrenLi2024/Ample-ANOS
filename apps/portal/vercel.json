@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd ../.. && pnpm install --filter @anos/portal && cd apps/portal && npx next build",
+  "outputDirectory": ".next",
+  "installCommand": "pnpm install --filter @anos/portal",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://anos-api.railway.app"
+  }
+}

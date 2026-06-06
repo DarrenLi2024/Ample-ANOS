@@ -1,9 +1,13 @@
 'use client';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function OrdersPage() {
   return (
-    <WorkspaceLayout title="采购订单">
+    <WorkspaceLayout title="采购订单"
+      role={detectRole()}>
       <div className="p-6 space-y-6">
         <div className="flex items-center gap-3 mb-4">
           <button className="px-3 py-1.5 text-xs rounded-md bg-brand-500 text-white font-medium">全部</button>

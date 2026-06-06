@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function SettingsPage() {
   const [apiData, setApiData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -14,7 +17,8 @@ export default function SettingsPage() {
   }, []);
 
   return (
-    <WorkspaceLayout title="设置">
+    <WorkspaceLayout title="设置"
+      role={detectRole()}>
       <div className="p-6 space-y-6 max-w-2xl">
         <div className="proto-card p-5"><h2 className="text-base font-semibold mb-4">系统配置</h2>
           <div className="space-y-4">

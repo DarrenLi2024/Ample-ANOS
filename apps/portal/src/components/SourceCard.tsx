@@ -2,7 +2,7 @@
 import { clsx } from 'clsx';
 import { CheckCircle, Clock, AlertTriangle, ExternalLink } from 'lucide-react';
 
-type SourceType = 'Email' | 'WeChat' | 'WhatsApp' | 'Excel' | 'PDF' | 'Feishu' | 'ERP' | 'Manual';
+type SourceType = 'Email' | 'WeChat' | 'WhatsApp' | 'Excel' | 'PDF' | 'Feishu' | 'ERP' | 'Manual' | 'AI' | 'API';
 type SourceStatus = 'verified' | 'unverified' | 'disputed';
 
 interface SourceCardProps {

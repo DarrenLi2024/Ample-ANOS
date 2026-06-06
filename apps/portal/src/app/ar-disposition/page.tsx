@@ -3,6 +3,9 @@ import { SourceCard } from '@/components/SourceCard';
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function ArDispositionPage() {
   const [apiData, setApiData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +18,8 @@ export default function ArDispositionPage() {
   }, []);
 
   return (
-    <WorkspaceLayout title="AR 风险处置">
+    <WorkspaceLayout title="AR 风险处置"
+      role={detectRole()}>
       <div className="p-6 space-y-6">
         <div className="proto-card-accent p-5">
           <div className="flex items-center justify-between mb-4"><h2 className="text-base font-semibold">客户C-008 · AR 详情</h2><span className="tag tag-red">L4 高风险</span></div>

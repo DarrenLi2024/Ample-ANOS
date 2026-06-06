@@ -3,6 +3,9 @@ import { HumanApprovalPanel } from '@/components/HumanApprovalPanel';
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function QuoteApprovalPage() {
   const [apiData, setApiData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +18,8 @@ export default function QuoteApprovalPage() {
   }, []);
 
   return (
-    <WorkspaceLayout title="报价建议 · 审批">
+    <WorkspaceLayout title="报价建议 · 审批"
+      role={detectRole()}>
       <div className="p-6 space-y-6">
         <div className="proto-card-accent p-5">
           <h2 className="text-base font-semibold mb-4">🤖 AI 报价建议</h2>

@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { db } from '../db/connection';
+import { redactFields } from '../middleware/permission';
 import { suppliers } from '../db/schema';
 import { eq, like } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
@@ -12,13 +13,17 @@ supplierRoutes.get('/', async (c) => {
   const query = db.select().from(suppliers).$dynamic();
   if (q) query.where(like(suppliers.supplierName, `%${q}%`));
   const rows = await query.limit(50).all();
-  return c.json({ data: rows });
+  const user = c.get('user') as any;
+    const safeData = redactFields(rows as any, 'Supplier', user?.role || 'Sales');
+    return c.json({ data: safeData });
 });
 
 supplierRoutes.get('/:id', async (c) => {
   const row = await db.select().from(suppliers).where(eq(suppliers.supplierId, c.req.param('id'))).get();
   if (!row) return c.json({ error: 'Not found' }, 404);
-  return c.json(row);
+  const user = c.get('user') as any;
+    const safeData = redactFields(row as any, 'Supplier', user?.role || 'Sales');
+    return c.json(safeData);
 });
 
 supplierRoutes.post('/', async (c) => {

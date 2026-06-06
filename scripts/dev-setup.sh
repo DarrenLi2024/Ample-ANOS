@@ -18,8 +18,7 @@ echo ""
 echo "🗄️  Step 2/3: 初始化数据库 + 种子数据..."
 cd services/api
 npx tsx src/db/migrate.ts
-npx tsx src/db/seed.ts
-npx tsx src/db/seed-extended.ts
+npx tsx src/db/seed-closure.ts
 cd ../..
 
 # 3. 启动

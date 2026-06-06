@@ -1,80 +1,94 @@
 'use client';
-
-async function fetchApi(path: string) {
-  const headers: Record<string,string> = { 'Content-Type': 'application/json', 'X-User-Role': 'SystemAdmin' };
-  const token = typeof window !== 'undefined' ? localStorage.getItem('anos_token') : null;
-  if (token) headers['Authorization'] = 'Bearer ' + token;
-  const res = await fetch('http://localhost:3001' + path, { headers });
-  if (!res.ok) return [];
-  const data = await res.json();
-  return data.data || data || [];
-}
-
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { SourceCard } from '@/components/SourceCard';
-import { RoleAwareField } from '@/components/RoleAwareField';
 import { AgentSuggestionCard } from '@/components/AgentSuggestionCard';
+import { getInquiries, getOpportunities } from '@/lib/api';
 
-const defaultInquiries = [
-  { id: 'INQ-2026-001', customer: 'SalesC-001技术', mpn: 'STM32F407VET6', qty: 5000, targetPrice: '$4.50', status: 'New', priority: 'High', time: '10:30', score: 92 },
-  { id: 'INQ-2026-002', customer: 'SalesC-003', mpn: 'TMS320F28335PGFA', qty: 2000, targetPrice: '$9.00', status: 'Matched', priority: 'Urgent', time: '09:15', score: 85 },
-  { id: 'INQ-2026-003', customer: 'SalesC-006', mpn: 'EP4CE22F17C8N', qty: 1000, targetPrice: '$35.00', status: 'Quoting', priority: 'Medium', time: '昨天', score: 78 },
-  { id: 'INQ-2026-004', customer: 'SalesC-005创新', mpn: 'STM32H743ZIT6', qty: 800, targetPrice: '$12.00', status: 'New', priority: 'Medium', time: '昨天', score: 0 },
-  { id: 'INQ-2026-005', customer: 'SalesC-004', mpn: 'W25Q128JVSIM', qty: 10000, targetPrice: '$0.60', status: 'Won', priority: 'High', time: '2天前', score: 95 },
-];
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
 
 export default function InquiryCenterPage() {
-const [inquiryData, setInquiryData] = useState(defaultInquiries);
-  useEffect(() => { fetchApi('/api/inquiries').then(d => { if (d?.length) setInquiryData(d.map((r:any) => ({ id: r.inquiry_id?.slice(0,10) || r.inquiry_id, customer: r.customer_id, mpn: r.mpn, qty: r.quantity, status: r.status, priority: r.priority, time: r.created_at?.slice(0,10) || '' }))); }).catch(()=>{}); }, []);
+  const [inquiries, setInquiries] = useState<any[]>([]);
+  const [opportunities, setOpportunities] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [generatedAt, setGeneratedAt] = useState('');
+  const [filter, setFilter] = useState('全部');
+
+  useEffect(() => {
+    Promise.all([
+      getInquiries().catch(() => ({ data: [] })),
+      getOpportunities().catch(() => ({ data: [] })),
+    ]).then(([inqRes, oppRes]) => {
+      setInquiries(inqRes.data || []);
+      setOpportunities(oppRes.data || []);
+    }).catch(err => console.error('Fetch failed:', err))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const filtered = filter === '全部' ? inquiries : inquiries.filter(i => i.status === filter);
+
+  // Count matched opportunities per inquiry
+  const matchedCount = (inqId: string) => opportunities.filter(o => o.inquiry_id === inqId).length;
+
+  const statusTag = (s: string) => {
+    const map: Record<string,string> = { New:'tag-blue', Matched:'tag-purple', Quoting:'tag-yellow', Quoted:'tag-yellow', Won:'tag-green', Lost:'tag-red', Parsing:'tag-gray' };
+    return 'tag ' + (map[s] || 'tag-gray');
+  };
+  const priorityTag = (p: string) => {
+    const map: Record<string,string> = { Urgent:'tag-red', High:'tag-yellow', Medium:'tag-blue', Low:'tag-gray' };
+    return 'tag ' + (map[p] || 'tag-gray');
+  };
+
   return (
     <WorkspaceLayout title="询价中心"
+      role={detectRole()}
       agentStatuses={[{ label: 'Sales Agent', color: 'tag tag-blue' }]}
       topBarChildren={
         <div className="flex items-center gap-2 ml-6">
-          <button className="px-3 py-1.5 text-sm rounded-md bg-brand-500 text-white font-medium">全部</button>
-          <button className="px-3 py-1.5 text-sm rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">New</button>
-          <button className="px-3 py-1.5 text-sm rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">Matched</button>
-          <button className="px-3 py-1.5 text-sm rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors">Won</button>
-        </div>
-      }
-      rightPanel={
-        <div className="p-4 space-y-5">
-          <SourceCard source="SalesC-003采购部" sourceType="Email" sourceOwner="李经理"
-            eventTime="2026-06-02 09:15" capturedAt="2026-06-02 09:17" verifiedBy="Tony Li" confidenceScore={92} status="verified" />
+          {['全部','New','Matched','Quoted','Won'].map(f => (
+            <button key={f} onClick={() => setFilter(f)}
+              className={`px-3 py-1.5 text-sm rounded-md font-medium transition-colors ${filter === f ? 'bg-brand-500 text-white' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'}`}>
+              {f}
+            </button>
+          ))}
         </div>
       }
     >
       <div className="p-6 space-y-6">
+        {loading && <div className="text-center text-gray-400 py-12">加载中...</div>}
         <div className="proto-card overflow-hidden">
           <table className="proto-table">
-            <thead><tr><th>Inquiry ID</th><th>Sales</th><th>型号</th><th>数量</th><th>目标价</th><th>状态</th><th>优先级</th><th>匹配度</th><th>时间</th></tr></thead>
+            <thead><tr><th>Inquiry ID</th><th>客户</th><th>品牌</th><th>型号</th><th>数量</th><th>目标价</th><th>状态</th><th>优先级</th><th>匹配数</th><th>时间</th></tr></thead>
             <tbody>
-              {inquiryData.map(i => (
-                <tr key={i.id} className="cursor-pointer">
-                  <td className="font-mono text-sm text-brand-600">{i.id}</td>
-                  <td className="font-medium">{i.customer}</td>
+              {filtered.map(i => (
+                <tr key={i.inquiry_id} className="cursor-pointer hover:bg-gray-50">
+                  <td className="font-mono text-sm text-brand-600">{i.inquiry_id}</td>
+                  <td className="font-medium">{i.customer_id}</td>
+                  <td className="text-gray-500">{i.brand || 'N/A'}</td>
                   <td className="font-mono text-sm">{i.mpn}</td>
-                  <td>{i.qty.toLocaleString()}</td>
-                  <td>{i.targetPrice}</td>
-                  <td><span className={`tag ${i.status==='New'?'tag-blue':i.status==='Matched'?'tag-purple':i.status==='Quoting'?'tag-yellow':'tag-green'}`}>{i.status}</span></td>
-                  <td><span className={`tag ${i.priority==='Urgent'?'tag-red':i.priority==='High'?'tag-yellow':'tag-gray'}`}>{i.priority}</span></td>
-                  <td>{i.score > 0 ? <span className="text-brand-600 font-medium">{i.score}%</span> : <span className="text-gray-300">—</span>}</td>
-                  <td className="text-gray-400 text-xs">{i.time}</td>
+                  <td>{i.quantity?.toLocaleString()}</td>
+                  <td className="font-medium">{i.target_price ? '$' + i.target_price.toFixed(2) : 'N/A'}</td>
+                  <td><span className={statusTag(i.status)}>{i.status}</span></td>
+                  <td><span className={priorityTag(i.priority)}>{i.priority}</span></td>
+                  <td>{matchedCount(i.inquiry_id) > 0 ? <span className="text-brand-600 font-medium">{matchedCount(i.inquiry_id)}</span> : <span className="text-gray-300">—</span>}</td>
+                  <td className="text-gray-400 text-xs">{i.created_at?.slice(0, 10) || 'N/A'}</td>
                 </tr>
               ))}
+              {filtered.length === 0 && !loading && (
+                <tr><td colSpan={10} className="text-center text-gray-400 py-8">暂无数据</td></tr>
+              )}
             </tbody>
           </table>
         </div>
 
         <AgentSuggestionCard agentName="Sales Agent" agentType="Sales"
-          conclusion="SalesC-003 TMS320F28335PGFA 已匹配到 3 个供应资源。SR-AVT 交期最短(2周)、SR-ARW 价格最优($8.10)。建议优先联系 SR-AVT。"
-          evidence={['SR-AVT: $8.50/pcs · 库存 3,000 · 交期 2 周', 'SR-ARW: $8.10/pcs · 库存 5,000 · 交期 4 周', 'SR-MSR: $9.20/pcs · 库存 1,000 · 交期 1 周']}
-          sourceId="SRC-002" generatedAt="2026-06-02 10:45" confidenceScore={85}
-          suggestedActions={[{ label: '选择 SR-AVT 报价', risk: 'low' }, { label: '选择 SR-ARW 报价 (更低价格)', risk: 'low' }]}
-          requiresApproval={true} />
+          conclusion={`当前共 ${inquiries.length} 条询价，其中 ${inquiries.filter(i => i.status === 'New').length} 条待处理。建议优先处理 High/Urgent 优先级的 New 询价。`}
+          evidence={inquiries.filter(i => i.status === 'New' && ['Urgent','High'].includes(i.priority)).slice(0, 3).map(i => `${i.inquiry_id}: ${i.mpn} × ${i.quantity} @ $${i.target_price}`)}
+          sourceId="SRC-INQ-001" generatedAt={generatedAt} confidenceScore={88}
+          suggestedActions={[{ label: '查看所有 New 询价', risk: 'low' }]}
+          requiresApproval={false} />
       </div>
     </WorkspaceLayout>
   );
 }
-

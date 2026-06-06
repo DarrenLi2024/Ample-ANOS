@@ -3,6 +3,7 @@ import Database from 'better-sqlite3';
 import path from 'node:path';
 import { v4 as uuid } from 'uuid';
 import { jwtAuth, requireRole } from '../middleware/jwt';
+import { redactFields } from '../middleware/permission';
 import { validateBody } from '../middleware/validate';
 import { createARSchema } from '../schemas';
 
@@ -17,7 +18,9 @@ arRoutes.get('/', async (c) => {
   try {
     const sql = riskLevel ? 'SELECT * FROM ar_items WHERE risk_level = ? ORDER BY overdue_days DESC LIMIT 50' : 'SELECT * FROM ar_items ORDER BY overdue_days DESC LIMIT 50';
     const rows = riskLevel ? db.prepare(sql).all(riskLevel) : db.prepare(sql).all();
-    return c.json({ data: rows });
+    const user = c.get('user') as any;
+    const safeData = redactFields(rows as any, 'AR', user?.role || 'Sales');
+    return c.json({ data: safeData });
   } catch (err: any) { return c.json({ error: 'Database Error', message: err.message }, 500); }
   finally { db.close(); }
 });
@@ -27,7 +30,9 @@ arRoutes.get('/:id', async (c) => {
   try {
     const row = db.prepare('SELECT * FROM ar_items WHERE ar_id = ?').get(c.req.param('id'));
     if (!row) return c.json({ error: 'Not found' }, 404);
-    return c.json(row);
+    const user = c.get('user') as any;
+    const safeData = redactFields(row as any, 'AR', user?.role || 'Sales');
+    return c.json(safeData);
   } catch (err: any) { return c.json({ error: 'Database Error', message: err.message }, 500); }
   finally { db.close(); }
 });

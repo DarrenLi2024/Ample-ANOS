@@ -1,0 +1,1266 @@
+[
+  {
+    "file": "ERP数据结构字段清单.md",
+    "title": "ERP数据结构字段清单",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ERP数据结构字段清单.md",
+    "summary": "ERP数据结构字段清单 |  | 来源附件：[数据库结构.xlsx](附件/数据库结构.xlsx) 本文档由ERP数据库结构附件抽取生成，用于ANOS数据模型、飞书多维表格与旧ERP字段映射。 原始说明：表名:<S_CLIENT> 说明: <actype=C  客户资料> 原始说明：表名:<S_CLIENT> 说明: <actype=V  供应商资料> 原始说明：表名:<RFQ_INQUIRY> 说明: <销售询价>",
+    "size": 25775
+  },
+  {
+    "file": "auth-strategy.md",
+    "title": "ANOS 认证策略 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/auth-strategy.md",
+    "summary": "ANOS 认证策略 V1.0 |  | **状态:** 方案设计 **版本:** 2026-06-02 ┌──────────────┐     OAuth 2.0      ┌──────────────┐ │  ANOS Portal  │ ◄──────────────► │  飞书 SSO     │ │  (Next.js)    │                   │  (Feishu)     │ | 状态: | 版本:",
+    "size": 1717
+  },
+  {
+    "file": "CONTEXT.md",
+    "title": "ANOS项目上下文入口",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/CONTEXT.md",
+    "summary": "ANOS项目上下文入口 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 新会话、新AI、新开发任务的上下文入口 **适用对象：** 人类、Codex、Claude、ChatGPT及其他AI助手 **版本：** V1.0 **状态：** 飞书实施与工程落地准备基线 | 项目名称： | 文档定位： | 适用对象： | 版本： | 状态： | `docs/00-ANOS总体架构设计白皮书V1.0.md` | `docs/01-ANOS项目范围与MVP定义 V1.0.md` | `docs/02-ANOS业务流程与用户故事 V1.0.md` | `docs/20-ANOS企业数据字典V1.0.md` | `docs/21-ERP字段映射方案V1.0.md` | `docs/22-飞书多维表格总体设计方案V1.0.md` | `docs/23-ERP同步策略与数据导入规范 V1.0.md` | `docs/24-API与工具接口设计 V1.0.md` | `docs/25-权限与审计规范 V1.0.md` | `docs/26-开发任务拆解与里程碑计划 V1.0.md`",
+    "size": 4416
+  },
+  {
+    "file": "AI_COLLABORATION.md",
+    "title": "AI_COLLABORATION",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/AI_COLLABORATION.md",
+    "summary": "AI_COLLABORATION |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 多AI协作协议 / 分工 / 交接 / 冲突处理 **适用对象：** Codex、Claude、ChatGPT、后续AI助手与人类负责人 **版本：** V1.0 **状态：** 协作基线 | 项目名称： | 文档定位： | 适用对象： | 版本： | 状态： | 产品讨论。 | 业务推演。 | 管理层表达。 | 架构方向比较。 | 大段对话沉淀为文档草案。 | 直接修改本地仓库文件。 | 未经确认执行生产操作。 | 长文档阅读。 | 需求分析。 | 文档冲突审查。",
+    "size": 1655
+  },
+  {
+    "file": "P0-FOLLOWUP.md",
+    "title": "P0 跟进事项清单",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0-FOLLOWUP.md",
+    "summary": "P0 跟进事项清单 |  | **生成日期:** 2026-06-02 **来源:** P0确认报告 (22项决策) 所有推荐方案已确认，代码和文档已对齐： - **负责人:** 销售负责人 + 采购负责人 - **截止:** 试运行前 | 生成日期: | 来源: | 负责人: | 截止: | 当前代码: | 待确认: | 负责人: | 截止: | 当前状态: | 代码就绪: | 负责人: | 截止: | 待补充: | 用途: | 负责人: | 截止: | 需求: | 当前代码: | 试运行阻塞项: | **负责人:** 销售负责人 + 采购负责人 | **截止:** 试运行前 | **当前代码:** 默认权重 (型号40/库存20/价格15/交期15/风险10) 已实现在 `scripts/import/match-score.ts` | **待确认:** 业务侧确认实际权重分配 | **负责人:** 数据负责人 / ERP接口人 | **截止:** Phase 2 | **当前状态:** 先使用种子演示数据 + Excel导入模式 | **代码就绪:** `scripts/import/erp-import.ts` 支持 CSV→SQLite 三种导入 | **负责人:** 销售/采购/风控部门负责人 | **截止:** 试运行前",
+    "size": 2028
+  },
+  {
+    "file": "UI-003-Design-Token规范.md",
+    "title": "77-Portal Design Token 规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/UI/UI-003-Design-Token规范.md",
+    "summary": "77-Portal Design Token 规范 V1.0 |  | **适用对象：** Codex、前端开发 **版本：** V1.0 { \"fontSize\": { \"caption\": 12, | 适用对象： | 版本：",
+    "size": 1313
+  },
+  {
+    "file": "UI-002-Design-System-V2.md",
+    "title": "ANOS Design System V2.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/UI/UI-002-Design-System-V2.md",
+    "summary": "ANOS Design System V2.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 完整设计系统规范 — Apple 风格 AI Native 工作台 **上游文档：** [design.md](design.md)、[Portal界面渲染图/README.md](Portal界面渲染图/README.md) **版本：** V2.0 **状态：** 设计基线（替代 design.md V1 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | Apple Human Interface | Clarity | Depth | Fluidity | Breathing | Precision | 第1章 设计理念 | 第2章 色彩系统 | 第3章 字体系统 | 第4章 间距与排版 | 第5章 阴影与发光 | 第6章 圆角与边框 | 第7章 动画系统 | 第8章 组件规范 | 第9章 布局系统 | 第10章 氛围与环境",
+    "size": 14042
+  },
+  {
+    "file": "UI-004-KPI与价值度量.md",
+    "title": "48-ANOS KPI 与价值度量体系 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/UI/UI-004-KPI与价值度量.md",
+    "summary": "48-ANOS KPI 与价值度量体系 V1.0 |  | **版本：** V1.0 **状态：** 度量基线 | 版本： | 状态：",
+    "size": 598
+  },
+  {
+    "file": "UI-001-设计规范.md",
+    "title": "ANOS UI 设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/UI/UI-001-设计规范.md",
+    "summary": "ANOS UI 设计规范 V1.0 |  | **项目名称:** Ample AI Native OS (ANOS) **文档定位:** UI Design Tokens / 组件 API / 开发级设计约束 **上游文档:** [11-ANOS Portal 三纵列工作台设计规范 V1.0.md](11-ANOS%20Portal%20三纵列工作台设计规范%20V1.0.md)、[43-ANOS Portal 页面原型规范 V1.0.md] | 项目名称: | 文档定位: | 上游文档: | 适用对象: | 版本: | 状态: | AI First | Data Finds People | Intent-Driven | Role-Aware | Source First | Human-in-the-Loop | Progressive Disclosure | Minimal & Professional | 明文 | 隐藏 | 明文 | 明文 | 第1章 设计原则 | 第2章 Design Tokens | 第3章 布局系统 | 第4章 字体系统 | 第5章 核心组件 API | 第6章 权限脱敏展示规则 | 第7章 状态组件规范 | 第8章 图标与插图 | 第9章 动效与过渡 | 第10章 响应式策略",
+    "size": 24515
+  },
+  {
+    "file": "04-权限矩阵.md",
+    "title": "04-权限矩阵",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0实施准备包/04-权限矩阵.md",
+    "summary": "04-权限矩阵 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** P0权限矩阵 / 角色、字段、Source、Agent Tool权限确认表 **上游文档：** [../25-权限与审计规范 V1.0.md](../25-权限与审计规范%20V1.0.md) **版本：** V1.0 **状态：** 待确认 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 销售是否可见全部客户名称。 | 采购是否可见客户名称或只看需求摘要。 | 毛利字段是否对销售脱敏展示。 | SourceURL是否默认对一线开放。 | Agent调用知识库是否继承用户权限还是使用服务账号权限。",
+    "size": 3839
+  },
+  {
+    "file": "05-端到端验收样例.md",
+    "title": "05-端到端验收样例",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0实施准备包/05-端到端验收样例.md",
+    "summary": "05-端到端验收样例 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** P0端到端验收样例 / 测试场景 / 试运行验收输入 **上游文档：** [../27-验收标准与测试方案 V1.0.md](../27-验收标准与测试方案%20V1.0.md)、[../02-ANOS业务流程与用户故事 V1.0.md](../02-ANOS业务流程与用户故事%20V1.0.md) **版本 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 输入Source。 | 预期结构化结果。 | 触发Workflow。 | Agent输出。 | Portal展示。 | 权限与审计检查。 | 通过标准。 | Customer | Contact | Brand",
+    "size": 3227
+  },
+  {
+    "file": "README.md",
+    "title": "P0实施准备包",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0实施准备包/README.md",
+    "summary": "P0实施准备包 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** P0正式实施前置材料包 / 决策、资源、数据、权限、验收样例总入口 **上游文档：** [../01-ANOS项目范围与MVP定义 V1.0.md](../01-ANOS项目范围与MVP定义%20V1.0.md)、[../87-飞书实施WBS V1.0.md](../87-飞书实施WBS%20V1.0.md) | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | P0关键决策。 | 飞书现有资产。 | ERP样例数据。 | 权限矩阵。 | 端到端验收样例。 | 每个关键决策都有确认结果或待确认Owner。 | 飞书资源清单包含真实URL或位置说明。 | ERP样例数据覆盖P0对象和异常样例。 | 权限矩阵覆盖角色、字段、Source、Agent Tool。 | 验收样例可被用于测试Data Hub、Workflow、Portal和Agent。",
+    "size": 1179
+  },
+  {
+    "file": "02-飞书资源盘点表.md",
+    "title": "02-飞书资源盘点表",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0实施准备包/02-飞书资源盘点表.md",
+    "summary": "02-飞书资源盘点表 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 飞书资源盘点 / 实施前置Source清单 **版本：** V1.1 **状态：** ✅ 基本确认，部分待补 | 项目名称： | 文档定位： | 版本： | 状态：",
+    "size": 1425
+  },
+  {
+    "file": "01-P0决策确认表.md",
+    "title": "01-P0决策确认表",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0实施准备包/01-P0决策确认表.md",
+    "summary": "01-P0决策确认表 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** P0关键业务与实施决策确认表 **上游文档：** [../01-ANOS项目范围与MVP定义 V1.0.md](../01-ANOS项目范围与MVP定义%20V1.0.md)、[../USER.md](../../USER.md) **版本：** V1.1 **状态：** ✅ 已确认 (2026-06-02) | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 需跟进讨论 | `Confirmed`：已确认，作为实施基线 | `FollowUp`：需要跟进讨论 | `Deferred`：延期",
+    "size": 3609
+  },
+  {
+    "file": "03-ERP样例数据包说明.md",
+    "title": "03-ERP样例数据包说明",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/P0实施准备包/03-ERP样例数据包说明.md",
+    "summary": "03-ERP样例数据包说明 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP脱敏样例数据准备说明 / P0导入测试Source要求 **上游文档：** [../23-ERP同步策略与数据导入规范 V1.0.md](../23-ERP同步策略与数据导入规范%20V1.0.md)、[../84-ERP API集成规范 V1.0.md](../84-ERP%20API集成规范%20V | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 验证字段映射。 | 验证飞书P0建表。 | 验证导入脚本或手工导入流程。 | 验证Workflow和Agent输出。 | 验证权限和审计。 | 客户真实名称，可保留行业和国家。 | 联系人姓名、电话、邮箱。 | 真实价格、毛利、付款金额。 | 合同编号、发票号。 | 银行账号、税号。",
+    "size": 3186
+  },
+  {
+    "file": "ADR-001-Feishu-As-Primary-Platform.md",
+    "title": "ADR-001 飞书作为Phase 1主要平台",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ADR/ADR-001-Feishu-As-Primary-Platform.md",
+    "summary": "ADR-001 飞书作为Phase 1主要平台 |  | Accepted (2026-06) ANOS需要选择Phase 1的基础设施平台。候选方案: 自建Web平台 vs 飞书生态。 Phase 1 采用飞书生态作为主要平台（多维表格+妙搭+知识库+审批流），不优先建设重型自研中台。 - 方案A: 全部自建 (Next.js+PostgreSQL) - 方案B: 飞书原生优先 | 方案A: 全部自建 (Next.js+PostgreSQL) | 方案B: 飞书原生优先 | Portal 前端: 飞书妙搭+自研 Next.js 混合 | 数据存储: 飞书多维表格+SQLite | 降低初始部署成本",
+    "size": 352
+  },
+  {
+    "file": "ADR-003-Agent-Network-Architecture.md",
+    "title": "ADR-003 Agent Network 架构",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ADR/ADR-003-Agent-Network-Architecture.md",
+    "summary": "ADR-003 Agent Network 架构 |  | Accepted (2026-06) ANOS需要Agent协作架构。候选: 单体Agent vs Agent Network vs Multi-Agent Platform。 采用 Agent Network 架构。每个Agent独立注册、独立权限、通过 MCP 协议通信。 - 每个Agent可独立演进和部署 - MCP协议提供标准化的工具调用接口 | 每个Agent可独立演进和部署 | MCP协议提供标准化的工具调用接口 | 避免单体Agent的权限失控 | 需维护 Agent Registry (agents/registry.yaml) | Agent间通信通过 MCP + Workflow Engine",
+    "size": 337
+  },
+  {
+    "file": "ADR-002-SQLite-For-MVP.md",
+    "title": "ADR-002 SQLite 用作 MVP 数据库",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ADR/ADR-002-SQLite-For-MVP.md",
+    "summary": "ADR-002 SQLite 用作 MVP 数据库 |  | Accepted (2026-06) MVP阶段需要数据存储方案。候选: SQLite vs PostgreSQL vs 飞书多维表格独用。 MVP采用 SQLite+飞书多维表格双通道。SQLite 作为本地开发/单机部署，飞书多维表格作为协作/共享存储。 - SQLite零配置，适合快速迭代 - 飞书多维表格提供协作能力 | SQLite零配置，适合快速迭代 | 飞书多维表格提供协作能力 | 250并发场景下需迁移到 PostgreSQL (Phase 2) | 单机写入性能受限 (SQLITE_BUSY) | 需制定 PostgreSQL 迁移路径 (ADR-007)",
+    "size": 322
+  },
+  {
+    "file": "ADR-004-Trading-Firewall.md",
+    "title": "ADR-004 Trading Firewall 交易信息防火墙",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ADR/ADR-004-Trading-Firewall.md",
+    "summary": "ADR-004 Trading Firewall 交易信息防火墙 |  | Accepted (2026-06) 电子元器件贸易行业核心规则: 销售不能直通供应商，采购不能直通客户。 实施 Trading Firewall: Customer↔Sales / Supplier↔Buyer 严格隔离。Opportunity作为共享中间层。 - 保护企业核心商业信息 - 符合行业惯例 | 保护企业核心商业信息 | 符合行业惯例 | 参见 GA-010/GA-011 | Portal需按角色做字段级脱敏 | Agent需按角色限制权限边界 | Workflow方向约束(Inquiry Sales→Buyer, Offer Buyer→Sales)",
+    "size": 337
+  },
+  {
+    "file": "ADR-005-Role-Based-Portal.md",
+    "title": "ADR-005 Role-Based Portal 角色驱动Portal",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ADR/ADR-005-Role-Based-Portal.md",
+    "summary": "ADR-005 Role-Based Portal 角色驱动Portal |  | Accepted (2026-06) Portal需要为不同角色呈现不同视图。候选: 统一Portal vs Role-Based Portal vs 多独立Portal。 采用 Role-Based Portal: 单系统多视图。同一URL根据角色自动切换可见内容和脱敏级别。 - 降低维护成本(单一代码库) - 用户体验一致 | 降低维护成本(单一代码库) | 用户体验一致 | 参见 GA-011 角色权限矩阵 | RoleAwareField 组件需全局使用 | API需按角色过滤返回字段",
+    "size": 301
+  },
+  {
+    "file": "ADR-000-ADR模板.md",
+    "title": "ADR-000 ADR 模板",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ADR/ADR-000-ADR模板.md",
+    "summary": "ADR-000 ADR 模板 |  | Proposed / Accepted / Deprecated / Superseded 说明为什么需要做这个决策 说明最终选择 - 方案A - 方案B | 方案A | 方案B",
+    "size": 183
+  },
+  {
+    "file": "GA-018-主数据SoR治理规范.md",
+    "title": "GA-018 主数据权威源（SoR）治理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-018-主数据SoR治理规范.md",
+    "summary": "GA-018 主数据权威源（SoR）治理规范 V1.0 |  | 文档编号：GA-018 文档名称： 主数据权威源（SoR）治理规范 版本： V1.0.0",
+    "size": 4200
+  },
+  {
+    "file": "GA-002-权限与审计规范.md",
+    "title": "25-权限与审计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-002-权限与审计规范.md",
+    "summary": "25-权限与审计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 权限模型 / 审计规范 / 安全治理基线 **上游文档：** [46-ANOS组织智能治理框架 V1.0.md](46-ANOS组织智能治理框架%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 角色权限和数据范围分离。 | 页面权限和字段权限分离。 | Agent必须作为受控主体。 | 高风险动作必须人工确认。 | 所有关键操作必须审计。 | CEO / 管理层 | 销售 | 采购 | 财务/风控 | 系统管理员",
+    "size": 1861
+  },
+  {
+    "file": "GA-013-Prompt治理规范.md",
+    "title": "GA-019 Prompt治理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-013-Prompt治理规范.md",
+    "summary": "GA-019 Prompt治理规范 V1.0 |  | 文档编号：GA-019 文档名称： Prompt治理规范 版本： V1.0.0",
+    "size": 1435
+  },
+  {
+    "file": "GA-020-灾难恢复预案.md",
+    "title": "GA-020 ANOS 灾难恢复预案 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-020-灾难恢复预案.md",
+    "summary": "GA-020 ANOS 灾难恢复预案 V1.0 | ** | **document_id:** GA-020 | **version:** V1.0.0 - RPO: 24小时 (数据库备份) - RTO: 4小时 (Docker重建) - SQLite: 每日备份到飞书 - 飞书多维表格: 飞书自带冗余 | document_id: | version: | RPO: 24小时 (数据库备份) | RTO: 4小时 (Docker重建) | SQLite: 每日备份到飞书 | 飞书多维表格: 飞书自带冗余 | 代码: GitHub",
+    "size": 183
+  },
+  {
+    "file": "GA-011-角色权限与信息隔离矩阵.md",
+    "title": "GA-011 ANOS 角色权限与信息隔离矩阵 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-011-角色权限与信息隔离矩阵.md",
+    "summary": "GA-011 ANOS 角色权限与信息隔离矩阵 V1.0 | ** | **document_id:** GA-011 **title:** ANOS角色权限与信息隔离矩阵 **version:** V1.0.0 **status:** Active **owner:** LTDC | document_id: | title: | version: | status: | owner: | layer: | domain: | depends_on: | created_at: | Masked = 脱敏（仅可见ID和聚合数据） | Own = 仅可见自己负责的记录 | Dept = 可见本部门所有记录 | ANOS采用 RBAC（基础）+ ABAC（字段级）混合模型。 [KEYWORDS: 角色权限 Buyer能看什么 Sales能看什么 Masked脱敏 字段级脱敏]",
+    "size": 2434
+  },
+  {
+    "file": "GA-008-测试规范.md",
+    "title": "89-ANOS 测试规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-008-测试规范.md",
+    "summary": "89-ANOS 测试规范 V1.0 |  | **版本：** V1.0 tests/unit/         → 单元测试 tests/integration/  → 集成测试 tests/e2e/          → E2E测试 tests/fixtures/     → 测试数据 | 版本：",
+    "size": 436
+  },
+  {
+    "file": "GA-018-代码审查规范.md",
+    "title": "GA-018 ANOS 代码审查规范 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-018-代码审查规范.md",
+    "summary": "GA-018 ANOS 代码审查规范 V1.0 | ** | **document_id:** GA-018 | **version:** V1.0.0 - Karpathy 4准则 - 无硬编码字号 - 无重复文件 - try-catch覆盖 | document_id: | version: | Karpathy 4准则 | 无硬编码字号 | 无重复文件 | try-catch覆盖 | 审计日志写入 | 路由注册一致",
+    "size": 145
+  },
+  {
+    "file": "GA-006-MCP服务规范.md",
+    "title": "85-MCP服务规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-006-MCP服务规范.md",
+    "summary": "85-MCP服务规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** MCP服务规范 / Agent工具服务接口标准 **上游文档：** [45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范%20V1.0.md)、[24-API与工具接口设计 V1.0.md](24-API与工具接口设计%20V1.0.md) **版本：** V1.0 **状态：**  | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | customer-search | inquiry-create | supply-resource-search | opportunity-match | ar-risk-query | knowledge-search | audit-log-write | ToolID | ToolName | Description",
+    "size": 1595
+  },
+  {
+    "file": "GA-019-安全审计规范.md",
+    "title": "GA-019 ANOS 安全审计规范 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-019-安全审计规范.md",
+    "summary": "GA-019 ANOS 安全审计规范 V1.0 | ** | **document_id:** GA-019 | **version:** V1.0.0 - CSRF / RateLimit / CORS / CSP - JWT认证 + RoleGuard - 字段级脱敏 - API输入校验(Zod) | document_id: | version: | CSRF / RateLimit / CORS / CSP | JWT认证 + RoleGuard | 字段级脱敏 | API输入校验(Zod) | 审计日志全量覆盖",
+    "size": 167
+  },
+  {
+    "file": "GA-015-Knowledge治理规范.md",
+    "title": "GA-021 Knowledge治理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-015-Knowledge治理规范.md",
+    "summary": "GA-021 Knowledge治理规范 V1.0 |  | 文档编号：GA-021 文档名称： Knowledge治理规范 版本： V1.0.0",
+    "size": 1638
+  },
+  {
+    "file": "GA-014-Workflow治理规范.md",
+    "title": "GA-023 Workflow治理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-014-Workflow治理规范.md",
+    "summary": "GA-023 Workflow治理规范 V1.0 |  | 文档编号： GA-023 文档名称： Workflow治理规范 版本：",
+    "size": 2003
+  },
+  {
+    "file": "GA-003-组织智能治理框架.md",
+    "title": "46-ANOS组织智能治理框架 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-003-组织智能治理框架.md",
+    "summary": "46-ANOS组织智能治理框架 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Enterprise Intelligence Governance Framework / 企业智能治理体系 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **版本：** V1.0 **状态：** 治理基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 人 | 制度 | 流程 | 组织 | 系统 | 数据 | Agent | Memory | Knowledge | Workflow",
+    "size": 2371
+  },
+  {
+    "file": "GA-017-LLM编码行为准则-Karpathy.md",
+    "title": "GA-017 LLM 编码行为准则 (Karpathy CLAUDE.md)",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-017-LLM编码行为准则-Karpathy.md",
+    "summary": "GA-017 LLM 编码行为准则 (Karpathy CLAUDE.md) |  | **来源:** Andrej Karpathy 的 CLAUDE.md **版本:** V1.0.0 **定位:** 所有 AI 助手（Codex/Claude）的通用编码准则 **状态:** Active **适用于:** 本项目所有 AI 协作 | 来源: | 版本: | 定位: | 状态: | 适用于: | 不要假设。不要掩饰困惑。把权衡摆上台面。 | 用最少的代码解决问题。不做任何投机性的事。 | 只动必须动的地方。只清理你自己制造的烂摊子。 | 定义成功标准。循环直到通过验证。 | 这些准则起作用的标志是： | 明确说出你的假设。不确定就问。 | 如果存在多种解读，把它们都列出来——不要默默选一个。 | 如果存在更简单的方案，直说。 | 如果有不清楚的地方，停下。指出困惑点。提问。 | 不实现用户没要求的功能。 | 不为只用一次的代码做抽象。 | 不添加未被要求的\"灵活性\"。 | 如果你写了 200 行，而其实 50 行就够，重写。 | 不要\"顺手优化\"相邻的代码、注释或格式。 | 不要重构没坏的东西。 [KEYWORDS: 采购不能看什么 采购禁止查看 销售不能看什么 销售禁止查看 权限隔离怎么设置 三域模型]",
+    "size": 825
+  },
+  {
+    "file": "GA-005-ERP-API集成规范.md",
+    "title": "84-ERP API集成规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-005-ERP-API集成规范.md",
+    "summary": "84-ERP API集成规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP API集成规范 / Connector技术设计 **上游文档：** [23-ERP同步策略与数据导入规范 V1.0.md](23-ERP同步策略与数据导入规范%20V1.0.md) **版本：** V1.0 **状态：** P0集成基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 读取P0业务对象。 | 保留ERP原始ID。 | 映射为ANOS标准对象。 | 支持增量同步。 | 保留同步日志和错误队列。 | API Key | OAuth | Session Token | IP白名单 | VPN或内网访问",
+    "size": 1611
+  },
+  {
+    "file": "GA-004-GitHub项目结构规范.md",
+    "title": "81-GitHub项目结构规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-004-GitHub项目结构规范.md",
+    "summary": "81-GitHub项目结构规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** GitHub仓库结构 / 多AI协作工程规范 **上游文档：** [AGENTS.md](../AGENTS.md)、[CODEX.md](../CODEX.md) **版本：** V1.0 **状态：** 工程化基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 00-09：战略、范围、MVP、需求流程。 | 10-19：Portal、Agent、Workflow产品设计。 | 20-29：数据、ERP、API、权限、验收。 | 30-39：技术架构。 | 40-49：业务架构、Agent OS、治理。 | 70-79：飞书实施。 | 80-89：工程开发、API、MCP、数据库。 | `codex/docs-p0` | `codex/portal-mvp` | `codex/erp-sync`",
+    "size": 1589
+  },
+  {
+    "file": "GA-026-AI变更管理规范.md",
+    "title": "GA-026 AI变更管理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-026-AI变更管理规范.md",
+    "summary": "GA-026 AI变更管理规范 V1.0 |  | 文档编号： GA-026 文档名称： AI变更管理规范 版本：",
+    "size": 875
+  },
+  {
+    "file": "GA-016-架构评审机制.md",
+    "title": "GA-025 架构评审机制 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-016-架构评审机制.md",
+    "summary": "GA-025 架构评审机制 V1.0 |  | 文档编号： GA-025 文档名称： 架构评审机制 版本：",
+    "size": 934
+  },
+  {
+    "file": "GA-024-Memory治理规范.md",
+    "title": "GA-024 Memory治理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-024-Memory治理规范.md",
+    "summary": "GA-024 Memory治理规范 V1.0 |  | 文档编号： GA-024 文档名称： Memory治理规范 版本：",
+    "size": 2046
+  },
+  {
+    "file": "GA-009-运营与持续进化规范.md",
+    "title": "90-ANOS 运营与持续进化规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-009-运营与持续进化规范.md",
+    "summary": "90-ANOS 运营与持续进化规范 V1.0 |  | **版本：** V1.0 - Source 字段 100% 覆盖 - 数据健康度 <60 分进入治理视图 - 重复记录月度清理 L1 规则型 → L2 知识型 → L3 推理型 → L4 协同型 → L5 自治型 | 版本： | Source 字段 100% 覆盖 | 数据健康度 <60 分进入治理视图 | 重复记录月度清理",
+    "size": 472
+  },
+  {
+    "file": "GA-007-开发规范.md",
+    "title": "88-ANOS 开发规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-007-开发规范.md",
+    "summary": "88-ANOS 开发规范 V1.0 |  | **版本：** V1.0 apps/portal/        → Next.js Portal 前端 packages/shared/    → 共享类型和常量 services/api/       → Hono API 服务 services/mcp/       → MCP 工具服务 | 版本： | 每个组件一个文件，150行以内 | 使用 `'use client'` 标记客户端组件 | Props 使用 interface 定义 | 导出使用 named export | 使用 `console.error` 记录异常 | 生产环境禁止 `console.log` | 使用 auditLogMiddleware 记录业务操作",
+    "size": 794
+  },
+  {
+    "file": "GA-012-Agent治理规范.md",
+    "title": "GA-012 ANOS Agent 治理规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-012-Agent治理规范.md",
+    "summary": "GA-012 ANOS Agent 治理规范 V1.0 |  | 每个Agent必须拥有: agent.yaml / prompt.md / tools.yaml / permission.yaml / memory-policy.md / kpi.yaml 遵守: Role Permission Matrix / Trading Firewall / Source First / Human Override Register → Test → Deploy ",
+    "size": 322
+  },
+  {
+    "file": "GA-022-企业智能资产编码规范.md",
+    "title": "GA-022 企业智能资产编码规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-022-企业智能资产编码规范.md",
+    "summary": "GA-022 企业智能资产编码规范 V1.0 |  | 文档编号： GA-022 文档名称： 企业智能资产编码规范 版本： | 业务域 | 环境 | 流水号 [KEYWORDS: 编码规范 资产编号 AGT SKL WFL 编码体系]",
+    "size": 5126
+  },
+  {
+    "file": "GA-001-企业架构仓库治理总纲.md",
+    "title": "00A-ANOS企业架构仓库治理总纲 V1.0",
+    "doc_id": "SA-003",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-001-企业架构仓库治理总纲.md",
+    "summary": "00A-ANOS企业架构仓库治理总纲 V1.0 | SA-003 | 下面是一份可直接纳入仓库的总纲文档。它基于当前目录中已存在的 `docs`、`apps`、`services`、`packages`、`Portal界面渲染图`、`P0实施准备包` 等结构进行治理设计。 文档编号：GOV-000 版本号：V1.0.0 文档状态：Active 创建日期：2026-06-03 | EA-006 | GA-005 | IA-004 | 方案A | 方案B | 方案C | CustomerDomain.Read | Inquiry.Create | SupplierContact.Read | PurchaseCost.Read",
+    "size": 11783
+  },
+  {
+    "file": "GA-027-企业智能资产注册中心规范.md",
+    "title": "GA-027 企业智能资产注册中心规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-027-企业智能资产注册中心规范.md",
+    "summary": "GA-027 企业智能资产注册中心规范 V1.0 |  | 文档编号： GA-027 文档名称： 企业智能资产注册中心规范 版本：",
+    "size": 1741
+  },
+  {
+    "file": "GA-010-交易防火墙实施规范.md",
+    "title": "GA-017 交易防火墙实施规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/GA/GA-010-交易防火墙实施规范.md",
+    "summary": "GA-017 交易防火墙实施规范 V1.0 |  | 文档编号：GA-017 文档名称： 交易防火墙实施规范 版本： V1.0.0 [KEYWORDS: 采购不能看什么 采购禁止查看 销售不能看什么 销售禁止查看 权限隔离怎么设置 三域模型  交易防火墙 信息隔离 权限隔离 采购不能看 销售不能看 客户域 供应商域 跨域访问 飞单风险]",
+    "size": 3498
+  },
+  {
+    "file": "DA-007-数据质量治理.md",
+    "title": "DA-007 ANOS 数据质量治理 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-007-数据质量治理.md",
+    "summary": "DA-007 ANOS 数据质量治理 V1.0 | ** | **document_id:** DA-007 | **version:** V1.0.0 - Source字段 100%覆盖 - 必填字段完整率 >95% - 主键唯一 - 重复记录月度清理 | document_id: | version: | Source字段 100%覆盖 | 必填字段完整率 >95% | 主键唯一 | 重复记录月度清理",
+    "size": 216
+  },
+  {
+    "file": "DA-009-供应资源池数据模型设计.md",
+    "title": "DA-009 供应资源池数据模型设计 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-009-供应资源池数据模型设计.md",
+    "summary": "DA-009 供应资源池数据模型设计 V1.0 |  | 文档编号：DA-009 文档名称：供应资源池数据模型设计 版本：V1.0.0 状态：Active 责任部门：LTDC",
+    "size": 4216
+  },
+  {
+    "file": "DA-002-ERP字段映射方案.md",
+    "title": "21-ERP字段映射方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-002-ERP字段映射方案.md",
+    "summary": "21-ERP字段映射方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP → ANOS → 飞书Data Hub 统一映射规范 **上游标准：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md) **ERP字段来源：** [ERP数据结构字段清单.md](ERP数据结构字段清单.md) **原始附件：** [数据库结构.xlsx]( | 项目名称： | 文档定位： | 上游标准： | ERP字段来源： | 原始附件： | 版本： | Customer Domain | Supplier Domain | Customer Domain | Supplier Domain | Customer Domain | Supplier Domain | Customer Domain | Supplier Domain | 第1章 文档定位 | 第2章 映射原则 | 第3章 ERP对象重组 | 第4章 ERP Sheet总览 | 第5章 核心对象映射 | 第6章 字段优先级 | 第7章 ANOS新增字段 | 第8章 实施路径 | ERP API对接 | ERP数据导入",
+    "size": 13016
+  },
+  {
+    "file": "DA-003-飞书多维表格总体设计方案.md",
+    "title": "22-飞书多维表格总体设计方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-003-飞书多维表格总体设计方案.md",
+    "summary": "22-飞书多维表格总体设计方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ANOS Data Hub / 飞书多维表格建设规范 **上游标准：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md) **字段来源：** [21-ERP字段映射方案V1.0.md](21-ERP字段映射方案V1.0.md) **版本：** V1.0 | 项目名称： | 文档定位： | 上游标准： | 字段来源： | 版本： | 第1章 飞书在ANOS中的定位 | 第2章 ANOS数据中台总体架构 | 第3章 第一阶段核心表 | 第4章 第二阶段扩展表 | 第5章 第三阶段智能表 | 第6章 多维表格设计原则 | 第7章 表间关系设计 | 第8章 权限与视图设计 | 第9章 自动化与Agent触发 | 第10章 建设路线",
+    "size": 8386
+  },
+  {
+    "file": "DA-006-数据同步策略.md",
+    "title": "DA-006 ANOS 数据同步策略 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-006-数据同步策略.md",
+    "summary": "DA-006 ANOS 数据同步策略 V1.0 | ** | **document_id:** DA-006 **version:** V1.0.0 **status:** Active **layer:** DA - 重复记录: CustomerID/SupplierID 唯一键去重 | document_id: | version: | status: | layer: | 重复记录: CustomerID/SupplierID 唯一键去重 | 更新冲突: ERP为Source of Truth，ANOS AI字段保留",
+    "size": 460
+  },
+  {
+    "file": "DA-005-数据库设计SQL版.md",
+    "title": "83-ANOS数据库设计SQL版 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-005-数据库设计SQL版.md",
+    "summary": "83-ANOS数据库设计SQL版 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Middleware SQL数据库设计 / 飞书多维表格未来演进边界 **上游文档：** [42-ANOS数据中台建表蓝图 V1.0.md](42-ANOS数据中台建表蓝图%20V1.0.md) **版本：** V1.0 **状态：** 未来SQL化设计基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 数据量超过飞书承载能力。 | 复杂关联查询。 | Event Store。 | Memory Store。 | 审计日志。 | API服务稳定性要求提高。 | master.customers | master.contacts | master.suppliers | master.products",
+    "size": 2057
+  },
+  {
+    "file": "DA-001-企业数据字典.md",
+    "title": "20-ANOS企业数据字典 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-001-企业数据字典.md",
+    "summary": "20-ANOS企业数据字典 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 企业统一数据标准 / Data Bible **适用范围：** ERP字段映射、飞书多维表格、Portal、Agent、Workflow、Dashboard、API **版本：** V1.0 **状态：** 架构基线版 | 项目名称： | 文档定位： | 适用范围： | 版本： | 状态： | 第1章 数据治理总则 | 第2章 Master Data（主数据） | 第3章 Transaction Data（交易数据） | 第4章 Financial Data（财务数据） | 第5章 Intelligence Data（智能数据） | 第6章 Event Data（事件数据） | 第7章 Semiconductor Industry Domain Data（半导体行业领域数据） | ERP字段映射 | 飞书多维表格设计 | Portal开发",
+    "size": 13414
+  },
+  {
+    "file": "DA-008-需求资源池数据模型设计.md",
+    "title": "DA-008 需求资源池数据模型设计 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-008-需求资源池数据模型设计.md",
+    "summary": "DA-008 需求资源池数据模型设计 V1.0 |  | 文档编号：DA-008 文档名称：需求资源池数据模型设计 版本：V1.0.0 状态：Active 责任部门：LTDC",
+    "size": 3660
+  },
+  {
+    "file": "DA-004-数据中台建表蓝图.md",
+    "title": "42-ANOS数据中台建表蓝图 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/DA/DA-004-数据中台建表蓝图.md",
+    "summary": "42-ANOS数据中台建表蓝图 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ANOS Data Hub建表蓝图 / 飞书多维表格与未来SQL边界设计 **上游文档：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md)、[22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md) **版本：** V1.0 * | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | ContactID | CustomerID | Name | Title | Email | Mobile | WeChat | LinkedIn | SupplierID | SupplierCode",
+    "size": 4392
+  },
+  {
+    "file": "ANOS-22-飞书多维表格总体设计方案V1.0.md",
+    "title": "22-飞书多维表格总体设计方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ANOS-22-飞书多维表格总体设计方案V1.0.md",
+    "summary": "22-飞书多维表格总体设计方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ANOS Data Hub / 飞书多维表格建设规范 **上游标准：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md) **字段来源：** [21-ERP字段映射方案V1.0.md](21-ERP字段映射方案V1.0.md) **版本：** V1.0 | 项目名称： | 文档定位： | 上游标准： | 字段来源： | 版本： | 第1章 飞书在ANOS中的定位 | 第2章 ANOS数据中台总体架构 | 第3章 第一阶段核心表 | 第4章 第二阶段扩展表 | 第5章 第三阶段智能表 | 第6章 多维表格设计原则 | 第7章 表间关系设计 | 第8章 权限与视图设计 | 第9章 自动化与Agent触发 | 第10章 建设路线",
+    "size": 8386
+  },
+  {
+    "file": "ERP数据结构字段清单.md",
+    "title": "ERP数据结构字段清单",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ERP数据结构字段清单.md",
+    "summary": "ERP数据结构字段清单 |  | 来源附件：[数据库结构.xlsx](附件/数据库结构.xlsx) 本文档由ERP数据库结构附件抽取生成，用于ANOS数据模型、飞书多维表格与旧ERP字段映射。 原始说明：表名:<S_CLIENT> 说明: <actype=C  客户资料> 原始说明：表名:<S_CLIENT> 说明: <actype=V  供应商资料> 原始说明：表名:<RFQ_INQUIRY> 说明: <销售询价>",
+    "size": 25775
+  },
+  {
+    "file": "ANOS-00-ANOS总体架构设计白皮书V1.0.md",
+    "title": "ANOS总体架构设计白皮书 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ANOS-00-ANOS总体架构设计白皮书V1.0.md",
+    "summary": "ANOS总体架构设计白皮书 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **项目代号：** ANOS **项目级别：** 企业级战略项目 **适用范围：** 安芯易集团（Ample Solutions Group） **文档版本：** V1.0 整理版 | 项目名称： | 项目代号： | 项目级别： | 适用范围： | 文档版本： | 编制日期： | 文档属性： | 整理来源： | 第1章 项目背景 | 第2章 项目使命 | 第3章 核心原则 | 第4章 企业能力模型 | 第5章 企业能力演进路线 | 第5A章 企业能力成熟度模型 | 第6章 ANOS总体架构 | 第7章 Portal架构 | 第8章 Agent Network架构 | 第9章 数据战略",
+    "size": 46152
+  },
+  {
+    "file": "ANOS-ERP数据结构字段清单.md",
+    "title": "ERP数据结构字段清单",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ANOS-ERP数据结构字段清单.md",
+    "summary": "ERP数据结构字段清单 |  | 来源附件：[数据库结构.xlsx](附件/数据库结构.xlsx) 本文档由ERP数据库结构附件抽取生成，用于ANOS数据模型、飞书多维表格与旧ERP字段映射。 原始说明：表名:<S_CLIENT> 说明: <actype=C  客户资料> 原始说明：表名:<S_CLIENT> 说明: <actype=V  供应商资料> 原始说明：表名:<RFQ_INQUIRY> 说明: <销售询价>",
+    "size": 25775
+  },
+  {
+    "file": "ANOS-11-ANOS Portal 三纵列工作台设计规范 V1.0.md",
+    "title": "11-ANOS Portal 三纵列工作台设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ANOS-11-ANOS Portal 三纵列工作台设计规范 V1.0.md",
+    "summary": "11-ANOS Portal 三纵列工作台设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal产品设计规范 / AI Native工作台规范 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **数据依赖：** [22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md) **版本： | 项目名称： | 文档定位： | 上游文档： | 数据依赖： | 版本： | 第1章 Portal设计哲学 | 第2章 Portal总体布局 | 第3章 左侧导航区 | 第4章 中间工作区 | 第5章 右侧输出区 | 第6章 Role-Based Portal | 第7章 Agent Dock | 第8章 AI Native信息入口 | 第9章 核心业务场景 | 第10章 建设优先级",
+    "size": 4917
+  },
+  {
+    "file": "ANOS-21-ERP字段映射方案V1.0.md",
+    "title": "21-ERP字段映射方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ANOS-21-ERP字段映射方案V1.0.md",
+    "summary": "21-ERP字段映射方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP → ANOS → 飞书Data Hub 统一映射规范 **上游标准：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md) **ERP字段来源：** [ERP数据结构字段清单.md](ERP数据结构字段清单.md) **原始附件：** [数据库结构.xlsx]( | 项目名称： | 文档定位： | 上游标准： | ERP字段来源： | 原始附件： | 版本： | 第1章 文档定位 | 第2章 映射原则 | 第3章 ERP对象重组 | 第4章 ERP Sheet总览 | 第5章 核心对象映射 | 第6章 字段优先级 | 第7章 ANOS新增字段 | 第8章 实施路径 | ERP API对接 | ERP数据导入",
+    "size": 10840
+  },
+  {
+    "file": "ANOS-20-ANOS企业数据字典V1.0.md",
+    "title": "20-ANOS企业数据字典 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy/ANOS-20-ANOS企业数据字典V1.0.md",
+    "summary": "20-ANOS企业数据字典 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 企业统一数据标准 / Data Bible **适用范围：** ERP字段映射、飞书多维表格、Portal、Agent、Workflow、Dashboard、API **版本：** V1.0 **状态：** 架构基线版 | 项目名称： | 文档定位： | 适用范围： | 版本： | 状态： | 第1章 数据治理总则 | 第2章 Master Data（主数据） | 第3章 Transaction Data（交易数据） | 第4章 Financial Data（财务数据） | 第5章 Intelligence Data（智能数据） | 第6章 Event Data（事件数据） | 第7章 Semiconductor Industry Domain Data（半导体行业领域数据） | ERP字段映射 | 飞书多维表格设计 | Portal开发",
+    "size": 13414
+  },
+  {
+    "file": "84-ERP API集成规范 V1.0.md",
+    "title": "84-ERP API集成规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/84-ERP API集成规范 V1.0.md",
+    "summary": "84-ERP API集成规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP API集成规范 / Connector技术设计 **上游文档：** [23-ERP同步策略与数据导入规范 V1.0.md](23-ERP同步策略与数据导入规范%20V1.0.md) **版本：** V1.0 **状态：** P0集成基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 读取P0业务对象。 | 保留ERP原始ID。 | 映射为ANOS标准对象。 | 支持增量同步。 | 保留同步日志和错误队列。 | API Key | OAuth | Session Token | IP白名单 | VPN或内网访问",
+    "size": 1611
+  },
+  {
+    "file": "22-飞书多维表格总体设计方案V1.0.md",
+    "title": "22-飞书多维表格总体设计方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/22-飞书多维表格总体设计方案V1.0.md",
+    "summary": "22-飞书多维表格总体设计方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ANOS Data Hub / 飞书多维表格建设规范 **上游标准：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md) **字段来源：** [21-ERP字段映射方案V1.0.md](21-ERP字段映射方案V1.0.md) **版本：** V1.0 | 项目名称： | 文档定位： | 上游标准： | 字段来源： | 版本： | 第1章 飞书在ANOS中的定位 | 第2章 ANOS数据中台总体架构 | 第3章 第一阶段核心表 | 第4章 第二阶段扩展表 | 第5章 第三阶段智能表 | 第6章 多维表格设计原则 | 第7章 表间关系设计 | 第8章 权限与视图设计 | 第9章 自动化与Agent触发 | 第10章 建设路线",
+    "size": 8386
+  },
+  {
+    "file": "88-并发性能与飞书迁移评估 V1.0.md",
+    "title": "88-ANOS 并发性能评估与飞书迁移路径 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/88-并发性能与飞书迁移评估 V1.0.md",
+    "summary": "88-ANOS 并发性能评估与飞书迁移路径 V1.0 |  | **审计日期:** 2026-06-03 **场景:** 250名员工并发使用 ANOS Portal **当前架构:** Next.js 15 + Hono 4 + SQLite (better-sqlite3) 250 用户并发操作: ├── 150 人浏览 Portal 页面     → 🟢 OK (Next.js SSR, 无DB操作) | 审计日期: | 场景: | 当前架构: | Next.js Portal | Hono API | SQLite | 致命瓶颈 | better-sqlite3 | 连接池 | WAL 模式 | 写操作队列 | 读操作缓存 | PM2 cluster 模式 | 优化后: | 50人 | 飞书多维表格作为 Middleware 替代自建 SQL： | 飞书多维表格的能力： | 迁移成本: | 飞书开放平台 | 飞书自建分布式存储，天然支持高并发 | API 限流: 100次/秒/应用（企业版更高） | 250人场景下，飞书 API 响应 < 500ms | 8张表已在飞书侧建立（运行 `scripts/feishu/create-bitable-tables.ts`） | API 层增加飞书适配器（替换 SQL 查询 → 飞书 API 调用） | 预计工作量：2 周 | 复杂关联查询（JOIN/子查询/聚合） | 事务一致性要求高 | 审计日志量超过飞书承载",
+    "size": 3138
+  },
+  {
+    "file": "11-ANOS Portal 三纵列工作台设计规范 V1.0.md",
+    "title": "11-ANOS Portal 三纵列工作台设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/11-ANOS Portal 三纵列工作台设计规范 V1.0.md",
+    "summary": "11-ANOS Portal 三纵列工作台设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal产品设计规范 / AI Native工作台规范 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **数据依赖：** [22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md) **版本： | 项目名称： | 文档定位： | 上游文档： | 数据依赖： | 版本： | 第1章 Portal设计哲学 | 第2章 Portal总体布局 | 第3章 左侧导航区 | 第4章 中间工作区 | 第5章 右侧输出区 | 第6章 Role-Based Portal | 第7章 Agent Dock | 第8章 AI Native信息入口 | 第9章 核心业务场景 | 第10章 建设优先级",
+    "size": 5523
+  },
+  {
+    "file": "89-ANOS测试规范 V1.0.md",
+    "title": "89-ANOS 测试规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/89-ANOS测试规范 V1.0.md",
+    "summary": "89-ANOS 测试规范 V1.0 |  | **版本：** V1.0 tests/unit/         → 单元测试 tests/integration/  → 集成测试 tests/e2e/          → E2E测试 tests/fixtures/     → 测试数据 | 版本：",
+    "size": 436
+  },
+  {
+    "file": "21-ERP字段映射方案V1.0.md",
+    "title": "21-ERP字段映射方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/21-ERP字段映射方案V1.0.md",
+    "summary": "21-ERP字段映射方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP → ANOS → 飞书Data Hub 统一映射规范 **上游标准：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md) **ERP字段来源：** [ERP数据结构字段清单.md](ERP数据结构字段清单.md) **原始附件：** [数据库结构.xlsx]( | 项目名称： | 文档定位： | 上游标准： | ERP字段来源： | 原始附件： | 版本： | 第1章 文档定位 | 第2章 映射原则 | 第3章 ERP对象重组 | 第4章 ERP Sheet总览 | 第5章 核心对象映射 | 第6章 字段优先级 | 第7章 ANOS新增字段 | 第8章 实施路径 | ERP API对接 | ERP数据导入",
+    "size": 10840
+  },
+  {
+    "file": "44-ANOS Trading Intelligence Architecture V1.0.md",
+    "title": "44-ANOS Trading Intelligence Architecture V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/44-ANOS Trading Intelligence Architecture V1.0.md",
+    "summary": "44-ANOS Trading Intelligence Architecture V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 交易智能架构 / Trading Intelligence Network设计 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **版本：** V1.0 **状态：** 业务架构基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 邮件 | 微信 | WhatsApp | 电话记录 | 群聊 | Excel | 原厂 | 代理商 | 贸易商 | 库存表",
+    "size": 2503
+  },
+  {
+    "file": "73-飞书工作流实施手册 V1.0.md",
+    "title": "73-飞书工作流实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/73-飞书工作流实施手册 V1.0.md",
+    "summary": "73-飞书工作流实施手册 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Feishu Workflow Implementation Guide / 飞书工作流实施手册 **上游文档：** [72-飞书多维表格实施手册 V1.0.md](72-飞书多维表格实施手册%20V1.0.md)、[30-ANOS技术架构设计规范 V1.0.md](30-ANOS技术架构设计规范%20V1. | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 Workflow定位 | 第2章 Workflow分级体系 | 第3章 Workflow设计原则 | 第4章 WF-000企业资产登记工作流 | 第5章 P0工作流 | 第6章 P1工作流 | 第7章 P2工作流 | 第8章 Workflow标准结构 | 第9章 Source First工作流规范 | 第10章 Agent协同工作流",
+    "size": 4243
+  },
+  {
+    "file": "12-Agent Network总体设计规范 V1.0.md",
+    "title": "12-Agent Network总体设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/12-Agent Network总体设计规范 V1.0.md",
+    "summary": "12-Agent Network总体设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Agent Network总体设计 / 数字员工组织架构 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **关联文档：** [45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范 V1.0.md) **版本：* | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 设计哲学 | 第2章 Agent组织架构 | 第3章 第一阶段核心Agent | 第4章 Agent Memory体系 | 第5章 Agent协同机制 | 第6章 Agent能力评级 | 第7章 Agent KPI体系 | 第8章 建设优先级 | 第9章 飞书生态集成 | 直接服务销售、采购、风控三个核心部门。",
+    "size": 3315
+  },
+  {
+    "file": "30-ANOS技术架构设计规范 V1.0.md",
+    "title": "30-ANOS技术架构设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/30-ANOS技术架构设计规范 V1.0.md",
+    "summary": "30-ANOS技术架构设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 基于飞书生态的AI Native电子元器件行业操作系统技术蓝图 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **版本：** V1.0 **状态：** 开发前技术基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 第1章 技术架构原则 | 第2章 总体技术架构 | 第3章 飞书技术栈定位 | 第4章 Data Hub架构 | 第5章 Integration Layer | 第6章 Workflow Engine | 第7章 Memory架构 | 第8章 RAG架构 | 第9章 时间戳与来源体系 | 第10章 权限体系",
+    "size": 3992
+  },
+  {
+    "file": "20-ANOS企业数据字典V1.0.md",
+    "title": "20-ANOS企业数据字典 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/20-ANOS企业数据字典V1.0.md",
+    "summary": "20-ANOS企业数据字典 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 企业统一数据标准 / Data Bible **适用范围：** ERP字段映射、飞书多维表格、Portal、Agent、Workflow、Dashboard、API **版本：** V1.0 **状态：** 架构基线版 | 项目名称： | 文档定位： | 适用范围： | 版本： | 状态： | 第1章 数据治理总则 | 第2章 Master Data（主数据） | 第3章 Transaction Data（交易数据） | 第4章 Financial Data（财务数据） | 第5章 Intelligence Data（智能数据） | 第6章 Event Data（事件数据） | 第7章 Semiconductor Industry Domain Data（半导体行业领域数据） | ERP字段映射 | 飞书多维表格设计 | Portal开发",
+    "size": 13414
+  },
+  {
+    "file": "43-ANOS Portal 页面原型规范 V1.0.md",
+    "title": "43-ANOS Portal 页面原型规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/43-ANOS Portal 页面原型规范 V1.0.md",
+    "summary": "43-ANOS Portal 页面原型规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal页面原型 / 飞书妙搭与Codex开发输入 **上游文档：** [11-ANOS Portal 三纵列工作台设计规范 V1.0.md](11-ANOS%20Portal%20三纵列工作台设计规范%20V1.0.md) **版本：** V1.0 **状态：** 开发前原型基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | AMPLE / ANOS标识 | 全局搜索：客户、供应商、型号、订单、知识、Agent | 消息中心 | 待办 | Agent状态 | 个人中心 | 经营驾驶舱 | 销售中心 | 采购中心 | 风控中心",
+    "size": 2835
+  },
+  {
+    "file": "90-ANOS运营与持续进化规范 V1.0.md",
+    "title": "90-ANOS 运营与持续进化规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/90-ANOS运营与持续进化规范 V1.0.md",
+    "summary": "90-ANOS 运营与持续进化规范 V1.0 |  | **版本：** V1.0 - Source 字段 100% 覆盖 - 数据健康度 <60 分进入治理视图 - 重复记录月度清理 L1 规则型 → L2 知识型 → L3 推理型 → L4 协同型 → L5 自治型 | 版本： | Source 字段 100% 覆盖 | 数据健康度 <60 分进入治理视图 | 重复记录月度清理",
+    "size": 472
+  },
+  {
+    "file": "42-ANOS数据中台建表蓝图 V1.0.md",
+    "title": "42-ANOS数据中台建表蓝图 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/42-ANOS数据中台建表蓝图 V1.0.md",
+    "summary": "42-ANOS数据中台建表蓝图 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ANOS Data Hub建表蓝图 / 飞书多维表格与未来SQL边界设计 **上游文档：** [20-ANOS企业数据字典V1.0.md](20-ANOS企业数据字典V1.0.md)、[22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md) **版本：** V1.0 * | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | ContactID | CustomerID | Name | Title | Email | Mobile | WeChat | LinkedIn | SupplierID | SupplierCode",
+    "size": 4392
+  },
+  {
+    "file": "77-Portal Design Token规范 V1.0.md",
+    "title": "77-Portal Design Token 规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/77-Portal Design Token规范 V1.0.md",
+    "summary": "77-Portal Design Token 规范 V1.0 |  | **适用对象：** Codex、前端开发 **版本：** V1.0 { \"fontSize\": { \"caption\": 12, | 适用对象： | 版本：",
+    "size": 1313
+  },
+  {
+    "file": "70-飞书生态实施手册总纲 V1.0.md",
+    "title": "70-飞书生态实施手册总纲 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/70-飞书生态实施手册总纲 V1.0.md",
+    "summary": "70-飞书生态实施手册总纲 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 飞书生态实施总纲 / 资源盘点、多维表格、Workflow、知识库、Portal建设索引 **上游文档：** [30-ANOS技术架构设计规范 V1.0.md](30-ANOS技术架构设计规范%20V1.0.md) **版本：** V1.0 **状态：** 实施准备基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 飞书原生优先。 | 先盘点，后建设。 | 先P0业务闭环，后扩展平台能力。 | 所有数据、知识、Workflow、Portal组件必须可追溯Owner。 | 所有来源、时间、权限、审计字段必须从第一天纳入设计。 | AssetID | AssetName | AssetType | Owner | Department",
+    "size": 2574
+  },
+  {
+    "file": "27-验收标准与测试方案 V1.0.md",
+    "title": "27-验收标准与测试方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/27-验收标准与测试方案 V1.0.md",
+    "summary": "27-验收标准与测试方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** MVP验收标准 / 测试方案 / 试运行准入标准 **上游文档：** [26-开发任务拆解与里程碑计划 V1.0.md](26-开发任务拆解与里程碑计划%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 业务闭环是否跑通。 | 数据是否可追溯。 | Agent输出是否有依据。 | 权限是否受控。 | Workflow异常是否可处理。 | 一线人员是否能完成真实任务。 | 8张P0表可用。 | 4条P0 Workflow可用。 | 3个P0工作台可用。 | 3个P0 Agent基础能力可用。",
+    "size": 1648
+  },
+  {
+    "file": "87-飞书实施WBS V1.0.md",
+    "title": "87-飞书实施WBS V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/87-飞书实施WBS V1.0.md",
+    "summary": "87-飞书实施WBS V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 飞书实施WBS / 6周落地计划 / 执行清单 **上游文档：** [70-飞书生态实施手册总纲 V1.0.md](70-飞书生态实施手册总纲%20V1.0.md)、[72-飞书多维表格实施手册 V1.0.md](72-飞书多维表格实施手册%20V1.0.md)、[73-飞书工作流实施手册 V1.0.md]( | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | P0多维表格建成。 | P0数据导入完成。 | P0 Workflow可运行。 | 销售、采购、风控Portal基础可用。 | AI Inbox基础可用。 | Source Card和权限框架可用。 | 盘点飞书空间、知识库、多维表格、群聊、自动化。 | 确认P0表Owner。 | 确认P0字段。 | 确认权限分组。",
+    "size": 2057
+  },
+  {
+    "file": "00-ANOS总体架构设计白皮书V1.0.md",
+    "title": "ANOS总体架构设计白皮书 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/00-ANOS总体架构设计白皮书V1.0.md",
+    "summary": "ANOS总体架构设计白皮书 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **项目代号：** ANOS **项目级别：** 企业级战略项目 **适用范围：** 安芯易集团（Ample Solutions Group） **文档版本：** V1.0 整理版 | 项目名称： | 项目代号： | 项目级别： | 适用范围： | 文档版本： | 编制日期： | 文档属性： | 整理来源： | 第1章 项目背景 | 第2章 项目使命 | 第3章 核心原则 | 第4章 企业能力模型 | 第5章 企业能力演进路线 | 第5A章 企业能力成熟度模型 | 第6章 ANOS总体架构 | 第7章 Portal架构 | 第8章 Agent Network架构 | 第9章 数据战略",
+    "size": 46152
+  },
+  {
+    "file": "75-飞书Portal实施手册 V1.0.md",
+    "title": "75-飞书Portal实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/75-飞书Portal实施手册 V1.0.md",
+    "summary": "75-飞书Portal实施手册 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Feishu Portal Implementation Guide / 飞书Portal实施手册 **上游文档：** [43-ANOS Portal 页面原型规范 V1.0.md](43-ANOS%20Portal%20页面原型规范%20V1.0.md)、[73-飞书工作流实施手册 V1.0.md](73- | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 Portal建设原则 | 第2章 Portal总体架构 | 第3章 Top Bar设计 | 第4章 销售工作台实施规范 | 第5章 采购工作台实施规范 | 第6章 风控工作台实施规范 | 第7章 CEO工作台实施规范 | 第8章 Portal组件标准 | 第9章 Source Card标准 | 第10章 Portal权限体系",
+    "size": 4286
+  },
+  {
+    "file": "72-飞书多维表格实施手册 V1.0.md",
+    "title": "72-飞书多维表格实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/72-飞书多维表格实施手册 V1.0.md",
+    "summary": "72-飞书多维表格实施手册 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Feishu Bitable Implementation Guide / 飞书多维表格建表实施手册 **上游文档：** [22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md)、[42-ANOS数据中台建表蓝图 V1.0.md](42-ANOS数据中台建表蓝图%20V | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 建设原则 | 第2章 多维表格总体架构 | 第3章 P0第一阶段建表范围 | 第4章 P1第二阶段建表范围 | 第5章 P2第三阶段建表范围 | 第6章 字段命名规范 | 第7章 强制字段规范 | 第8章 Source First规范 | 第9章 关联关系规范 | 第10章 权限规范",
+    "size": 3890
+  },
+  {
+    "file": "88-ANOS开发规范 V1.0.md",
+    "title": "88-ANOS 开发规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/88-ANOS开发规范 V1.0.md",
+    "summary": "88-ANOS 开发规范 V1.0 |  | **版本：** V1.0 apps/portal/        → Next.js Portal 前端 packages/shared/    → 共享类型和常量 services/api/       → Hono API 服务 services/mcp/       → MCP 工具服务 | 版本： | 每个组件一个文件，150行以内 | 使用 `'use client'` 标记客户端组件 | Props 使用 interface 定义 | 导出使用 named export | 使用 `console.error` 记录异常 | 生产环境禁止 `console.log` | 使用 auditLogMiddleware 记录业务操作",
+    "size": 794
+  },
+  {
+    "file": "76-统一智能入口AI Inbox设计规范 V1.0.md",
+    "title": "76-统一智能入口AI Inbox设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/76-统一智能入口AI Inbox设计规范 V1.0.md",
+    "summary": "76-统一智能入口AI Inbox设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Unified Intelligence Inbox / ANOS首页与意图入口设计规范 **上游文档：** [43-ANOS Portal 页面原型规范 V1.0.md](43-ANOS%20Portal%20页面原型规范%20V1.0.md) **版本：** V1.0 **状态：** Portal核心入口 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 待处理事项 | 推荐事项 | Agent建议 | 企业动态 | 今日新增需求 | 今日新增资源 | 今日新增风险 | 今日新增商机 | 编号 | 分类",
+    "size": 2743
+  },
+  {
+    "file": "85-MCP服务规范 V1.0.md",
+    "title": "85-MCP服务规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/85-MCP服务规范 V1.0.md",
+    "summary": "85-MCP服务规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** MCP服务规范 / Agent工具服务接口标准 **上游文档：** [45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范%20V1.0.md)、[24-API与工具接口设计 V1.0.md](24-API与工具接口设计%20V1.0.md) **版本：** V1.0 **状态：**  | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | customer-search | inquiry-create | supply-resource-search | opportunity-match | ar-risk-query | knowledge-search | audit-log-write | ToolID | ToolName | Description",
+    "size": 1595
+  },
+  {
+    "file": "03-ANOS产品设计系统规范 V1.0.md",
+    "title": "03-ANOS 产品设计系统规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/03-ANOS产品设计系统规范 V1.0.md",
+    "summary": "03-ANOS 产品设计系统规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 全局Design System / 视觉统一标准 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md)、[11-ANOS Portal 三纵列工作台设计规范 V1.0.md](11-ANOS%20Portal%20三纵列工作台设计规范%20V | 项目名称： | 文档定位： | 上游文档： | 适用对象： | 版本： | 状态： | 全局基准：16px | Lucide Icons | 第1章 Typography（字体系统） | 第2章 Spacing（间距系统） | 第3章 Radius（圆角系统） | 第4章 Shadow（阴影系统） | 第5章 Color Token（色彩系统） | 第6章 Icon（图标规范） | 第7章 Grid（网格系统） | 第8章 Button（按钮规范） | 第9章 Card（卡片规范） | 第10章 禁止事项",
+    "size": 4713
+  },
+  {
+    "file": "81-GitHub项目结构规范 V1.0.md",
+    "title": "81-GitHub项目结构规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/81-GitHub项目结构规范 V1.0.md",
+    "summary": "81-GitHub项目结构规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** GitHub仓库结构 / 多AI协作工程规范 **上游文档：** [AGENTS.md](../AGENTS.md)、[CODEX.md](../CODEX.md) **版本：** V1.0 **状态：** 工程化基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 00-09：战略、范围、MVP、需求流程。 | 10-19：Portal、Agent、Workflow产品设计。 | 20-29：数据、ERP、API、权限、验收。 | 30-39：技术架构。 | 40-49：业务架构、Agent OS、治理。 | 70-79：飞书实施。 | 80-89：工程开发、API、MCP、数据库。 | `codex/docs-p0` | `codex/portal-mvp` | `codex/erp-sync`",
+    "size": 1589
+  },
+  {
+    "file": "83-ANOS数据库设计SQL版 V1.0.md",
+    "title": "83-ANOS数据库设计SQL版 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/83-ANOS数据库设计SQL版 V1.0.md",
+    "summary": "83-ANOS数据库设计SQL版 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Middleware SQL数据库设计 / 飞书多维表格未来演进边界 **上游文档：** [42-ANOS数据中台建表蓝图 V1.0.md](42-ANOS数据中台建表蓝图%20V1.0.md) **版本：** V1.0 **状态：** 未来SQL化设计基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 数据量超过飞书承载能力。 | 复杂关联查询。 | Event Store。 | Memory Store。 | 审计日志。 | API服务稳定性要求提高。 | master.customers | master.contacts | master.suppliers | master.products",
+    "size": 2057
+  },
+  {
+    "file": "01-ANOS项目范围与MVP定义 V1.0.md",
+    "title": "01-ANOS项目范围与MVP定义 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/01-ANOS项目范围与MVP定义 V1.0.md",
+    "summary": "01-ANOS项目范围与MVP定义 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 项目范围 / MVP边界 / 第一阶段上线定义 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md)、[44-ANOS Trading Intelligence Architecture V1.0.md](44-ANOS%20Trading% | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 第1章 MVP定义 | 第2章 第一阶段目标 | 第3章 范围内 | 第4章 范围外 | 第5章 P0角色 | 第6章 P0数据对象 | 第7章 P0 Agent | 第8章 P0 Workflow | 第9章 上线边界 | 第10章 待确认事项",
+    "size": 2567
+  },
+  {
+    "file": "25-权限与审计规范 V1.0.md",
+    "title": "25-权限与审计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/25-权限与审计规范 V1.0.md",
+    "summary": "25-权限与审计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 权限模型 / 审计规范 / 安全治理基线 **上游文档：** [46-ANOS组织智能治理框架 V1.0.md](46-ANOS组织智能治理框架%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 角色权限和数据范围分离。 | 页面权限和字段权限分离。 | Agent必须作为受控主体。 | 高风险动作必须人工确认。 | 所有关键操作必须审计。 | CEO / 管理层 | 销售 | 采购 | 财务/风控 | 系统管理员",
+    "size": 1861
+  },
+  {
+    "file": "46-ANOS组织智能治理框架 V1.0.md",
+    "title": "46-ANOS组织智能治理框架 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/46-ANOS组织智能治理框架 V1.0.md",
+    "summary": "46-ANOS组织智能治理框架 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Enterprise Intelligence Governance Framework / 企业智能治理体系 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **版本：** V1.0 **状态：** 治理基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 人 | 制度 | 流程 | 组织 | 系统 | 数据 | Agent | Memory | Knowledge | Workflow",
+    "size": 2371
+  },
+  {
+    "file": "04-ANOS UX规范 V1.0.md",
+    "title": "04-ANOS UX 规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/04-ANOS UX规范 V1.0.md",
+    "summary": "04-ANOS UX 规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal 交互体验统一标准 **版本：** V1.0 **状态：** UX基线 **不是菜单优先。** Portal 的第一入口是 AI Inbox，不是功能菜单。 | 项目名称： | 文档定位： | 版本： | 状态： | 不是菜单优先。 | Anything In。 | 首页展示 AI 会话 + KPI 动态流 | 用户输入自然语言，系统判断意图 → 自动路由 | 菜单仅为辅助导航 | 文本 → AI 理解 | 文件 → 自动解析 | 截图 → OCR 识别 | 拖拽 → 即刻处理 | 没有来源的信息不允许进入正式业务表 | Agent 建议必须附带依据来源 | 动态流按时间倒序",
+    "size": 1300
+  },
+  {
+    "file": "26-开发任务拆解与里程碑计划 V1.0.md",
+    "title": "26-开发任务拆解与里程碑计划 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/26-开发任务拆解与里程碑计划 V1.0.md",
+    "summary": "26-开发任务拆解与里程碑计划 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 开发任务拆解 / 里程碑计划 / Sprint基线 **上游文档：** [01-ANOS项目范围与MVP定义 V1.0.md](01-ANOS项目范围与MVP定义%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 建立GitHub目录结构。 | 建立文档索引。 | 确认飞书空间、应用、权限。 | 准备ERP样例导出数据。 | 确认P0字段。 | 建立测试数据集。 | 仓库结构。 | 环境说明。 | 样例数据。 | P0字段确认表。",
+    "size": 2252
+  },
+  {
+    "file": "48-ANOS KPI与价值度量体系 V1.0.md",
+    "title": "48-ANOS KPI 与价值度量体系 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/48-ANOS KPI与价值度量体系 V1.0.md",
+    "summary": "48-ANOS KPI 与价值度量体系 V1.0 |  | **版本：** V1.0 **状态：** 度量基线 | 版本： | 状态：",
+    "size": 598
+  },
+  {
+    "file": "45-Agent操作系统规范 V1.0.md",
+    "title": "SA-005 Agent怎么做 Agent操作系统规范 45-Agent操作系统规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/45-Agent操作系统规范 V1.0.md",
+    "summary": "45-Agent操作系统规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Agent OS标准 / Agent运行、工具、输出、审计规范 **上游文档：** [12-Agent Network总体设计规范 V1.0.md](12-Agent%20Network总体设计规范%20V1.0.md) **版本：** V1.0 **状态：** Agent开发基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | Identity | Responsibility | Permission | Memory | Knowledge | Tools | Workflow | KPI | Audit | 供应商管理",
+    "size": 2649
+  },
+  {
+    "file": "02-ANOS业务流程与用户故事 V1.0.md",
+    "title": "02-ANOS业务流程与用户故事 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/02-ANOS业务流程与用户故事 V1.0.md",
+    "summary": "02-ANOS业务流程与用户故事 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 业务流程 / 用户故事 / MVP需求来源 **上游文档：** [01-ANOS项目范围与MVP定义 V1.0.md](01-ANOS项目范围与MVP定义%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 第1章 核心业务闭环 | 第2章 销售流程 | 第3章 采购流程 | 第4章 风控流程 | 第5章 管理层流程 | 第6章 用户故事 | 第7章 异常流程 | 信息先进入AI Inbox。 | 数据必须结构化沉淀。 | Agent生成建议，人工做最终确认。",
+    "size": 2323
+  },
+  {
+    "file": "23-ERP同步策略与数据导入规范 V1.0.md",
+    "title": "23-ERP同步策略与数据导入规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/23-ERP同步策略与数据导入规范 V1.0.md",
+    "summary": "23-ERP同步策略与数据导入规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** ERP同步策略 / 数据导入规范 / Data Connector设计输入 **上游文档：** [21-ERP字段映射方案V1.0.md](21-ERP字段映射方案V1.0.md)、[84-ERP API集成规范 V1.0.md](84-ERP%20API集成规范%20V1.0.md) **版本：** V1. | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | Customer | Supplier | Product | Inquiry | Offer | SO | AR | PO | Inventory | Receiving",
+    "size": 1948
+  },
+  {
+    "file": "24-API与工具接口设计 V1.0.md",
+    "title": "24-API与工具接口设计 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/24-API与工具接口设计 V1.0.md",
+    "summary": "24-API与工具接口设计 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** API契约 / Tool接口 / Portal、Agent、Workflow调用边界 **上游文档：** [30-ANOS技术架构设计规范 V1.0.md](30-ANOS技术架构设计规范%20V1.0.md)、[45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范%20V1.0.md | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | Object First：围绕Customer、Inquiry、Supply Resource等对象设计。 | Source First：写入必须携带来源字段。 | Permission First：调用前校验用户和Agent权限。 | Audit First：关键操作必须留痕。 | Human Approval：高风险动作只能创建建议，不直接执行。 | `GET /customers` | `GET /customers/{id}` | `POST /customers` | `PATCH /customers/{id}` | `POST /inquiries`",
+    "size": 2747
+  },
+  {
+    "file": "47-ANOS Agent Prompt Library V1.0.md",
+    "title": "SA-007 Agent输出标准 Prompt Library 47-ANOS Agent Prompt Library V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/ARCHIVE/legacy-root/47-ANOS Agent Prompt Library V1.0.md",
+    "summary": "47-ANOS Agent Prompt Library V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Agent 提示词库 / 统一输出标准 **上游文档：** [45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范%20V1.0.md) **版本：** V1.0 **状态：** Prompt基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 解析客户 RFQ（邮件/截图/Excel） | 生成客户摘要（等级/历史订单/回款风险） | 推荐报价策略（基于供应资源和市场行情） | 起草报价邮件 | 自动发送正式报价 | 展示供应商真实名称（采购视图） | 展示采购成本（销售视图） | 解析供应商报价单/库存表 | 自动比较价格、交期、风险 | 推荐替代供应商和国产替代料",
+    "size": 2134
+  },
+  {
+    "file": "IA-009-部署运维手册.md",
+    "title": "IA-009 ANOS 部署运维手册 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-009-部署运维手册.md",
+    "summary": "IA-009 ANOS 部署运维手册 V1.0 | ** | **document_id:** IA-009 | **version:** V1.0.0 - Docker Compose: 一键部署 - 环境: Node.js 20+ / pnpm 9+ - 数据库: SQLite 初始化 `pnpm db:init` - 启动: `pnpm dev` | document_id: | version: | Docker Compose: 一键部署 | 环境: Node.js 20+ / pnpm 9+ | 数据库: SQLite 初始化 `pnpm db:init` | 启动: `pnpm dev` | 构建: `pnpm build` | 健康检查: `/health` | 日志: `/tmp/anos-*.log`",
+    "size": 252
+  },
+  {
+    "file": "IA-007-Inquiry解析实施手册.md",
+    "title": "IA-007 Inquiry解析实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-007-Inquiry解析实施手册.md",
+    "summary": "IA-007 Inquiry解析实施手册 V1.0 |  | 文档编号：IA-007 文档名称： Inquiry解析实施手册 版本： V1.0.0",
+    "size": 3192
+  },
+  {
+    "file": "IA-001-飞书生态实施手册总纲.md",
+    "title": "70-飞书生态实施手册总纲 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-001-飞书生态实施手册总纲.md",
+    "summary": "70-飞书生态实施手册总纲 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 飞书生态实施总纲 / 资源盘点、多维表格、Workflow、知识库、Portal建设索引 **上游文档：** [30-ANOS技术架构设计规范 V1.0.md](30-ANOS技术架构设计规范%20V1.0.md) **版本：** V1.0 **状态：** 实施准备基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 飞书原生优先。 | 先盘点，后建设。 | 先P0业务闭环，后扩展平台能力。 | 所有数据、知识、Workflow、Portal组件必须可追溯Owner。 | 所有来源、时间、权限、审计字段必须从第一天纳入设计。 | AssetID | AssetName | AssetType | Owner | Department",
+    "size": 2574
+  },
+  {
+    "file": "IA-008-并发性能与飞书迁移评估.md",
+    "title": "88-ANOS 并发性能评估与飞书迁移路径 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-008-并发性能与飞书迁移评估.md",
+    "summary": "88-ANOS 并发性能评估与飞书迁移路径 V1.0 |  | **审计日期:** 2026-06-03 **场景:** 250名员工并发使用 ANOS Portal **当前架构:** Next.js 15 + Hono 4 + SQLite (better-sqlite3) 250 用户并发操作: ├── 150 人浏览 Portal 页面     → 🟢 OK (Next.js SSR, 无DB操作) | 审计日期: | 场景: | 当前架构: | Next.js Portal | Hono API | SQLite | 致命瓶颈 | better-sqlite3 | 连接池 | WAL 模式 | 写操作队列 | 读操作缓存 | PM2 cluster 模式 | 优化后: | 50人 | 飞书多维表格作为 Middleware 替代自建 SQL： | 飞书多维表格的能力： | 迁移成本: | 飞书开放平台 | 飞书自建分布式存储，天然支持高并发 | API 限流: 100次/秒/应用（企业版更高） | 250人场景下，飞书 API 响应 < 500ms | 8张表已在飞书侧建立（运行 `scripts/feishu/create-bitable-tables.ts`） | API 层增加飞书适配器（替换 SQL 查询 → 飞书 API 调用） | 预计工作量：2 周 | 复杂关联查询（JOIN/子查询/聚合） | 事务一致性要求高 | 审计日志量超过飞书承载",
+    "size": 3138
+  },
+  {
+    "file": "IA-006-开发任务拆解与里程碑计划.md",
+    "title": "26-开发任务拆解与里程碑计划 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-006-开发任务拆解与里程碑计划.md",
+    "summary": "26-开发任务拆解与里程碑计划 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 开发任务拆解 / 里程碑计划 / Sprint基线 **上游文档：** [01-ANOS项目范围与MVP定义 V1.0.md](01-ANOS项目范围与MVP定义%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 建立GitHub目录结构。 | 建立文档索引。 | 确认飞书空间、应用、权限。 | 准备ERP样例导出数据。 | 确认P0字段。 | 建立测试数据集。 | 仓库结构。 | 环境说明。 | 样例数据。 | P0字段确认表。",
+    "size": 2252
+  },
+  {
+    "file": "IA-010-数据迁移方案.md",
+    "title": "IA-010 ANOS 数据迁移方案 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-010-数据迁移方案.md",
+    "summary": "IA-010 ANOS 数据迁移方案 V1.0 | ** | **document_id:** IA-010 | **version:** V1.0.0 Phase1: SQLite (单机) Phase2: 飞书多维表格 (协作) Phase3: PostgreSQL (生产) - ERP → ANOS: Excel导入 / API | document_id: | version: | ERP → ANOS: Excel导入 / API | SQLite → PostgreSQL: Drizzle migration",
+    "size": 223
+  },
+  {
+    "file": "IA-007-验收标准与测试方案.md",
+    "title": "27-验收标准与测试方案 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-007-验收标准与测试方案.md",
+    "summary": "27-验收标准与测试方案 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** MVP验收标准 / 测试方案 / 试运行准入标准 **上游文档：** [26-开发任务拆解与里程碑计划 V1.0.md](26-开发任务拆解与里程碑计划%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 业务闭环是否跑通。 | 数据是否可追溯。 | Agent输出是否有依据。 | 权限是否受控。 | Workflow异常是否可处理。 | 一线人员是否能完成真实任务。 | 8张P0表可用。 | 4条P0 Workflow可用。 | 3个P0工作台可用。 | 3个P0 Agent基础能力可用。",
+    "size": 1648
+  },
+  {
+    "file": "IA-004-飞书Portal实施手册.md",
+    "title": "75-飞书Portal实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-004-飞书Portal实施手册.md",
+    "summary": "75-飞书Portal实施手册 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Feishu Portal Implementation Guide / 飞书Portal实施手册 **上游文档：** [43-ANOS Portal 页面原型规范 V1.0.md](43-ANOS%20Portal%20页面原型规范%20V1.0.md)、[73-飞书工作流实施手册 V1.0.md](73- | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 Portal建设原则 | 第2章 Portal总体架构 | 第3章 Top Bar设计 | 第4章 销售工作台实施规范 | 第5章 采购工作台实施规范 | 第6章 风控工作台实施规范 | 第7章 CEO工作台实施规范 | 第8章 Portal组件标准 | 第9章 Source Card标准 | 第10章 Portal权限体系",
+    "size": 4286
+  },
+  {
+    "file": "IA-005-飞书实施WBS.md",
+    "title": "87-飞书实施WBS V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-005-飞书实施WBS.md",
+    "summary": "87-飞书实施WBS V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 飞书实施WBS / 6周落地计划 / 执行清单 **上游文档：** [70-飞书生态实施手册总纲 V1.0.md](70-飞书生态实施手册总纲%20V1.0.md)、[72-飞书多维表格实施手册 V1.0.md](72-飞书多维表格实施手册%20V1.0.md)、[73-飞书工作流实施手册 V1.0.md]( | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | P0多维表格建成。 | P0数据导入完成。 | P0 Workflow可运行。 | 销售、采购、风控Portal基础可用。 | AI Inbox基础可用。 | Source Card和权限框架可用。 | 盘点飞书空间、知识库、多维表格、群聊、自动化。 | 确认P0表Owner。 | 确认P0字段。 | 确认权限分组。",
+    "size": 2057
+  },
+  {
+    "file": "IA-003-飞书工作流实施手册.md",
+    "title": "73-飞书工作流实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-003-飞书工作流实施手册.md",
+    "summary": "73-飞书工作流实施手册 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Feishu Workflow Implementation Guide / 飞书工作流实施手册 **上游文档：** [72-飞书多维表格实施手册 V1.0.md](72-飞书多维表格实施手册%20V1.0.md)、[30-ANOS技术架构设计规范 V1.0.md](30-ANOS技术架构设计规范%20V1. | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 Workflow定位 | 第2章 Workflow分级体系 | 第3章 Workflow设计原则 | 第4章 WF-000企业资产登记工作流 | 第5章 P0工作流 | 第6章 P1工作流 | 第7章 P2工作流 | 第8章 Workflow标准结构 | 第9章 Source First工作流规范 | 第10章 Agent协同工作流",
+    "size": 4243
+  },
+  {
+    "file": "IA-002-飞书多维表格实施手册.md",
+    "title": "72-飞书多维表格实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-002-飞书多维表格实施手册.md",
+    "summary": "72-飞书多维表格实施手册 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Feishu Bitable Implementation Guide / 飞书多维表格建表实施手册 **上游文档：** [22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md)、[42-ANOS数据中台建表蓝图 V1.0.md](42-ANOS数据中台建表蓝图%20V | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 建设原则 | 第2章 多维表格总体架构 | 第3章 P0第一阶段建表范围 | 第4章 P1第二阶段建表范围 | 第5章 P2第三阶段建表范围 | 第6章 字段命名规范 | 第7章 强制字段规范 | 第8章 Source First规范 | 第9章 关联关系规范 | 第10章 权限规范",
+    "size": 3890
+  },
+  {
+    "file": "IA-008-Offer解析实施手册.md",
+    "title": "IA-008 Offer解析实施手册 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/IA/IA-008-Offer解析实施手册.md",
+    "summary": "IA-008 Offer解析实施手册 V1.0 |  | 文档编号：IA-008 文档名称： Offer解析实施手册 版本： V1.0.0",
+    "size": 4361
+  },
+  {
+    "file": "README.md",
+    "title": "docs/_meta — 文档元信息",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/_meta/README.md",
+    "summary": "docs/_meta — 文档元信息 |  | 本目录是 ANOS EAR 的文档治理中枢。 **AI/Codex 查找文档:** 先查 registry → 再查 map 确认依赖 → 用 legacy-mapping 对照旧编号 | AI/Codex 查找文档:",
+    "size": 300
+  },
+  {
+    "file": "document-inventory.md",
+    "title": "ANOS Document Inventory",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/_meta/document-inventory.md",
+    "summary": "ANOS Document Inventory |  | **更新日期:** 2026-06-03 **文档总数:** 48 (registry) + 6 (ADR) = 57 **旧编号:** 全部37个旧编号已映射到 canonical ID (legacy-mapping.yaml) | 更新日期: | 文档总数: | 旧编号:",
+    "size": 604
+  },
+  {
+    "file": "AI-QUICK-INDEX.md",
+    "title": "ANOS 文档总索引",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/_meta/AI-QUICK-INDEX.md",
+    "summary": "ANOS 文档总索引 |  | > 文档总数: 73 | 2026-06-03 - [ANOS总体架构设计白皮书 V1.0](EA/EA-001-ANOS总体架构设计白皮书.md) - [01-ANOS项目范围与MVP定义 V1.0](EA/EA-002-ANOS项目范围与MVP定义.md) - [02-ANOS业务流程与用户故事 V1.0](EA/EA-003-ANOS业务流程与用户故事.md) - [03-ANOS 产品设计 | [ANOS总体架构设计白皮书 V1.0](EA/EA-001-ANOS总体架构设计白皮书.md) | [01-ANOS项目范围与MVP定义 V1.0](EA/EA-002-ANOS项目范围与MVP定义.md) | [02-ANOS业务流程与用户故事 V1.0](EA/EA-003-ANOS业务流程与用户故事.md) | [03-ANOS 产品设计系统规范 V1.0](EA/EA-004-ANOS产品设计系统规范.md) | [04-ANOS UX 规范 V1.0](EA/EA-005-ANOS-UX规范.md) | [EA-006 ANOS Persona-Workspace-Map V1.0](EA/EA-006-Persona-Workspace-Map.md) | [EA-007 ANOS 企业能力地图 V1.0](EA/EA-007-企业能力地图.md) | [EA-008 ANOS 企业领域模型 V1.0](EA/EA-008-企业领域模型.md) | [EA-009 ANOS 组织操作模型 V1.0](EA/EA-009-组织操作模型.md) | [EA-010 ANOS KPI 价值度量总纲 V1.0](EA/EA-010-KPI价值度量总纲.md)",
+    "size": 9002
+  },
+  {
+    "file": "README.md",
+    "title": "ANOS Portal界面渲染图",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/Portal界面渲染图/README.md",
+    "summary": "ANOS Portal界面渲染图 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal高保真界面参考图索引 **上游文档：** `docs/11-ANOS Portal 三纵列工作台设计规范 V1.0.md`、`docs/43-ANOS Portal 页面原型规范 V1.0.md`、`docs/25-权限与审计规范 V1.0.md`、`docs/76-统一智能入口AI Inbox设 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 销售视图：客户可见，供应商脱敏。 | 采购视图：供应商可见，客户脱敏。",
+    "size": 3129
+  },
+  {
+    "file": "Portal UI Reference V1.0.md",
+    "title": "ANOS Portal UI Reference V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/Portal界面渲染图/Portal UI Reference V1.0.md",
+    "summary": "ANOS Portal UI Reference V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal界面渲染图开发解读 **上游文档：** `docs/Portal界面渲染图/README.md` **适用对象：** Codex、Claude、前端开发、产品设计 **版本：** V1.0 | 项目名称： | 文档定位： | 上游文档： | 适用对象： | 版本： | 状态： | `RoleAwareField` | `SourceCard` | `AgentSuggestionCard` | `HumanApprovalPanel` | `BottomCommandBar` | `PermissionNotice` | `AuditTrail`",
+    "size": 2479
+  },
+  {
+    "file": "README.md",
+    "title": "ANOS Portal开发适配图",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/Portal界面渲染图/开发适配图/README.md",
+    "summary": "ANOS Portal开发适配图 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal前端开发适配原型图索引 **上游文档：** `docs/Portal界面渲染图/README.md`、`docs/Portal界面渲染图/Portal UI Reference V1.0.md`、`docs/25-权限与审计规范 V1.0.md` **版本：** V1.0 **状态：** P0开发 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 路由和角色如何影响默认工作台。 | 权限不足与字段脱敏如何呈现。 | Source Card、审批、通知、搜索、表格、附件解析和审计日志如何组件化。 | 空状态、加载态、错误态如何统一处理。",
+    "size": 1611
+  },
+  {
+    "file": "README.md",
+    "title": "ANOS P0实施开发图",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/Portal界面渲染图/P0实施开发图/README.md",
+    "summary": "ANOS P0实施开发图 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** P0实施与开发联调参考图索引 **上游文档：** `docs/22-飞书多维表格总体设计方案V1.0.md`、`docs/23-ERP同步策略与数据导入规范 V1.0.md`、`docs/24-API与工具接口设计 V1.0.md`、`docs/26-开发任务拆解与里程碑计划 V1.0.md`、`docs/2 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 飞书多维表格 / ANOS Data Hub 建表与关系。 | ERP Raw Zone、字段映射、同步任务与冲突队列。 | Workflow失败重试、Agent Tool调用与权限矩阵。 | MVP验收驾驶舱。 | `DataHubTable` | `RelationshipMap` | `ImportJobPanel` | `FieldMappingGrid` | `SyncJobMonitor` | `ConflictResolutionQueue`",
+    "size": 2410
+  },
+  {
+    "file": "SA-006-AI-Inbox设计规范.md",
+    "title": "76-统一智能入口AI Inbox设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-006-AI-Inbox设计规范.md",
+    "summary": "76-统一智能入口AI Inbox设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Unified Intelligence Inbox / ANOS首页与意图入口设计规范 **上游文档：** [43-ANOS Portal 页面原型规范 V1.0.md](43-ANOS%20Portal%20页面原型规范%20V1.0.md) **版本：** V1.0 **状态：** Portal核心入口 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 待处理事项 | 推荐事项 | Agent建议 | 企业动态 | 今日新增需求 | 今日新增资源 | 今日新增风险 | 今日新增商机 | 编号 | 分类",
+    "size": 2743
+  },
+  {
+    "file": "SA-017-Portal角色工作台规范.md",
+    "title": "SA-017 Portal角色工作台规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-017-Portal角色工作台规范.md",
+    "summary": "SA-017 Portal角色工作台规范 V1.0 |  | 文档编号：SA-017 文档名称： Portal角色工作台规范 版本： V1.0.0",
+    "size": 3467
+  },
+  {
+    "file": "SA-016-Portal智能路由设计.md",
+    "title": "SA-016 ANOS Portal 智能路由设计 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-016-Portal智能路由设计.md",
+    "summary": "SA-016 ANOS Portal 智能路由设计 V1.0 | ** | **document_id:** SA-016 | **version:** V1.0.0 USER ID → 查询角色映射表 → 确定默认工作台 sales*   → Sales Portal   → /inquiries buyer*   → Procurement Portal → / (供应资源池+可匹配需求) finance* → Risk Portal     → /risk | document_id: | version: | Sales Manager: Sales Portal + 部门聚合视图 | Procurement Manager: Procurement Portal + 部门聚合视图",
+    "size": 429
+  },
+  {
+    "file": "SA-005-Agent操作系统规范.md",
+    "title": "SA-005 Agent怎么做 Agent操作系统规范 45-Agent操作系统规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-005-Agent操作系统规范.md",
+    "summary": "45-Agent操作系统规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Agent OS标准 / Agent运行、工具、输出、审计规范 **上游文档：** [12-Agent Network总体设计规范 V1.0.md](12-Agent%20Network总体设计规范%20V1.0.md) **版本：** V1.0 **状态：** Agent开发基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | Identity | Responsibility | Permission | Memory | Knowledge | Tools | Workflow | KPI | Audit | 供应商管理",
+    "size": 2649
+  },
+  {
+    "file": "SA-019-AI-Native价值工作台规范.md",
+    "title": "工作台怎么设计 SA-019 AI Native价值工作台规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-019-AI-Native价值工作台规范.md",
+    "summary": "SA-019 AI Native价值工作台规范 V1.0 |  | 文档编号： SA-019 文档名称： AI Native价值工作台规范 版本： [KEYWORDS: 工作台 首页设计 机会流 风险流 行动流 Opportunity Risk Action]",
+    "size": 3966
+  },
+  {
+    "file": "SA-020-ANOS-AI-Native-自进化能力架构规范.md",
+    "title": "自进化 SA-020 ANOS AI Native 自进化能力架构规范 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-020-ANOS-AI-Native-自进化能力架构规范.md",
+    "summary": "SA-020 ANOS AI Native 自进化能力架构规范 V1.0 | ** | **document_id:** SA-020 **title:** AI Native 自进化能力架构规范 **version:** V1.0.0 **status:** Active **owner:** LTDC | document_id: | title: | version: | status: | owner: | layer: | depends_on: | created_at: | 核心工程纲领 | 核心差异：能力在 Registry 中而非在页面中。 | 无论用户在哪个页面、以何种方式输入，系统行为必须一致。 | Agent Registry | Skill Registry | Workflow Registry | Tool Registry | Agent 是岗位角色 | Skill 是具体能力 | Workflow 是执行流程 | Tool 是底层调用 | 新增能力 = 配置变更，而非代码变更。 | CommandBar 必须由 WorkspaceLayout 统一渲染（不在各页面单独放置） | 所有页面的 CommandBar 调用同一个 `GlobalCommandRouter` | GlobalCommandRouter 接入 Intent Router → Agent Registry → Workflow Dispatcher | 路由规则不得硬编码在前端页面 | code: AGT-TRD-DEV-000001 | SKL-TRD-DEV-000001  # parse-offer | SKL-TRD-DEV-000002  # normalize-part-number | \"v1.2.0: 批量MPN入库\" | \"v1.1.0: 标准化输出\"",
+    "size": 12339
+  },
+  {
+    "file": "SA-007-Agent-Prompt-Library.md",
+    "title": "SA-007 Agent输出标准 Prompt Library 47-ANOS Agent Prompt Library V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-007-Agent-Prompt-Library.md",
+    "summary": "47-ANOS Agent Prompt Library V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Agent 提示词库 / 统一输出标准 **上游文档：** [45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范%20V1.0.md) **版本：** V1.0 **状态：** Prompt基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 解析客户 RFQ（邮件/截图/Excel） | 生成客户摘要（等级/历史订单/回款风险） | 推荐报价策略（基于供应资源和市场行情） | 起草报价邮件 | 自动发送正式报价 | 展示供应商真实名称（采购视图） | 展示采购成本（销售视图） | 解析供应商报价单/库存表 | 自动比较价格、交期、风险 | 推荐替代供应商和国产替代料",
+    "size": 2134
+  },
+  {
+    "file": "SA-018-AI交易智能模型.md",
+    "title": "什么是机会流 SA-018 AI交易智能模型 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-018-AI交易智能模型.md",
+    "summary": "SA-018 AI交易智能模型 V1.0 |  | 文档编号： SA-018 文档名称： AI交易智能模型 版本： [KEYWORDS: AI交易价值链 八层价值链 机会发现 匹配智能 决策智能 信息捕获]",
+    "size": 4043
+  },
+  {
+    "file": "SA-011-Agent通信协议.md",
+    "title": "SA-011 ANOS Agent 通信协议 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-011-Agent通信协议.md",
+    "summary": "SA-011 ANOS Agent 通信协议 V1.0 | ** | **document_id:** SA-011 | **version:** V1.0.0 - MCP (Model Context Protocol) - 所有Agent通过 MCP Server 注册工具 - 工具调用格式: { agentId, tool, payload, auditId } - Inquiry(销售→采购): 通过 Workflow Engine | document_id: | version: | MCP (Model Context Protocol) | 所有Agent通过 MCP Server 注册工具 | 工具调用格式: { agentId, tool, payload, auditId } | Inquiry(销售→采购): 通过 Workflow Engine | Offer(采购→销售): 通过 Workflow Engine | 禁止跨域直连通信",
+    "size": 286
+  },
+  {
+    "file": "SA-015-交易智能网络总体设计.md",
+    "title": "SA-015 ANOS Phase1 交易智能网络总体设计 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-015-交易智能网络总体设计.md",
+    "summary": "SA-015 ANOS Phase1 交易智能网络总体设计 V1.0 |  | 文档编号：SA-015 文档名称： ANOS Phase1 交易智能网络总体设计 版本： V1.0.0",
+    "size": 3916
+  },
+  {
+    "file": "SA-002-Agent-Network总体设计规范.md",
+    "title": "12-Agent Network总体设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-002-Agent-Network总体设计规范.md",
+    "summary": "12-Agent Network总体设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Agent Network总体设计 / 数字员工组织架构 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **关联文档：** [45-Agent操作系统规范 V1.0.md](45-Agent操作系统规范 V1.0.md) **版本：* | 项目名称： | 文档定位： | 上游文档： | 关联文档： | 版本： | 状态： | 第1章 设计哲学 | 第2章 Agent组织架构 | 第3章 第一阶段核心Agent | 第4章 Agent Memory体系 | 第5章 Agent协同机制 | 第6章 Agent能力评级 | 第7章 Agent KPI体系 | 第8章 建设优先级 | 第9章 飞书生态集成 | 直接服务销售、采购、风控三个核心部门。",
+    "size": 3315
+  },
+  {
+    "file": "SA-010-Portal组件规范.md",
+    "title": "SA-010 ANOS Portal 组件规范 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-010-Portal组件规范.md",
+    "summary": "SA-010 ANOS Portal 组件规范 V1.0 | ** | **document_id:** SA-010 | **version:** V1.0.0 | **status:** Active 参见 UI-003 | document_id: | version: | status:",
+    "size": 467
+  },
+  {
+    "file": "SA-016-AI-Match-Engine设计规范.md",
+    "title": "SA-016 AI Match Engine设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-016-AI-Match-Engine设计规范.md",
+    "summary": "SA-016 AI Match Engine设计规范 V1.0 |  | 文档编号：SA-016 文档名称： AI Match Engine设计规范 版本： V1.0.0 | Commercial Match | Trust Match | History Match | AI Score",
+    "size": 3372
+  },
+  {
+    "file": "SA-009-技术架构设计规范.md",
+    "title": "SA-009 ANOS 技术架构设计规范 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-009-技术架构设计规范.md",
+    "summary": "SA-009 ANOS 技术架构设计规范 V1.0 | ** | **document_id:** SA-009 **version:** V1.0.0 **status:** Active **layer:** SA - Portal: Next.js 15 + React 19 + Tailwind CSS 4 | document_id: | version: | status: | layer: | Portal: Next.js 15 + React 19 + Tailwind CSS 4 | API: Hono 4 + better-sqlite3 + Drizzle ORM | Auth: JWT (Phase1) → 飞书SSO (Phase2) | MCP: @modelcontextprotocol/sdk | DevOps: pnpm + turborepo + Docker + GitHub Actions | 页面首屏 < 3s | API 响应 < 500ms | Phase2 PostgreSQL 支持 250 并发",
+    "size": 492
+  },
+  {
+    "file": "SA-004-Trading-Intelligence-Architecture.md",
+    "title": "44-ANOS Trading Intelligence Architecture V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-004-Trading-Intelligence-Architecture.md",
+    "summary": "44-ANOS Trading Intelligence Architecture V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 交易智能架构 / Trading Intelligence Network设计 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **版本：** V1.0 **状态：** 业务架构基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 邮件 | 微信 | WhatsApp | 电话记录 | 群聊 | Excel | 原厂 | 代理商 | 贸易商 | 库存表",
+    "size": 2503
+  },
+  {
+    "file": "SA-008-API与工具接口设计.md",
+    "title": "SA-008 ANOS API与工具接口设计 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-008-API与工具接口设计.md",
+    "summary": "SA-008 ANOS API与工具接口设计 V1.0 | ** | **document_id:** SA-008 **version:** V1.0.0 **status:** Active **layer:** SA 7个P0工具: customer-search / inquiry-create / supply-resource-search / opportunity-match / ar-risk-query / knowledge-search /  | document_id: | version: | status: | layer:",
+    "size": 792
+  },
+  {
+    "file": "SA-001-Portal三纵列工作台设计规范.md",
+    "title": "11-ANOS Portal 三纵列工作台设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-001-Portal三纵列工作台设计规范.md",
+    "summary": "11-ANOS Portal 三纵列工作台设计规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal产品设计规范 / AI Native工作台规范 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md) **数据依赖：** [22-飞书多维表格总体设计方案V1.0.md](22-飞书多维表格总体设计方案V1.0.md) **版本： | 项目名称： | 文档定位： | 上游文档： | 数据依赖： | 版本： | 第1章 Portal设计哲学 | 第2章 Portal总体布局 | 第3章 左侧导航区 | 第4章 中间工作区 | 第5章 右侧输出区 | 第6章 Role-Based Portal | 第7章 Agent Dock | 第8章 AI Native信息入口 | 第9章 核心业务场景 | 第10章 建设优先级",
+    "size": 5523
+  },
+  {
+    "file": "SA-003-Portal页面原型规范.md",
+    "title": "43-ANOS Portal 页面原型规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/SA/SA-003-Portal页面原型规范.md",
+    "summary": "43-ANOS Portal 页面原型规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal页面原型 / 飞书妙搭与Codex开发输入 **上游文档：** [11-ANOS Portal 三纵列工作台设计规范 V1.0.md](11-ANOS%20Portal%20三纵列工作台设计规范%20V1.0.md) **版本：** V1.0 **状态：** 开发前原型基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | AMPLE / ANOS标识 | 全局搜索：客户、供应商、型号、订单、知识、Agent | 消息中心 | 待办 | Agent状态 | 个人中心 | 经营驾驶舱 | 销售中心 | 采购中心 | 风控中心",
+    "size": 2835
+  },
+  {
+    "file": "EA-002-ANOS项目范围与MVP定义.md",
+    "title": "01-ANOS项目范围与MVP定义 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-002-ANOS项目范围与MVP定义.md",
+    "summary": "01-ANOS项目范围与MVP定义 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 项目范围 / MVP边界 / 第一阶段上线定义 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md)、[44-ANOS Trading Intelligence Architecture V1.0.md](44-ANOS%20Trading% | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 第1章 MVP定义 | 第2章 第一阶段目标 | 第3章 范围内 | 第4章 范围外 | 第5章 P0角色 | 第6章 P0数据对象 | 第7章 P0 Agent | 第8章 P0 Workflow | 第9章 上线边界 | 第10章 待确认事项",
+    "size": 2567
+  },
+  {
+    "file": "EA-012-业务流程架构总览.md",
+    "title": "EA-012 ANOS 业务流程架构总览 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-012-业务流程架构总览.md",
+    "summary": "EA-012 ANOS 业务流程架构总览 V1.0 | ** | **document_id:** EA-012 **title:** 业务流程架构总览 **version:** V1.0.0 **status:** Active Customer → Inquiry → Opportunity → Offer → SO → AR | document_id: | title: | version: | status:",
+    "size": 550
+  },
+  {
+    "file": "EA-005-ANOS-UX规范.md",
+    "title": "04-ANOS UX 规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-005-ANOS-UX规范.md",
+    "summary": "04-ANOS UX 规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** Portal 交互体验统一标准 **版本：** V1.0 **状态：** UX基线 **不是菜单优先。** Portal 的第一入口是 AI Inbox，不是功能菜单。 | 项目名称： | 文档定位： | 版本： | 状态： | 不是菜单优先。 | Anything In。 | 首页展示 AI 会话 + KPI 动态流 | 用户输入自然语言，系统判断意图 → 自动路由 | 菜单仅为辅助导航 | 文本 → AI 理解 | 文件 → 自动解析 | 截图 → OCR 识别 | 拖拽 → 即刻处理 | 没有来源的信息不允许进入正式业务表 | Agent 建议必须附带依据来源 | 动态流按时间倒序",
+    "size": 1300
+  },
+  {
+    "file": "EA-014-安全与合规架构.md",
+    "title": "EA-014 ANOS 安全与合规架构 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-014-安全与合规架构.md",
+    "summary": "EA-014 ANOS 安全与合规架构 V1.0 | ** | **document_id:** EA-014 **title:** 安全与合规架构 **version:** V1.0.0 **status:** Active - 数据分类: Customer/Supplier/Finance/HR | document_id: | title: | version: | status: | 数据分类: Customer/Supplier/Finance/HR | 最小权限: 每个角色仅可见必须数据 | 审计追溯: 所有操作可追溯至 Source + Actor",
+    "size": 522
+  },
+  {
+    "file": "EA-003-ANOS业务流程与用户故事.md",
+    "title": "02-ANOS业务流程与用户故事 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-003-ANOS业务流程与用户故事.md",
+    "summary": "02-ANOS业务流程与用户故事 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 业务流程 / 用户故事 / MVP需求来源 **上游文档：** [01-ANOS项目范围与MVP定义 V1.0.md](01-ANOS项目范围与MVP定义%20V1.0.md) **版本：** V1.0 **状态：** P0开发前基线 | 项目名称： | 文档定位： | 上游文档： | 版本： | 状态： | 第1章 核心业务闭环 | 第2章 销售流程 | 第3章 采购流程 | 第4章 风控流程 | 第5章 管理层流程 | 第6章 用户故事 | 第7章 异常流程 | 信息先进入AI Inbox。 | 数据必须结构化沉淀。 | Agent生成建议，人工做最终确认。",
+    "size": 2323
+  },
+  {
+    "file": "EA-008-企业领域模型.md",
+    "title": "EA-008 ANOS 企业领域模型 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-008-企业领域模型.md",
+    "summary": "EA-008 ANOS 企业领域模型 V1.0 | ** | **document_id:** EA-008 **title:** 企业领域模型 **version:** V1.0.0 **status:** Active Customer Domain (Sales所有) | document_id: | title: | version: | status: | Customer Domain 与 Supplier Domain 通过 Opportunity 间接关联 | 禁止直连: Customer↔Supplier, Sales↔PurchaseCost",
+    "size": 625
+  },
+  {
+    "file": "EA-015-Phase1核心价值与开发指引.md",
+    "title": "EA-015 交易智能架构 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-015-Phase1核心价值与开发指引.md",
+    "summary": "EA-015 交易智能架构 V1.0 |  | 文档编号：EA-015 文档名称：交易智能架构 版本号：V1.0.0 状态：Active 责任部门：LTDC",
+    "size": 1640
+  },
+  {
+    "file": "EA-009-组织操作模型.md",
+    "title": "EA-009 ANOS 组织操作模型 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-009-组织操作模型.md",
+    "summary": "EA-009 ANOS 组织操作模型 V1.0 | ** | **document_id:** EA-009 **title:** 组织操作模型 **version:** V1.0.0 **status:** Active | document_id: | title: | version: | status:",
+    "size": 582
+  },
+  {
+    "file": "EA-013-企业架构全景图.md",
+    "title": "EA-013 ANOS 企业架构全景图 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-013-企业架构全景图.md",
+    "summary": "EA-013 ANOS 企业架构全景图 V1.0 | ** | **document_id:** EA-013 **title:** 企业架构全景图 **version:** V1.0.0 **status:** Active ANOS Enterprise Architecture | document_id: | title: | version: | status: | Portal: Next.js 15 + Tailwind CSS | API: Hono 4 + SQLite | Agent: MCP Protocol | DevOps: GitHub Actions + Docker",
+    "size": 487
+  },
+  {
+    "file": "EA-006-Persona-Workspace-Map.md",
+    "title": "EA-006 ANOS Persona-Workspace-Map V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-006-Persona-Workspace-Map.md",
+    "summary": "EA-006 ANOS Persona-Workspace-Map V1.0 | ** | **document_id:** EA-006 **title:** Persona-Workspace-Map **version:** V1.0.0 **status:** Active **layer:** EA | document_id: | title: | version: | status: | layer: | domain:",
+    "size": 740
+  },
+  {
+    "file": "EA-001-ANOS总体架构设计白皮书.md",
+    "title": "ANOS总体架构设计白皮书 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-001-ANOS总体架构设计白皮书.md",
+    "summary": "ANOS总体架构设计白皮书 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **项目代号：** ANOS **项目级别：** 企业级战略项目 **适用范围：** 安芯易集团（Ample Solutions Group） **文档版本：** V1.0 整理版 | 项目名称： | 项目代号： | 项目级别： | 适用范围： | 文档版本： | 编制日期： | 文档属性： | 整理来源： | 第1章 项目背景 | 第2章 项目使命 | 第3章 核心原则 | 第4章 企业能力模型 | 第5章 企业能力演进路线 | 第5A章 企业能力成熟度模型 | 第6章 ANOS总体架构 | 第7章 Portal架构 | 第8章 Agent Network架构 | 第9章 数据战略",
+    "size": 46152
+  },
+  {
+    "file": "EA-011-Role-Workspace详细映射.md",
+    "title": "EA-011 ANOS Role-Workspace 详细映射 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-011-Role-Workspace详细映射.md",
+    "summary": "EA-011 ANOS Role-Workspace 详细映射 V1.0 | ** | **document_id:** EA-011 **title:** Role-Workspace详细映射 **version:** V1.0.0 **status:** Active 详见 [GA-011-角色权限与信息隔离矩阵](../GA/GA-011-角色权限与信息隔离矩阵.md) | document_id: | title: | version: | status:",
+    "size": 562
+  },
+  {
+    "file": "EA-010-KPI价值度量总纲.md",
+    "title": "EA-010 ANOS KPI 价值度量总纲 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-010-KPI价值度量总纲.md",
+    "summary": "EA-010 ANOS KPI 价值度量总纲 V1.0 | ** | **document_id:** EA-010 **title:** KPI价值度量总纲 **version:** V1.0.0 **status:** Active **references:** UI-004 | document_id: | title: | version: | status: | references: | RFQ处理效率: 目标↓87% | 报价效率: 目标↓83% | 成交率: 目标+5% | Agent使用率: >60% | Agent采纳率: >70% | 自动化率: >50% | Data IQ / Knowledge IQ / Agent IQ",
+    "size": 383
+  },
+  {
+    "file": "EA-007-企业能力地图.md",
+    "title": "EA-007 ANOS 企业能力地图 V1.0",
+    "doc_id": "**",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-007-企业能力地图.md",
+    "summary": "EA-007 ANOS 企业能力地图 V1.0 | ** | **document_id:** EA-007 **title:** 企业能力地图 **version:** V1.0.0 **status:** Active Phase1: 数据沉淀 + 规则自动化 | document_id: | title: | version: | status:",
+    "size": 494
+  },
+  {
+    "file": "EA-004-ANOS产品设计系统规范.md",
+    "title": "03-ANOS 产品设计系统规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/EA/EA-004-ANOS产品设计系统规范.md",
+    "summary": "03-ANOS 产品设计系统规范 V1.0 |  | **项目名称：** Ample AI Native OS（ANOS） **文档定位：** 全局Design System / 视觉统一标准 **上游文档：** [00-ANOS总体架构设计白皮书V1.0.md](00-ANOS总体架构设计白皮书V1.0.md)、[11-ANOS Portal 三纵列工作台设计规范 V1.0.md](11-ANOS%20Portal%20三纵列工作台设计规范%20V | 项目名称： | 文档定位： | 上游文档： | 适用对象： | 版本： | 状态： | 全局基准：16px | Lucide Icons | 第1章 Typography（字体系统） | 第2章 Spacing（间距系统） | 第3章 Radius（圆角系统） | 第4章 Shadow（阴影系统） | 第5章 Color Token（色彩系统） | 第6章 Icon（图标规范） | 第7章 Grid（网格系统） | 第8章 Button（按钮规范） | 第9章 Card（卡片规范） | 第10章 禁止事项",
+    "size": 4713
+  },
+  {
+    "file": "TA-002-Query-Routing-Engine设计规范.md",
+    "title": "TA-002 Query Routing Engine设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/TA/TA-002-Query-Routing-Engine设计规范.md",
+    "summary": "TA-002 Query Routing Engine设计规范 V1.0 |  | 文档编号：TA-002 文档名称： Query Routing Engine设计规范 版本： V1.0.0",
+    "size": 3226
+  },
+  {
+    "file": "TA-005-Memory-Hub-Architecture.md",
+    "title": "TA-005 Memory Hub Architecture V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/TA/TA-005-Memory-Hub-Architecture.md",
+    "summary": "TA-005 Memory Hub Architecture V1.0 |  | 文档编号：TA-005 文档名称： Memory Hub总体架构 版本： V1.0.0",
+    "size": 4542
+  },
+  {
+    "file": "TA-004-Agent-Runtime-Architecture.md",
+    "title": "TA-004 Agent Runtime Architecture V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/TA/TA-004-Agent-Runtime-Architecture.md",
+    "summary": "TA-004 Agent Runtime Architecture V1.0 |  | 文档编号：TA-004 文档名称： Agent运行时架构 版本： V1.0.0",
+    "size": 4323
+  },
+  {
+    "file": "TA-006-Event-Bus-Architecture.md",
+    "title": "TA-006 Event Bus Architecture V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/TA/TA-006-Event-Bus-Architecture.md",
+    "summary": "TA-006 Event Bus Architecture V1.0 |  | 文档编号：TA-006 文档名称： 事件总线架构 版本： V1.0.0",
+    "size": 4558
+  },
+  {
+    "file": "TA-003-Permission-Engine设计规范.md",
+    "title": "TA-003 Permission Engine设计规范 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/TA/TA-003-Permission-Engine设计规范.md",
+    "summary": "TA-003 Permission Engine设计规范 V1.0 |  | 文档编号：TA-003 文档名称： 统一权限引擎设计规范 版本： V1.0.0",
+    "size": 4234
+  },
+  {
+    "file": "TA-001-Data-Hub总体架构.md",
+    "title": "TA-001 Data Hub总体架构 V1.0",
+    "doc_id": "",
+    "path": "/Users/lirundong/Documents/Ample ANOS/docs/TA/TA-001-Data-Hub总体架构.md",
+    "summary": "TA-001 Data Hub总体架构 V1.0 |  | 文档编号：TA-001 文档名称： Data Hub总体架构 版本： V1.0.0 | Middleware SQL | Vector Hub",
+    "size": 3354
+  }
+]

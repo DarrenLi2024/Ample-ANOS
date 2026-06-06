@@ -1,0 +1,351 @@
+.
+├── agents
+│   ├── agent-template
+│   │   ├── agent.yaml
+│   │   ├── kpi.yaml
+│   │   ├── memory-policy.md
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── buyer-copilot
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── ceo-agent
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── credit-agent
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── knowledge-agent
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   ├── README.md
+│   ├── registry
+│   │   ├── agent-registry.yaml
+│   │   ├── skill-registry.yaml
+│   │   ├── tool-registry.yaml
+│   │   └── workflow-registry.yaml
+│   ├── registry.yaml
+│   ├── sales-copilot
+│   │   ├── agent.yaml
+│   │   ├── permission.yaml
+│   │   ├── prompt.md
+│   │   └── tools.yaml
+│   └── skills
+├── AGENTS.md
+├── anos-docs.txt
+├── anos-tree.txt
+├── apps
+│   └── portal
+│       ├── next-env.d.ts
+│       ├── next.config.ts
+│       ├── node_modules
+│       ├── package.json
+│       ├── postcss.config.mjs
+│       ├── public
+│       ├── src
+│       ├── tsconfig.json
+│       └── tsconfig.tsbuildinfo
+├── CLAUDE.md
+├── CODEX.md
+├── data
+│   ├── anos.db
+│   ├── anos.db-shm
+│   ├── anos.db-wal
+│   ├── mock-ar-items.json
+│   ├── mock-customers.json
+│   ├── mock-inquiries.json
+│   ├── mock-offers.json
+│   ├── mock-opportunities.json
+│   ├── mock-products.json
+│   ├── mock-suppliers.json
+│   ├── mock-supply-resources.json
+│   └── uploads
+│       ├── 0280ac30-70c7-4f2b-9581-d0e0ae6d7f59.png
+│       ├── 2121d82d-c1ce-4ca4-ac52-874accacf8f1.png
+│       ├── 260f93d6-122d-417a-baa7-a4d503087aa4.png
+│       ├── 2734804b-195f-4a32-a365-d70a76ee7b21.png
+│       ├── 3603e93d-fe5d-4189-8d4a-179ed0574902.png
+│       ├── 3bbc577c-286a-47f3-8473-da39649bf107.txt
+│       ├── 48d4e36b-3fab-4561-8348-bab306ba8014.png
+│       ├── 4f5aca06-745c-4205-b729-446376a2923b.png
+│       ├── 604087c1-e6e5-4c67-93c5-21ecfadca5b9.png
+│       ├── 6fdaeceb-6f3a-42b8-a599-6d00a8803363.png
+│       ├── 9766a1a0-aed4-4b15-beab-ed6106b2acd8.png
+│       ├── 992a2862-194d-474d-baef-2cabe97d2222.png
+│       ├── acd607fe-d009-4229-8c5f-c847c76b4473.png
+│       ├── d3034bd5-c8f8-43ec-bb98-7e3fbe12e30e.csv
+│       ├── db87487f-a822-408d-85c7-442931335d55.png
+│       ├── db8c55ae-f4f8-419d-8063-9f6dda672edc.txt
+│       ├── dbfcb948-bc14-45f0-8005-5c0aee6ad8a6.txt
+│       ├── dfdfcdd5-3fcb-49ad-bdc9-d7c1fe599395.png
+│       ├── e22ec824-b665-49f3-a6f5-8ee9e8f2cec9.png
+│       └── eb5f8190-8806-4f80-ad75-43fd2d2f316f.png
+├── docker-compose.yml
+├── Dockerfile
+├── docs
+│   ├── _meta
+│   │   ├── AI-QUICK-INDEX.md
+│   │   ├── document-inventory.md
+│   │   ├── document-map.yaml
+│   │   ├── document-registry.yaml
+│   │   ├── legacy-mapping.yaml
+│   │   └── README.md
+│   ├── ADR
+│   │   ├── ADR-000-ADR模板.md
+│   │   ├── ADR-001-Feishu-As-Primary-Platform.md
+│   │   ├── ADR-002-SQLite-For-MVP.md
+│   │   ├── ADR-003-Agent-Network-Architecture.md
+│   │   ├── ADR-004-Trading-Firewall.md
+│   │   └── ADR-005-Role-Based-Portal.md
+│   ├── AI_COLLABORATION.md
+│   ├── ANOS.zip
+│   ├── ARCHIVE
+│   │   ├── legacy
+│   │   └── legacy-root
+│   ├── auth-strategy.md
+│   ├── CONTEXT.md
+│   ├── DA
+│   │   ├── DA-001-企业数据字典.md
+│   │   ├── DA-002-ERP字段映射方案.md
+│   │   ├── DA-003-飞书多维表格总体设计方案.md
+│   │   ├── DA-004-数据中台建表蓝图.md
+│   │   ├── DA-005-数据库设计SQL版.md
+│   │   ├── DA-006-数据同步策略.md
+│   │   ├── DA-007-数据质量治理.md
+│   │   ├── DA-008-需求资源池数据模型设计.md
+│   │   └── DA-009-供应资源池数据模型设计.md
+│   ├── EA
+│   │   ├── EA-001-ANOS总体架构设计白皮书.md
+│   │   ├── EA-002-ANOS项目范围与MVP定义.md
+│   │   ├── EA-003-ANOS业务流程与用户故事.md
+│   │   ├── EA-004-ANOS产品设计系统规范.md
+│   │   ├── EA-005-ANOS-UX规范.md
+│   │   ├── EA-006-Persona-Workspace-Map.md
+│   │   ├── EA-007-企业能力地图.md
+│   │   ├── EA-008-企业领域模型.md
+│   │   ├── EA-009-组织操作模型.md
+│   │   ├── EA-010-KPI价值度量总纲.md
+│   │   ├── EA-011-Role-Workspace详细映射.md
+│   │   ├── EA-012-业务流程架构总览.md
+│   │   ├── EA-013-企业架构全景图.md
+│   │   ├── EA-014-安全与合规架构.md
+│   │   └── EA-015-Phase1核心价值与开发指引.md
+│   ├── ERP数据结构字段清单.md
+│   ├── GA
+│   │   ├── GA-001-企业架构仓库治理总纲.md
+│   │   ├── GA-002-权限与审计规范.md
+│   │   ├── GA-003-组织智能治理框架.md
+│   │   ├── GA-004-GitHub项目结构规范.md
+│   │   ├── GA-005-ERP-API集成规范.md
+│   │   ├── GA-006-MCP服务规范.md
+│   │   ├── GA-007-开发规范.md
+│   │   ├── GA-008-测试规范.md
+│   │   ├── GA-009-运营与持续进化规范.md
+│   │   ├── GA-010-交易防火墙实施规范.md
+│   │   ├── GA-011-角色权限与信息隔离矩阵.md
+│   │   ├── GA-012-Agent治理规范.md
+│   │   ├── GA-013-Prompt治理规范.md
+│   │   ├── GA-014-Workflow治理规范.md
+│   │   ├── GA-015-Knowledge治理规范.md
+│   │   ├── GA-016-架构评审机制.md
+│   │   ├── GA-017-LLM编码行为准则-Karpathy.md
+│   │   ├── GA-018-代码审查规范.md
+│   │   ├── GA-018-主数据SoR治理规范.md
+│   │   ├── GA-019-安全审计规范.md
+│   │   ├── GA-020-灾难恢复预案.md
+│   │   ├── GA-022-企业智能资产编码规范.md
+│   │   ├── GA-024-Memory治理规范.md
+│   │   ├── GA-026-AI变更管理规范.md
+│   │   └── GA-027-企业智能资产注册中心规范.md
+│   ├── IA
+│   │   ├── IA-001-飞书生态实施手册总纲.md
+│   │   ├── IA-002-飞书多维表格实施手册.md
+│   │   ├── IA-003-飞书工作流实施手册.md
+│   │   ├── IA-004-飞书Portal实施手册.md
+│   │   ├── IA-005-飞书实施WBS.md
+│   │   ├── IA-006-开发任务拆解与里程碑计划.md
+│   │   ├── IA-007-Inquiry解析实施手册.md
+│   │   ├── IA-007-验收标准与测试方案.md
+│   │   ├── IA-008-Offer解析实施手册.md
+│   │   ├── IA-008-并发性能与飞书迁移评估.md
+│   │   ├── IA-009-部署运维手册.md
+│   │   └── IA-010-数据迁移方案.md
+│   ├── P0-confirmation-form.html
+│   ├── P0-FOLLOWUP.md
+│   ├── P0实施准备包
+│   │   ├── 01-P0决策确认表.md
+│   │   ├── 02-飞书资源盘点表.md
+│   │   ├── 03-ERP样例数据包说明.md
+│   │   ├── 04-权限矩阵.md
+│   │   ├── 05-端到端验收样例.md
+│   │   └── README.md
+│   ├── Portal界面渲染图
+│   │   ├── 01-AI-Inbox-Home-Sales-Permissioned.png
+│   │   ├── 02-Sales-Workspace-Permissioned.png
+│   │   ├── 03-Procurement-Workspace-Permissioned.png
+│   │   ├── 04-Risk-Workspace.png
+│   │   ├── 05-Opportunity-Sales-View-Permissioned.png
+│   │   ├── 06-Opportunity-Procurement-View-Permissioned.png
+│   │   ├── 07-RFQ-Inquiry-Create-Sales-View.png
+│   │   ├── 08-Supply-Resource-Create-Procurement-View.png
+│   │   ├── 09-Quotation-Approval-Sales-View.png
+│   │   ├── 10-AR-Risk-Disposition.png
+│   │   ├── 11-Customer-360-Sales-View.png
+│   │   ├── 12-Workflow-Operations-Center.png
+│   │   ├── 13-Agent-Center.png
+│   │   ├── 14-Knowledge-Center-QA.png
+│   │   ├── 15-Localization-Recommendation-Procurement-View.png
+│   │   ├── 16-CEO-Daily-Summary-Aggregated.png
+│   │   ├── P0实施开发图
+│   │   ├── Portal UI Reference V1.0.md
+│   │   ├── README.md
+│   │   └── 开发适配图
+│   ├── SA
+│   │   ├── SA-001-Portal三纵列工作台设计规范.md
+│   │   ├── SA-002-Agent-Network总体设计规范.md
+│   │   ├── SA-003-Portal页面原型规范.md
+│   │   ├── SA-004-Trading-Intelligence-Architecture.md
+│   │   ├── SA-005-Agent操作系统规范.md
+│   │   ├── SA-006-AI-Inbox设计规范.md
+│   │   ├── SA-007-Agent-Prompt-Library.md
+│   │   ├── SA-008-API与工具接口设计.md
+│   │   ├── SA-009-技术架构设计规范.md
+│   │   ├── SA-010-Portal组件规范.md
+│   │   ├── SA-011-Agent通信协议.md
+│   │   ├── SA-015-交易智能网络总体设计.md
+│   │   ├── SA-016-AI-Match-Engine设计规范.md
+│   │   ├── SA-016-Portal智能路由设计.md
+│   │   ├── SA-017-Portal角色工作台规范.md
+│   │   ├── SA-018-AI交易智能模型.md
+│   │   └── SA-019-AI-Native价值工作台规范.md
+│   ├── TA
+│   │   ├── TA-001-Data-Hub总体架构.md
+│   │   ├── TA-002-Query-Routing-Engine设计规范.md
+│   │   ├── TA-003-Permission-Engine设计规范.md
+│   │   ├── TA-004-Agent-Runtime-Architecture.md
+│   │   ├── TA-005-Memory-Hub-Architecture.md
+│   │   └── TA-006-Event-Bus-Architecture.md
+│   ├── UI
+│   │   ├── UI-001-设计规范.md
+│   │   ├── UI-002-Design-System-V2.md
+│   │   ├── UI-003-Design-Token规范.md
+│   │   └── UI-004-KPI与价值度量.md
+│   ├── 附件
+│   │   ├── AMPLE LOGO.webp
+│   │   └── 数据库结构.xlsx
+│   └── 会话归档
+│       └── chatgpt_share_6a1c6208_latest.html
+├── governance
+│   ├── architecture-review
+│   │   ├── review-log.yaml
+│   │   └── review-template.md
+│   ├── audit
+│   │   └── audit-log-template.md
+│   ├── README.md
+│   └── release
+│       └── release-checklist.md
+├── infra
+├── instructions.md
+├── knowledge
+│   ├── customer
+│   ├── finance
+│   ├── knowledge-registry.yaml
+│   ├── knowledge-template.md
+│   ├── legal
+│   ├── manufacturer
+│   ├── market
+│   ├── product
+│   ├── README.md
+│   └── supplier
+├── node_modules
+│   ├── @types
+│   │   └── node -> ../.pnpm/@types+node@20.19.41/node_modules/@types/node
+│   ├── prettier -> .pnpm/prettier@3.8.3/node_modules/prettier
+│   ├── tsx -> .pnpm/tsx@4.22.4/node_modules/tsx
+│   ├── turbo -> .pnpm/turbo@2.9.16/node_modules/turbo
+│   └── typescript -> .pnpm/typescript@5.9.3/node_modules/typescript
+├── package.json
+├── packages
+│   ├── agent-tools
+│   │   └── src
+│   ├── api-client
+│   │   └── src
+│   └── shared
+│       ├── package.json
+│       ├── src
+│       └── tsconfig.json
+├── playwright.config.ts
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── prompts
+│   ├── buyer
+│   ├── ceo
+│   ├── finance
+│   ├── prompt-registry.yaml
+│   ├── prompt-template.md
+│   ├── README.md
+│   ├── sales
+│   └── system
+├── README.md
+├── scripts
+│   ├── dev-setup.sh
+│   ├── feishu
+│   │   ├── add-collaborator.ts
+│   │   ├── create-all-tables.ts
+│   │   └── create-bitable-tables.ts
+│   ├── import
+│   │   ├── erp-import.ts
+│   │   └── match-score.ts
+│   ├── migrate
+│   └── validate
+├── services
+│   ├── api
+│   │   ├── data
+│   │   ├── drizzle.config.ts
+│   │   ├── node_modules
+│   │   ├── package.json
+│   │   ├── src
+│   │   └── tsconfig.json
+│   ├── mcp
+│   │   ├── node_modules
+│   │   ├── package.json
+│   │   ├── src
+│   │   └── tsconfig.json
+│   └── sync
+│       └── src
+├── tests
+│   ├── e2e
+│   │   └── portal.spec.ts
+│   ├── fixtures
+│   ├── integration
+│   │   └── api-flow.test.ts
+│   └── unit
+│       ├── api.test.ts
+│       ├── data-integrity.test.ts
+│       ├── permission.test.ts
+│       └── types.test.ts
+├── tsconfig.base.json
+├── turbo.json
+├── USER.md
+├── vitest.config.ts
+└── workflows
+    ├── ar-collection
+    ├── definitions
+    ├── inquiry-to-offer
+    ├── knowledge-capture
+    ├── offer-to-quote
+    ├── README.md
+    ├── workflow-registry.yaml
+    └── workflow-template
+        └── workflow.yaml
+
+96 directories, 253 files

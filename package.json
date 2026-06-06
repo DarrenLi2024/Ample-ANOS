@@ -18,13 +18,12 @@
     "clean": "turbo clean",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "db:init": "tsx services/api/src/db/migrate.ts && tsx services/api/src/db/seed.ts && tsx services/api/src/db/seed-extended.ts",
+    "db:init": "tsx services/api/src/db/migrate.ts && tsx services/api/src/db/seed-closure.ts",
     "db:migrate": "tsx scripts/db-migrate.ts",
-    "sync:erp": "tsx scripts/sync-erp.ts",
-    "import:sample": "tsx scripts/import-sample-data.ts",
-    "db:seed": "tsx services/api/src/db/seed.ts",
-    "db:seed-extended": "tsx services/api/src/db/seed-extended.ts",
-    "setup": "bash scripts/dev-setup.sh"
+    "db:seed": "tsx services/api/src/db/seed-closure.ts",
+    "setup": "bash scripts/dev-setup.sh",
+    "db:seed-closure": "tsx services/api/src/db/seed-closure.ts",
+    "db:init-full": "tsx services/api/src/db/migrate.ts && tsx services/api/src/db/seed-closure.ts"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",

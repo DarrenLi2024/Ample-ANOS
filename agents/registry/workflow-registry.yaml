@@ -1,0 +1,81 @@
+# ANOS Workflow Registry V1.0
+#
+# Workflow 定义业务流程的执行步骤和Skill编排。
+
+workflows:
+  - id: offer-intake-workflow
+    code: WFL-TRD-DEV-000001
+    name: Offer 信息入库与匹配流程
+    version: v1.1.0
+    status: active
+    owner: LTDC
+    trigger_intents:
+      - offer_parse
+      - supply_capture
+    steps:
+      - step: 1_parse_input
+        skill: parse-offer
+        description: 解析输入中的供应信息
+      - step: 2_normalize
+        skill: normalize-part-number
+        description: 标准化型号
+      - step: 3_enrich
+        skill: supplier-profile-lookup
+        description: 补充供应商信息
+      - step: 4_risk
+        skill: supplier-risk-score
+        description: 评分
+      - step: 5_save
+        skill: write-offer-base
+        description: 存入Offer Base
+        require_user_confirm: true
+      - step: 6_match
+        skill: match-inquiry
+        description: 匹配Inquiry需求
+      - step: 7_feedback
+        skill: command-session-response
+        description: 生成反馈
+
+  - id: inquiry-intake-workflow
+    code: WFL-TRD-DEV-000002
+    name: Inquiry 信息入库与报价流程
+    version: v1.1.0
+    status: active
+    owner: LTDC
+    trigger_intents:
+      - inquiry_parse
+      - demand_capture
+    steps:
+      - step: 1_parse
+        skill: parse-inquiry
+      - step: 2_enrich
+        skill: customer-profile-lookup
+      - step: 3_match
+        skill: match-supply
+      - step: 4_quote
+        skill: quote-suggestion
+      - step: 5_save
+        skill: write-inquiry-base
+        require_user_confirm: true
+      - step: 6_feedback
+        skill: command-session-response
+
+  - id: ar-risk-workflow
+    code: WFL-FIN-DEV-000001
+    name: AR 风险预警流程
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    trigger_intents:
+      - risk_alert
+      - ar_check
+    steps:
+      - step: 1_analyze
+        skill: ar-risk-analysis
+      - step: 2_score
+        skill: customer-credit-score
+      - step: 3_suggest
+        skill: collection-suggestion
+      - step: 4_alert
+        skill: command-session-response
+        require_user_confirm: true

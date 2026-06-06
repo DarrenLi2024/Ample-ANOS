@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { SourceCard } from '@/components/SourceCard';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 const API = 'http://localhost:3001';
 
 export default function Customer360Page() {
@@ -14,12 +17,15 @@ export default function Customer360Page() {
       .then(r => r.json()).then(d => { setCustData(d); setLoading(false); }).catch(() => setLoading(false));
   }, []);
 
-  if (loading) return <WorkspaceLayout title="客户 360°"><div className="p-12 text-center text-sm text-gray-400">加载中...</div></WorkspaceLayout>;
-  if (!custData) return <WorkspaceLayout title="客户 360°"><div className="p-12 text-center text-sm text-gray-400">暂无数据</div></WorkspaceLayout>;
+  if (loading) return <WorkspaceLayout title="客户 360°"
+      role={detectRole()}><div className="p-12 text-center text-sm text-gray-400">加载中...</div></WorkspaceLayout>;
+  if (!custData) return <WorkspaceLayout title="客户 360°"
+      role={detectRole()}><div className="p-12 text-center text-sm text-gray-400">暂无数据</div></WorkspaceLayout>;
 
   const c = custData.customer || {};
   return (
-    <WorkspaceLayout title="客户 360° 画像" rightPanel={<div className="p-4"><SourceCard source="ERP系统" sourceType="ERP" eventTime="2026-06-01" capturedAt="2026-06-01" verifiedBy="System" confidenceScore={95} status="verified" /></div>}>
+    <WorkspaceLayout title="客户 360° 画像"
+      role={detectRole()} rightPanel={<div className="p-4"><SourceCard source="ERP系统" sourceType="ERP" eventTime="2026-06-01" capturedAt="2026-06-01" verifiedBy="System" confidenceScore={95} status="verified" /></div>}>
       <div className="p-6 space-y-6">
         <div className="proto-card-accent p-5">
           <h2 className="text-base font-semibold mb-4">{c.customer_name || '客户详情'}</h2>

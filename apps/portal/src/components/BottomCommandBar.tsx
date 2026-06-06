@@ -1,10 +1,10 @@
 'use client';
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { Send, Paperclip, Upload, Bot, FileSpreadsheet, FileText, Mail, Image, MessageCircle, Mic, MicOff, X } from 'lucide-react';
+import { Send, Bot, Upload, FileSpreadsheet, FileText, Mail, Image, MessageCircle, X } from 'lucide-react';
 
 interface BottomCommandBarProps {
   placeholder?: string;
-  onSubmit?: (input: string) => void;
+  onSubmit?: (input: string) => void | Promise<void>;
   processing?: boolean;
   agentThinking?: string;
 }
@@ -23,11 +23,9 @@ export function BottomCommandBar({
 }: BottomCommandBarProps) {
   const [input, setInput] = useState('');
   const [focused, setFocused] = useState(false);
-  const [recording, setRecording] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [parsedFiles, setParsedFiles] = useState<{ name: string; content: string; category: string }[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const isActive = focused || input.length > 0 || parsedFiles.length > 0;
@@ -36,31 +34,63 @@ export function BottomCommandBar({
     const parts: string[] = [];
     if (input.trim()) parts.push(input.trim());
     if (parsedFiles.length > 0) {
-      parts.push(...parsedFiles.map((f) => `[${f.category}: ${f.name}]\n${f.content}`));
+      parts.push(...parsedFiles.map((f) => {
+        const isOcrText = f.content && f.content.length > 20 && !f.content.startsWith("[");
+        if (isOcrText) return f.content;
+        if (f.category === "图片" || f.category === "加载中") return "IMAGE_RECEIVED:" + f.name;
+        return "[" + f.category + ": " + f.name + "]\n" + f.content;
+      }));
     }
-    const msg = parts.join('\n\n');
-    if (msg && onSubmit) { onSubmit(msg); setInput(''); setParsedFiles([]); }
+    const msg = parts.join("\n\n");
+    if (msg && onSubmit) { onSubmit(msg); setInput(""); setParsedFiles([]); }
   };
 
   // 文件解析
   const uploadAndParse = async (file: File) => {
     setParsedFiles((prev) => [...prev, { name: file.name, content: '解析中...', category: '加载中' }]);
     try {
-      const formData = new FormData();
-      formData.append('file', file);
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
-      const res = await fetch(`${apiUrl}/api/parse`, { method: 'POST', body: formData });
-      if (!res.ok) throw new Error('解析失败');
-      const data = await res.json();
+      const apiUrl = ''; // 浏览器端使用相对路径（Next.js rewrites 代理）
+      const isImage = file.type.startsWith('image/');
+      
+      if (isImage) {
+        // 图片走 clipboard OCR 路由 (base64)
+        const reader = new FileReader();
+        const base64: string = await new Promise((resolve, reject) => {
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+        const role = typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'SystemAdmin' : 'SystemAdmin';
+        const res = await fetch('/api/parse/clipboard', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-User-Role': role },
+          body: JSON.stringify({ image: base64, filename: file.name }),
+        });
+        if (!res.ok) throw new Error('OCR 失败');
+        const data = await res.json();
+        setParsedFiles((prev) => prev.map((p, i) =>
+          i === prev.length - 1
+            ? { name: file.name, content: data.data?.content || '[OCR 完成]', category: '图片' }
+            : p,
+        ));
+      } else {
+        // 非图片走普通文件上传
+        const formData = new FormData();
+        formData.append('file', file);
+        const role2 = typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'SystemAdmin' : 'SystemAdmin';
+        const res = await fetch('/api/parse', { method: 'POST', headers: { 'X-User-Role': role2 }, body: formData });
+        if (!res.ok) throw new Error('解析失败');
+        const data = await res.json();
+        setParsedFiles((prev) => prev.map((p, i) =>
+          i === prev.length - 1
+            ? { name: file.name, content: data.data?.content || '[无内容]', category: data.data?.category || '文件' }
+            : p,
+        ));
+      }
+    } catch (err: any) {
       setParsedFiles((prev) => prev.map((p, i) =>
         i === prev.length - 1
-          ? { name: file.name, content: data.data?.content || '[无内容]', category: data.data?.category || '文件' }
-          : p,
-      ));
-    } catch {
-      setParsedFiles((prev) => prev.map((p, i) =>
-        i === prev.length - 1
-          ? { name: file.name, content: '[解析失败]', category: '错误' }
+          ? { name: file.name, content: `[解析失败] ${err.message || ''}`.trim(), category: '错误' }
           : p,
       ));
     }
@@ -107,26 +137,13 @@ export function BottomCommandBar({
     e.target.value = '';
   };
 
-  // 语音
-  const toggleRecording = async () => {
-    if (recording) { mediaRecorderRef.current?.stop(); setRecording(false); return; }
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
-      const chunks: Blob[] = [];
-      recorder.ondataavailable = (e) => chunks.push(e.data);
-      recorder.onstop = () => { stream.getTracks().forEach((t) => t.stop()); setInput((p) => p + ' [语音输入]'); };
-      mediaRecorderRef.current = recorder;
-      recorder.start(); setRecording(true);
-      setTimeout(() => { if (recorder.state === 'recording') { recorder.stop(); setRecording(false); } }, 30000);
-    } catch { alert('无法访问麦克风'); }
-  };
+
 
   return (
     <div className="border-t border-[#E8EAED] bg-white" ref={containerRef} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}>
       <input ref={fileInputRef} type="file" className="hidden" accept=".xlsx,.xls,.csv,.pdf,.txt,.md,.json,.png,.jpg,.jpeg,.webp" onChange={handleFileSelect} />
 
-      {processing && agentThinking && (
+      {agentThinking && (
         <div className="px-5 py-2 flex items-center gap-2.5 text-sm text-brand-600 bg-brand-50 border-b border-brand-100">
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite' }} />
           <span className="w-2 h-2 bg-brand-500 rounded-full" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '200ms' }} />
@@ -193,12 +210,6 @@ export function BottomCommandBar({
             </div>
 
             <div className="flex items-center gap-0.5 shrink-0 self-start mt-0.5">
-              <button onClick={toggleRecording}
-                className={`p-1.5 rounded-lg transition-colors ${recording ? 'text-red-500 bg-red-50 animate-pulse' : 'text-gray-400 hover:bg-gray-200/50'}`} title={recording ? '停止录音' : '语音输入'}>
-                {recording ? <MicOff size={18} /> : <Mic size={18} />}
-              </button>
-              <button onClick={() => fileInputRef.current?.click()} className="p-1.5 rounded-lg hover:bg-gray-200/50 text-gray-400 transition-colors" title="附件"><Paperclip size={18} /></button>
-              <button onClick={() => fileInputRef.current?.click()} className="p-1.5 rounded-lg hover:bg-gray-200/50 text-gray-400 transition-colors" title="上传"><Upload size={18} /></button>
               <button onClick={handleSubmit} disabled={(!input.trim() && parsedFiles.length === 0) || processing}
                 className="p-1.5 rounded-lg text-brand-500 hover:bg-brand-50 disabled:text-gray-300 disabled:hover:bg-transparent transition-colors"><Send size={18} /></button>
             </div>

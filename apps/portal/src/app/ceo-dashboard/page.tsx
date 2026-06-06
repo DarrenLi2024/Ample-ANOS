@@ -3,6 +3,9 @@ import { SourceCard } from '@/components/SourceCard';
 import { useState, useEffect } from 'react';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function CeoDashboardPage() {
   const [apiData, setApiData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -15,7 +18,8 @@ export default function CeoDashboardPage() {
   }, []);
 
   return (
-    <WorkspaceLayout title="CEO 经营驾驶舱">
+    <WorkspaceLayout title="CEO 经营驾驶舱"
+      role={detectRole()}>
       <div className="p-6 space-y-6">
         <div className="grid grid-cols-4 gap-4">
           <div className="proto-card p-4"><div className="text-xs text-gray-400 uppercase">今日营收</div><div className="text-[2rem] font-bold leading-none">$1.2M</div><div className="text-xs text-green-600">↑ 8%</div></div>

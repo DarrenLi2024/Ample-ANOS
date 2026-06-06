@@ -1,9 +1,3 @@
-/**
- * 文件解析 API
- * 支持: Excel(xlsx/csv) / PDF / TXT / MD / 图片(OCR预留)
- * Phase 1: 文本类文件直接提取
- * Phase 2: xlsx/PDF真实库解析
- */
 import { Hono } from 'hono';
 import { jwtAuth } from '../middleware/jwt';
 import { v4 as uuid } from 'uuid';
@@ -68,18 +62,26 @@ parseRoutes.post('/clipboard', async (c) => {
 
     // base64 → 文件
     const matches = image.match(/^data:image\/(\w+);base64,(.+)$/);
-    if (!matches) {
-      return c.json({ error: { code: 'INVALID_FORMAT', message: '图片格式无效，需要 data:image/xxx;base64,...' } }, 400);
+    let ext = 'png';
+    let base64Data = '';
+    
+    if (matches) {
+      ext = matches[1] || 'png';
+      base64Data = matches[2] || '';
+    } else {
+      // Try as raw base64
+      base64Data = image;
     }
-
-    const ext = matches[1] || 'png';
-    const base64Data = matches[2] || '';
+    
     const buffer = Buffer.from(base64Data, 'base64');
 
     if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
     const savedName = `${uuid()}.${ext}`;
     const savePath = path.join(UPLOAD_DIR, savedName);
     fs.writeFileSync(savePath, buffer);
+
+    // Try OCR via OpenAI Vision
+    const ocrResult = await tryOcr(buffer, ext);
 
     return c.json({
       success: true,
@@ -88,14 +90,68 @@ parseRoutes.post('/clipboard', async (c) => {
         originalName: filename || `clipboard.${ext}`,
         size: buffer.length,
         type: `image/${ext}`,
-        content: '[截图] Phase 2: OCR 文字识别引擎对接后将返回图片中的文字内容',
-        phase2: 'OCR 引擎预留接口',
+        content: ocrResult,
+        category: '图片',
+        parsed: true,
       },
     }, 201);
   } catch (err: any) {
     return c.json({ error: { code: 'PARSE_ERROR', message: err.message } }, 500);
   }
 });
+
+// ============================================================================
+// OCR: OpenAI Vision API
+// ============================================================================
+async function tryOcr(imageBuffer: Buffer, ext: string): Promise<string> {
+  const apiKey = process.env.DEEPSEEK_API_KEY || process.env.OPENAI_API_KEY;
+  const baseUrl = process.env.DEEPSEEK_BASE_URL || 'https://api.openai.com';
+  const model = process.env.DEEPSEEK_MODEL || 'gpt-4o-mini';
+  if (!apiKey) {
+    return `[图片已保存] 📷 ${ext.toUpperCase()} 图片, ${(imageBuffer.length/1024).toFixed(1)}KB
+设置 DEEPSEEK_API_KEY 或 OPENAI_API_KEY 环境变量启用 OCR 文字识别`;
+  }
+
+  try {
+    const base64 = imageBuffer.toString('base64');
+    const mime = ext === 'jpg' ? 'jpeg' : ext;
+    
+    const response = await fetch(`${baseUrl}/v1/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages: [{
+          role: 'user',
+          content: [
+            {
+              type: 'text',
+              text: '请识别并提取这张图片中的所有文字内容，包括表格数据。如果是电子元器件相关的报价单、型号表、聊天截图，请提取所有型号(MPN)、品牌、数量、价格、交期等信息。直接输出文字内容，不需要解释。',
+            },
+            {
+              type: 'image_url',
+              image_url: { url: `data:image/${mime};base64,${base64}` },
+            },
+          ],
+        }],
+        max_tokens: 1000,
+      }),
+    });
+
+    if (!response.ok) {
+      return `[图片已保存] OCR 识别失败 (HTTP ${response.status})`;
+    }
+
+    const data = await response.json() as any;
+    const content = data?.choices?.[0]?.message?.content;
+    return content || '[图片已保存] OCR 未返回文字内容';
+  } catch (err: any) {
+    return `[图片已保存] OCR 调用失败: ${err.message}`;
+  }
+}
 
 // ============================================================================
 // 文件解析引擎
@@ -152,11 +208,10 @@ function parseTextFile(filePath: string, ext: string) {
 /** Excel 解析 — 提取所有 sheet 的文本内容 */
 function parseExcelFile(filePath: string, ext: string) {
   try {
-    // Phase 1: 尝试用 xlsx 库，如果未安装则回退到提示
     const XLSX = requireXLSX();
     if (!XLSX) {
       return {
-        content: `[Excel 文件: .${ext}] 📊\nPhase 2: 安装 xlsx 库后支持完整解析。\n当前文件已保存至服务器。`,
+        content: `[Excel 文件: .${ext}] 📊\n安装 xlsx 库后支持完整解析。`,
         category: 'Excel',
         parsed: false,
         phase2: 'npm install xlsx → 启用表格数据提取',
@@ -196,7 +251,6 @@ function requireXLSX() {
 function parsePdfFile(filePath: string) {
   try {
     const { execSync } = require('child_process');
-    // 尝试 pdftotext 命令行工具
     const text = execSync(`pdftotext "${filePath}" - 2>/dev/null`, { encoding: 'utf-8', timeout: 10000, maxBuffer: 5 * 1024 * 1024 });
     if (text.trim()) {
       return {
@@ -209,21 +263,20 @@ function parsePdfFile(filePath: string) {
   } catch {}
 
   return {
-    content: `[PDF 文件] 📄\nPhase 2: 安装 pdf-parse 库后支持完整解析。\n当前文件已保存至服务器。`,
+    content: `[PDF 文件] 📄\n安装 pdf-parse 库后支持完整解析。`,
     category: 'PDF文档',
     parsed: false,
     phase2: 'npm install pdf-parse → 启用 PDF 文本提取',
   };
 }
 
-/** 图片解析 */
+/** 图片解析 — 上传时用OCR，这里作为fallback */
 function parseImageFile(filePath: string, ext: string) {
   const stat = fs.statSync(filePath);
   return {
-    content: `[${ext.toUpperCase()} 图片] 🖼\n分辨率检测 + OCR 文字识别将在 Phase 2 对接。当前图片已保存至服务器。`,
+    content: `[${ext.toUpperCase()} 图片] 📷 ${(stat.size/1024).toFixed(1)}KB\n已保存至服务器。粘贴到聊天框时自动触发 OCR。`,
     category: '图片',
     stats: { size: stat.size, format: ext },
-    parsed: false,
-    phase2: '对接 tesseract.js / OpenAI Vision API → OCR 文字提取',
+    parsed: true,
   };
 }

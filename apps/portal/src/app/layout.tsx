@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { InboxProvider } from '@/lib/InboxProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning><InboxProvider>{children}</InboxProvider></body>
     </html>
   );
 }

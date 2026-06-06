@@ -24,6 +24,10 @@ import { agentReasoningRoutes } from './routes/agent-reasoning';
 import { workflowRoutes } from './routes/workflow';
 import { erpSyncRoutes } from './routes/erp-sync';
 import { parseRoutes } from './routes/parse';
+import { feishuAuthRoutes } from './routes/feishu-auth';
+import { inboxRoutes } from './routes/inbox';
+import { agentRegistryRoutes } from './routes/agent-registry';
+import { workflowEngineRoutes } from './routes/workflow-engine';
 
 const app = new Hono();
 
@@ -54,6 +58,7 @@ app.get('/health', (c) => c.json({ status: 'healthy', timestamp: new Date().toIS
 
 // Auth
 app.route('/api/auth', authRoutes);
+app.route('/api/auth/feishu', feishuAuthRoutes);
 
 // Business routes
 app.route('/api/customers', customerRoutes);
@@ -74,6 +79,9 @@ app.route('/api/agent-reasoning', agentReasoningRoutes);
 app.route('/api/workflow', workflowRoutes);
 app.route('/api/erp', erpSyncRoutes);
 app.route('/api/parse', parseRoutes);
+app.route('/api/inbox', inboxRoutes);
+app.route('/api/agent-registry', agentRegistryRoutes);
+app.route('/api/workflow-engine', workflowEngineRoutes);
 
 app.onError(errorHandler);
 

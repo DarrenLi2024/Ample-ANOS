@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { db } from '../db/connection';
+import { redactFields } from '../middleware/permission';
 import { supplyResources } from '../db/schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuid } from 'uuid';
@@ -12,13 +13,17 @@ supplyResourceRoutes.get('/', async (c) => {
   const query = db.select().from(supplyResources).$dynamic();
   if (status) query.where(eq(supplyResources.status, status));
   const rows = await query.limit(50).all();
-  return c.json({ data: rows });
+  const user = c.get('user') as any;
+    const safeData = redactFields(rows as any, 'SupplyResource', user?.role || 'Sales');
+    return c.json({ data: safeData });
 });
 
 supplyResourceRoutes.get('/:id', async (c) => {
   const row = await db.select().from(supplyResources).where(eq(supplyResources.resourceId, c.req.param('id'))).get();
   if (!row) return c.json({ error: 'Not found' }, 404);
-  return c.json(row);
+  const user = c.get('user') as any;
+    const safeData = redactFields(row as any, 'SupplyResource', user?.role || 'Sales');
+    return c.json(safeData);
 });
 
 supplyResourceRoutes.post('/', async (c) => {

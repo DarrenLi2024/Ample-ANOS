@@ -65,22 +65,27 @@ jobs:
         run: npx tsx services/api/src/db/migrate.ts
         working-directory: services/api
 
-      - name: Seed Basic Data
-        run: npx tsx services/api/src/db/seed.ts
+      - name: Seed Closure Data (145 records)
+        run: npx tsx services/api/src/db/seed-closure.ts
         working-directory: services/api
 
-      - name: Seed Extended Data
-        run: npx tsx services/api/src/db/seed-extended.ts
-        working-directory: services/api
+      - name: Data Integrity Verification
+        run: python3 -c "
+import sqlite3, sys
+db = sqlite3.connect('data/anos.db')
+count = db.execute('SELECT COUNT(DISTINCT i.inquiry_id) FROM inquiries i JOIN opportunities o ON o.inquiry_id=i.inquiry_id JOIN offers ofr ON ofr.opportunity_id=o.opportunity_id').fetchone()[0]
+print(f'Full chain records: {count}')
+sys.exit(0 if count >= 10 else 1)
+"
 
       - name: Start API & Health Check
         run: |
           npx tsx src/index.ts &
           API_PID=$!
           sleep 3
-          curl -f http://localhost:3000/health || (kill $API_PID && exit 1)
-          curl -f http://localhost:3000/api/customers || (kill $API_PID && exit 1)
-          curl -f http://localhost:3000/api/inquiries || (kill $API_PID && exit 1)
+          curl -f http://localhost:3001/health || (kill $API_PID && exit 1)
+          curl -f http://localhost:3001/api/customers || (kill $API_PID && exit 1)
+          curl -f http://localhost:3001/api/inquiries || (kill $API_PID && exit 1)
           kill $API_PID
         working-directory: services/api
 

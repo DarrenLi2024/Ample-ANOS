@@ -162,3 +162,6 @@
 - [ADR-003 Agent Network 架构](ADR/ADR-003-Agent-Network-Architecture.md)
 - [ADR-004 Trading Firewall 交易信息防火墙](ADR/ADR-004-Trading-Firewall.md)
 - [ADR-005 Role-Based Portal 角色驱动Portal](ADR/ADR-005-Role-Based-Portal.md)
+| SA | [SA-018 ANOS AI交易智能模型 V1.0](SA/SA-018-AI交易智能模型.md) |
+| SA | [SA-019 ANOS AI Native 价值工作台规范 V1.0](SA/SA-019-AI-Native价值工作台规范.md) |
+| SA | [SA-020 ANOS AI Native 自进化能力架构规范 V1.0](SA/SA-020-ANOS-AI-Native-自进化能力架构规范.md) |

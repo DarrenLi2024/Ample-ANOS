@@ -44,12 +44,12 @@ server.tool(
   async ({ query, actor, requestId }) => {
     const auditId = uuid();
     try {
-      const token = c.req.header('X-User-Role') ? {} : {}; const result = await callApi(`/api/agent-reasoning/credit/risk-analysis`, 'POST', { customerId: query });
+      const result = await callApi(`/api/customers?q=${encodeURIComponent(query)}`, 'GET');
       return {
         content: [{
           type: 'text', text: JSON.stringify({
             success: true,
-            data: result.data,
+            data: result.data?.[0] || result,
             evidence: `Customer search for "${query}" executed by ${actor}`,
             source: 'ANOS API',
             confidence: 90,

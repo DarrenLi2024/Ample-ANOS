@@ -1,0 +1,164 @@
+# ANOS Skill Registry V1.0
+#
+# Skill 是 Agent 的具体技能声明。
+# 一个 Agent 可有多个 Skill，一个 Skill 可被多个 Agent 复用。
+# 新增 Skill 无需新建 Agent。
+
+skills:
+  # ================================================================
+  # Offer Domain Skills
+  # ================================================================
+  - id: parse-offer
+    code: SKL-TRD-DEV-000001
+    name: Offer 信息解析
+    version: v1.1.0
+    status: active
+    owner: LTDC
+    description: 从文本、截图、邮件、聊天记录中提取供应信息
+    input_types:
+      - text
+      - image
+      - email
+      - clipboard
+    output_fields:
+      - brand
+      - part_number
+      - quantity
+      - price
+      - date_code
+      - lead_time
+      - supplier_hint
+    change_log:
+      - "v1.1.0: 支持批量MPN解析"
+      - "v1.0.0: 初始版本"
+
+  - id: normalize-part-number
+    code: SKL-TRD-DEV-000002
+    name: 型号标准化
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 将不同格式的MPN统一为ANOS标准格式
+    input_types:
+      - text
+    output_fields:
+      - normalized_mpn
+      - brand_guess
+      - category_guess
+
+  - id: supplier-profile-lookup
+    code: SKL-TRD-DEV-000003
+    name: 供应商画像查询
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 查询供应商的历史交易、评级、交付记录
+    input_types:
+      - supplier_id
+      - supplier_name
+
+  - id: supplier-risk-score
+    code: SKL-TRD-DEV-000004
+    name: 供应商信源评级
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 根据历史交易、交付率、纠纷记录计算供应商信源评分
+
+  # ================================================================
+  # Inquiry Domain Skills
+  # ================================================================
+  - id: parse-inquiry
+    code: SKL-SALES-DEV-000001
+    name: Inquiry 信息解析
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 从RFQ文本中提取客户需求信息
+    output_fields:
+      - brand
+      - part_number
+      - quantity
+      - target_price
+      - required_date
+
+  - id: customer-profile-lookup
+    code: SKL-SALES-DEV-000002
+    name: 客户画像查询
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 查询客户的历史采购、信用等级、付款记录
+
+  - id: quote-suggestion
+    code: SKL-SALES-DEV-000003
+    name: 报价建议生成
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 基于供应资源成本和客户等级生成报价建议
+
+  # ================================================================
+  # Cross-domain Skills
+  # ================================================================
+  - id: match-inquiry
+    code: SKL-TRD-DEV-000005
+    name: 需求匹配
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 匹配供应资源与客户需求
+
+  - id: match-supply
+    code: SKL-TRD-DEV-000006
+    name: 供应匹配
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 匹配客户需求与供应资源
+
+  # ================================================================
+  # Risk Domain Skills
+  # ================================================================
+  - id: ar-risk-analysis
+    code: SKL-FIN-DEV-000001
+    name: AR 风险分析
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 计算AR账龄、风险等级、生成催收建议
+
+  - id: customer-credit-score
+    code: SKL-FIN-DEV-000002
+    name: 客户信用评分
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 综合评估客户信用等级
+
+  - id: collection-suggestion
+    code: SKL-FIN-DEV-000003
+    name: 催收建议生成
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 根据逾期天数和金额生成分级催收方案
+
+  # ================================================================
+  # Knowledge Domain Skills
+  # ================================================================
+  - id: knowledge-search
+    code: SKL-KNW-DEV-000001
+    name: 知识检索
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 检索销售SOP、采购SOP、风控规则、产品知识
+
+  - id: page-navigate
+    code: SKL-KNW-DEV-000002
+    name: 页面导航
+    version: v1.0.0
+    status: active
+    owner: LTDC
+    description: 根据用户意图导航到对应功能页面

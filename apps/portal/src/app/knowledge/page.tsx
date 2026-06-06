@@ -2,6 +2,9 @@
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 import { Search, BookOpen, Shield, FileText } from 'lucide-react';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 const sources = [
   { icon: <Search size={18} />, title: '销售 SOP', desc: '客户开发、RFQ处理、报价审批、订单跟进', count: 12, color: 'tag-blue' },
   { icon: <BookOpen size={18} />, title: '采购 SOP', desc: '供应商开发、询价比价、采购执行', count: 8, color: 'tag-purple' },
@@ -11,7 +14,8 @@ const sources = [
 
 export default function KnowledgePage() {
   return (
-    <WorkspaceLayout title="知识中心" agentStatuses={[{ label: 'Knowledge Agent', color: 'tag tag-green' }]}>
+    <WorkspaceLayout title="知识中心"
+      role={detectRole()} agentStatuses={[{ label: 'Knowledge Agent', color: 'tag tag-green' }]}>
       <div className="p-6 space-y-6">
         <div className="grid grid-cols-2 gap-4">
           {sources.map(s => (

@@ -1,9 +1,13 @@
 'use client';
 import { WorkspaceLayout } from '@/components/WorkspaceLayout';
 
+function detectRole() { return (typeof window !== 'undefined' ? localStorage.getItem('anos_user_role') || 'Procurement' : 'Procurement'); }
+
+
 export default function WorkflowPage() {
   return (
-    <WorkspaceLayout title="Workflow 运营中心">
+    <WorkspaceLayout title="Workflow 运营中心"
+      role={detectRole()}>
       <div className="p-6 space-y-6">
         <div className="proto-card overflow-hidden"><table className="proto-table"><thead><tr><th>Workflow</th><th>状态</th><th>运行次数</th><th>失败</th><th>最后运行</th></tr></thead><tbody>
           <tr><td className="font-medium">WF-001 Inquiry Intake</td><td><span className="tag tag-green">运行中</span></td><td>1,247</td><td>3</td><td className="text-gray-400">2分钟前</td></tr>

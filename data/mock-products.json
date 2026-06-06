@@ -1,0 +1,182 @@
+[
+  {
+    "mpn": "STM32F407VET6",
+    "brand": "ST",
+    "cat": "MCU",
+    "desc": "ARM Cortex-M4 168MHz 512KB Flash"
+  },
+  {
+    "mpn": "STM32H743ZIT6",
+    "brand": "ST",
+    "cat": "MCU",
+    "desc": "ARM Cortex-M7 480MHz 2MB Flash"
+  },
+  {
+    "mpn": "STM32F103C8T6",
+    "brand": "ST",
+    "cat": "MCU",
+    "desc": "ARM Cortex-M3 72MHz 64KB Flash"
+  },
+  {
+    "mpn": "TMS320F28335PGFA",
+    "brand": "TI",
+    "cat": "DSP",
+    "desc": "C2000 32-bit DSC 150MHz"
+  },
+  {
+    "mpn": "AM3358BZCZ100",
+    "brand": "TI",
+    "cat": "MPU",
+    "desc": "Sitara ARM Cortex-A8 1GHz"
+  },
+  {
+    "mpn": "EP4CE22F17C8N",
+    "brand": "Intel",
+    "cat": "FPGA",
+    "desc": "Cyclone IV 22K LEs"
+  },
+  {
+    "mpn": "XC7Z020-1CLG400I",
+    "brand": "AMD",
+    "cat": "SoC",
+    "desc": "Zynq-7000 ARM+FPGA"
+  },
+  {
+    "mpn": "MT41K256M16TW-107:P",
+    "brand": "Micron",
+    "cat": "DRAM",
+    "desc": "DDR3L 4Gb 1866MHz"
+  },
+  {
+    "mpn": "W25Q128JVSIM",
+    "brand": "Winbond",
+    "cat": "Flash",
+    "desc": "128Mb SPI NOR Flash"
+  },
+  {
+    "mpn": "MAX3232EIPWR",
+    "brand": "TI",
+    "cat": "Interface",
+    "desc": "3.0-5.5V RS-232 Transceiver"
+  },
+  {
+    "mpn": "SN65HVD230DR",
+    "brand": "TI",
+    "cat": "CAN",
+    "desc": "3.3V CAN Transceiver"
+  },
+  {
+    "mpn": "LAN8720A-CP-TR",
+    "brand": "Microchip",
+    "cat": "Ethernet",
+    "desc": "10/100 Ethernet PHY"
+  },
+  {
+    "mpn": "ESP32-WROOM-32E",
+    "brand": "Espressif",
+    "cat": "WiFi/BT",
+    "desc": "WiFi+BLE MCU Module"
+  },
+  {
+    "mpn": "LMR14030SDDAR",
+    "brand": "TI",
+    "cat": "Power",
+    "desc": "40V 3.5A Step-Down Converter"
+  },
+  {
+    "mpn": "TPS54331DR",
+    "brand": "TI",
+    "cat": "Power",
+    "desc": "28V 3A Step-Down Converter"
+  },
+  {
+    "mpn": "MP1584EN-LF-Z",
+    "brand": "MPS",
+    "cat": "Power",
+    "desc": "28V 3A Step-Down Converter"
+  },
+  {
+    "mpn": "AD7606BSTZ",
+    "brand": "ADI",
+    "cat": "ADC",
+    "desc": "8-Ch DAS 16-bit 200kSPS"
+  },
+  {
+    "mpn": "OPA333AIDBVR",
+    "brand": "TI",
+    "cat": "Amplifier",
+    "desc": "Zero-Drift Op Amp"
+  },
+  {
+    "mpn": "TLV1117-33CDCYR",
+    "brand": "TI",
+    "cat": "LDO",
+    "desc": "800mA Fixed 3.3V LDO"
+  },
+  {
+    "mpn": "GD32F103C8T6",
+    "brand": "GigaDevice",
+    "cat": "MCU",
+    "desc": "ARM Cortex-M3 108MHz"
+  },
+  {
+    "mpn": "AT32F403AVGT7",
+    "brand": "Artery",
+    "cat": "MCU",
+    "desc": "ARM Cortex-M4 240MHz"
+  },
+  {
+    "mpn": "ATmega328P-AU",
+    "brand": "Microchip",
+    "cat": "MCU",
+    "desc": "8-bit AVR 20MHz"
+  },
+  {
+    "mpn": "MSP430F5529IPN",
+    "brand": "TI",
+    "cat": "MCU",
+    "desc": "16-bit Ultra-Low-Power"
+  },
+  {
+    "mpn": "DS18B20",
+    "brand": "Maxim",
+    "cat": "Sensor",
+    "desc": "1-Wire Digital Thermometer"
+  },
+  {
+    "mpn": "MPU-6050",
+    "brand": "TDK",
+    "cat": "Sensor",
+    "desc": "6-Axis IMU"
+  },
+  {
+    "mpn": "AMS1117-3.3",
+    "brand": "AMS",
+    "cat": "LDO",
+    "desc": "1A LDO 3.3V"
+  },
+  {
+    "mpn": "CP2102-GMR",
+    "brand": "Silicon Labs",
+    "cat": "USB",
+    "desc": "USB-UART Bridge"
+  },
+  {
+    "mpn": "CH340G",
+    "brand": "WCH",
+    "cat": "USB",
+    "desc": "USB-Serial Bridge"
+  },
+  {
+    "mpn": "ISO1050DUBR",
+    "brand": "TI",
+    "cat": "Isolation",
+    "desc": "Isolated CAN Transceiver"
+  },
+  {
+    "mpn": "DP83848IVVX/NOPB",
+    "brand": "TI",
+    "cat": "Ethernet",
+    "desc": "10/100 Ethernet PHY"
+  }
+]

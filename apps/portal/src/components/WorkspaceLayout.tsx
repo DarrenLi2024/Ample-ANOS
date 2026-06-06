@@ -3,6 +3,8 @@
 import { useState, createContext, useContext, type ReactNode } from 'react';
 import { Sidebar } from './Sidebar';
 import { BottomCommandBar } from './BottomCommandBar';
+import { useInbox } from '@/lib/InboxProvider';
+import { Bot, User, Inbox } from 'lucide-react';
 import { Bell, Search, ListChecks } from 'lucide-react';
 
 const LayoutContext = createContext({ sidebarCollapsed: false, toggleSidebar: () => {} });
@@ -10,34 +12,31 @@ export function useLayout() { return useContext(LayoutContext); }
 
 interface WorkspaceLayoutProps {
   title?: string;
+  role?: string;
   children: ReactNode;
+  agentThinking?: string;
   rightPanel?: ReactNode;
-  commandBarPlaceholder?: string;
-  onCommand?: (input: string) => void;
   agentStatuses?: { label: string; color: string }[];
   topBarChildren?: ReactNode;
 }
 
 export function WorkspaceLayout({
   title = 'AI 智能工作台',
+  role,
   children,
   rightPanel,
-  commandBarPlaceholder,
-  onCommand,
   agentStatuses = [],
   topBarChildren,
 }: WorkspaceLayoutProps) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [processing, setProcessing] = useState(false);
+  const { handleInput, processing, agentThinking, messages, clearMessages } = useInbox();
 
-  const handleCommand = (input: string) => {
-    if (onCommand) { setProcessing(true); onCommand(input); setTimeout(() => setProcessing(false), 1500); }
-  };
+
 
   return (
     <LayoutContext.Provider value={{ sidebarCollapsed, toggleSidebar: () => setSidebarCollapsed(!sidebarCollapsed) }}>
       <div className="flex h-screen overflow-hidden">
-        <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
+        <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} role={role} />
 
         <div className="flex-1 flex flex-col min-w-0">
           {/* Top Bar */}
@@ -89,19 +88,75 @@ export function WorkspaceLayout({
             <div className="flex-1 flex flex-col min-w-0">
               <div className="flex-1 overflow-y-auto">{children}</div>
               <BottomCommandBar
-                placeholder={commandBarPlaceholder}
-                onSubmit={handleCommand}
+                onSubmit={handleInput}
                 processing={processing}
-                agentThinking={processing ? 'AI 正在理解你的指令...' : undefined}
+                agentThinking={agentThinking}
               />
             </div>
 
-            {/* 右侧面板 */}
-            {rightPanel && (
-              <aside className="w-[400px] border-l border-[#E8EAED] bg-white overflow-y-auto shrink-0">
-                {rightPanel}
-              </aside>
-            )}
+            {/* 右侧面板: 会话记录 + 原有内容 */}
+            <aside className="w-[380px] border-l border-[#E8EAED] bg-white shrink-0 flex flex-col">
+              {/* 会话历史 */}
+              <div className="flex-1 overflow-y-auto min-h-0">
+                <div className="px-3 py-2 border-b border-gray-100 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-gray-400 flex items-center gap-1">
+                    <Inbox size={12} /> AI 会话
+                  </span>
+                  {messages.length > 0 && (
+                    <button onClick={clearMessages} className="text-xs text-gray-300 hover:text-gray-500">清空</button>
+                  )}
+                </div>
+                <div className="p-2 space-y-2">
+                  {messages.length === 0 && !processing && (
+                    <div className="text-center text-gray-300 py-8 text-xs">
+                      <Inbox size={20} className="mx-auto mb-1 opacity-50" />
+                      在底部输入指令开始对话
+                    </div>
+                  )}
+                  {messages.map(msg => (
+                    <div key={msg.id} className={`flex gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${msg.role === 'assistant' ? 'bg-brand-50' : 'bg-gray-100'}`}>
+                        {msg.role === 'assistant' ? <Bot size={12} className="text-brand-600" /> : <User size={12} className="text-gray-500" />}
+                      </div>
+                      <div className={`max-w-[85%] rounded-lg px-2.5 py-1.5 text-xs ${
+                        msg.role === 'assistant' 
+                          ? 'bg-gray-50 text-gray-700 border border-gray-100' 
+                          : 'bg-brand-500 text-white'
+                      }`}>
+                        <p className="whitespace-pre-wrap leading-relaxed">{msg.content}</p>
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <span className="opacity-50 text-[10px]">{msg.time}</span>
+                          {msg.intent && msg.role === 'assistant' && (
+                            <span className={`text-[10px] px-1 py-0.5 rounded ${
+                              msg.intent === 'Query' ? 'bg-blue-50 text-blue-600' :
+                              msg.intent === 'Supply' ? 'bg-purple-50 text-purple-600' :
+                              msg.intent === 'Demand' ? 'bg-amber-50 text-amber-700' :
+                              'bg-gray-100 text-gray-500'
+                            }`}>{msg.intent}</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  {processing && (
+                    <div className="flex gap-2">
+                      <div className="w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
+                        <Bot size={12} className="text-brand-600 animate-pulse" />
+                      </div>
+                      <div className="bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1.5 text-xs text-gray-400">
+                        {agentThinking || '处理中...'}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {/* 原有右侧内容 */}
+              {rightPanel && (
+                <div className="border-t border-gray-100 overflow-y-auto max-h-[40%]">
+                  {rightPanel}
+                </div>
+              )}
+            </aside>
           </div>
         </div>
       </div>

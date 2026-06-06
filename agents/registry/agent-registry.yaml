@@ -1,0 +1,200 @@
+# ANOS Agent Registry V1.0
+# 
+# Agent 是 AI 数字员工的岗位角色声明。
+# 每个 Agent 定义: 身份、能力、权限、生命周期。
+#
+# 新增 Agent: 在此添加一条记录即可，无需改代码。
+
+agents:
+  # ================================================================
+  # P0 Agent
+  # ================================================================
+  - id: procurement-agent
+    code: AGT-TRD-DEV-000001
+    name: Procurement Agent
+    type: Procurement
+    status: active
+    version: v1.2.0
+    owner: LTDC
+    domain: trading
+    priority: 10
+    description: 供应信息解析、型号识别、批量入库、供应商信源判断
+    endpoint: /api/agent-reasoning/procurement/parse-offer
+    default_workflow: offer-intake-workflow
+    trigger_keywords:
+      - 供应
+      - 现货
+      - 库存
+      - offer
+      - supply
+      - 可出
+      - 有货
+      - 渠道
+      - 报价单
+      - 出
+      - 尾数
+      - 原厂
+      - 有人接
+      - 联系
+      - 批次
+      - 原装
+      - 正品
+      - 全新
+    trigger_patterns:
+      - "[A-Z]{2,}\\d+[A-Z\\d\\-]*"
+    skills:
+      - parse-offer
+      - normalize-part-number
+      - supplier-profile-lookup
+      - supplier-risk-score
+      - match-inquiry
+    permissions:
+      can_read: [supply_resources, products, suppliers, opportunities]
+      cannot_read: [customer_name, customer_contact, credit_limit, cost_price]
+    change_log:
+      - "v1.2.0: 增加批量MPN入库、Agent标准化输出"
+      - "v1.1.0: 增加supplier-risk-score、历史价格查询"
+      - "v1.0.0: 初始版本"
+
+  - id: sales-agent
+    code: AGT-TRD-DEV-000002
+    name: Sales Agent
+    type: Sales
+    status: active
+    version: v1.1.0
+    owner: LTDC
+    domain: trading
+    priority: 10
+    description: 客户需求解析、报价建议、RFQ处理
+    endpoint: /api/agent-reasoning/sales/quote-suggestion
+    default_workflow: inquiry-intake-workflow
+    trigger_keywords:
+      - 询价
+      - rfq
+      - 需要
+      - 买
+      - find
+      - looking
+      - 需求
+      - 求购
+      - 帮我找
+      - 要买
+      - 采购
+    skills:
+      - parse-inquiry
+      - customer-profile-lookup
+      - quote-suggestion
+      - match-supply
+    permissions:
+      can_read: [inquiries, customers, products, opportunities]
+      cannot_read: [supplier_name, supplier_contact, cost_price]
+    change_log:
+      - "v1.1.0: 标准化SA-007输出"
+      - "v1.0.0: 初始版本"
+
+  - id: credit-agent
+    code: AGT-FIN-DEV-000001
+    name: Credit Agent
+    type: Credit
+    status: active
+    version: v1.1.0
+    owner: LTDC
+    domain: finance
+    priority: 20
+    description: AR风险分析、催收建议、信用评估
+    endpoint: /api/agent-reasoning/credit/risk-analysis
+    default_workflow: ar-risk-workflow
+    trigger_keywords:
+      - 逾期
+      - 风险
+      - 催收
+      - ar
+      - 信用
+      - 回款
+      - 欠款
+      - 坏账
+    skills:
+      - ar-risk-analysis
+      - customer-credit-score
+      - collection-suggestion
+    permissions:
+      can_read: [ar_items, customers]
+      cannot_read: [supplier_name, cost_price]
+    change_log:
+      - "v1.1.0: 标准化SA-007输出"
+      - "v1.0.0: 初始版本"
+
+  - id: knowledge-agent
+    code: AGT-KNW-DEV-000001
+    name: Knowledge Agent
+    type: Knowledge
+    status: active
+    version: v1.1.0
+    owner: LTDC
+    domain: knowledge
+    priority: 5
+    description: 知识检索、查询路由、页面导航
+    endpoint: /api/agent-reasoning/knowledge/search
+    trigger_keywords:
+      - 查看
+      - 查询
+      - 最新
+      - 列表
+      - 显示
+      - 有哪些
+      - 帮我查
+      - 看看
+      - show
+      - list
+    skills:
+      - knowledge-search
+      - page-navigate
+    permissions:
+      can_read: [all]
+    change_log:
+      - "v1.1.0: 标准化SA-007输出"
+      - "v1.0.0: 初始版本"
+
+  # ================================================================
+  # Phase 2 预留 Agent
+  # ================================================================
+  - id: price-agent
+    code: AGT-TRD-DEV-000003
+    name: Price Agent
+    type: Market
+    status: draft
+    version: v0.1.0
+    owner: LTDC
+    domain: market
+    priority: 15
+    description: 市场价格分析、行情追踪、价格异常预警
+    endpoint: /api/agent-reasoning/market/price-analysis
+    trigger_keywords:
+      - 价格
+      - 行情
+      - 市场
+      - 降价
+      - 涨价
+    skills: []
+    permissions:
+      can_read: [products, supply_resources, opportunities]
+
+  - id: match-agent
+    code: AGT-TRD-DEV-000004
+    name: Match Agent
+    type: Match
+    status: draft
+    version: v0.1.0
+    owner: LTDC
+    domain: trading
+    priority: 12
+    description: 供需匹配、商机发现、替代料推荐
+    endpoint: /api/agent-reasoning/match/find-opportunities
+    trigger_keywords:
+      - 匹配
+      - 商机
+      - opportunity
+      - match
+    skills: []
+    permissions:
+      can_read: [inquiries, supply_resources, opportunities, products]
